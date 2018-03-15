@@ -52,6 +52,8 @@ Production | [https://api.takemetour.com/partner](https://api.takemetour.com/par
   "user": Object
 }
 ```
+> Code
+
 ```shell
 curl 'https://api.staging.takemetour.com/partner/login' \
 -H 'content-type: application/json' \
@@ -91,13 +93,15 @@ access_token | **String** | access token which identify user (must be added to *
 user | **Object** | object of user's info 
 
 ## Logout
-```
-###Logout###
-###Example Response###
+> Example Response
+
+```json
 {
   "success": true
 }
 ```
+> Code
+
 ```shell
 curl 'https://api.staging.takemetour.com/partner/logout' -X DELETE \
 -H 'content-type: application/json' \
