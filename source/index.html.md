@@ -91,7 +91,6 @@ Parameter | Type | Description
 --------- | ---- | -----------
 access_token | **String** | access token which identify user (must be added to **x-access-token** header on other request)   
 user | **Object** | object of user's info 
-
 ## Logout
 > Example Response
 
