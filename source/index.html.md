@@ -35,16 +35,18 @@ Production | [https://api.takemetour.com/partner](https://api.takemetour.com/par
 
 # Authentication
 ## Login
-```
-###Login###
-###Example Request Body###
+> Example Request Body
+
+```json
 {
   "email": "demo+partner@takemetour.com",
   "password": "12345678"
 }
 ```
-```
-###Example Response###
+
+> Example Response
+
+```json
 {
   "access_token": "1yOaq7O9Lcp5AKJkzMajBQ2H9gnRq2ex",
   "user": Object
