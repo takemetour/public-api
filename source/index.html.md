@@ -49,19 +49,25 @@ Production | [https://api.takemetour.com/partner](https://api.takemetour.com/par
 ```json
 {
   "access_token": "1yOaq7O9Lcp5AKJkzMajBQ2H9gnRq2ex",
-  "user": Object
+  "user": {
+    "name": {
+      "first": "Dang",
+      "last": "Nanglerng"
+    },
+    "avatar_image": "users/rtitM-14267784330583837.jpg",
+    "partner_credit": 50000
+  }
 }
 ```
 > Code
 
 ```shell
-curl 'https://api.staging.takemetour.com/partner/login' \
+curl 'https://api.staging.takemetour.com/partner/auth/login' \
 -H 'content-type: application/json' \
--H 'accept: application/json' \
 --data-binary '{"email":"demo+partner@takemetour.com","password":"12345678"}'
 ```
 ```javascript
-const response = await fetch('https://api.staging.takemetour.com/partner/login',
+const response = await fetch('https://api.staging.takemetour.com/partner/auth/login',
 {
   body: JSON.stringify({
     email: 'demo+partner@takemetour.com',
@@ -74,7 +80,7 @@ const response = await fetch('https://api.staging.takemetour.com/partner/login',
 });
 const data = await response.json();
 ```
-Request path: `/login`
+Request path: `/auth/login`
 
 Request Method: `POST`
 
@@ -102,21 +108,22 @@ user | **Object** | object of user's info
 > Code
 
 ```shell
-curl 'https://api.staging.takemetour.com/partner/logout' -X DELETE \
+curl 'https://api.staging.takemetour.com/partner/auth/logout' -X DELETE \
 -H 'content-type: application/json' \
 -H 'x-access-token: 4obGgRjmzYOnZLOEFfFsEycy04w9y8XQ'
 ```
 ```javascript
-const response = await fetch('https://api.staging.takemetour.com/partner/logout',
+const response = await fetch('https://api.staging.takemetour.com/partner/auth/logout',
 {
   headers: {
-    'content-type': 'application/json'
+    'content-type': 'application/json',
+    'x-access-token': '4obGgRjmzYOnZLOEFfFsEycy04w9y8XQ'
   },
   method: 'DELETE',
 });
 const data = await response.json();
 ```
-Request path: `/logout`
+Request path: `/auth/logout`
 
 Request Method: `DELETE`
 
@@ -125,6 +132,49 @@ Request Method: `DELETE`
 Parameter | Type | Description
 --------- | ---- | -----------
 success | **Boolean** | return true   
+user | **Object** | object of user's info 
+## User info
+> Example Response
+
+```json
+{
+  "isLoggedIn": true,
+  "user": {
+    "name": {
+      "first": "Dang",
+      "last": "Nanglerng"
+    },
+    "avatar_image": "users/rtitM-14267784330583837.jpg",
+    "partner_credit": 50000
+  }
+}
+```
+> Code
+
+```shell
+curl 'https://api.staging.takemetour.com/partner/auth/me' \
+-H 'content-type: application/json' \
+-H 'x-access-token: 4obGgRjmzYOnZLOEFfFsEycy04w9y8XQ'
+```
+```javascript
+const response = await fetch('https://api.staging.takemetour.com/partner/auth/me',
+{
+  headers: {
+    'content-type': 'application/json'
+  },
+  method: 'GET',
+});
+const data = await response.json();
+```
+Request path: `/auth/me`
+
+Request Method: `GET`
+
+### Response
+
+Parameter | Type | Description
+--------- | ---- | -----------
+isLoggedIn | **Boolean** | login status   
 user | **Object** | object of user's info 
 
 # Kittens
