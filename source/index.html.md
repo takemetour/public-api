@@ -3,6 +3,7 @@ title: TakeMeTour Public API
 
 language_tabs: # must be one of https://git.io/vQNgJ
   - shell
+  - javascript
 
 toc_footers:
   - <a href='https://github.com/lord/slate'>Documentation Powered by Slate</a>
@@ -29,36 +30,63 @@ If you are in development (or experimenting) using development endpoint.
 
 Environment | Endpoint
 ---------  | -----------
-Development | [https://staging.takemetour.com/api](https://staging.takemetour.com/api)
-Production | [https://www.takemetour.com/api](https://www.takemetour.com/api)
+Development | [https://api.staging.takemetour.com/partner](https://api.staging.takemetour.com/partner)
+Production | [https://api.takemetour.com/partner](https://api.takemetour.com/partner)
 
 # Authentication
-
-> You can made authentication 
-
+## Login
+```
+###Login###
+###Example Request Body###
+{
+  "email": "demo+partner@takemetour.com",
+  "password": "12345678"
+}
+```
+```
+###Example Response###
+{
+  "access_token": "1yOaq7O9Lcp5AKJkzMajBQ2H9gnRq2ex",
+  "user": Object
+}
+```
 ```shell
-# With shell, you can just pass the correct header with each request
-curl "api_endpoint_here"
-  -H "Authorization: meowmeowmeow"
+curl 'https://api.staging.takemetour.com/partner/login' \
+-H 'content-type: application/json' \
+-H 'accept: application/json' \
+--data-binary '{"email":"demo+partner@takemetour.com","password":"12345678"}' \
 ```
-
 ```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
+const response = await fetch('https://api.staging.takemetour.com/partner/login',
+{
+  body: JSON.stringify({
+    email: 'demo+partner@takemetour.com',
+    password: '12345678'
+  }),
+  headers: {
+    'content-type': 'application/json'
+  },
+  method: 'POST',
+});
+const data = await response.json();
 ```
+Request path: `/login`
 
-> Make sure to replace `meowmeowmeow` with your API key.
+Request Method: `POST`
 
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
+### Request Body
 
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
+Parameter | Type | Description
+--------- | ---- | -----------
+email | **String** | partner email which registered with TakeMeTour
+password | **String** | password (at least 8 characters)
 
-`Authorization: meowmeowmeow`
+### Response
 
-<aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
-</aside>
+Parameter | Type | Description
+--------- | ---- | -----------
+access_token | **String** | access token which identify user (must be added to x-access-token header on other request)   
+user | **Object** | object of user's info 
 
 # Kittens
 
