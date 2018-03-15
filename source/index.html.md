@@ -177,6 +177,64 @@ Parameter | Type | Description
 isLoggedIn | **Boolean** | login status   
 user | **Object** | object of user's info 
 
+# Products
+
+## Get All Products
+
+> Example Response
+
+```json
+{
+  "products": [Product],
+  "count": 16
+}
+```
+> Get all products with pagination via `skip` and `limit` query string
+
+```shell
+curl 'https://api.staging.takemetour.com/partner/products?city=Bangkok&skip=0&limit=10' \
+-H 'content-type: application/json' \
+-H 'x-access-token: 4obGgRjmzYOnZLOEFfFsEycy04w9y8XQ'
+```
+```javascript
+const response = await fetch('https://api.staging.takemetour.com/partner/products?skip=0&limit=10',
+{
+  headers: {
+    'content-type': 'application/json'
+  },
+  method: 'GET',
+});
+const data = await response.json();
+```
+> Also support query by `product_type`
+
+```shell
+curl 'https://api.staging.takemetour.com/partner/products?city=Bangkok&product_type=trip' \
+-H 'content-type: application/json' \
+-H 'x-access-token: 4obGgRjmzYOnZLOEFfFsEycy04w9y8XQ'
+```
+```javascript
+const response = await fetch('https://api.staging.takemetour.com/partner/products?product_type=trip',
+{
+  headers: {
+    'content-type': 'application/json'
+  },
+  method: 'GET',
+});
+const data = await response.json();
+```
+
+**Request path:** `GET /products`
+
+**Request Method:** `GET`
+
+### Response
+
+Parameter | Type | Description
+--------- | ---- | -----------
+products | **Array of product** | login status   
+count | **Integer** | All results count (without limit)
+
 # Kittens
 
 ## Get All Kittens
