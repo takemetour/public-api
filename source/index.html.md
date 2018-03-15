@@ -15,27 +15,26 @@ search: true
 
 # Introduction
 
-Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
+Welcome to the TakeMeTour Public API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
 
 We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
 
 This example API documentation page was created with [Slate](https://github.com/lord/slate). Feel free to edit it and use it as a base for your own API's documentation.
 
+# API Endpoint
+
+We provide two API endpoints for using in seperate environment.
+
+If you are in development (or experimenting) using development endpoint.
+
+Environment | Endpoint
+---------  | -----------
+Development | [https://staging.takemetour.com/api](https://staging.takemetour.com/api)
+Production | [https://www.takemetour.com/api](https://www.takemetour.com/api)
+
 # Authentication
 
-> To authorize, use this code:
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-```
+> You can made authentication 
 
 ```shell
 # With shell, you can just pass the correct header with each request
