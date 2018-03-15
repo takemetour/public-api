@@ -54,7 +54,7 @@ Production | [https://api.takemetour.com/partner](https://api.takemetour.com/par
 curl 'https://api.staging.takemetour.com/partner/login' \
 -H 'content-type: application/json' \
 -H 'accept: application/json' \
---data-binary '{"email":"demo+partner@takemetour.com","password":"12345678"}' \
+--data-binary '{"email":"demo+partner@takemetour.com","password":"12345678"}'
 ```
 ```javascript
 const response = await fetch('https://api.staging.takemetour.com/partner/login',
@@ -86,6 +86,40 @@ password | **String** | password (at least 8 characters)
 Parameter | Type | Description
 --------- | ---- | -----------
 access_token | **String** | access token which identify user (must be added to **x-access-token** header on other request)   
+user | **Object** | object of user's info 
+
+## Logout
+```
+###Logout###
+###Example Response###
+{
+  "success": true
+}
+```
+```shell
+curl 'https://api.staging.takemetour.com/partner/logout' -X DELETE \
+-H 'content-type: application/json' \
+-H 'x-access-token: 4obGgRjmzYOnZLOEFfFsEycy04w9y8XQ'
+```
+```javascript
+const response = await fetch('https://api.staging.takemetour.com/partner/logout',
+{
+  headers: {
+    'content-type': 'application/json'
+  },
+  method: 'DELETE',
+});
+const data = await response.json();
+```
+Request path: `/logout`
+
+Request Method: `DELETE`
+
+### Response
+
+Parameter | Type | Description
+--------- | ---- | -----------
+success | **Boolean** | return true   
 user | **Object** | object of user's info 
 
 # Kittens
