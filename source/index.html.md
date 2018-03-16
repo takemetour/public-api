@@ -16,11 +16,11 @@ search: true
 
 # Introduction
 
-Welcome to the TakeMeTour Public API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
+Welcome to the TakeMeTour Public API!
+
+You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
 
 We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
-
-This example API documentation page was created with [Slate](https://github.com/lord/slate). Feel free to edit it and use it as a base for your own API's documentation.
 
 # API Endpoint
 
@@ -80,10 +80,7 @@ const response = await fetch('https://api.staging.takemetour.com/partner/auth/lo
 });
 const data = await response.json();
 ```
-Request path: `/auth/login`
-
-Request Method: `POST`
-
+**HTTP Request:** `POST /auth/login`
 ### Request Body
 
 Parameter | Type | Description
@@ -123,9 +120,7 @@ const response = await fetch('https://api.staging.takemetour.com/partner/auth/lo
 });
 const data = await response.json();
 ```
-Request path: `/auth/logout`
-
-Request Method: `DELETE`
+**HTTP Request:** `DELETE /auth/logout`
 
 ### Response
 
@@ -166,9 +161,7 @@ const response = await fetch('https://api.staging.takemetour.com/partner/auth/me
 });
 const data = await response.json();
 ```
-Request path: `/auth/me`
-
-Request Method: `GET`
+**HTTP Request:** `GET /auth/me`
 
 ### Response
 
@@ -224,9 +217,17 @@ const response = await fetch('https://api.staging.takemetour.com/partner/product
 const data = await response.json();
 ```
 
-**Request path:** `GET /products`
+**HTTP Request:** `GET /products`
 
-**Request Method:** `GET`
+### Query Parameters
+
+Parameter | Default | Description
+--------- | ------- | -----------
+city | `none` | Filter by destination location city (Ex. `Bangkok` / `Chiang Mai`)
+name | `none` | Search by trip name
+product_type | all | Filter by product type that has 3 types allow: `trip` / `ticket` / `souvenir`
+skip | 0 | Skip response results (Use for pagination)
+limit | 10 | Limit response results
 
 ### Response
 
@@ -234,6 +235,306 @@ Parameter | Type | Description
 --------- | ---- | -----------
 products | **Array of product** | login status   
 count | **Integer** | All results count (without limit)
+
+For detail on Product object. See Get Product detail API below.
+## Get Product detail
+
+> Example Response
+
+```json
+{
+	"_id": "550ae951009be2a14b193348",
+	"duration": "6 hours",
+	"introduction": "2If you don't know what ‘Monk’s Batr’ is, I will show you the only place in Thailand that is still making it entirely by hand. I will also take you to \"Baan Nang Lerng\" an old yet classic community so that you can admire their way of life in Bangkok",
+	"is_flexible": false,
+	"languages": [
+		"English",
+		"ไทย",
+		"Français"
+	],
+	"max_travelers": 5,
+	"meeting_point": {
+		"hotel_area": "",
+		"is_hotel": false,
+		"another": {
+			"name": "Landmark: Wat KhaeNangLerng"
+		}
+	},
+	"name": "Explore local communities of Baan Batr & Baan Nang Lerng2",
+	"prices": [
+		1600,
+		990,
+		920,
+		800,
+		750
+	],
+	"rating": 3.7777777777777777,
+	"seasonal_percentage": 0.15,
+	"slug": "explore-local-communities-of-baan-batr-baan-nang-lerng",
+	"transportations": [
+		"Public transport",
+		"Public Transportation"
+	],
+	"user_id": {
+		"_id": "550ae941009be2a14b193039",
+		"name": {
+			"last": "N.",
+			"first": "Dang"
+		},
+		"profile": {
+			"current_city": "Bangkok Thailand",
+			"about_me": "My name is Suwan Welployngam (Dang). I was born and lived in Nanglerng Community. You can call me \"Dang Nanglerng\". I'm a community leader and also community developer. This is why I have lot of knowledges about my own and nearby communities. I would like to invite you to visit my hometown, walking along a small road, meet local people and see their local lifestyle. Moreover, there's also a 100 years old house where we renovated to be public space. You can enjoy our community based activities such as Thai cooking class, Thai Dancing class and many more."
+		},
+		"rating": {
+			"average_rating": 3.7777777777777777,
+			"score": 170,
+			"count": 45,
+			"neutral": 11,
+			"negative": 2,
+			"positive": 32
+		},
+		"response": {
+			"time": 999145.689,
+			"count": 6,
+			"conversation_count": 10,
+			"average_time": 1353.8531848606272,
+			"rate": 0.3434879155937866
+		},
+		"slug": "dang-n",
+		"verification": {
+			"bank_book_verified": true,
+			"email_verified": true,
+			"facebook_verified": true,
+			"has_badge": true,
+			"id_card_verified": false,
+			"mobile_verified": true
+		},
+		"avatar_image": "users/rtitM-14267784330583837.jpg",
+		"video_url": "",
+		"available_days": [
+			"default",
+			"default",
+			"available",
+			"default",
+			"n/a",
+			"default",
+			"default"
+		]
+	},
+	"view_count": 5921,
+	"destination_location": "Bangkok",
+	"transportation": "Private Car",
+	"trip_booked_count": 0,
+	"conditions": [
+		"physical"
+	],
+	"faqs": [
+		{
+			"answer": "If you would like to visit local communities where some traditional craftsmanships such as coffin making, bronze ware for monks, etc this trip is the one ;)",
+			"question": "Why this trip?",
+			"_id": "568d041e447eb1dc72e7a5ec",
+			"sub": "Briefly explain your travelers why they should book your trip to quickly grasp their attentions."
+		}
+	],
+	"intermediate_locations": [
+		"Hua Hin",
+		"Nakhon Pathom"
+	],
+	"itinerary": [
+		{
+			"_id": "598c24b086f80400117b9143",
+			"text": "Meet up at our meeting point\n- BTS Station (Ari, Asok , Bang Chak)\n- Hotel lobby (in Bangkok area)\n- MRT Station (Bang Sue, Chatuchak Park, Hua Lamphong)\n- Railway Station (Hua Lamphong Railway Station, Hua Hin Railway Station)\n- Airport (Hua Hin Airport)",
+			"time": "10:00"
+		}
+	],
+	"meeting_points": [
+		{
+			"_id": "564db60c7c0732f069f1bed0",
+			"city": "Bangkok",
+			"type": "BTS Station",
+			"name": "Ari",
+			"icon_name": "bts",
+			"location": {
+				"lat": 13.779726,
+				"lon": 100.544645
+			}
+		}
+	],
+	"price_condition": {
+		"detail_traveler": [
+			{
+				"enabled": true,
+				"text": "Meals are included. (Note that alcohol is excluded)",
+				"_id": "598c24b086f80400117b9146"
+			},
+			{
+				"enabled": true,
+				"text": "Transportation fares are included.",
+				"_id": "598c24b086f80400117b9145"
+			},
+			{
+				"enabled": true,
+				"text": "Admission fees are included.",
+				"_id": "598c24b086f80400117b9144"
+			}
+		],
+		"description_traveler": "<p>Transportation fares, meals, and admission fees are included. (Note that alcohol is excluded)</p>",
+		"description": "<p>Expenses, occur during a trip, are mainly included</p> <p>- Public or private transportation fares : taxi, bts, mrt, etc.(Please estimate the cost of gasoline or vehicle rental fee, in case of using a private car)</p> <p>- Foods; Meal(s) during the trip. (Please note that alcohol is always excluded)</p> <p>- Admission fee: Amusement park, gallery, shows, and etc.</p>",
+		"text": "All inclusive",
+		"enabled_icons": [
+			"food",
+			"transport",
+			"ticket"
+		]
+	},
+	"meeting_point_locations": [
+		"Bangkok",
+		"Samut Prakarn",
+		"Ayutthaya",
+		"Hua Hin"
+	],
+	"review_count": 45,
+	"search_information": {
+		"is_hotel_pickup": true,
+		"prices": [
+			1833.19,
+			1134.29,
+			1054.0866666666668,
+			916.595,
+			859.3100000000001
+		],
+		"starting_time_group": "Morning",
+		"duration_group": "4-6 hrs"
+	},
+	"available_days": [
+		true,
+		true,
+		true,
+		true,
+		true,
+		false,
+		true
+	],
+	"images": [
+		{
+			"image": "trips/4uoBI-14267784502591607.jpg",
+			"caption": "If you don't know what ‘Monk’s Batr’ is, I will show you the only place in Thailand that is still making it entirely by hand. I will also take you to \"Baan Nang Lerng\" an old yet classic community so that you can admire their way of life in Bangkok",
+			"_id": "57277c9e6825ce9217dc82c3"
+		}
+	],
+	"cover_image": "trips/1CTXi-1426778450712908.jpg",
+	"video_url": "XAM0b_IV9N0",
+	"is_request_form": false,
+	"hours_in_advance": 24,
+	"is_instant_trip": true,
+	"is_unlimited_availability": true,
+	"is_replaceable": false,
+	"without_review_count": 78,
+	"travelers_without_review": 166,
+	"multi_tier_prices": [],
+	"title": "",
+	"attraction_location": [],
+	"lx_currency": "THB",
+	"additional_options": [
+		{
+			"lx_price": 290,
+			"_id": "599e66640ea28b0011b3f147",
+			"title": "Child (Age 2-12)",
+			"type": "child_price",
+			"price": 290,
+			"quantity_type": "sum_max_travelers",
+			"currency": "THB",
+			"key": "children",
+			"quantity": 0,
+			"is_included_for_booking_fee": true
+		},
+		{
+			"lx_price": 0,
+			"key": "hotel",
+			"currency": "THB",
+			"quantity_type": "boolean",
+			"price": 500,
+			"type": "book.checkbox",
+			"title": "Hotel Pickup",
+			"_id": "59db3d06909883001003d38e",
+			"quantity": 0,
+			"is_included_for_booking_fee": true
+		},
+		{
+			"_id": "59ddc4538463e751d6455d7a",
+			"lx_price": 0,
+			"key": "dtac_sim",
+			"currency": "THB",
+			"quantity_type": "boolean",
+			"price": 199,
+			"type": "book.checkbox",
+			"title": "DTAC Tourist Sim",
+			"quantity": 0,
+			"is_included_for_booking_fee": false
+		}
+	],
+	"product_type": "trip",
+	"full_prices": [
+		{
+			"perPerson": 1600,
+			"tax": 11.59,
+			"discount": 184,
+			"discounted": 1656,
+			"grandTotal": 1833.19,
+			"bookingFee": 165.6,
+			"seasoned": 1840,
+			"seasonedDiscountedPerPerson": 1656,
+			"redeemDiscount": 0,
+			"displayPrice": 1833.19,
+			"noRedeemPrice": 1833.19,
+			"displaySeasonedPrice": 2036.88,
+			"minimumRedeemMismatch": 0,
+			"actualBookingFee": 165.6
+		}
+	],
+	"review_score": {
+		"friendly_score": 3.2222222222222223,
+		"area_score": 3.1944444444444446,
+		"language_score": 3.25
+	},
+	"reviews": [
+		{
+			"_id": "5a65c67bf7b85400132bd9ae",
+			"trip_id": Trip
+			"local_expert_id": User,
+			"user_id": User,
+			"booking_id": {
+				"_id": "5a40b25a7e0b5a001031bbda",
+				"trip_date": "2018-01-20T17:00:00.000Z"
+			},
+			"score": 4,
+			"text": "test",
+			"header": "Good",
+			"created_at": "2018-01-22T11:09:47.745Z"
+		}
+	]
+}
+```
+**HTTP Request:** `GET /products/:slug`
+
+### Response
+
+Response will be `Product` object which has many parameter
+
+Parameter | Type | Description
+--------- | ---- | -----------
+_id | **ObjectId** | Unique ObjectId
+name | **String** | Product name
+introduction | **String** | Product introduction
+max_travelers | **Integer (Range 1-8)** | Maximun travelers that allow for this product
+slug | **String** | Product slug
+user_id | **User** | Local expert for this product
+destination_location | **String** | Destination location city for this product
+transportation | **String** | Transportation that support for this product
+itinerary | **Array of Object** | Product itinerary, ordered by time.
+meeting_points | **Array of Object** | Meeting point that provide in product. In the object has field `type` to indicate which type of meeting point is. Has 3 types `BTS Station` / `MRT Station` / `Railway Station` / `Airport` / `Hotel Pickup`
+
+## Get Product Price
 
 # Kittens
 
