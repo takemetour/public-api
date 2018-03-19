@@ -867,6 +867,11 @@ saveAs(blob, 'voucher.pdf');
 ### Response
 The response will be PDF file **(please make sure you pass access token in header or cookie)**
 
+Example of voucher [PDF Voucher](https://github.com/takemetour/public-api/blob/master/material/booking-voucher.pdf)
+
+Some Attraction Tickets voucher will look like this [PDF Ticket Voucher](https://github.com/takemetour/public-api/blob/master/material/ticket-voucher.pdf)
+![Image of Attraction Tickets voucher](https://octodex.github.com/images/yaktocat.png)
+
 # Kittens
 
 ## Get All Kittens
