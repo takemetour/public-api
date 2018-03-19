@@ -64,14 +64,14 @@ Production | [https://api.takemetour.com/partner](https://api.takemetour.com/par
 ```shell
 curl 'https://api.staging.takemetour.com/partner/auth/login' \
 -H 'content-type: application/json' \
---data-binary '{"email":"demo+partner@takemetour.com","password":"12345678"}'
+--data-binary '{"email":"partner+demo@takemetour.com","password":"teamtakemetour"}'
 ```
 ```javascript
 const response = await fetch('https://api.staging.takemetour.com/partner/auth/login',
 {
   body: JSON.stringify({
-    email: 'demo+partner@takemetour.com',
-    password: '12345678'
+    email: 'partner+demo@takemetour.com',
+    password: 'teamtakemetour'
   }),
   headers: {
     'content-type': 'application/json'
@@ -535,6 +535,115 @@ itinerary | **Array of Object** | Product itinerary, ordered by time.
 meeting_points | **Array of Object** | Meeting point that provide in product. In the object has field `type` to indicate which type of meeting point is. Has 3 types `BTS Station` / `MRT Station` / `Railway Station` / `Airport` / `Hotel Pickup`
 
 ## Get Product Price
+
+# Transactions
+
+## Get All transactions
+
+> Example Response
+
+```json
+[{
+  "_id": "5aa68d4dfb446d0013b8c6a0",
+  "booking_number": "EYK2BJ",
+  "created_at": "2018-03-12T14:23:09.161Z",
+  "is_booked": true,
+  "is_canceled": false,
+  "is_charged": true,
+  "is_confirmed": true,
+  "price": {
+    "booking_fee": 100,
+    "discount": 0,
+    "grand_total": 1057,
+    "per_person": 1000,
+    "seasoned": 1000,
+    "tax": 7
+  },
+  "product_type": "trip",
+  "quantity": 1,
+  "trip_date": "2018-03-25T17:00:00.000Z",
+  "trip_id": {
+    "_id": "58ff211702b3ea0011efe846",
+    "name": "I can eat all day with the Local Farmer who's name is John1",
+    "slug": "i-can-eat-all-day-with-local-farmer-who-s-name-is-john"
+  },
+  "user_id": {
+    "_id": "5aa687e57f43ad0012b8d991",
+    "name": {
+      "first": "Papa",
+      "last": "J."
+    }
+  }
+},
+...
+{
+  "_id": "5a8c073d5d27d70012d3a34f",
+  "booking_number": "AKR228",
+  "created_at": "2018-02-20T11:32:13.863Z",
+  "is_booked": true,
+  "is_canceled": false,
+  "is_charged": true,
+  "is_confirmed": true,
+  "price": {
+    "booking_fee": 0,
+    "discount": 0,
+    "grand_total": 600,
+    "per_person": 0,
+    "seasoned": 600,
+    "tax": 0
+  },
+  "product_type": "ticket",
+  "trip_date": "2018-02-21T17:00:00.000Z",
+  "trip_id": {
+    "_id": "5a14fccc8d185a001220006d",
+    "name": "Behold the Columbia!",
+    "slug": "behold-columbia"
+  },
+  "user_id": {
+    "_id": "5a8c073d37308600111de440",
+    "name": {
+      "first": "John",
+      "last": "N."
+    }
+  }
+}]
+```
+> Code
+
+```shell
+curl 'https://api.staging.takemetour.com/partner/transactions' \
+-H 'content-type: application/json' \
+-H 'x-access-token: 4obGgRjmzYOnZLOEFfFsEycy04w9y8XQ'
+```
+```javascript
+const response = await fetch('https://api.staging.takemetour.com/partner/transactions',
+{
+  headers: {
+    'content-type': 'application/json'
+  },
+  method: 'GET',
+});
+const data = await response.json();
+```
+**HTTP Request:** `GET /transactions`
+
+### Response
+The response will return an Array of Objects. For each object will have these parameters
+
+Parameter | Type | Description
+--------- | ---- | -----------
+_id | **ObjectId** | Transaction database ID   
+booking_number | **String** | Transaction reference number 
+created_at | **String** | Transaction create date and time 
+is_booked | **Boolean** | Book status of the transaction
+is_canceled | **Boolean** | Cancel status of the transaction
+is_charged | **Boolean** | Payment status of the transaction (if it's `true` it means the payment has already been paid for this transaction)
+is_confirmed | **Boolean** | Comfirmation status of the transaction (if it's `true` it means the Local Expert / Supplyer has confirmed the trip / ticket for this transaction)
+product_type | **Strig** | This value indentify the type of product. The value can be `trip` for Local Experience Trips, `ticket` for Attraction Tickets, and `souvenir` for Tangible Products (data sim, souvenir, etc.)
+quantity | **Integer** | For Local Experience Trips, it is number of guest(s) who join the trip. For Tangible Product, it is number of item(s) 
+trip_date | **String** | For Local Experience Trips, it is the date when trip will happen. For Tickets, it is the date when customer will enter the attraction. For Tangible Products, it is the date when product will be delivered
+trip_id | **Object** | Information of product, which contains database ID, slug, and name of production
+user_id | **Object** | Information of provider (Local Expert / Supplyer), which contains database ID, slug, and name of provider
 
 # Kittens
 
