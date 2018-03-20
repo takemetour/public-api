@@ -543,6 +543,25 @@ meeting_points | **Array of Object** | Meeting point that provide in product. In
 
 ## Get All transactions
 
+> Code
+
+```shell
+curl 'https://api.staging.takemetour.com/partner/transactions' \
+-H 'content-type: application/json' \
+-H 'x-access-token: 4obGgRjmzYOnZLOEFfFsEycy04w9y8XQ'
+```
+```javascript
+const response = await fetch('https://api.staging.takemetour.com/partner/transactions',
+{
+  headers: {
+    'content-type': 'application/json',
+    'x-access-token': '4obGgRjmzYOnZLOEFfFsEycy04w9y8XQ'
+  },
+  method: 'GET',
+});
+const data = await response.json();
+```
+
 > Example Response
 
 ```json
@@ -611,24 +630,7 @@ meeting_points | **Array of Object** | Meeting point that provide in product. In
   }
 }]
 ```
-> Code
 
-```shell
-curl 'https://api.staging.takemetour.com/partner/transactions' \
--H 'content-type: application/json' \
--H 'x-access-token: 4obGgRjmzYOnZLOEFfFsEycy04w9y8XQ'
-```
-```javascript
-const response = await fetch('https://api.staging.takemetour.com/partner/transactions',
-{
-  headers: {
-    'content-type': 'application/json',
-    'x-access-token': '4obGgRjmzYOnZLOEFfFsEycy04w9y8XQ'
-  },
-  method: 'GET',
-});
-const data = await response.json();
-```
 **HTTP Request:** `GET /transactions`
 
 ### Response
@@ -651,6 +653,25 @@ trip_id | **Object** | Information of product, which contains database ID, slug,
 user_id | **Object** | Information of provider (Local Expert / Supplyer), which contains database ID, slug, and name of provider
 
 ## Transaction Detail
+
+> Code
+
+```shell
+curl 'https://api.staging.takemetour.com/partner/transactions/5aaf7caa551d7a00116ea4fb' \
+-H 'content-type: application/json' \
+-H 'x-access-token: 4obGgRjmzYOnZLOEFfFsEycy04w9y8XQ'
+```
+```javascript
+const response = await fetch('https://api.staging.takemetour.com/partner/transactions/5aaf7caa551d7a00116ea4fb',
+{
+  headers: {
+    'content-type': 'application/json',
+    'x-access-token': '4obGgRjmzYOnZLOEFfFsEycy04w9y8XQ'
+  },
+  method: 'GET',
+});
+const data = await response.json();
+```
 
 > Example Response
 
@@ -793,24 +814,7 @@ user_id | **Object** | Information of provider (Local Expert / Supplyer), which 
   "confirmed_at": "2018-03-19T08:37:44.363Z",
 }
 ```
-> Code
 
-```shell
-curl 'https://api.staging.takemetour.com/partner/transactions/5aaf7caa551d7a00116ea4fb' \
--H 'content-type: application/json' \
--H 'x-access-token: 4obGgRjmzYOnZLOEFfFsEycy04w9y8XQ'
-```
-```javascript
-const response = await fetch('https://api.staging.takemetour.com/partner/transactions/5aaf7caa551d7a00116ea4fb',
-{
-  headers: {
-    'content-type': 'application/json',
-    'x-access-token': '4obGgRjmzYOnZLOEFfFsEycy04w9y8XQ'
-  },
-  method: 'GET',
-});
-const data = await response.json();
-```
 **HTTP Request:** `GET /transactions/:id`
 
 ### Response
@@ -872,6 +876,121 @@ Example of voucher [PDF Voucher](https://github.com/takemetour/public-api/blob/m
 
 Some Attraction Tickets voucher will look like this [PDF Ticket Voucher](https://github.com/takemetour/public-api/blob/master/material/ticket-voucher.pdf)
 ![Image of Attraction Tickets voucher](https://raw.githubusercontent.com/takemetour/public-api/master/material/ticket-voucher.png)
+
+# Availability
+
+## Local Experiences Trip Calendar
+
+> Code
+
+```shell
+curl 'https://api.staging.takemetour.com/partner/calendar?trip_id=58ff211702b3ea0011efe846&month=April%202018' \
+-H 'content-type: application/json' \
+-H 'x-access-token: 4obGgRjmzYOnZLOEFfFsEycy04w9y8XQ'
+```
+```javascript
+const response = await fetch('https://api.staging.takemetour.com/partner/calendar?trip_id=58ff211702b3ea0011efe846&month=April%202018',
+{
+  headers: {
+    'content-type': 'application/json',
+    'x-access-token': '4obGgRjmzYOnZLOEFfFsEycy04w9y8XQ'
+  },
+  method: 'GET',
+});
+const data = await response.json();
+```
+
+> Example Response
+
+```json
+[{
+  "date": "2018-03-31T17:00:00.000Z",
+  "status": "n/a"
+}, {
+  "date": "2018-04-01T17:00:00.000Z",
+  "status": "n/a"
+}, {
+  "date": "2018-04-02T17:00:00.000Z",
+  "status": "available"
+}, {
+  "date": "2018-04-03T17:00:00.000Z",
+  "status": "n/a"
+}, {
+  "date": "2018-04-04T17:00:00.000Z",
+  "status": "n/a"
+}, {
+  "date": "2018-04-06T17:00:00.000Z",
+  "status": "n/a"
+}, {
+  "date": "2018-04-07T17:00:00.000Z",
+  "status": "available"
+}, {
+  "date": "2018-04-08T17:00:00.000Z",
+  "status": "available"
+}, {
+  "date": "2018-04-09T17:00:00.000Z",
+  "status": "available"
+}, {
+  "date": "2018-04-10T17:00:00.000Z",
+  "status": "n/a"
+}, {
+  "date": "2018-04-11T17:00:00.000Z",
+  "status": "n/a"
+}, {
+  "date": "2018-04-14T17:00:00.000Z",
+  "status": "n/a"
+}, {
+  "date": "2018-04-15T17:00:00.000Z",
+  "status": "available"
+}, {
+  "date": "2018-04-16T17:00:00.000Z",
+  "status": "n/a"
+}, {
+  "date": "2018-04-17T17:00:00.000Z",
+  "status": "n/a"
+}, {
+  "date": "2018-04-18T17:00:00.000Z",
+  "status": "n/a"
+}, {
+  "date": "2018-04-19T17:00:00.000Z",
+  "status": "n/a"
+}, {
+  "date": "2018-04-21T17:00:00.000Z",
+  "status": "n/a"
+}, {
+  "date": "2018-04-22T17:00:00.000Z",
+  "status": "n/a"
+}, {
+  "date": "2018-04-23T17:00:00.000Z",
+  "status": "n/a"
+}, {
+  "date": "2018-04-25T17:00:00.000Z",
+  "status": "n/a"
+}]
+```
+
+**HTTP Request:** `GET /calendar?trip_id=tripId&month=monthYear`
+
+### Request Query String
+
+Parameter | Type | Description
+--------- | ---- | -----------
+trip_id | **String** | Product's database ID get from [Get Product Detail](#get-product-detail)
+month | **String** | Month and year you want to query the availability, format is full name month with a space then year in AD. **eg.** `April 2018`
+
+### Response
+The response will return an availability of days in that month in Array of Objects. Each object indicate availability status on that day.
+
+**Note 1:** The nearest date that available to order / book is **today** in Thailand time (GMT+7). Some products need to be ordered / booked in advance, it may not available for **today** or **tomorrow**.
+
+**Note 2:** For some date that doesn't an have object to indicate the availability status, it means that day has default availability which require a confirmation from Local Expert / Supplyer.
+
+For each object will have these parameters.
+
+Parameter | Type | Description
+--------- | ---- | -----------
+date | **String** | Transaction reference number 
+status | **String** | Avalability status on that day. `n/a` means not available to order / book. `available` means available to order / book with an instant confirmation.
 
 # Kittens
 
