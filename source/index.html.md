@@ -256,13 +256,6 @@ For detail on Product object. See Get Product detail API below.
 		"Français"
 	],
 	"max_travelers": 5,
-	"meeting_point": {
-		"hotel_area": "",
-		"is_hotel": false,
-		"another": {
-			"name": "Landmark: Wat KhaeNangLerng"
-		}
-	},
 	"name": "Explore local communities of Baan Batr & Baan Nang Lerng2",
 	"prices": [
 		1600,
@@ -271,8 +264,6 @@ For detail on Product object. See Get Product detail API below.
 		800,
 		750
 	],
-	"rating": 3.7777777777777777,
-	"seasonal_percentage": 0.15,
 	"slug": "explore-local-communities-of-baan-batr-baan-nang-lerng",
 	"transportations": [
 		"Public transport",
@@ -284,36 +275,8 @@ For detail on Product object. See Get Product detail API below.
 			"last": "N.",
 			"first": "Dang"
 		},
-		"profile": {
-			"current_city": "Bangkok Thailand",
-			"about_me": "My name is Suwan Welployngam (Dang). I was born and lived in Nanglerng Community. You can call me \"Dang Nanglerng\". I'm a community leader and also community developer. This is why I have lot of knowledges about my own and nearby communities. I would like to invite you to visit my hometown, walking along a small road, meet local people and see their local lifestyle. Moreover, there's also a 100 years old house where we renovated to be public space. You can enjoy our community based activities such as Thai cooking class, Thai Dancing class and many more."
-		},
-		"rating": {
-			"average_rating": 3.7777777777777777,
-			"score": 170,
-			"count": 45,
-			"neutral": 11,
-			"negative": 2,
-			"positive": 32
-		},
-		"response": {
-			"time": 999145.689,
-			"count": 6,
-			"conversation_count": 10,
-			"average_time": 1353.8531848606272,
-			"rate": 0.3434879155937866
-		},
 		"slug": "dang-n",
-		"verification": {
-			"bank_book_verified": true,
-			"email_verified": true,
-			"facebook_verified": true,
-			"has_badge": true,
-			"id_card_verified": false,
-			"mobile_verified": true
-		},
 		"avatar_image": "users/rtitM-14267784330583837.jpg",
-		"video_url": "",
 		"available_days": [
 			"default",
 			"default",
@@ -324,10 +287,8 @@ For detail on Product object. See Get Product detail API below.
 			"default"
 		]
 	},
-	"view_count": 5921,
 	"destination_location": "Bangkok",
 	"transportation": "Private Car",
-	"trip_booked_count": 0,
 	"conditions": [
 		"physical"
 	],
@@ -383,40 +344,13 @@ For detail on Product object. See Get Product detail API below.
 		],
 		"description_traveler": "<p>Transportation fares, meals, and admission fees are included. (Note that alcohol is excluded)</p>",
 		"description": "<p>Expenses, occur during a trip, are mainly included</p> <p>- Public or private transportation fares : taxi, bts, mrt, etc.(Please estimate the cost of gasoline or vehicle rental fee, in case of using a private car)</p> <p>- Foods; Meal(s) during the trip. (Please note that alcohol is always excluded)</p> <p>- Admission fee: Amusement park, gallery, shows, and etc.</p>",
-		"text": "All inclusive",
-		"enabled_icons": [
-			"food",
-			"transport",
-			"ticket"
-		]
+		"text": "All inclusive"
 	},
 	"meeting_point_locations": [
 		"Bangkok",
 		"Samut Prakarn",
 		"Ayutthaya",
 		"Hua Hin"
-	],
-	"review_count": 45,
-	"search_information": {
-		"is_hotel_pickup": true,
-		"prices": [
-			1833.19,
-			1134.29,
-			1054.0866666666668,
-			916.595,
-			859.3100000000001
-		],
-		"starting_time_group": "Morning",
-		"duration_group": "4-6 hrs"
-	},
-	"available_days": [
-		true,
-		true,
-		true,
-		true,
-		true,
-		false,
-		true
 	],
 	"images": [
 		{
@@ -426,14 +360,6 @@ For detail on Product object. See Get Product detail API below.
 		}
 	],
 	"cover_image": "trips/1CTXi-1426778450712908.jpg",
-	"video_url": "XAM0b_IV9N0",
-	"is_request_form": false,
-	"hours_in_advance": 24,
-	"is_instant_trip": true,
-	"is_unlimited_availability": true,
-	"is_replaceable": false,
-	"without_review_count": 78,
-	"travelers_without_review": 166,
 	"multi_tier_prices": [],
 	"title": "",
 	"attraction_location": [],
@@ -476,68 +402,742 @@ For detail on Product object. See Get Product detail API below.
 			"is_included_for_booking_fee": false
 		}
 	],
-	"product_type": "trip",
-	"full_prices": [
-		{
-			"perPerson": 1600,
-			"tax": 11.59,
-			"discount": 184,
-			"discounted": 1656,
-			"grandTotal": 1833.19,
-			"bookingFee": 165.6,
-			"seasoned": 1840,
-			"seasonedDiscountedPerPerson": 1656,
-			"redeemDiscount": 0,
-			"displayPrice": 1833.19,
-			"noRedeemPrice": 1833.19,
-			"displaySeasonedPrice": 2036.88,
-			"minimumRedeemMismatch": 0,
-			"actualBookingFee": 165.6
-		}
-	],
-	"review_score": {
-		"friendly_score": 3.2222222222222223,
-		"area_score": 3.1944444444444446,
-		"language_score": 3.25
-	},
-	"reviews": [
-		{
-			"_id": "5a65c67bf7b85400132bd9ae",
-			"trip_id": Trip
-			"local_expert_id": User,
-			"user_id": User,
-			"booking_id": {
-				"_id": "5a40b25a7e0b5a001031bbda",
-				"trip_date": "2018-01-20T17:00:00.000Z"
-			},
-			"score": 4,
-			"text": "test",
-			"header": "Good",
-			"created_at": "2018-01-22T11:09:47.745Z"
-		}
-	]
+	"product_type": "trip"
 }
 ```
 **HTTP Request:** `GET /products/:slug`
 
+### Product types
+
+In TakeMeTour. We have 3 types of product which are
+
+- **Trip**: Our main product which is an one-day trip.
+- **Ticket**: Ticket for attractions location (ex. SEA LIFE Ocean World)
+- **Souvenir**
+
+For this endpoint. You can identify product type via field `product_type` which can be `trip` / `ticket` / `souvenir`.
+
 ### Response
 
-Response will be `Product` object which has many parameter
+Response will be `Product` object.
 
 Parameter | Type | Description
 --------- | ---- | -----------
 _id | **ObjectId** | Unique ObjectId
 name | **String** | Product name
 introduction | **String** | Product introduction
-max_travelers | **Integer (Range 1-8)** | Maximun travelers that allow for this product
+max_travelers | **Integer (Range 1-8 / Trip Only)** | Maximun travelers that allow for this product
 slug | **String** | Product slug
 user_id | **User** | Local expert for this product
 destination_location | **String** | Destination location city for this product
 transportation | **String** | Transportation that support for this product
 itinerary | **Array of Object** | Product itinerary, ordered by time.
-meeting_points | **Array of Object** | Meeting point that provide in product. In the object has field `type` to indicate which type of meeting point is. Has 3 types `BTS Station` / `MRT Station` / `Railway Station` / `Airport` / `Hotel Pickup`
+meeting_points | **Array of Object** | Meeting point that provide in product. In the object has field `type` to indicate which type of meeting point is. Has 5 types `BTS Station` / `MRT Station` / `Railway Station` / `Airport` / `Hotel Pickup`
+images | **Array of Object** | Images for this product with caption for each image
+cover_image | **String** | Image path that use as cover image (thumbnail) for this product.
+faqs | **Array of Object** | FAQs for products
 
 ## Get Product Price
+
+> Example Body for product type `trip`
+
+```json
+{
+  "quantity": 2,
+  "trip_id": "550ae954009be2a14b19339e"
+}
+```
+
+> Example Body for product type `ticket`
+
+```json
+{
+  "trip_id": "5a1e695f6ff7070010da638b",
+  "multi_tier_quantity": [
+    {
+      "tier": "Entrance Fee with Re-entry on All Rides",
+      "sub_tiers": [
+        {
+          "globaltix_cost": 285,
+          "has_availability": false,
+          "globaltix_questions": [
+            {
+              "id": 127761,
+              "question": "Please state your date of visit",
+              "type": "DATE"
+            }
+          ],
+          "display_price": 850,
+          "price": 700,
+          "name": "Adult",
+          "_id": "5a1e833db549a700121cb913",
+          "globaltix_ticket_id": "12658",
+          "globaltix_redeem": {
+            "end": "2018-10-31T23:59:00",
+            "start": "2017-11-16T00:00:00"
+          },
+          "quantity": 2
+        },
+        {
+          "globaltix_cost": 285,
+          "has_availability": false,
+          "globaltix_questions": [
+            {
+              "id": 127761,
+              "question": "Please state your date of visit",
+              "type": "DATE"
+            }
+          ],
+          "display_price": 850,
+          "price": 700,
+          "name": "Child",
+          "_id": "5a1e833db549a700121cb912",
+          "globaltix_ticket_id": "12659",
+          "globaltix_redeem": {
+            "end": "2018-10-31T23:59:00",
+            "start": "2017-11-16T00:00:00"
+          },
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "tier": "Entrance Fee with Re-entry on All Rides + Snow Town",
+      "sub_tiers": [
+        {
+          "globaltix_cost": 355,
+          "has_availability": false,
+          "globaltix_questions": [
+            {
+              "id": 161384,
+              "question": "Please state your date of visit.",
+              "type": "DATE"
+            }
+          ],
+          "display_price": 1030,
+          "price": 820,
+          "name": "Adult",
+          "_id": "5a1e833db549a700121cb90d",
+          "globaltix_ticket_id": "12664",
+          "globaltix_redeem": {
+            "end": "2018-10-31T23:59:00",
+            "start": "2017-11-16T00:00:00"
+          },
+          "quantity": 0
+        },
+        {
+          "globaltix_cost": 355,
+          "has_availability": false,
+          "globaltix_questions": [
+            {
+              "id": 161384,
+              "question": "Please state your date of visit.",
+              "type": "DATE"
+            }
+          ],
+          "display_price": 1030,
+          "price": 820,
+          "name": "Child",
+          "_id": "5a1e833db549a700121cb90c",
+          "globaltix_ticket_id": "12665",
+          "globaltix_redeem": {
+            "end": "2018-10-31T23:59:00",
+            "start": "2017-11-16T00:00:00"
+          },
+          "quantity": 0
+        }
+      ]
+    },
+    {
+      "tier": "Entrance Fee with Re-entry on All Rides and Buffet Lunch",
+      "sub_tiers": [
+        {
+          "globaltix_cost": 355,
+          "has_availability": false,
+          "globaltix_questions": [
+            {
+              "id": 161383,
+              "question": "Please state your date of visit.",
+              "type": "DATE"
+            }
+          ],
+          "display_price": 1050,
+          "price": 850,
+          "name": "Adult",
+          "_id": "5a1e833db549a700121cb910",
+          "globaltix_ticket_id": "12662",
+          "globaltix_redeem": {
+            "end": "2018-10-31T23:59:00",
+            "start": "2017-11-16T00:00:00"
+          },
+          "quantity": 0
+        },
+        {
+          "globaltix_cost": 355,
+          "has_availability": false,
+          "globaltix_questions": [
+            {
+              "id": 161383,
+              "question": "Please state your date of visit.",
+              "type": "DATE"
+            }
+          ],
+          "display_price": 1050,
+          "price": 850,
+          "name": "Child",
+          "_id": "5a1e833db549a700121cb90f",
+          "globaltix_ticket_id": "12663",
+          "globaltix_redeem": {
+            "end": "2018-10-31T23:59:00",
+            "start": "2017-11-16T00:00:00"
+          },
+          "quantity": 0
+        }
+      ]
+    },
+    {
+      "tier": "Entrance Fee with Re-entry on All Rides and Buffet Lunch + Snow Town",
+      "sub_tiers": [
+        {
+          "globaltix_cost": 425,
+          "has_availability": false,
+          "globaltix_questions": [
+            {
+              "id": 161385,
+              "question": "Please state your date of visit",
+              "type": "DATE"
+            }
+          ],
+          "display_price": 1230,
+          "price": 940,
+          "name": "Adult",
+          "_id": "5a1e833db549a700121cb90a",
+          "globaltix_ticket_id": "12666",
+          "globaltix_redeem": {
+            "end": "2018-10-31T23:59:00",
+            "start": "2017-11-16T00:00:00"
+          },
+          "quantity": 0
+        },
+        {
+          "globaltix_cost": 425,
+          "has_availability": false,
+          "globaltix_questions": [
+            {
+              "id": 161385,
+              "question": "Please state your date of visit",
+              "type": "DATE"
+            }
+          ],
+          "display_price": 1130,
+          "price": 940,
+          "name": "Child",
+          "_id": "5a1e833db549a700121cb909",
+          "globaltix_ticket_id": "12667",
+          "globaltix_redeem": {
+            "end": "2018-10-31T23:59:00",
+            "start": "2017-11-16T00:00:00"
+          },
+          "quantity": 0
+        }
+      ]
+    }
+  ]
+}
+```
+
+> Example Response
+
+```json
+{
+  "grandTotal": 1750.39,
+  "partnerPricing": {
+    "retailPrice": 1833.19,
+    "discount": 82.8
+  }
+}
+```
+
+> Fetching price for trip
+
+```shell
+curl 'https://api.staging.takemetour.com/partner/price' \
+-H 'content-type: application/json' \
+--data-binary '{"quantity":2,"trip_id":"550ae954009be2a14b19339e"}'
+```
+```javascript
+const response = await fetch('https://api.staging.takemetour.com/partner/price',
+{
+  body: JSON.stringify({
+    "quantity": 2,
+    "trip_id": "550ae954009be2a14b19339e"
+  }),
+  headers: {
+    'content-type': 'application/json'
+  },
+  method: 'POST',
+});
+const data = await response.json();
+```
+
+> Fetching price for ticket
+
+```shell
+curl 'https://api.staging.takemetour.com/partner/price' \
+-H 'content-type: application/json' \
+--data-binary '{"quantity":2,"trip_id":"550ae954009be2a14b19339e"}'
+```
+```javascript
+const response = await fetch('https://api.staging.takemetour.com/partner/price',
+{
+  body: JSON.stringify({
+    "trip_id": "5a1e695f6ff7070010da638b",
+    "multi_tier_quantity": [
+      {
+        "tier": "Entrance Fee with Re-entry on All Rides",
+        "sub_tiers": [
+          {
+            "globaltix_cost": 285,
+            "has_availability": false,
+            "globaltix_questions": [
+              {
+                "id": 127761,
+                "question": "Please state your date of visit",
+                "type": "DATE"
+              }
+            ],
+            "display_price": 850,
+            "price": 700,
+            "name": "Adult",
+            "_id": "5a1e833db549a700121cb913",
+            "globaltix_ticket_id": "12658",
+            "globaltix_redeem": {
+              "end": "2018-10-31T23:59:00",
+              "start": "2017-11-16T00:00:00"
+            },
+            "quantity": 2
+          },
+          {
+            "globaltix_cost": 285,
+            "has_availability": false,
+            "globaltix_questions": [
+              {
+                "id": 127761,
+                "question": "Please state your date of visit",
+                "type": "DATE"
+              }
+            ],
+            "display_price": 850,
+            "price": 700,
+            "name": "Child",
+            "_id": "5a1e833db549a700121cb912",
+            "globaltix_ticket_id": "12659",
+            "globaltix_redeem": {
+              "end": "2018-10-31T23:59:00",
+              "start": "2017-11-16T00:00:00"
+            },
+            "quantity": 1
+          }
+        ]
+      },
+      {
+        "tier": "Entrance Fee with Re-entry on All Rides + Snow Town",
+        "sub_tiers": [
+          {
+            "globaltix_cost": 355,
+            "has_availability": false,
+            "globaltix_questions": [
+              {
+                "id": 161384,
+                "question": "Please state your date of visit.",
+                "type": "DATE"
+              }
+            ],
+            "display_price": 1030,
+            "price": 820,
+            "name": "Adult",
+            "_id": "5a1e833db549a700121cb90d",
+            "globaltix_ticket_id": "12664",
+            "globaltix_redeem": {
+              "end": "2018-10-31T23:59:00",
+              "start": "2017-11-16T00:00:00"
+            },
+            "quantity": 0
+          },
+          {
+            "globaltix_cost": 355,
+            "has_availability": false,
+            "globaltix_questions": [
+              {
+                "id": 161384,
+                "question": "Please state your date of visit.",
+                "type": "DATE"
+              }
+            ],
+            "display_price": 1030,
+            "price": 820,
+            "name": "Child",
+            "_id": "5a1e833db549a700121cb90c",
+            "globaltix_ticket_id": "12665",
+            "globaltix_redeem": {
+              "end": "2018-10-31T23:59:00",
+              "start": "2017-11-16T00:00:00"
+            },
+            "quantity": 0
+          }
+        ]
+      },
+      {
+        "tier": "Entrance Fee with Re-entry on All Rides and Buffet Lunch",
+        "sub_tiers": [
+          {
+            "globaltix_cost": 355,
+            "has_availability": false,
+            "globaltix_questions": [
+              {
+                "id": 161383,
+                "question": "Please state your date of visit.",
+                "type": "DATE"
+              }
+            ],
+            "display_price": 1050,
+            "price": 850,
+            "name": "Adult",
+            "_id": "5a1e833db549a700121cb910",
+            "globaltix_ticket_id": "12662",
+            "globaltix_redeem": {
+              "end": "2018-10-31T23:59:00",
+              "start": "2017-11-16T00:00:00"
+            },
+            "quantity": 0
+          },
+          {
+            "globaltix_cost": 355,
+            "has_availability": false,
+            "globaltix_questions": [
+              {
+                "id": 161383,
+                "question": "Please state your date of visit.",
+                "type": "DATE"
+              }
+            ],
+            "display_price": 1050,
+            "price": 850,
+            "name": "Child",
+            "_id": "5a1e833db549a700121cb90f",
+            "globaltix_ticket_id": "12663",
+            "globaltix_redeem": {
+              "end": "2018-10-31T23:59:00",
+              "start": "2017-11-16T00:00:00"
+            },
+            "quantity": 0
+          }
+        ]
+      },
+      {
+        "tier": "Entrance Fee with Re-entry on All Rides and Buffet Lunch + Snow Town",
+        "sub_tiers": [
+          {
+            "globaltix_cost": 425,
+            "has_availability": false,
+            "globaltix_questions": [
+              {
+                "id": 161385,
+                "question": "Please state your date of visit",
+                "type": "DATE"
+              }
+            ],
+            "display_price": 1230,
+            "price": 940,
+            "name": "Adult",
+            "_id": "5a1e833db549a700121cb90a",
+            "globaltix_ticket_id": "12666",
+            "globaltix_redeem": {
+              "end": "2018-10-31T23:59:00",
+              "start": "2017-11-16T00:00:00"
+            },
+            "quantity": 0
+          },
+          {
+            "globaltix_cost": 425,
+            "has_availability": false,
+            "globaltix_questions": [
+              {
+                "id": 161385,
+                "question": "Please state your date of visit",
+                "type": "DATE"
+              }
+            ],
+            "display_price": 1130,
+            "price": 940,
+            "name": "Child",
+            "_id": "5a1e833db549a700121cb909",
+            "globaltix_ticket_id": "12667",
+            "globaltix_redeem": {
+              "end": "2018-10-31T23:59:00",
+              "start": "2017-11-16T00:00:00"
+            },
+            "quantity": 0
+          }
+        ]
+      }
+    ]
+  }),
+  headers: {
+    'content-type': 'application/json'
+  },
+  method: 'POST',
+});
+const data = await response.json();
+```
+**HTTP Request:** `POST /products/price`
+
+You can get a price of product by using this API. Each type of product has a diffrent request body due to different of pricing model.
+
+### Trip
+
+Trip has a simplest pricing model. Price is calculated by using **quantity** and **trip_id** and API will do the rest about it.
+
+So the request body should be
+
+<pre class="center-column">
+{
+  "quantity": Number (Max at max_travelers),
+  "trip_id": Trip ID (which can be found in _id of product)
+}
+</pre>
+
+### Ticket
+
+Ticket has more complicated pricing model which we called **Multi-tier pricing**
+
+Multi-tier pricing is consist of **tier** and **sub-tier**.
+
+To understand how multi-tier pricing model works. Let me show you an example.
+
+In Thailand we have an amusement park called "Dream World" which sells the tickets with these 4 options to chose.
+
+- Entrance Fee with Re-entry on All Rides
+  - Adult 700 THB
+  - Child 650 THB
+- Entrance Fee with Re-entry on All Rides + Snow Town
+  - Adult 820 THB
+  - Child 770 THB
+- Entrance Fee with Re-entry on All Rides + Buffet Lunch
+  - Adult 850 THB
+  - Child 800 THB
+- Entrance Fee with Re-entry on All Rides + Snow Town + Buffet Lunch
+  - Adult 940 THB
+  - Child 900 THB
+
+We called each option as **tier** so for this product we have 4 tiers. And in each tier also has sub-options called **sub-tier**. So the price of the ticket will be shown in sub-tier.
+
+From the API that get the product details, you can get multi-tier pricing from field `multi_tier_prices` which has data structure like this
+
+<pre class="center-column">
+{
+  "multi_tier_prices": [
+    {
+      "tier": "Entrance Fee with Re-entry on All Rides",
+      "sub_tiers": [
+        {
+          "globaltix_cost": 285,
+          "has_availability": false,
+          "globaltix_questions": [
+            {
+              "id": 127761,
+              "question": "Please state your date of visit",
+              "type": "DATE"
+            }
+          ],
+          "display_price": 850,
+          "price": 700,
+          "name": "Adult",
+          "_id": "5a1e833db549a700121cb913",
+          "globaltix_ticket_id": "12658",
+          "globaltix_redeem": {
+            "end": "2018-10-31T23:59:00",
+            "start": "2017-11-16T00:00:00"
+          }
+        },
+        {
+          "globaltix_cost": 285,
+          "has_availability": false,
+          "globaltix_questions": [
+            {
+              "id": 127761,
+              "question": "Please state your date of visit",
+              "type": "DATE"
+            }
+          ],
+          "display_price": 850,
+          "price": 650,
+          "name": "Child",
+          "_id": "5a1e833db549a700121cb912",
+          "globaltix_ticket_id": "12659",
+          "globaltix_redeem": {
+            "end": "2018-10-31T23:59:00",
+            "start": "2017-11-16T00:00:00"
+          }
+        }
+      ]
+    },
+    {
+      "tier": "Entrance Fee with Re-entry on All Rides + Snow Town",
+      "sub_tiers": [
+        {
+          "globaltix_cost": 355,
+          "has_availability": false,
+          "globaltix_questions": [
+            {
+              "id": 161384,
+              "question": "Please state your date of visit.",
+              "type": "DATE"
+            }
+          ],
+          "display_price": 1030,
+          "price": 820,
+          "name": "Adult",
+          "_id": "5a1e833db549a700121cb90d",
+          "globaltix_ticket_id": "12664",
+          "globaltix_redeem": {
+            "end": "2018-10-31T23:59:00",
+            "start": "2017-11-16T00:00:00"
+          }
+        },
+        {
+          "globaltix_cost": 355,
+          "has_availability": false,
+          "globaltix_questions": [
+            {
+              "id": 161384,
+              "question": "Please state your date of visit.",
+              "type": "DATE"
+            }
+          ],
+          "display_price": 1030,
+          "price": 770,
+          "name": "Child",
+          "_id": "5a1e833db549a700121cb90c",
+          "globaltix_ticket_id": "12665",
+          "globaltix_redeem": {
+            "end": "2018-10-31T23:59:00",
+            "start": "2017-11-16T00:00:00"
+          }
+        }
+      ]
+    },
+    {
+      "tier": "Entrance Fee with Re-entry on All Rides and Buffet Lunch",
+      "sub_tiers": [
+        {
+          "globaltix_cost": 355,
+          "has_availability": false,
+          "globaltix_questions": [
+            {
+              "id": 161383,
+              "question": "Please state your date of visit.",
+              "type": "DATE"
+            }
+          ],
+          "display_price": 1050,
+          "price": 850,
+          "name": "Adult",
+          "_id": "5a1e833db549a700121cb910",
+          "globaltix_ticket_id": "12662",
+          "globaltix_redeem": {
+            "end": "2018-10-31T23:59:00",
+            "start": "2017-11-16T00:00:00"
+          }
+        },
+        {
+          "globaltix_cost": 355,
+          "has_availability": false,
+          "globaltix_questions": [
+            {
+              "id": 161383,
+              "question": "Please state your date of visit.",
+              "type": "DATE"
+            }
+          ],
+          "display_price": 1050,
+          "price": 800,
+          "name": "Child",
+          "_id": "5a1e833db549a700121cb90f",
+          "globaltix_ticket_id": "12663",
+          "globaltix_redeem": {
+            "end": "2018-10-31T23:59:00",
+            "start": "2017-11-16T00:00:00"
+          }
+        }
+      ]
+    },
+    {
+      "tier": "Entrance Fee with Re-entry on All Rides and Buffet Lunch + Snow Town",
+      "sub_tiers": [
+        {
+          "globaltix_cost": 425,
+          "has_availability": false,
+          "globaltix_questions": [
+            {
+              "id": 161385,
+              "question": "Please state your date of visit",
+              "type": "DATE"
+            }
+          ],
+          "display_price": 1230,
+          "price": 940,
+          "name": "Adult",
+          "_id": "5a1e833db549a700121cb90a",
+          "globaltix_ticket_id": "12666",
+          "globaltix_redeem": {
+            "end": "2018-10-31T23:59:00",
+            "start": "2017-11-16T00:00:00"
+          }
+        },
+        {
+          "globaltix_cost": 425,
+          "has_availability": false,
+          "globaltix_questions": [
+            {
+              "id": 161385,
+              "question": "Please state your date of visit",
+              "type": "DATE"
+            }
+          ],
+          "display_price": 1130,
+          "price": 900,
+          "name": "Child",
+          "_id": "5a1e833db549a700121cb909",
+          "globaltix_ticket_id": "12667",
+          "globaltix_redeem": {
+            "end": "2018-10-31T23:59:00",
+            "start": "2017-11-16T00:00:00"
+          }
+        }
+      ]
+    }
+  ]
+}
+</pre>
+
+And when you want to get a price for ticket product. We just add `quantity` field in object inside `sub_tiers` array and send it to this API as field `multi_tier_quantity` (See an example on the right hand side)
+
+**Note**
+
+- We support only choosing single tier. So the first tier that has sub tier quantity which is not equal to 0 is consider as selected tier.
+- `quantity` in sub tier is required for every tier.
+
+### Souvenir
+
+// Todo
+
+### Response
+
+Parameter | Type | Description
+--------- | ---- | -----------
+grandTotal | **Number** | Final price to be charged to your partner account credit.
+partnerPricing | **Object** | Has sub field `retailPrice` (Original price of this product before discount) and `discount` (Discount pricing for partner)
 
 # Transactions
 

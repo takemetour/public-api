@@ -613,3 +613,12 @@ html, body {
 .highlight, .highlight .w {
   background-color: $code-bg;
 }
+
+.center-column {
+  background-color: #f0f0f0 !important;
+  color: black !important;
+  clear: none !important;
+  float: none !important;
+  width: 50% !important;     // May need to adjust this
+  text-shadow: 0 0 0 rgba(0, 0, 0, 0) !important;
+}
