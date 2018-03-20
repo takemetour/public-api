@@ -1575,7 +1575,7 @@ For each object will have these parameters.
 Parameter | Type | Description
 --------- | ---- | -----------
 date | **String** | Date in ISO string (at 00:00)
-status | **String** | Avalability status on that day. `n/a` means not available to order / book. `available` means available to order / book with an instant confirmation.
+status | **String** | Availability status on that day. `n/a` means not available to order / book. `available` means available to order / book with an instant confirmation.
 
 This is an example of Date Picker that we use on our system.
 
