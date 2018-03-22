@@ -486,7 +486,7 @@ partnerPricing | **Object** | Has sub field `retailPrice` (Original price of thi
 
 ## Local Experience Trips Pricing
 
-> Example body for product type `trip`
+> Example body for product type `trip` without child price
 
 ```json
 {
@@ -495,7 +495,7 @@ partnerPricing | **Object** | Has sub field `retailPrice` (Original price of thi
 }
 ```
 
-> Fetching price for trip
+> Fetching price for trip without child price
 
 ```shell
 curl 'https://api.staging.takemetour.com/partner/price' \
@@ -518,7 +518,120 @@ const response = await fetch('https://api.staging.takemetour.com/partner/price',
 const data = await response.json();
 ```
 
+> Fetching price for trip with child price
+
+```json
+{
+  "quantity": 2,
+  "trip_id": "550ae954009be2a14b19339e",
+  "selected_options": [
+    {
+      "lx_price": 290,
+      "_id": "599e66640ea28b0011b3f147",
+      "title": "Child (Age 2-12)",
+      "type": "child_price",
+      "price": 290,
+      "quantity_type": "sum_max_travelers",
+      "currency": "THB",
+      "key": "children",
+      "quantity": 1,
+      "is_included_for_booking_fee": true
+    }
+  ]
+}
+```
+
+> Fetching price for trip
+
+```shell
+curl 'https://api.staging.takemetour.com/partner/price' \
+-H 'content-type: application/json' \
+-H 'x-access-token: 4obGgRjmzYOnZLOEFfFsEycy04w9y8XQ' \
+--data-binary '{"quantity":2,"trip_id":"550ae954009be2a14b19339e","selected_options":[{"lx_price":290,"_id":"599e66640ea28b0011b3f147","title":"Child (Age 2-12)","type":"child_price","price":290,"quantity_type":"sum_max_travelers","currency":"THB","key":"children","quantity":1,"is_included_for_booking_fee":true}]}'
+```
+```javascript
+const response = await fetch('https://api.staging.takemetour.com/partner/price',
+{
+  body: JSON.stringify({
+    "quantity": 2,
+    "trip_id": "550ae954009be2a14b19339e",
+    "selected_options": [
+      {
+        "lx_price": 290,
+        "_id": "599e66640ea28b0011b3f147",
+        "title": "Child (Age 2-12)",
+        "type": "child_price",
+        "price": 290,
+        "quantity_type": "sum_max_travelers",
+        "currency": "THB",
+        "key": "children",
+        "quantity": 1,
+        "is_included_for_booking_fee": true
+      }
+    ]
+  }),
+  headers: {
+    'content-type': 'application/json'
+  },
+  method: 'POST',
+});
+const data = await response.json();
+```
+
 Trip has a simplest pricing model. Price is calculated by using **quantity** and **trip_id** and API will do the rest about it.
+
+### Child Price
+
+Some of our trip also has **child price** which define in `additional_options` field of product.
+
+<pre class="center-column">
+{
+  "additional_options": [
+    {
+      "lx_price": 290,
+      "_id": "599e66640ea28b0011b3f147",
+      "title": "Child (Age 2-12)",
+      "type": "child_price",
+      "price": 290,
+      "quantity_type": "sum_max_travelers",
+      "currency": "THB",
+      "key": "children",
+      "quantity": 0,
+      "is_included_for_booking_fee": true
+    },
+    {
+      "lx_price": 0,
+      "key": "hotel",
+      "currency": "THB",
+      "quantity_type": "boolean",
+      "price": 500,
+      "type": "book.checkbox",
+      "title": "Hotel Pickup",
+      "_id": "59db3d06909883001003d38e",
+      "quantity": 0,
+      "is_included_for_booking_fee": true
+    },
+    {
+      "_id": "59ddc4538463e751d6455d7a",
+      "lx_price": 0,
+      "key": "dtac_sim",
+      "currency": "THB",
+      "quantity_type": "boolean",
+      "price": 199,
+      "type": "book.checkbox",
+      "title": "DTAC Tourist Sim",
+      "quantity": 0,
+      "is_included_for_booking_fee": false
+    }
+  ]
+}
+</pre>
+
+Child price is defined in object which has key `children`. From the above example, child price for this product is 290 THB (which is cheaper than original price)
+
+To get a price for a trip that has child price. You must attach `selected_options` alongside with other request body (See an example at the right panel)
+
+**Note:** Child quantity + Quantity must not exceed `max_travelers` (e.g. if trip has max_travelers = 5 and quantity is 3, child quantity can not exceed 2)
 
 ### Request body
 
@@ -526,6 +639,7 @@ Parameter | Type | Description
 --------- | ---- | -----------
 quantity | **Number (Max as max_travelers)** | Quantity of traveler
 trip_id | **String** | `_id` of product
+selected_options | **Array of selected option** | Array of selected option which has `quantity` to specify quantity
 
 ## Attraction Tickets
 
@@ -1079,6 +1193,77 @@ Parameter | Type | Description
 quantity | **Number (Max to 12)** | Quantity of tangible product to buy
 trip_id | **String** | `_id` of product
 
+# Book
+
+## Book product
+
+**HTTP Request:** `POST /book`
+
+To book our product (or in another term is create transaction). There is required field for **any product type** as shown below.
+
+Parameter | Type | Description
+--------- | ---- | -----------
+name | **Object** | Customer first name and last name. Specific in `first` and `last` key
+email | **String** | Customer email
+mobile | **String** | Customer mobile (with prefix country code)
+country | **String** | Country code (See [appendix](#country-code))
+trip_id | **ObjectId** | `_id` of product to be book
+trip_date | **Date String** | Date to book the product (in case of product type `souvenir` this field is use as "delivery date" if it is required date)
+meeting_point | **String** | Meeting point for customer (See [appendix](#meeting-point) / Required if `is_hide_meeting_point` is `false` for this product)
+
+## Book local experience trip
+
+> Request body to book product type `trip`
+
+```json
+{
+  "quantity": 1,
+  "trip_id": "550ae951009be2a14b193348",
+  "selected_options": [
+    {
+      "key": "children",
+      "currency": "THB",
+      "quantity_type": "sum_max_travelers",
+      "price": 290,
+      "type": "child_price",
+      "title": "Child (Age 2-12)",
+      "_id": "599e66640ea28b0011b3f147",
+      "lx_price": 290,
+      "is_front": false,
+      "quantity": 0,
+      "is_included_for_booking_fee": true
+    }
+  ],
+  "name": {
+    "first": "John",
+    "last": "Doe"
+  },
+  "email": "john+doe@takemetour.com",
+  "trip_date": "2018-04-17T17:00:00.000Z",
+  "mobile": "+66856667571",
+  "country": "TH",
+  "meeting_point": "BTS Station - Ari"
+}
+```
+
+> Response
+
+```json
+{
+  "success": true,
+  "booking_id": "5ab3727fedda1c0011c24823"
+}
+```
+
+For product type `trip` you must add `quantity` and also `selected_options` for the product that has `child` key in `additional_options` field of product.
+
+### Request body (add from [book](#book-product))
+
+Parameter | Type | Description
+--------- | ---- | -----------
+quantity | **Number (limit to `max_travelers`)** | Quantity of customer
+selected_options | **Array of option** | See  [child price](#child-price) for more detail
+
 # Transactions
 
 ## Get All transactions
@@ -1557,3 +1742,17 @@ month | **String** | Month and year you want to query the availability, format i
 
 ### Response
 The response is similar to the response of [Local Experience Trips Availability](#local-experiences-trip-calendar)
+
+# Appendix
+
+## Country Code
+
+Country | Country Code
+--------- | ----
+Thailand | **TH**
+
+## Meeting point
+
+Country | Country Code
+--------- | ----
+Thailand | **TH**
