@@ -251,6 +251,15 @@
                   <li>
                     <a href="#get-product-price" class="toc-h2 toc-link" data-title="get-product-price">Get Product Price</a>
                   </li>
+                  <li>
+                    <a href="#local-experience-trips-pricing" class="toc-h2 toc-link" data-title="local-experience-trips-pricing">Local Experience Trips Pricing</a>
+                  </li>
+                  <li>
+                    <a href="#attraction-tickets" class="toc-h2 toc-link" data-title="attraction-tickets">Attraction Tickets</a>
+                  </li>
+                  <li>
+                    <a href="#tangible-products" class="toc-h2 toc-link" data-title="tangible-products">Tangible Products</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -275,20 +284,6 @@
                   </li>
                   <li>
                     <a href="#attraction-tickets-calendar" class="toc-h2 toc-link" data-title="attraction-tickets-calendar">Attraction Tickets Calendar</a>
-                  </li>
-              </ul>
-          </li>
-          <li>
-            <a href="#kittens" class="toc-h1 toc-link" data-title="kittens">Kittens</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#get-all-kittens" class="toc-h2 toc-link" data-title="get-all-kittens">Get All Kittens</a>
-                  </li>
-                  <li>
-                    <a href="#get-a-specific-kitten" class="toc-h2 toc-link" data-title="get-a-specific-kitten">Get a Specific Kitten</a>
-                  </li>
-                  <li>
-                    <a href="#delete-a-specific-kitten" class="toc-h2 toc-link" data-title="delete-a-specific-kitten">Delete a Specific Kitten</a>
                   </li>
               </ul>
           </li>
@@ -768,14 +763,31 @@
     </span><span class="s2">"product_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"trip"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+<blockquote>
+<p>Code</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.staging.takemetour.com/partner/products/550ae951009be2a14b193348'</span> <span class="se">\</span>
+-H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+-H <span class="s1">'x-access-token: 4obGgRjmzYOnZLOEFfFsEycy04w9y8XQ'</span>
+-X GET
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api.staging.takemetour.com/partner/products/550ae951009be2a14b193348'</span><span class="p">,</span>
+<span class="p">{</span>
+  <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s1">'content-type'</span><span class="p">:</span> <span class="s1">'application/json'</span><span class="p">,</span>
+    <span class="s1">'x-access-token'</span><span class="p">:</span> <span class="s1">'4obGgRjmzYOnZLOEFfFsEycy04w9y8XQ'</span>
+  <span class="p">},</span>
+  <span class="na">method</span><span class="p">:</span> <span class="s1">'GET'</span><span class="p">,</span>
+<span class="p">});</span>
+<span class="kr">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
+</code></pre>
 <p><strong>HTTP Request:</strong> <code>GET /products/:slug</code></p>
 <h3 id='product-types'>Product types</h3>
 <p>In TakeMeTour. We have 3 types of product which are</p>
 
 <ul>
-<li><strong>Trip</strong>: Our main product which is an one-day trip.</li>
-<li><strong>Ticket</strong>: Ticket for attractions location (ex. SEA LIFE Ocean World)</li>
-<li><strong>Souvenir</strong></li>
+<li><strong>Local Experience Trips (<code>trip</code>)</strong>: Our main product which is an one-day trip.</li>
+<li><strong>Attraction Tickets (<code>ticket</code>)</strong>: Ticket for attractions location (ex. SEA LIFE Ocean World)</li>
+<li><strong>Tangible Products (<code>souvenir</code>)</strong></li>
 </ul>
 
 <p>For this endpoint. You can identify product type via field <code>product_type</code> which can be <code>trip</code> / <code>ticket</code> / <code>souvenir</code>.</p>
@@ -817,7 +829,7 @@
 <tr>
 <td>user_id</td>
 <td><strong>User</strong></td>
-<td>Local expert for this product</td>
+<td>Owner of product</td>
 </tr>
 <tr>
 <td>destination_location</td>
@@ -857,13 +869,88 @@
 </tbody></table>
 <h2 id='get-product-price'>Get Product Price</h2>
 <blockquote>
-<p>Example Body for product type <code>trip</code></p>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"grandTotal"</span><span class="p">:</span><span class="w"> </span><span class="mf">1750.39</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"partnerPricing"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"retailPrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">1833.19</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"discount"</span><span class="p">:</span><span class="w"> </span><span class="mf">82.8</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p><strong>HTTP Request:</strong> <code>POST /products/price</code></p>
+
+<p>You can get a price of product by using this API. Each type of product has a diffrent request body due to different of pricing model. But has the same response body</p>
+<h3 id='response-6'>Response</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>grandTotal</td>
+<td><strong>Number</strong></td>
+<td>Final price to be charged to your partner account credit.</td>
+</tr>
+<tr>
+<td>partnerPricing</td>
+<td><strong>Object</strong></td>
+<td>Has sub field <code>retailPrice</code> (Original price of this product before discount) and <code>discount</code> (Discount pricing for partner)</td>
+</tr>
+</tbody></table>
+<h2 id='local-experience-trips-pricing'>Local Experience Trips Pricing</h2>
+<blockquote>
+<p>Example body for product type <code>trip</code></p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
   </span><span class="s2">"trip_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"550ae954009be2a14b19339e"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+<blockquote>
+<p>Fetching price for trip</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.staging.takemetour.com/partner/price'</span> <span class="se">\</span>
+-H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+-H <span class="s1">'x-access-token: 4obGgRjmzYOnZLOEFfFsEycy04w9y8XQ'</span> <span class="se">\</span>
+--data-binary <span class="s1">'{"quantity":2,"trip_id":"550ae954009be2a14b19339e"}'</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api.staging.takemetour.com/partner/price'</span><span class="p">,</span>
+<span class="p">{</span>
+  <span class="na">body</span><span class="p">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
+    <span class="s2">"quantity"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s2">"trip_id"</span><span class="p">:</span> <span class="s2">"550ae954009be2a14b19339e"</span>
+  <span class="p">}),</span>
+  <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s1">'content-type'</span><span class="p">:</span> <span class="s1">'application/json'</span>
+  <span class="p">},</span>
+  <span class="na">method</span><span class="p">:</span> <span class="s1">'POST'</span><span class="p">,</span>
+<span class="p">});</span>
+<span class="kr">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
+</code></pre>
+<p>Trip has a simplest pricing model. Price is calculated by using <strong>quantity</strong> and <strong>trip_id</strong> and API will do the rest about it.</p>
+<h3 id='request-body-2'>Request body</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>quantity</td>
+<td><strong>Number (Max as max_travelers)</strong></td>
+<td>Quantity of traveler</td>
+</tr>
+<tr>
+<td>trip_id</td>
+<td><strong>String</strong></td>
+<td><code>_id</code> of product</td>
+</tr>
+</tbody></table>
+<h2 id='attraction-tickets'>Attraction Tickets</h2>
 <blockquote>
 <p>Example Body for product type <code>ticket</code></p>
 </blockquote>
@@ -1062,41 +1149,12 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <blockquote>
-<p>Example Response</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"grandTotal"</span><span class="p">:</span><span class="w"> </span><span class="mf">1750.39</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"partnerPricing"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"retailPrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">1833.19</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"discount"</span><span class="p">:</span><span class="w"> </span><span class="mf">82.8</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<blockquote>
-<p>Fetching price for trip</p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.staging.takemetour.com/partner/price'</span> <span class="se">\</span>
--H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
---data-binary <span class="s1">'{"quantity":2,"trip_id":"550ae954009be2a14b19339e"}'</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api.staging.takemetour.com/partner/price'</span><span class="p">,</span>
-<span class="p">{</span>
-  <span class="na">body</span><span class="p">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
-    <span class="s2">"quantity"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-    <span class="s2">"trip_id"</span><span class="p">:</span> <span class="s2">"550ae954009be2a14b19339e"</span>
-  <span class="p">}),</span>
-  <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
-    <span class="s1">'content-type'</span><span class="p">:</span> <span class="s1">'application/json'</span>
-  <span class="p">},</span>
-  <span class="na">method</span><span class="p">:</span> <span class="s1">'POST'</span><span class="p">,</span>
-<span class="p">});</span>
-<span class="kr">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
-</code></pre>
-<blockquote>
 <p>Fetching price for ticket</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.staging.takemetour.com/partner/price'</span> <span class="se">\</span>
 -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
---data-binary <span class="s1">'{"quantity":2,"trip_id":"550ae954009be2a14b19339e"}'</span>
+-H <span class="s1">'x-access-token: 4obGgRjmzYOnZLOEFfFsEycy04w9y8XQ'</span> <span class="se">\</span>
+--data-binary <span class="s1">'{"trip_id":"5a1e695f6ff7070010da638b","multi_tier_quantity":[{"tier":"Entrance Fee with Re-entry on All Rides","sub_tiers":[{"globaltix_cost":285,"has_availability":false,"globaltix_questions":[{"id":127761,"question":"Please state your date of visit","type":"DATE"}],"display_price":850,"price":700,"name":"Adult","_id":"5a1e833db549a700121cb913","globaltix_ticket_id":"12658","globaltix_redeem":{"end":"2018-10-31T23:59:00","start":"2017-11-16T00:00:00"},"quantity":2},{"globaltix_cost":285,"has_availability":false,"globaltix_questions":[{"id":127761,"question":"Please state your date of visit","type":"DATE"}],"display_price":850,"price":700,"name":"Child","_id":"5a1e833db549a700121cb912","globaltix_ticket_id":"12659","globaltix_redeem":{"end":"2018-10-31T23:59:00","start":"2017-11-16T00:00:00"},"quantity":1}]},{"tier":"Entrance Fee with Re-entry on All Rides + Snow Town","sub_tiers":[{"globaltix_cost":355,"has_availability":false,"globaltix_questions":[{"id":161384,"question":"Please state your date of visit.","type":"DATE"}],"display_price":1030,"price":820,"name":"Adult","_id":"5a1e833db549a700121cb90d","globaltix_ticket_id":"12664","globaltix_redeem":{"end":"2018-10-31T23:59:00","start":"2017-11-16T00:00:00"},"quantity":0},{"globaltix_cost":355,"has_availability":false,"globaltix_questions":[{"id":161384,"question":"Please state your date of visit.","type":"DATE"}],"display_price":1030,"price":820,"name":"Child","_id":"5a1e833db549a700121cb90c","globaltix_ticket_id":"12665","globaltix_redeem":{"end":"2018-10-31T23:59:00","start":"2017-11-16T00:00:00"},"quantity":0}]},{"tier":"Entrance Fee with Re-entry on All Rides and Buffet Lunch","sub_tiers":[{"globaltix_cost":355,"has_availability":false,"globaltix_questions":[{"id":161383,"question":"Please state your date of visit.","type":"DATE"}],"display_price":1050,"price":850,"name":"Adult","_id":"5a1e833db549a700121cb910","globaltix_ticket_id":"12662","globaltix_redeem":{"end":"2018-10-31T23:59:00","start":"2017-11-16T00:00:00"},"quantity":0},{"globaltix_cost":355,"has_availability":false,"globaltix_questions":[{"id":161383,"question":"Please state your date of visit.","type":"DATE"}],"display_price":1050,"price":850,"name":"Child","_id":"5a1e833db549a700121cb90f","globaltix_ticket_id":"12663","globaltix_redeem":{"end":"2018-10-31T23:59:00","start":"2017-11-16T00:00:00"},"quantity":0}]},{"tier":"Entrance Fee with Re-entry on All Rides and Buffet Lunch + Snow Town","sub_tiers":[{"globaltix_cost":425,"has_availability":false,"globaltix_questions":[{"id":161385,"question":"Please state your date of visit","type":"DATE"}],"display_price":1230,"price":940,"name":"Adult","_id":"5a1e833db549a700121cb90a","globaltix_ticket_id":"12666","globaltix_redeem":{"end":"2018-10-31T23:59:00","start":"2017-11-16T00:00:00"},"quantity":0},{"globaltix_cost":425,"has_availability":false,"globaltix_questions":[{"id":161385,"question":"Please state your date of visit","type":"DATE"}],"display_price":1130,"price":940,"name":"Child","_id":"5a1e833db549a700121cb909","globaltix_ticket_id":"12667","globaltix_redeem":{"end":"2018-10-31T23:59:00","start":"2017-11-16T00:00:00"},"quantity":0}]}]}'</span>
 </code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api.staging.takemetour.com/partner/price'</span><span class="p">,</span>
 <span class="p">{</span>
   <span class="na">body</span><span class="p">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
@@ -1299,21 +1357,6 @@
 <span class="p">});</span>
 <span class="kr">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
 </code></pre>
-<p><strong>HTTP Request:</strong> <code>POST /products/price</code></p>
-
-<p>You can get a price of product by using this API. Each type of product has a diffrent request body due to different of pricing model.</p>
-<h3 id='trip'>Trip</h3>
-<p>Trip has a simplest pricing model. Price is calculated by using <strong>quantity</strong> and <strong>trip_id</strong> and API will do the rest about it.</p>
-
-<p>So the request body should be</p>
-
-<pre class="center-column">
-{
-  "quantity": Number (Max at max_travelers),
-  "trip_id": Trip ID (which can be found in _id of product)
-}
-</pre>
-<h3 id='ticket'>Ticket</h3>
 <p>Ticket has more complicated pricing model which we called <strong>Multi-tier pricing</strong></p>
 
 <p>Multi-tier pricing is consist of <strong>tier</strong> and <strong>sub-tier</strong>.</p>
@@ -1400,157 +1443,13 @@
           }
         }
       ]
-    },
-    {
-      "tier": "Entrance Fee with Re-entry on All Rides + Snow Town",
-      "sub_tiers": [
-        {
-          "globaltix_cost": 355,
-          "has_availability": false,
-          "globaltix_questions": [
-            {
-              "id": 161384,
-              "question": "Please state your date of visit.",
-              "type": "DATE"
-            }
-          ],
-          "display_price": 1030,
-          "price": 820,
-          "name": "Adult",
-          "_id": "5a1e833db549a700121cb90d",
-          "globaltix_ticket_id": "12664",
-          "globaltix_redeem": {
-            "end": "2018-10-31T23:59:00",
-            "start": "2017-11-16T00:00:00"
-          }
-        },
-        {
-          "globaltix_cost": 355,
-          "has_availability": false,
-          "globaltix_questions": [
-            {
-              "id": 161384,
-              "question": "Please state your date of visit.",
-              "type": "DATE"
-            }
-          ],
-          "display_price": 1030,
-          "price": 770,
-          "name": "Child",
-          "_id": "5a1e833db549a700121cb90c",
-          "globaltix_ticket_id": "12665",
-          "globaltix_redeem": {
-            "end": "2018-10-31T23:59:00",
-            "start": "2017-11-16T00:00:00"
-          }
-        }
-      ]
-    },
-    {
-      "tier": "Entrance Fee with Re-entry on All Rides and Buffet Lunch",
-      "sub_tiers": [
-        {
-          "globaltix_cost": 355,
-          "has_availability": false,
-          "globaltix_questions": [
-            {
-              "id": 161383,
-              "question": "Please state your date of visit.",
-              "type": "DATE"
-            }
-          ],
-          "display_price": 1050,
-          "price": 850,
-          "name": "Adult",
-          "_id": "5a1e833db549a700121cb910",
-          "globaltix_ticket_id": "12662",
-          "globaltix_redeem": {
-            "end": "2018-10-31T23:59:00",
-            "start": "2017-11-16T00:00:00"
-          }
-        },
-        {
-          "globaltix_cost": 355,
-          "has_availability": false,
-          "globaltix_questions": [
-            {
-              "id": 161383,
-              "question": "Please state your date of visit.",
-              "type": "DATE"
-            }
-          ],
-          "display_price": 1050,
-          "price": 800,
-          "name": "Child",
-          "_id": "5a1e833db549a700121cb90f",
-          "globaltix_ticket_id": "12663",
-          "globaltix_redeem": {
-            "end": "2018-10-31T23:59:00",
-            "start": "2017-11-16T00:00:00"
-          }
-        }
-      ]
-    },
-    {
-      "tier": "Entrance Fee with Re-entry on All Rides and Buffet Lunch + Snow Town",
-      "sub_tiers": [
-        {
-          "globaltix_cost": 425,
-          "has_availability": false,
-          "globaltix_questions": [
-            {
-              "id": 161385,
-              "question": "Please state your date of visit",
-              "type": "DATE"
-            }
-          ],
-          "display_price": 1230,
-          "price": 940,
-          "name": "Adult",
-          "_id": "5a1e833db549a700121cb90a",
-          "globaltix_ticket_id": "12666",
-          "globaltix_redeem": {
-            "end": "2018-10-31T23:59:00",
-            "start": "2017-11-16T00:00:00"
-          }
-        },
-        {
-          "globaltix_cost": 425,
-          "has_availability": false,
-          "globaltix_questions": [
-            {
-              "id": 161385,
-              "question": "Please state your date of visit",
-              "type": "DATE"
-            }
-          ],
-          "display_price": 1130,
-          "price": 900,
-          "name": "Child",
-          "_id": "5a1e833db549a700121cb909",
-          "globaltix_ticket_id": "12667",
-          "globaltix_redeem": {
-            "end": "2018-10-31T23:59:00",
-            "start": "2017-11-16T00:00:00"
-          }
-        }
-      ]
     }
   ]
 }
 </pre>
 
 <p>And when you want to get a price for ticket product. We just add <code>quantity</code> field in object inside <code>sub_tiers</code> array and send it to this API as field <code>multi_tier_quantity</code> (See an example on the right hand side)</p>
-
-<p><strong>Note</strong></p>
-
-<ul>
-<li>We support only choosing single tier. So the first tier that has sub tier quantity which is not equal to 0 is consider as selected tier.</li>
-<li><code>quantity</code> in sub tier is required for every tier.</li>
-</ul>
-<h3 id='souvenir'>Souvenir</h3>
-<p>// Todo</p>
-<h3 id='response-6'>Response</h3>
+<h3 id='tier-schema'>Tier Schema</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1559,14 +1458,94 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>grandTotal</td>
-<td><strong>Number</strong></td>
-<td>Final price to be charged to your partner account credit.</td>
+<td>tier</td>
+<td><strong>String</strong></td>
+<td>Tier name</td>
 </tr>
 <tr>
-<td>partnerPricing</td>
-<td><strong>Object</strong></td>
-<td>Has sub field <code>retailPrice</code> (Original price of this product before discount) and <code>discount</code> (Discount pricing for partner)</td>
+<td>sub_tiers</td>
+<td><strong>Array of sub tier</strong></td>
+<td>Array of Sub tier which has schema as shown in the next table</td>
+</tr>
+</tbody></table>
+<h3 id='sub-tier-schema'>Sub Tier Schema</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>price</td>
+<td><strong>Number</strong></td>
+<td>Price per quantity for current sub tier</td>
+</tr>
+<tr>
+<td>name</td>
+<td><strong>String</strong></td>
+<td>Sub tier name</td>
+</tr>
+<tr>
+<td>quantity</td>
+<td><strong>Number (Max to 12)</strong></td>
+<td>Quantity for this sub tier</td>
+</tr>
+</tbody></table>
+
+<p><strong>Note</strong></p>
+
+<ul>
+<li>We support only choosing single tier. So the first tier that has sub tier quantity which is not equal to 0 is consider as selected tier.</li>
+<li><code>quantity</code> in sub tier is required for every tier.</li>
+</ul>
+<h2 id='tangible-products'>Tangible Products</h2>
+<blockquote>
+<p>Example body for product type <code>souvenir</code></p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"trip_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5a3782ebbec78a00117fc04b"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Code</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.staging.takemetour.com/partner/price'</span> <span class="se">\</span>
+-H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+-H <span class="s1">'x-access-token: 4obGgRjmzYOnZLOEFfFsEycy04w9y8XQ'</span> <span class="se">\</span>
+--data-binary <span class="s1">'{"quantity":2,"trip_id":"5a3782ebbec78a00117fc04b"}'</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api.staging.takemetour.com/partner/price'</span><span class="p">,</span>
+<span class="p">{</span>
+  <span class="na">body</span><span class="p">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
+    <span class="s2">"quantity"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s2">"trip_id"</span><span class="p">:</span> <span class="s2">"5a3782ebbec78a00117fc04b"</span>
+  <span class="p">}),</span>
+  <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s1">'content-type'</span><span class="p">:</span> <span class="s1">'application/json'</span>
+  <span class="p">},</span>
+  <span class="na">method</span><span class="p">:</span> <span class="s1">'POST'</span><span class="p">,</span>
+<span class="p">});</span>
+<span class="kr">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
+</code></pre>
+<p>For tangible product (like data sim). The request body is the same as <code>trip</code>.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>quantity</td>
+<td><strong>Number (Max to 12)</strong></td>
+<td>Quantity of tangible product to buy</td>
+</tr>
+<tr>
+<td>trip_id</td>
+<td><strong>String</strong></td>
+<td><code>_id</code> of product</td>
 </tr>
 </tbody></table>
 <h1 id='transactions'>Transactions</h1><h2 id='get-all-transactions'>Get All transactions</h2>
@@ -2195,149 +2174,6 @@
 </tbody></table>
 <h3 id='response-11'>Response</h3>
 <p>The response is similar to the response of <a href="#local-experiences-trip-calendar">Local Experience Trips Availability</a></p>
-<h1 id='kittens'>Kittens</h1><h2 id='get-all-kittens'>Get All Kittens</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">kittens</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="nx">get</span><span class="p">();</span>
-</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fluffums"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"calico"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre>
-<p>This endpoint retrieves all kittens.</p>
-<h3 id='http-request'>HTTP Request</h3>
-<p><code>GET http://example.com/api/kittens</code></p>
-<h3 id='query-parameters-2'>Query Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Default</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>include_cats</td>
-<td>false</td>
-<td>If set to true, the result will also include cats.</td>
-</tr>
-<tr>
-<td>available</td>
-<td>true</td>
-<td>If set to false, the result will include kittens that have already been adopted.</td>
-</tr>
-</tbody></table>
-
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
-<h2 id='get-a-specific-kitten'>Get a Specific Kitten</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
-</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Max"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"breed"</span><span class="p">:</span><span class="w"> </span><span class="s2">"unknown"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"fluffiness"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"cuteness"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>This endpoint retrieves a specific kitten.</p>
-
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
-<h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET http://example.com/kittens/&lt;ID&gt;</code></p>
-<h3 id='url-parameters'>URL Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>ID</td>
-<td>The ID of the kitten to retrieve</td>
-</tr>
-</tbody></table>
-<h2 id='delete-a-specific-kitten'>Delete a Specific Kitten</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="p">.</span><span class="nf">kittens</span><span class="p">.</span><span class="nf">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
-
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-<span class="n">api</span><span class="o">.</span><span class="n">kittens</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code>curl <span class="s2">"http://example.com/api/kittens/2"</span>
-  -X DELETE
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
-
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
-<span class="kd">let</span> <span class="nx">max</span> <span class="o">=</span> <span class="nx">api</span><span class="p">.</span><span class="nx">kittens</span><span class="p">.</span><span class="k">delete</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
-</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"deleted"</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="s2">":("</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<p>This endpoint deletes a specific kitten.</p>
-<h3 id='http-request-3'>HTTP Request</h3>
-<p><code>DELETE http://example.com/kittens/&lt;ID&gt;</code></p>
-<h3 id='url-parameters-2'>URL Parameters</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>ID</td>
-<td>The ID of the kitten to delete</td>
-</tr>
-</tbody></table>
 <h1 id='errors'>Errors</h1>
 <aside class="notice">
 This error section is stored in a separate file in <code>includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files...just save them to the <code>includes</code> folder and add them to the top of your <code>index.md</code>'s frontmatter. Files are included in the order listed.
