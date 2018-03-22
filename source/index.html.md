@@ -405,15 +405,36 @@ For detail on Product object. See Get Product detail API below.
 	"product_type": "trip"
 }
 ```
+
+> Code
+
+```shell
+curl 'https://api.staging.takemetour.com/partner/products/550ae951009be2a14b193348' \
+-H 'content-type: application/json' \
+-H 'x-access-token: 4obGgRjmzYOnZLOEFfFsEycy04w9y8XQ'
+-X GET
+```
+```javascript
+const response = await fetch('https://api.staging.takemetour.com/partner/products/550ae951009be2a14b193348',
+{
+  headers: {
+    'content-type': 'application/json',
+    'x-access-token': '4obGgRjmzYOnZLOEFfFsEycy04w9y8XQ'
+  },
+  method: 'GET',
+});
+const data = await response.json();
+```
+
 **HTTP Request:** `GET /products/:slug`
 
 ### Product types
 
 In TakeMeTour. We have 3 types of product which are
 
-- **Trip**: Our main product which is an one-day trip.
-- **Ticket**: Ticket for attractions location (ex. SEA LIFE Ocean World)
-- **Souvenir**
+- **Local Experience Trips (`trip`)**: Our main product which is an one-day trip.
+- **Attraction Tickets (`ticket`)**: Ticket for attractions location (ex. SEA LIFE Ocean World)
+- **Tangible Products (`souvenir`)**
 
 For this endpoint. You can identify product type via field `product_type` which can be `trip` / `ticket` / `souvenir`.
 
@@ -428,7 +449,7 @@ name | **String** | Product name
 introduction | **String** | Product introduction
 max_travelers | **Integer (Range 1-8 / Trip Only)** | Maximun travelers that allow for this product
 slug | **String** | Product slug
-user_id | **User** | Local expert for this product
+user_id | **User** | Owner of product
 destination_location | **String** | Destination location city for this product
 transportation | **String** | Transportation that support for this product
 itinerary | **Array of Object** | Product itinerary, ordered by time.
@@ -439,7 +460,33 @@ faqs | **Array of Object** | FAQs for products
 
 ## Get Product Price
 
-> Example Body for product type `trip`
+> Example Response
+
+```json
+{
+  "grandTotal": 1750.39,
+  "partnerPricing": {
+    "retailPrice": 1833.19,
+    "discount": 82.8
+  }
+}
+```
+
+**HTTP Request:** `POST /products/price`
+
+You can get a price of product by using this API. Each type of product has a diffrent request body due to different of pricing model. But has the same response body
+
+### Response
+
+Parameter | Type | Description
+--------- | ---- | -----------
+grandTotal | **Number** | Final price to be charged to your partner account credit.
+partnerPricing | **Object** | Has sub field `retailPrice` (Original price of this product before discount) and `discount` (Discount pricing for partner)
+
+
+## Local Experience Trips Pricing
+
+> Example body for product type `trip`
 
 ```json
 {
@@ -447,6 +494,40 @@ faqs | **Array of Object** | FAQs for products
   "trip_id": "550ae954009be2a14b19339e"
 }
 ```
+
+> Fetching price for trip
+
+```shell
+curl 'https://api.staging.takemetour.com/partner/price' \
+-H 'content-type: application/json' \
+-H 'x-access-token: 4obGgRjmzYOnZLOEFfFsEycy04w9y8XQ' \
+--data-binary '{"quantity":2,"trip_id":"550ae954009be2a14b19339e"}'
+```
+```javascript
+const response = await fetch('https://api.staging.takemetour.com/partner/price',
+{
+  body: JSON.stringify({
+    "quantity": 2,
+    "trip_id": "550ae954009be2a14b19339e"
+  }),
+  headers: {
+    'content-type': 'application/json'
+  },
+  method: 'POST',
+});
+const data = await response.json();
+```
+
+Trip has a simplest pricing model. Price is calculated by using **quantity** and **trip_id** and API will do the rest about it.
+
+### Request body
+
+Parameter | Type | Description
+--------- | ---- | -----------
+quantity | **Number (Max as max_travelers)** | Quantity of traveler
+trip_id | **String** | `_id` of product
+
+## Attraction Tickets
 
 > Example Body for product type `ticket`
 
@@ -646,46 +727,13 @@ faqs | **Array of Object** | FAQs for products
 }
 ```
 
-> Example Response
-
-```json
-{
-  "grandTotal": 1750.39,
-  "partnerPricing": {
-    "retailPrice": 1833.19,
-    "discount": 82.8
-  }
-}
-```
-
-> Fetching price for trip
-
-```shell
-curl 'https://api.staging.takemetour.com/partner/price' \
--H 'content-type: application/json' \
---data-binary '{"quantity":2,"trip_id":"550ae954009be2a14b19339e"}'
-```
-```javascript
-const response = await fetch('https://api.staging.takemetour.com/partner/price',
-{
-  body: JSON.stringify({
-    "quantity": 2,
-    "trip_id": "550ae954009be2a14b19339e"
-  }),
-  headers: {
-    'content-type': 'application/json'
-  },
-  method: 'POST',
-});
-const data = await response.json();
-```
-
 > Fetching price for ticket
 
 ```shell
 curl 'https://api.staging.takemetour.com/partner/price' \
 -H 'content-type: application/json' \
---data-binary '{"quantity":2,"trip_id":"550ae954009be2a14b19339e"}'
+-H 'x-access-token: 4obGgRjmzYOnZLOEFfFsEycy04w9y8XQ' \
+--data-binary '{"trip_id":"5a1e695f6ff7070010da638b","multi_tier_quantity":[{"tier":"Entrance Fee with Re-entry on All Rides","sub_tiers":[{"globaltix_cost":285,"has_availability":false,"globaltix_questions":[{"id":127761,"question":"Please state your date of visit","type":"DATE"}],"display_price":850,"price":700,"name":"Adult","_id":"5a1e833db549a700121cb913","globaltix_ticket_id":"12658","globaltix_redeem":{"end":"2018-10-31T23:59:00","start":"2017-11-16T00:00:00"},"quantity":2},{"globaltix_cost":285,"has_availability":false,"globaltix_questions":[{"id":127761,"question":"Please state your date of visit","type":"DATE"}],"display_price":850,"price":700,"name":"Child","_id":"5a1e833db549a700121cb912","globaltix_ticket_id":"12659","globaltix_redeem":{"end":"2018-10-31T23:59:00","start":"2017-11-16T00:00:00"},"quantity":1}]},{"tier":"Entrance Fee with Re-entry on All Rides + Snow Town","sub_tiers":[{"globaltix_cost":355,"has_availability":false,"globaltix_questions":[{"id":161384,"question":"Please state your date of visit.","type":"DATE"}],"display_price":1030,"price":820,"name":"Adult","_id":"5a1e833db549a700121cb90d","globaltix_ticket_id":"12664","globaltix_redeem":{"end":"2018-10-31T23:59:00","start":"2017-11-16T00:00:00"},"quantity":0},{"globaltix_cost":355,"has_availability":false,"globaltix_questions":[{"id":161384,"question":"Please state your date of visit.","type":"DATE"}],"display_price":1030,"price":820,"name":"Child","_id":"5a1e833db549a700121cb90c","globaltix_ticket_id":"12665","globaltix_redeem":{"end":"2018-10-31T23:59:00","start":"2017-11-16T00:00:00"},"quantity":0}]},{"tier":"Entrance Fee with Re-entry on All Rides and Buffet Lunch","sub_tiers":[{"globaltix_cost":355,"has_availability":false,"globaltix_questions":[{"id":161383,"question":"Please state your date of visit.","type":"DATE"}],"display_price":1050,"price":850,"name":"Adult","_id":"5a1e833db549a700121cb910","globaltix_ticket_id":"12662","globaltix_redeem":{"end":"2018-10-31T23:59:00","start":"2017-11-16T00:00:00"},"quantity":0},{"globaltix_cost":355,"has_availability":false,"globaltix_questions":[{"id":161383,"question":"Please state your date of visit.","type":"DATE"}],"display_price":1050,"price":850,"name":"Child","_id":"5a1e833db549a700121cb90f","globaltix_ticket_id":"12663","globaltix_redeem":{"end":"2018-10-31T23:59:00","start":"2017-11-16T00:00:00"},"quantity":0}]},{"tier":"Entrance Fee with Re-entry on All Rides and Buffet Lunch + Snow Town","sub_tiers":[{"globaltix_cost":425,"has_availability":false,"globaltix_questions":[{"id":161385,"question":"Please state your date of visit","type":"DATE"}],"display_price":1230,"price":940,"name":"Adult","_id":"5a1e833db549a700121cb90a","globaltix_ticket_id":"12666","globaltix_redeem":{"end":"2018-10-31T23:59:00","start":"2017-11-16T00:00:00"},"quantity":0},{"globaltix_cost":425,"has_availability":false,"globaltix_questions":[{"id":161385,"question":"Please state your date of visit","type":"DATE"}],"display_price":1130,"price":940,"name":"Child","_id":"5a1e833db549a700121cb909","globaltix_ticket_id":"12667","globaltix_redeem":{"end":"2018-10-31T23:59:00","start":"2017-11-16T00:00:00"},"quantity":0}]}]}'
 ```
 ```javascript
 const response = await fetch('https://api.staging.takemetour.com/partner/price',
@@ -890,24 +938,6 @@ const response = await fetch('https://api.staging.takemetour.com/partner/price',
 });
 const data = await response.json();
 ```
-**HTTP Request:** `POST /products/price`
-
-You can get a price of product by using this API. Each type of product has a diffrent request body due to different of pricing model.
-
-### Trip
-
-Trip has a simplest pricing model. Price is calculated by using **quantity** and **trip_id** and API will do the rest about it.
-
-So the request body should be
-
-<pre class="center-column">
-{
-  "quantity": Number (Max at max_travelers),
-  "trip_id": Trip ID (which can be found in _id of product)
-}
-</pre>
-
-### Ticket
 
 Ticket has more complicated pricing model which we called **Multi-tier pricing**
 
@@ -981,141 +1011,6 @@ From the API that get the product details, you can get multi-tier pricing from f
           }
         }
       ]
-    },
-    {
-      "tier": "Entrance Fee with Re-entry on All Rides + Snow Town",
-      "sub_tiers": [
-        {
-          "globaltix_cost": 355,
-          "has_availability": false,
-          "globaltix_questions": [
-            {
-              "id": 161384,
-              "question": "Please state your date of visit.",
-              "type": "DATE"
-            }
-          ],
-          "display_price": 1030,
-          "price": 820,
-          "name": "Adult",
-          "_id": "5a1e833db549a700121cb90d",
-          "globaltix_ticket_id": "12664",
-          "globaltix_redeem": {
-            "end": "2018-10-31T23:59:00",
-            "start": "2017-11-16T00:00:00"
-          }
-        },
-        {
-          "globaltix_cost": 355,
-          "has_availability": false,
-          "globaltix_questions": [
-            {
-              "id": 161384,
-              "question": "Please state your date of visit.",
-              "type": "DATE"
-            }
-          ],
-          "display_price": 1030,
-          "price": 770,
-          "name": "Child",
-          "_id": "5a1e833db549a700121cb90c",
-          "globaltix_ticket_id": "12665",
-          "globaltix_redeem": {
-            "end": "2018-10-31T23:59:00",
-            "start": "2017-11-16T00:00:00"
-          }
-        }
-      ]
-    },
-    {
-      "tier": "Entrance Fee with Re-entry on All Rides and Buffet Lunch",
-      "sub_tiers": [
-        {
-          "globaltix_cost": 355,
-          "has_availability": false,
-          "globaltix_questions": [
-            {
-              "id": 161383,
-              "question": "Please state your date of visit.",
-              "type": "DATE"
-            }
-          ],
-          "display_price": 1050,
-          "price": 850,
-          "name": "Adult",
-          "_id": "5a1e833db549a700121cb910",
-          "globaltix_ticket_id": "12662",
-          "globaltix_redeem": {
-            "end": "2018-10-31T23:59:00",
-            "start": "2017-11-16T00:00:00"
-          }
-        },
-        {
-          "globaltix_cost": 355,
-          "has_availability": false,
-          "globaltix_questions": [
-            {
-              "id": 161383,
-              "question": "Please state your date of visit.",
-              "type": "DATE"
-            }
-          ],
-          "display_price": 1050,
-          "price": 800,
-          "name": "Child",
-          "_id": "5a1e833db549a700121cb90f",
-          "globaltix_ticket_id": "12663",
-          "globaltix_redeem": {
-            "end": "2018-10-31T23:59:00",
-            "start": "2017-11-16T00:00:00"
-          }
-        }
-      ]
-    },
-    {
-      "tier": "Entrance Fee with Re-entry on All Rides and Buffet Lunch + Snow Town",
-      "sub_tiers": [
-        {
-          "globaltix_cost": 425,
-          "has_availability": false,
-          "globaltix_questions": [
-            {
-              "id": 161385,
-              "question": "Please state your date of visit",
-              "type": "DATE"
-            }
-          ],
-          "display_price": 1230,
-          "price": 940,
-          "name": "Adult",
-          "_id": "5a1e833db549a700121cb90a",
-          "globaltix_ticket_id": "12666",
-          "globaltix_redeem": {
-            "end": "2018-10-31T23:59:00",
-            "start": "2017-11-16T00:00:00"
-          }
-        },
-        {
-          "globaltix_cost": 425,
-          "has_availability": false,
-          "globaltix_questions": [
-            {
-              "id": 161385,
-              "question": "Please state your date of visit",
-              "type": "DATE"
-            }
-          ],
-          "display_price": 1130,
-          "price": 900,
-          "name": "Child",
-          "_id": "5a1e833db549a700121cb909",
-          "globaltix_ticket_id": "12667",
-          "globaltix_redeem": {
-            "end": "2018-10-31T23:59:00",
-            "start": "2017-11-16T00:00:00"
-          }
-        }
-      ]
     }
   ]
 }
@@ -1123,21 +1018,66 @@ From the API that get the product details, you can get multi-tier pricing from f
 
 And when you want to get a price for ticket product. We just add `quantity` field in object inside `sub_tiers` array and send it to this API as field `multi_tier_quantity` (See an example on the right hand side)
 
+### Tier Schema
+
+Parameter | Type | Description
+--------- | ---- | -----------
+tier | **String** | Tier name
+sub_tiers | **Array of sub tier** | Array of Sub tier which has schema as shown in the next table
+
+### Sub Tier Schema
+
+Parameter | Type | Description
+--------- | ---- | -----------
+price | **Number** | Price per quantity for current sub tier
+name | **String** | Sub tier name
+quantity | **Number (Max to 12)** | Quantity for this sub tier
+
 **Note**
 
 - We support only choosing single tier. So the first tier that has sub tier quantity which is not equal to 0 is consider as selected tier.
 - `quantity` in sub tier is required for every tier.
 
-### Souvenir
+## Tangible Products
 
-// Todo
+> Example body for product type `souvenir`
 
-### Response
+```json
+{
+  "quantity": 2,
+  "trip_id": "5a3782ebbec78a00117fc04b"
+}
+```
+
+> Code
+
+```shell
+curl 'https://api.staging.takemetour.com/partner/price' \
+-H 'content-type: application/json' \
+-H 'x-access-token: 4obGgRjmzYOnZLOEFfFsEycy04w9y8XQ' \
+--data-binary '{"quantity":2,"trip_id":"5a3782ebbec78a00117fc04b"}'
+```
+```javascript
+const response = await fetch('https://api.staging.takemetour.com/partner/price',
+{
+  body: JSON.stringify({
+    "quantity": 2,
+    "trip_id": "5a3782ebbec78a00117fc04b"
+  }),
+  headers: {
+    'content-type': 'application/json'
+  },
+  method: 'POST',
+});
+const data = await response.json();
+```
+
+For tangible product (like data sim). The request body is the same as `trip`.
 
 Parameter | Type | Description
 --------- | ---- | -----------
-grandTotal | **Number** | Final price to be charged to your partner account credit.
-partnerPricing | **Object** | Has sub field `retailPrice` (Original price of this product before discount) and `discount` (Discount pricing for partner)
+quantity | **Number (Max to 12)** | Quantity of tangible product to buy
+trip_id | **String** | `_id` of product
 
 # Transactions
 
@@ -1617,176 +1557,3 @@ month | **String** | Month and year you want to query the availability, format i
 
 ### Response
 The response is similar to the response of [Local Experience Trips Availability](#local-experiences-trip-calendar)
-
-# Kittens
-
-## Get All Kittens
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get()
-```
-
-```shell
-curl "http://example.com/api/kittens"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let kittens = api.kittens.get();
-```
-
-> The above command returns JSON structured like this:
-
-```json
-[
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
-]
-```
-
-This endpoint retrieves all kittens.
-
-### HTTP Request
-
-`GET http://example.com/api/kittens`
-
-### Query Parameters
-
-Parameter | Default | Description
---------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
-
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
-
-## Get a Specific Kitten
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```shell
-curl "http://example.com/api/kittens/2"
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.get(2);
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
-}
-```
-
-This endpoint retrieves a specific kitten.
-
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
-
-### HTTP Request
-
-`GET http://example.com/kittens/<ID>`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to retrieve
-
-## Delete a Specific Kitten
-
-```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.delete(2)
-```
-
-```python
-import kittn
-
-api = kittn.authorize('meowmeowmeow')
-api.kittens.delete(2)
-```
-
-```shell
-curl "http://example.com/api/kittens/2"
-  -X DELETE
-  -H "Authorization: meowmeowmeow"
-```
-
-```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.delete(2);
-```
-
-> The above command returns JSON structured like this:
-
-```json
-{
-  "id": 2,
-  "deleted" : ":("
-}
-```
-
-This endpoint deletes a specific kitten.
-
-### HTTP Request
-
-`DELETE http://example.com/kittens/<ID>`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to delete
-
