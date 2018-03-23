@@ -1,7 +1,7 @@
 ---
 title: TakeMeTour Public API
 
-language_tabs: # must be one of https://git.io/vQNgJ
+language_tabs:
   - shell
   - javascript
 
@@ -17,10 +17,6 @@ search: true
 # Introduction
 
 Welcome to the TakeMeTour Public API!
-
-You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
-
-We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
 
 # API Endpoint
 
@@ -481,7 +477,7 @@ You can get a price of product by using this API. Each type of product has a dif
 Parameter | Type | Description
 --------- | ---- | -----------
 grandTotal | **Number** | Final price to be charged to your partner account credit.
-partnerPricing | **Object** | Has sub field `retailPrice` (Original price of this product before discount) and `discount` (Discount pricing for partner)
+partnerPricing | **Object** | The object has two keys `retailPrice` (Original price of this product before discount) and `discount` (Discount pricing for partner)
 
 
 ## Local Experience Trips Pricing
@@ -580,6 +576,12 @@ const data = await response.json();
 
 Trip has a simplest pricing model. Price is calculated by using **quantity** and **trip_id** and API will do the rest about it.
 
+<pre class="center-column">
+{
+  "quantity": 2,
+  "trip_id": "550ae954009be2a14b19339e"
+}
+</pre>
 ### Child Price
 
 Some of our trip also has **child price** which define in `additional_options` field of product.
@@ -1264,6 +1266,81 @@ Parameter | Type | Description
 quantity | **Number (limit to `max_travelers`)** | Quantity of customer
 selected_options | **Array of option** | See  [child price](#child-price) for more detail
 
+### Response
+Response will return `success` to show that the booking process is success or not, and `booking_id` (a.k.a `transaction_id`).
+
+
+Parameter | Type | Description
+--------- | ---- | -----------
+success | **Boolean** | Transaction is success or not
+booking_id | **String** | Transaction unique id
+
+**Remark:** If `success` equal to `false` but still return `booking_id` please contact us.
+
+## Book attraction tickets
+
+> Request body to book product type `trip`
+
+```json
+{
+  "quantity": 1,
+  "trip_id": "550ae951009be2a14b193348",
+  "selected_options": [
+    {
+      "key": "children",
+      "currency": "THB",
+      "quantity_type": "sum_max_travelers",
+      "price": 290,
+      "type": "child_price",
+      "title": "Child (Age 2-12)",
+      "_id": "599e66640ea28b0011b3f147",
+      "lx_price": 290,
+      "is_front": false,
+      "quantity": 0,
+      "is_included_for_booking_fee": true
+    }
+  ],
+  "name": {
+    "first": "John",
+    "last": "Doe"
+  },
+  "email": "john+doe@takemetour.com",
+  "trip_date": "2018-04-17T17:00:00.000Z",
+  "mobile": "+66856667571",
+  "country": "TH",
+  "meeting_point": "BTS Station - Ari"
+}
+```
+
+> Response
+
+```json
+{
+  "success": true,
+  "booking_id": "5ab3727fedda1c0011c24823"
+}
+```
+
+For product type `trip` you must add `quantity` and also `selected_options` for the product that has `child` key in `additional_options` field of product.
+
+### Request body (add from [book](#book-product))
+
+Parameter | Type | Description
+--------- | ---- | -----------
+quantity | **Number (limit to `max_travelers`)** | Quantity of customer
+selected_options | **Array of option** | See  [child price](#child-price) for more detail
+
+### Response
+Response will return `success` to show that the booking process is success or not, and `booking_id` (a.k.a `transaction_id`).
+
+
+Parameter | Type | Description
+--------- | ---- | -----------
+success | **Boolean** | Transaction is success or not
+booking_id | **String** | Transaction unique id
+
+**Remark:** If `success` equal to `false` but still return `booking_id` please contact us.
+
 # Transactions
 
 ## Get All transactions
@@ -1749,7 +1826,251 @@ The response is similar to the response of [Local Experience Trips Availability]
 
 Country | Country Code
 --------- | ----
-Thailand | **TH**
+Afghanistan | AF
+Åland Islands | AX
+Albania | AL
+Algeria | DZ
+American Samoa | AS
+Andorra | AD
+Angola | AO
+Anguilla | AI
+Antarctica | AQ
+Antigua and Barbuda | AG
+Argentina | AR
+Armenia | AM
+Aruba | AW
+Australia | AU
+Austria | AT
+Azerbaijan | AZ
+Bahamas | BS
+Bahrain | BH
+Bangladesh | BD
+Barbados | BB
+Belarus | BY
+Belgium | BE
+Belize | BZ
+Benin | BJ
+Bermuda | BM
+Bhutan | BT
+Bolivia | BO
+Bosnia and Herzegovina | BA
+Botswana | BW
+Bouvet Island | BV
+Brazil | BR
+British Indian Ocean Territory | IO
+Brunei Darussalam | BN
+Bulgaria | BG
+Burkina Faso | BF
+Burundi | BI
+Cambodia | KH
+Cameroon | CM
+Canada | CA
+Cape Verde | CV
+Cayman Islands | KY
+Central African Republic | CF
+Chad | TD
+Chile | CL
+China | CN
+Christmas Island | CX
+Cocos (Keeling) Islands | CC
+Colombia | CO
+Comoros | KM
+Congo | CG
+Congo, Democratic Republic | CD
+Cook Islands | CK
+Costa Rica | CR
+Cote D"Ivoire | CI
+Croatia | HR
+Cuba | CU
+Cyprus | CY
+Czech Republic | CZ
+Denmark | DK
+Djibouti | DJ
+Dominica | DM
+Dominican Republic | DO
+Ecuador | EC
+Egypt | EG
+El Salvador | SV
+Equatorial Guinea | GQ
+Eritrea | ER
+Estonia | EE
+Ethiopia | ET
+Falkland Islands (Malvinas) | FK
+Faroe Islands | FO
+Fiji | FJ
+Finland | FI
+France | FR
+French Guiana | GF
+French Polynesia | PF
+French Southern Territories | TF
+Gabon | GA
+Gambia | GM
+Georgia | GE
+Germany | DE
+Ghana | GH
+Gibraltar | GI
+Greece | GR
+Greenland | GL
+Grenada | GD
+Guadeloupe | GP
+Guam | GU
+Guatemala | GT
+Guernsey | GG
+Guinea | GN
+Guinea-Bissau | GW
+Guyana | GY
+Haiti | HT
+Heard Island and Mcdonald Islands | HM
+Holy See (Vatican City State) | VA
+Honduras | HN
+Hong Kong | HK
+Hungary | HU
+Iceland | IS
+India | IN
+Indonesia | ID
+Iran | IR
+Iraq | IQ
+Ireland | IE
+Isle of Man | IM
+Israel | IL
+Italy | IT
+Jamaica | JM
+Japan | JP
+Jersey | JE
+Jordan | JO
+Kazakhstan | KZ
+Kenya | KE
+Kiribati | KI
+Korea (North) | KP
+Korea (South) | KR
+Kosovo | XK
+Kuwait | KW
+Kyrgyzstan | KG
+Laos | LA
+Latvia | LV
+Lebanon | LB
+Lesotho | LS
+Liberia | LR
+Libyan Arab Jamahiriya | LY
+Liechtenstein | LI
+Lithuania | LT
+Luxembourg | LU
+Macao | MO
+Macedonia | MK
+Madagascar | MG
+Malawi | MW
+Malaysia | MY
+Maldives | MV
+Mali | ML
+Malta | MT
+Marshall Islands | MH
+Martinique | MQ
+Mauritania | MR
+Mauritius | MU
+Mayotte | YT
+Mexico | MX
+Micronesia | FM
+Moldova | MD
+Monaco | MC
+Mongolia | MN
+Montserrat | MS
+Morocco | MA
+Mozambique | MZ
+Myanmar | MM
+Namibia | NA
+Nauru | NR
+Nepal | NP
+Netherlands | NL
+Netherlands Antilles | AN
+New Caledonia | NC
+New Zealand | NZ
+Nicaragua | NI
+Niger | NE
+Nigeria | NG
+Niue | NU
+Norfolk Island | NF
+Northern Mariana Islands | MP
+Norway | NO
+Oman | OM
+Pakistan | PK
+Palau | PW
+Palestinian Territory, Occupied | PS
+Panama | PA
+Papua New Guinea | PG
+Paraguay | PY
+Peru | PE
+Philippines | PH
+Pitcairn | PN
+Poland | PL
+Portugal | PT
+Puerto Rico | PR
+Qatar | QA
+Reunion | RE
+Romania | RO
+Russian Federation | RU
+Rwanda | RW
+Saint Helena | SH
+Saint Kitts and Nevis | KN
+Saint Lucia | LC
+Saint Pierre and Miquelon | PM
+Saint Vincent and the Grenadines | VC
+Samoa | WS
+San Marino | SM
+Sao Tome and Principe | ST
+Saudi Arabia | SA
+Senegal | SN
+Serbia | RS
+Montenegro | ME
+Seychelles | SC
+Sierra Leone | SL
+Singapore | SG
+Slovakia | SK
+Slovenia | SI
+Solomon Islands | SB
+Somalia | SO
+South Africa | ZA
+South Georgia and the South Sandwich Islands | GS
+Spain | ES
+Sri Lanka | LK
+Sudan | SD
+Suriname | SR
+Svalbard and Jan Mayen | SJ
+Swaziland | SZ
+Sweden | SE
+Switzerland | CH
+Syrian Arab Republic | SY
+Taiwan, Province of China | TW
+Tajikistan | TJ
+Tanzania | TZ
+Thailand | TH
+Timor-Leste | TL
+Togo | TG
+Tokelau | TK
+Tonga | TO
+Trinidad and Tobago | TT
+Tunisia | TN
+Turkey | TR
+Turkmenistan | TM
+Turks and Caicos Islands | TC
+Tuvalu | TV
+Uganda | UG
+Ukraine | UA
+United Arab Emirates | AE
+United Kingdom | GB
+United States | US
+United States Minor Outlying Islands | UM
+Uruguay | UY
+Uzbekistan | UZ
+Vanuatu | VU
+Venezuela | VE
+Viet Nam | VN
+Virgin Islands, British | VG
+Virgin Islands, U.S. | VI
+Wallis and Futuna | WF
+Western Sahara | EH
+Yemen | YE
+Zambia | ZM
+Zimbabwe | ZW
 
 ## Meeting point
 
