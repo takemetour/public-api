@@ -224,6 +224,14 @@
           </li>
           <li>
             <a href="#api-endpoint" class="toc-h1 toc-link" data-title="api-endpoint">API Endpoint</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#development-and-production-endpoint" class="toc-h2 toc-link" data-title="development-and-production-endpoint">Development and Production Endpoint</a>
+                  </li>
+                  <li>
+                    <a href="#endpoint-list" class="toc-h2 toc-link" data-title="endpoint-list">Endpoint list</a>
+                  </li>
+              </ul>
           </li>
           <li>
             <a href="#authentication" class="toc-h1 toc-link" data-title="authentication">Authentication</a>
@@ -252,13 +260,13 @@
                     <a href="#get-product-price" class="toc-h2 toc-link" data-title="get-product-price">Get Product Price</a>
                   </li>
                   <li>
-                    <a href="#local-experience-trips-pricing" class="toc-h2 toc-link" data-title="local-experience-trips-pricing">Local Experience Trips Pricing</a>
+                    <a href="#local-experience-trips-pricing-trip" class="toc-h2 toc-link" data-title="local-experience-trips-pricing-code-trip-code">Local Experience Trips Pricing (<code>trip</code>)</a>
                   </li>
                   <li>
-                    <a href="#attraction-tickets" class="toc-h2 toc-link" data-title="attraction-tickets">Attraction Tickets</a>
+                    <a href="#attraction-tickets-pricing-ticket" class="toc-h2 toc-link" data-title="attraction-tickets-pricing-code-ticket-code">Attraction Tickets Pricing (<code>ticket</code>)</a>
                   </li>
                   <li>
-                    <a href="#tangible-products" class="toc-h2 toc-link" data-title="tangible-products">Tangible Products</a>
+                    <a href="#tangible-products-pricing-souvenir" class="toc-h2 toc-link" data-title="tangible-products-pricing-code-souvenir-code">Tangible Products Pricing (<code>souvenir</code>)</a>
                   </li>
               </ul>
           </li>
@@ -266,13 +274,16 @@
             <a href="#book" class="toc-h1 toc-link" data-title="book">Book</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#book-product" class="toc-h2 toc-link" data-title="book-product">Book product</a>
+                    <a href="#book-product" class="toc-h2 toc-link" data-title="book-product">Book Product</a>
                   </li>
                   <li>
-                    <a href="#book-local-experience-trip" class="toc-h2 toc-link" data-title="book-local-experience-trip">Book local experience trip</a>
+                    <a href="#book-local-experience-trips" class="toc-h2 toc-link" data-title="book-local-experience-trips">Book Local Experience Trips</a>
                   </li>
                   <li>
-                    <a href="#book-attraction-tickets" class="toc-h2 toc-link" data-title="book-attraction-tickets">Book attraction tickets</a>
+                    <a href="#book-attraction-tickets" class="toc-h2 toc-link" data-title="book-attraction-tickets">Book Attraction Tickets</a>
+                  </li>
+                  <li>
+                    <a href="#book-tangible-products" class="toc-h2 toc-link" data-title="book-tangible-products">Book Tangible Products</a>
                   </li>
               </ul>
           </li>
@@ -280,7 +291,7 @@
             <a href="#transactions" class="toc-h1 toc-link" data-title="transactions">Transactions</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#get-all-transactions" class="toc-h2 toc-link" data-title="get-all-transactions">Get All transactions</a>
+                    <a href="#get-all-transactions" class="toc-h2 toc-link" data-title="get-all-transactions">Get All Transactions</a>
                   </li>
                   <li>
                     <a href="#transaction-detail" class="toc-h2 toc-link" data-title="transaction-detail">Transaction Detail</a>
@@ -308,6 +319,9 @@
                     <a href="#country-code" class="toc-h2 toc-link" data-title="country-code">Country Code</a>
                   </li>
                   <li>
+                    <a href="#product-tags" class="toc-h2 toc-link" data-title="product-tags">Product tags</a>
+                  </li>
+                  <li>
                     <a href="#meeting-point" class="toc-h2 toc-link" data-title="meeting-point">Meeting point</a>
                   </li>
               </ul>
@@ -324,8 +338,10 @@
       <div class="dark-box"></div>
       <div class="content">
         <h1 id='introduction'>Introduction</h1>
-<p>Welcome to the TakeMeTour Public API!</p>
-<h1 id='api-endpoint'>API Endpoint</h1>
+<p>Welcome to the TakeMeTour Public API documentation!</p>
+
+<p>This API documentation created by <a href="https://github.com/lord/slate">Slate</a>. If you have any question or issue. Just create issue at <a href="https://github.com/takemetour/public-api">GitHub</a></p>
+<h1 id='api-endpoint'>API Endpoint</h1><h2 id='development-and-production-endpoint'>Development and Production Endpoint</h2>
 <p>We provide two API endpoints for using in seperate environment.</p>
 
 <p>If you are in development (or experimenting) using development endpoint.</p>
@@ -343,6 +359,70 @@
 <tr>
 <td>Production</td>
 <td><a href="https://api.takemetour.com/partner">https://api.takemetour.com/partner</a></td>
+</tr>
+</tbody></table>
+<h2 id='endpoint-list'>Endpoint list</h2>
+<table><thead>
+<tr>
+<th>Path</th>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>/auth/login</td>
+<td>POST</td>
+<td><a href="#login">Login partner account</a></td>
+</tr>
+<tr>
+<td>/auth/logout</td>
+<td>DELETE</td>
+<td><a href="#logout">Logout partner account</a></td>
+</tr>
+<tr>
+<td>/auth/me</td>
+<td>GET</td>
+<td><a href="#user-info">Get partner account info</a></td>
+</tr>
+<tr>
+<td>/products</td>
+<td>GET</td>
+<td><a href="#get-all-products">Get All Products</a></td>
+</tr>
+<tr>
+<td>/products/:slug</td>
+<td>GET</td>
+<td><a href="#get-product-detail">Get Product Detail</a></td>
+</tr>
+<tr>
+<td>/products/price</td>
+<td>POST</td>
+<td><a href="#get-product-price">Get Product Price</a></td>
+</tr>
+<tr>
+<td>/calendar</td>
+<td>GET</td>
+<td><a href="#availability">Get Product availability</a></td>
+</tr>
+<tr>
+<td>/book</td>
+<td>POST</td>
+<td><a href="#book-product">Book product (a.k.a. create transaction)</a></td>
+</tr>
+<tr>
+<td>/transactions</td>
+<td>GET</td>
+<td><a href="#get-all-transactions">Get All Transactions</a></td>
+</tr>
+<tr>
+<td>/transactions/:id</td>
+<td>GET</td>
+<td><a href="#transaction-detail">Get Transaction detail</a></td>
+</tr>
+<tr>
+<td>/transactions/:id/voucher</td>
+<td>GET</td>
+<td><a href="#voucher">Get Transaction voucher</a></td>
 </tr>
 </tbody></table>
 <h1 id='authentication'>Authentication</h1><h2 id='login'>Login</h2>
@@ -781,7 +861,11 @@
             </span><span class="s2">"is_included_for_booking_fee"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">],</span><span class="w">
-    </span><span class="s2">"product_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"trip"</span><span class="w">
+    </span><span class="s2">"product_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"trip"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"tags"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="s2">"tour_lx"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"en_boating"</span><span class="w">
+  </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <blockquote>
@@ -887,6 +971,11 @@
 <td><strong>Array of Object</strong></td>
 <td>FAQs for products</td>
 </tr>
+<tr>
+<td>tags</td>
+<td><strong>Array of String</strong></td>
+<td>Tags of product. See <a href="#tag">appendix</a> for more detail on which tag you need to consider.</td>
+</tr>
 </tbody></table>
 <h2 id='get-product-price'>Get Product Price</h2>
 <blockquote>
@@ -922,7 +1011,7 @@
 <td>The object has two keys <code>retailPrice</code> (Original price of this product before discount) and <code>discount</code> (Discount pricing for partner)</td>
 </tr>
 </tbody></table>
-<h2 id='local-experience-trips-pricing'>Local Experience Trips Pricing</h2>
+<h2 id='local-experience-trips-pricing-trip'>Local Experience Trips Pricing (<code>trip</code>)</h2>
 <blockquote>
 <p>Example body for product type <code>trip</code> without child price</p>
 </blockquote>
@@ -1032,30 +1121,6 @@
       "key": "children",
       "quantity": 0,
       "is_included_for_booking_fee": true
-    },
-    {
-      "lx_price": 0,
-      "key": "hotel",
-      "currency": "THB",
-      "quantity_type": "boolean",
-      "price": 500,
-      "type": "book.checkbox",
-      "title": "Hotel Pickup",
-      "_id": "59db3d06909883001003d38e",
-      "quantity": 0,
-      "is_included_for_booking_fee": true
-    },
-    {
-      "_id": "59ddc4538463e751d6455d7a",
-      "lx_price": 0,
-      "key": "dtac_sim",
-      "currency": "THB",
-      "quantity_type": "boolean",
-      "price": 199,
-      "type": "book.checkbox",
-      "title": "DTAC Tourist Sim",
-      "quantity": 0,
-      "is_included_for_booking_fee": false
     }
   ]
 }
@@ -1090,7 +1155,7 @@
 <td>Array of selected option which has <code>quantity</code> to specify quantity</td>
 </tr>
 </tbody></table>
-<h2 id='attraction-tickets'>Attraction Tickets</h2>
+<h2 id='attraction-tickets-pricing-ticket'>Attraction Tickets Pricing (<code>ticket</code>)</h2>
 <blockquote>
 <p>Example Body for product type <code>ticket</code></p>
 </blockquote>
@@ -1639,7 +1704,7 @@
 <li>We support only choosing single tier. So the first tier that has sub tier quantity which is not equal to 0 is consider as selected tier.</li>
 <li><code>quantity</code> in sub tier is required for every tier.</li>
 </ul>
-<h2 id='tangible-products'>Tangible Products</h2>
+<h2 id='tangible-products-pricing-souvenir'>Tangible Products Pricing (<code>souvenir</code>)</h2>
 <blockquote>
 <p>Example body for product type <code>souvenir</code></p>
 </blockquote>
@@ -1688,10 +1753,26 @@
 <td><code>_id</code> of product</td>
 </tr>
 </tbody></table>
-<h1 id='book'>Book</h1><h2 id='book-product'>Book product</h2>
+<h1 id='book'>Book</h1><h2 id='book-product'>Book Product</h2>
+<blockquote>
+<p>Required Request body for any product type</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"first"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"last"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Doe"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john+doe@takemetour.com"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+66856667571"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TH"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"trip_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"550ae951009be2a14b193348"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"trip_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-17T17:00:00.000Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"meeting_point"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTS Station - Ari"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 <p><strong>HTTP Request:</strong> <code>POST /book</code></p>
 
-<p>To book our product (or in another term is create transaction). There is required field for <strong>any product type</strong> as shown below.</p>
+<p>To book our product (a.k.a. create transaction). <strong>There is required field for any product type</strong> as shown below.</p>
 
 <table><thead>
 <tr>
@@ -1727,26 +1808,38 @@
 </tr>
 <tr>
 <td>trip_date</td>
-<td><strong>Date String</strong></td>
-<td>Date to book the product (in case of product type <code>souvenir</code> this field is use as &quot;delivery date&quot; if it is required date)</td>
+<td><strong>ISODate string (GMT +07:00)</strong></td>
+<td>Date to book the product (in case of product type <code>souvenir</code> this field is use as &quot;delivery date&quot; if the product is required date) in</td>
 </tr>
 <tr>
 <td>meeting_point</td>
 <td><strong>String</strong></td>
-<td>Meeting point for customer (See <a href="#meeting-point">appendix</a> / Required if <code>is_hide_meeting_point</code> is <code>false</code> for this product)</td>
+<td>Meeting point for customer (See <a href="#meeting-point">appendix</a> / Required if product has <code>is_hide_meeting_point</code> value as <code>false</code>)</td>
 </tr>
 </tbody></table>
 
-<p><strong>Note</strong>
-- Our API now only support payment method by using partner credit to your account.
-- Make sure that your credit is sufficient for each transaction. (Checking <code>grandTotal</code> from <a href="#get-product-price">Get Product Price</a> and your <code>partner_credit</code> from <a href="#user-info">User info</a>)</p>
-<h2 id='book-local-experience-trip'>Book local experience trip</h2>
+<p><strong>Note</strong></p>
+
+<ul>
+<li>Our API now only support payment method by using partner credit to your account.</li>
+<li>Make sure that your credit is sufficient for each transaction. (Checking <code>grandTotal</code> from <a href="#get-product-price">Get Product Price</a> and your <code>partner_credit</code> from <a href="#user-info">User info</a>)</li>
+</ul>
+<h2 id='book-local-experience-trips'>Book Local Experience Trips</h2>
 <blockquote>
 <p>Request body to book product type <code>trip</code></p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"first"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"last"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Doe"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john+doe@takemetour.com"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+66856667571"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TH"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"trip_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"550ae951009be2a14b193348"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"trip_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-17T17:00:00.000Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"meeting_point"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTS Station - Ari"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
   </span><span class="s2">"selected_options"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="s2">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"children"</span><span class="p">,</span><span class="w">
@@ -1762,15 +1855,6 @@
       </span><span class="s2">"is_included_for_booking_fee"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">],</span><span class="w">
-  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"first"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"last"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Doe"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john+doe@takemetour.com"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"trip_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-17T17:00:00.000Z"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+66856667571"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TH"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"meeting_point"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTS Station - Ari"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <blockquote>
@@ -1802,7 +1886,7 @@
 </tr>
 </tbody></table>
 <h3 id='response-7'>Response</h3>
-<p>Response will return <code>success</code> to show that the booking process is success or not, and <code>booking_id</code> (a.k.a <code>transaction_id</code>).</p>
+<p>Response will return <code>success</code> to show that the booking process is success or not, and <code>transaction_id</code>.</p>
 
 <table><thead>
 <tr>
@@ -1817,14 +1901,19 @@
 <td>Transaction is success or not</td>
 </tr>
 <tr>
-<td>booking_id</td>
+<td>transaction_id</td>
 <td><strong>String</strong></td>
 <td>Transaction unique id</td>
 </tr>
+<tr>
+<td>message</td>
+<td><strong>String</strong></td>
+<td>If transaction is not success. Message will provide</td>
+</tr>
 </tbody></table>
 
-<p><strong>Remark:</strong> If <code>success</code> equal to <code>false</code> but still return <code>booking_id</code> please contact us.</p>
-<h2 id='book-attraction-tickets'>Book attraction tickets</h2>
+<p><strong>Remark:</strong> If <code>success</code> equal to <code>false</code> but still return <code>transaction_id</code> please contact us.</p>
+<h2 id='book-attraction-tickets'>Book Attraction Tickets</h2>
 <blockquote>
 <p>Request body to book product type <code>ticket</code></p>
 </blockquote>
@@ -2037,7 +2126,7 @@
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"booking_id"</span><span class="p">:</span><span class="w"> </span><span class="err">TransactionId</span><span class="w">
+  </span><span class="s2">"transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="err">TransactionId</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>For attraction tickets, specify <code>multi_tier_quantity</code> with the same structure as <a href="#attraction-tickets">get attraction tickets</a>.</p>
@@ -2402,7 +2491,7 @@
 </tr>
 </tbody></table>
 <h3 id='response-8'>Response</h3>
-<p>Response will return <code>success</code> to show that the booking process is success or not, and <code>booking_id</code> (a.k.a <code>transaction_id</code>).</p>
+<p>Response will return <code>success</code> to show that the booking process is success or not, and <code>transaction_id</code>.</p>
 
 <table><thead>
 <tr>
@@ -2417,7 +2506,7 @@
 <td>Transaction is success or not</td>
 </tr>
 <tr>
-<td>booking_id</td>
+<td>transaction_id</td>
 <td><strong>String</strong></td>
 <td>Transaction unique id</td>
 </tr>
@@ -2428,8 +2517,114 @@
 </tr>
 </tbody></table>
 
-<p><strong>Remark:</strong> If <code>success</code> equal to <code>false</code> but still return <code>booking_id</code> please contact us.</p>
-<h1 id='transactions'>Transactions</h1><h2 id='get-all-transactions'>Get All transactions</h2>
+<p><strong>Remark:</strong> If <code>success</code> equal to <code>false</code> but still return <code>transaction_id</code> please contact us.</p>
+<h2 id='book-tangible-products'>Book Tangible Products</h2>
+<blockquote>
+<p>Request body to book product type <code>souvenir</code></p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"trip_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5a39ee73fdeeab0012005d50"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"first"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"last"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Doe"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john+doe@takemetour.com"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"trip_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-30T17:00:00.000Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+66856667571"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TH"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>For tangible product, <code>quantity</code> must be provided. And it also has some condition which you need some field to add for.</p>
+
+<ul>
+<li>If product doesn&#39;t contain tag <code>not_require_pickup_location</code>. You must provide delivery location which is the customer&#39;s hotel (for now we will deliver the product to the customer&#39;s hotel) in the format <strong>Hotel name: {hotelName}, room: {hotelRoom}</strong> to the <code>meeting_point</code> field.</li>
+</ul>
+
+<pre class="center-column">
+{
+  "quantity": 1,
+  "trip_id": "5a39ee73fdeeab0012005d50",
+  "name": {
+    "first": "John",
+    "last": "Doe"
+  },
+  "email": "john+doe@takemetour.com",
+  "trip_date": "2018-03-30T17:00:00.000Z",
+  "mobile": "+66856667571",
+  "country": "TH",
+  "meeting_point": "Hotel name: Dusti Thani, room: 404"
+}
+</pre>
+
+<ul>
+<li><p>If product contain tag <code>not_require_pickup_location</code>. Delivery location doesn&#39;t need. <code>meeting_point</code> field can be omit</p></li>
+<li><p>If product contain tag <code>match_passport_name</code>. You must specific name title (Mr. / Mrs. / Miss) alongside with <code>name.first</code> in request body object.</p></li>
+</ul>
+
+<pre class="center-column">
+{
+  "quantity": 1,
+  "trip_id": "5a39ee73fdeeab0012005d50",
+  "name": {
+    "first": "Mr.John",
+    "last": "Doe"
+  },
+  "email": "john+doe@takemetour.com",
+  "trip_date": "2018-03-30T17:00:00.000Z",
+  "mobile": "+66856667571",
+  "country": "TH",
+  "meeting_point": "Hotel name: Dusti Thani, room: 404"
+}
+</pre>
+<h3 id='request-body-add-from-book-3'>Request body (add from <a href="#book-product">book</a>)</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>quantity</td>
+<td><strong>Number (max to 12)</strong></td>
+<td>Quantity of product to be buy</td>
+</tr>
+<tr>
+<td>meeting_point</td>
+<td><strong>String</strong></td>
+<td>If product <code>tags</code> doesn&#39;t contains <code>not_require_pickup_location</code> meeting_point is delivery address (hotel only).</td>
+</tr>
+</tbody></table>
+<h3 id='response-9'>Response</h3>
+<p>Response will return <code>success</code> to show that the booking process is success or not, and <code>transaction_id</code>.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>success</td>
+<td><strong>Boolean</strong></td>
+<td>Transaction is success or not</td>
+</tr>
+<tr>
+<td>transaction_id</td>
+<td><strong>String</strong></td>
+<td>Transaction unique id</td>
+</tr>
+<tr>
+<td>message</td>
+<td><strong>String</strong></td>
+<td>If transaction is not success. Message will provide</td>
+</tr>
+</tbody></table>
+
+<p><strong>Remark:</strong> If <code>success</code> equal to <code>false</code> but still return <code>transaction_id</code> please contact us.</p>
+<h1 id='transactions'>Transactions</h1><h2 id='get-all-transactions'>Get All Transactions</h2>
 <blockquote>
 <p>Code</p>
 </blockquote>
@@ -2515,7 +2710,7 @@
 </span><span class="p">}]</span><span class="w">
 </span></code></pre>
 <p><strong>HTTP Request:</strong> <code>GET /transactions</code></p>
-<h3 id='response-9'>Response</h3>
+<h3 id='response-10'>Response</h3>
 <p>The response will return an Array of Objects. For each object will have these parameters</p>
 
 <table><thead>
@@ -2750,7 +2945,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p><strong>HTTP Request:</strong> <code>GET /transactions/:id</code></p>
-<h3 id='response-10'>Response</h3>
+<h3 id='response-11'>Response</h3>
 <p>The response will return transaction object</p>
 
 <table><thead>
@@ -2878,7 +3073,7 @@
 <span class="nx">saveAs</span><span class="p">(</span><span class="nx">blob</span><span class="p">,</span> <span class="s1">'voucher.pdf'</span><span class="p">);</span>
 </code></pre>
 <p><strong>HTTP Request:</strong> <code>GET /transactions/:id/voucher</code></p>
-<h3 id='response-11'>Response</h3>
+<h3 id='response-12'>Response</h3>
 <p>The response will be PDF file <strong>(please make sure you pass access token in header or cookie)</strong></p>
 
 <p>Example of voucher <a href="https://github.com/takemetour/public-api/blob/master/material/booking-voucher.pdf">PDF Voucher</a>
@@ -2976,7 +3171,7 @@
 <td>Month and year you want to query the availability, format is full name month with a space then year in AD. <strong>eg.</strong> <code>August 2018</code></td>
 </tr>
 </tbody></table>
-<h3 id='response-12'>Response</h3>
+<h3 id='response-13'>Response</h3>
 <p>The response will return an availability of days in that month in Array of Objects. Each object indicate availability status on that day.</p>
 
 <p><strong>Note 1:</strong> The nearest date that available to order / book is <strong>today</strong> in Thailand time (GMT+7). Some products need to be ordered / booked in advance, it may not available for <strong>today</strong> or <strong>tomorrow</strong>.</p>
@@ -3053,7 +3248,7 @@
 <td>Month and year you want to query the availability, format is full name month with a space then year in AD. <strong>eg.</strong> <code>August 2018</code></td>
 </tr>
 </tbody></table>
-<h3 id='response-13'>Response</h3>
+<h3 id='response-14'>Response</h3>
 <p>The response is similar to the response of <a href="#local-experiences-trip-calendar">Local Experience Trips Availability</a></p>
 <h1 id='appendix'>Appendix</h1><h2 id='country-code'>Country Code</h2>
 <table><thead>
@@ -4041,6 +4236,27 @@
 <tr>
 <td>Zimbabwe</td>
 <td>ZW</td>
+</tr>
+</tbody></table>
+<h2 id='product-tags'>Product tags</h2>
+<p>Tags mostly use for <code>souvenir</code> product to identify some properties of the product. Some tags is use for display only but some has to do with <a href="#book">book product API</a>. And here it is the list of tag that you should be considered about.</p>
+
+<table><thead>
+<tr>
+<th>Tag</th>
+<th>Meaning</th>
+<th>Use case</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>match_passport_name</td>
+<td>Customer information when booked must match with customer&#39;s passport detail. Also the name title for customer (which by default you don&#39;t need customer name title to book our product)</td>
+<td>For DTAC SIM product (which is <code>souvenir</code> type). Customer detail must match to passport detail. And when to book the product, customer name title must be provide with the first name of the customer. (Ex. Mr.John)</td>
+</tr>
+<tr>
+<td>not_require_pickup_location</td>
+<td>Product doesn&#39;t need pickup (or delivery) location. So the <code>meeting_point</code> field when <a href="#">book souvenir product</a> can be omit</td>
+<td>DTAC SIM can be pickup at the airport. So it doesn&#39;t required pickup (or delivery) location</td>
 </tr>
 </tbody></table>
 <h2 id='meeting-point'>Meeting point</h2>
