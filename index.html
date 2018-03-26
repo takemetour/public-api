@@ -251,10 +251,21 @@
             <a href="#products" class="toc-h1 toc-link" data-title="products">Products</a>
               <ul class="toc-list-h2">
                   <li>
+                    <a href="#all-request-pass" class="toc-h2 toc-link" data-title="all-request-pass">ALL REQUEST PASS</a>
+                  </li>
+                  <li>
                     <a href="#get-all-products" class="toc-h2 toc-link" data-title="get-all-products">Get All Products</a>
                   </li>
                   <li>
                     <a href="#get-product-detail" class="toc-h2 toc-link" data-title="get-product-detail">Get Product detail</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#price" class="toc-h1 toc-link" data-title="price">Price</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#request-example-pass" class="toc-h2 toc-link" data-title="request-example-pass">REQUEST EXAMPLE PASS</a>
                   </li>
                   <li>
                     <a href="#get-product-price" class="toc-h2 toc-link" data-title="get-product-price">Get Product Price</a>
@@ -271,8 +282,28 @@
               </ul>
           </li>
           <li>
+            <a href="#availability" class="toc-h1 toc-link" data-title="availability">Availability</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#request-is-pass" class="toc-h2 toc-link" data-title="request-is-pass">Request is pass</a>
+                  </li>
+                  <li>
+                    <a href="#local-experiences-trip-calendar" class="toc-h2 toc-link" data-title="local-experiences-trip-calendar">Local Experiences Trip Calendar</a>
+                  </li>
+                  <li>
+                    <a href="#attraction-tickets-calendar" class="toc-h2 toc-link" data-title="attraction-tickets-calendar">Attraction Tickets Calendar</a>
+                  </li>
+                  <li>
+                    <a href="#tangible-product-calendar" class="toc-h2 toc-link" data-title="tangible-product-calendar">Tangible Product Calendar</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#book" class="toc-h1 toc-link" data-title="book">Book</a>
               <ul class="toc-list-h2">
+                  <li>
+                    <a href="#request-pass" class="toc-h2 toc-link" data-title="request-pass">Request PASS</a>
+                  </li>
                   <li>
                     <a href="#book-product" class="toc-h2 toc-link" data-title="book-product">Book Product</a>
                   </li>
@@ -302,32 +333,18 @@
               </ul>
           </li>
           <li>
-            <a href="#availability" class="toc-h1 toc-link" data-title="availability">Availability</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#local-experiences-trip-calendar" class="toc-h2 toc-link" data-title="local-experiences-trip-calendar">Local Experiences Trip Calendar</a>
-                  </li>
-                  <li>
-                    <a href="#attraction-tickets-calendar" class="toc-h2 toc-link" data-title="attraction-tickets-calendar">Attraction Tickets Calendar</a>
-                  </li>
-              </ul>
-          </li>
-          <li>
             <a href="#appendix" class="toc-h1 toc-link" data-title="appendix">Appendix</a>
               <ul class="toc-list-h2">
                   <li>
                     <a href="#country-code" class="toc-h2 toc-link" data-title="country-code">Country Code</a>
                   </li>
                   <li>
-                    <a href="#product-tags" class="toc-h2 toc-link" data-title="product-tags">Product tags</a>
+                    <a href="#product-tags" class="toc-h2 toc-link" data-title="product-tags">Product Tags</a>
                   </li>
                   <li>
-                    <a href="#meeting-point" class="toc-h2 toc-link" data-title="meeting-point">Meeting point</a>
+                    <a href="#meeting-points" class="toc-h2 toc-link" data-title="meeting-points">Meeting Points</a>
                   </li>
               </ul>
-          </li>
-          <li>
-            <a href="#errors" class="toc-h1 toc-link" data-title="errors">Errors</a>
           </li>
       </div>
         <ul class="toc-footer">
@@ -603,7 +620,7 @@
 <td>object of user&#39;s info</td>
 </tr>
 </tbody></table>
-<h1 id='products'>Products</h1><h2 id='get-all-products'>Get All Products</h2>
+<h1 id='products'>Products</h1><h3 id='all-request-pass'>ALL REQUEST PASS</h3><h2 id='get-all-products'>Get All Products</h2>
 <blockquote>
 <p>Example Response</p>
 </blockquote>
@@ -617,12 +634,12 @@
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.staging.takemetour.com/partner/products?city=Bangkok&amp;skip=0&amp;limit=10'</span> <span class="se">\</span>
 -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
--H <span class="s1">'x-access-token: 4obGgRjmzYOnZLOEFfFsEycy04w9y8XQ'</span>
+-H <span class="s1">'x-access-token: 0TKOeCA5sLimUiGYcIdWOb9NoiYEgJJ3'</span>
 </code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api.staging.takemetour.com/partner/products?skip=0&amp;limit=10'</span><span class="p">,</span>
 <span class="p">{</span>
   <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
     <span class="s1">'content-type'</span><span class="p">:</span> <span class="s1">'application/json'</span><span class="p">,</span>
-    <span class="s1">'x-access-token'</span><span class="p">:</span> <span class="s1">'4obGgRjmzYOnZLOEFfFsEycy04w9y8XQ'</span>
+    <span class="s1">'x-access-token'</span><span class="p">:</span> <span class="s1">'0TKOeCA5sLimUiGYcIdWOb9NoiYEgJJ3'</span>
   <span class="p">},</span>
   <span class="na">method</span><span class="p">:</span> <span class="s1">'GET'</span><span class="p">,</span>
 <span class="p">});</span>
@@ -633,12 +650,12 @@
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.staging.takemetour.com/partner/products?city=Bangkok&amp;product_type=trip'</span> <span class="se">\</span>
 -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
--H <span class="s1">'x-access-token: 4obGgRjmzYOnZLOEFfFsEycy04w9y8XQ'</span>
+-H <span class="s1">'x-access-token: 0TKOeCA5sLimUiGYcIdWOb9NoiYEgJJ3'</span>
 </code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api.staging.takemetour.com/partner/products?product_type=trip'</span><span class="p">,</span>
 <span class="p">{</span>
   <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
     <span class="s1">'content-type'</span><span class="p">:</span> <span class="s1">'application/json'</span><span class="p">,</span>
-    <span class="s1">'x-access-token'</span><span class="p">:</span> <span class="s1">'4obGgRjmzYOnZLOEFfFsEycy04w9y8XQ'</span>
+    <span class="s1">'x-access-token'</span><span class="p">:</span> <span class="s1">'0TKOeCA5sLimUiGYcIdWOb9NoiYEgJJ3'</span>
   <span class="p">},</span>
   <span class="na">method</span><span class="p">:</span> <span class="s1">'GET'</span><span class="p">,</span>
 <span class="p">});</span>
@@ -679,7 +696,7 @@
 <td>Limit response results</td>
 </tr>
 </tbody></table>
-<h3 id='response-4'>Response</h3>
+<h3 id='response'>Response</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -871,15 +888,14 @@
 <blockquote>
 <p>Code</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.staging.takemetour.com/partner/products/550ae951009be2a14b193348'</span> <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.staging.takemetour.com/partner/products/explore-local-communities-of-baan-batr-baan-nang-lerng'</span> <span class="se">\</span>
 -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
--H <span class="s1">'x-access-token: 4obGgRjmzYOnZLOEFfFsEycy04w9y8XQ'</span>
--X GET
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api.staging.takemetour.com/partner/products/550ae951009be2a14b193348'</span><span class="p">,</span>
+-H <span class="s1">'x-access-token: 0TKOeCA5sLimUiGYcIdWOb9NoiYEgJJ3'</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api.staging.takemetour.com/partner/products/explore-local-communities-of-baan-batr-baan-nang-lerng'</span><span class="p">,</span>
 <span class="p">{</span>
   <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
     <span class="s1">'content-type'</span><span class="p">:</span> <span class="s1">'application/json'</span><span class="p">,</span>
-    <span class="s1">'x-access-token'</span><span class="p">:</span> <span class="s1">'4obGgRjmzYOnZLOEFfFsEycy04w9y8XQ'</span>
+    <span class="s1">'x-access-token'</span><span class="p">:</span> <span class="s1">'0TKOeCA5sLimUiGYcIdWOb9NoiYEgJJ3'</span>
   <span class="p">},</span>
   <span class="na">method</span><span class="p">:</span> <span class="s1">'GET'</span><span class="p">,</span>
 <span class="p">});</span>
@@ -896,7 +912,7 @@
 </ul>
 
 <p>For this endpoint. You can identify product type via field <code>product_type</code> which can be <code>trip</code> / <code>ticket</code> / <code>souvenir</code>.</p>
-<h3 id='response-5'>Response</h3>
+<h3 id='response-2'>Response</h3>
 <p>Response will be <code>Product</code> object.</p>
 
 <table><thead>
@@ -977,7 +993,7 @@
 <td>Tags of product. See <a href="#tag">appendix</a> for more detail on which tag you need to consider.</td>
 </tr>
 </tbody></table>
-<h2 id='get-product-price'>Get Product Price</h2>
+<h1 id='price'>Price</h1><h3 id='request-example-pass'>REQUEST EXAMPLE PASS</h3><h2 id='get-product-price'>Get Product Price</h2>
 <blockquote>
 <p>Example Response</p>
 </blockquote>
@@ -992,7 +1008,7 @@
 <p><strong>HTTP Request:</strong> <code>POST /products/price</code></p>
 
 <p>You can get a price of product by using this API. Each type of product has a diffrent request body due to different of pricing model. But has the same response body</p>
-<h3 id='response-6'>Response</h3>
+<h3 id='response'>Response</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1013,7 +1029,7 @@
 </tbody></table>
 <h2 id='local-experience-trips-pricing-trip'>Local Experience Trips Pricing (<code>trip</code>)</h2>
 <blockquote>
-<p>Example body for product type <code>trip</code> without child price</p>
+<p>Example request body for product type <code>trip</code> without child price</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
@@ -1023,25 +1039,26 @@
 <blockquote>
 <p>Fetching price for trip without child price</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.staging.takemetour.com/partner/price'</span> <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.staging.takemetour.com/partner/products/price'</span> <span class="se">\</span>
 -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
--H <span class="s1">'x-access-token: 4obGgRjmzYOnZLOEFfFsEycy04w9y8XQ'</span> <span class="se">\</span>
+-H <span class="s1">'x-access-token: 0TKOeCA5sLimUiGYcIdWOb9NoiYEgJJ3'</span> <span class="se">\</span>
 --data-binary <span class="s1">'{"quantity":2,"trip_id":"550ae954009be2a14b19339e"}'</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api.staging.takemetour.com/partner/price'</span><span class="p">,</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api.staging.takemetour.com/partner/products/price'</span><span class="p">,</span>
 <span class="p">{</span>
   <span class="na">body</span><span class="p">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
     <span class="s2">"quantity"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
     <span class="s2">"trip_id"</span><span class="p">:</span> <span class="s2">"550ae954009be2a14b19339e"</span>
   <span class="p">}),</span>
   <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
-    <span class="s1">'content-type'</span><span class="p">:</span> <span class="s1">'application/json'</span>
+    <span class="s1">'content-type'</span><span class="p">:</span> <span class="s1">'application/json'</span><span class="p">,</span>
+    <span class="s1">'x-access-token'</span><span class="p">:</span> <span class="s1">'0TKOeCA5sLimUiGYcIdWOb9NoiYEgJJ3'</span>
   <span class="p">},</span>
   <span class="na">method</span><span class="p">:</span> <span class="s1">'POST'</span><span class="p">,</span>
 <span class="p">});</span>
 <span class="kr">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
 </code></pre>
 <blockquote>
-<p>Fetching price for trip with child price</p>
+<p>Example request body for product type <code>trip</code> with child price</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
@@ -1063,13 +1080,13 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <blockquote>
-<p>Fetching price for trip</p>
+<p>Fetching price for trip with child price</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.staging.takemetour.com/partner/price'</span> <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.staging.takemetour.com/partner/products/price'</span> <span class="se">\</span>
 -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
--H <span class="s1">'x-access-token: 4obGgRjmzYOnZLOEFfFsEycy04w9y8XQ'</span> <span class="se">\</span>
+-H <span class="s1">'x-access-token: 0TKOeCA5sLimUiGYcIdWOb9NoiYEgJJ3'</span> <span class="se">\</span>
 --data-binary <span class="s1">'{"quantity":2,"trip_id":"550ae954009be2a14b19339e","selected_options":[{"lx_price":290,"_id":"599e66640ea28b0011b3f147","title":"Child (Age 2-12)","type":"child_price","price":290,"quantity_type":"sum_max_travelers","currency":"THB","key":"children","quantity":1,"is_included_for_booking_fee":true}]}'</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api.staging.takemetour.com/partner/price'</span><span class="p">,</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api.staging.takemetour.com/partner/products/price'</span><span class="p">,</span>
 <span class="p">{</span>
   <span class="na">body</span><span class="p">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
     <span class="s2">"quantity"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
@@ -1090,7 +1107,8 @@
     <span class="p">]</span>
   <span class="p">}),</span>
   <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
-    <span class="s1">'content-type'</span><span class="p">:</span> <span class="s1">'application/json'</span>
+    <span class="s1">'content-type'</span><span class="p">:</span> <span class="s1">'application/json'</span><span class="p">,</span>
+    <span class="s1">'x-access-token'</span><span class="p">:</span> <span class="s1">'0TKOeCA5sLimUiGYcIdWOb9NoiYEgJJ3'</span>
   <span class="p">},</span>
   <span class="na">method</span><span class="p">:</span> <span class="s1">'POST'</span><span class="p">,</span>
 <span class="p">});</span>
@@ -1131,7 +1149,7 @@
 <p>To get a price for a trip that has child price. You must attach <code>selected_options</code> alongside with other request body (See an example at the right panel)</p>
 
 <p><strong>Note:</strong> Child quantity + Quantity must not exceed <code>max_travelers</code> (e.g. if trip has max_travelers = 5 and quantity is 3, child quantity can not exceed 2)</p>
-<h3 id='request-body-2'>Request body</h3>
+<h3 id='request-body'>Request body</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1356,199 +1374,195 @@
 <blockquote>
 <p>Fetching price for ticket</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.staging.takemetour.com/partner/price'</span> <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.staging.takemetour.com/partner/products/price'</span> <span class="se">\</span>
 -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
--H <span class="s1">'x-access-token: 4obGgRjmzYOnZLOEFfFsEycy04w9y8XQ'</span> <span class="se">\</span>
---data-binary <span class="s1">'{"trip_id":"5a1e695f6ff7070010da638b","multi_tier_quantity":[{"tier":"Entrance Fee with Re-entry on All Rides","sub_tiers":[{"globaltix_cost":285,"has_availability":false,"globaltix_questions":[{"id":127761,"question":"Please state your date of visit","type":"DATE"}],"display_price":850,"price":700,"name":"Adult","_id":"5a1e833db549a700121cb913","globaltix_ticket_id":"12658","globaltix_redeem":{"end":"2018-10-31T23:59:00","start":"2017-11-16T00:00:00"},"quantity":2},{"globaltix_cost":285,"has_availability":false,"globaltix_questions":[{"id":127761,"question":"Please state your date of visit","type":"DATE"}],"display_price":850,"price":700,"name":"Child","_id":"5a1e833db549a700121cb912","globaltix_ticket_id":"12659","globaltix_redeem":{"end":"2018-10-31T23:59:00","start":"2017-11-16T00:00:00"},"quantity":1}]},{"tier":"Entrance Fee with Re-entry on All Rides + Snow Town","sub_tiers":[{"globaltix_cost":355,"has_availability":false,"globaltix_questions":[{"id":161384,"question":"Please state your date of visit.","type":"DATE"}],"display_price":1030,"price":820,"name":"Adult","_id":"5a1e833db549a700121cb90d","globaltix_ticket_id":"12664","globaltix_redeem":{"end":"2018-10-31T23:59:00","start":"2017-11-16T00:00:00"},"quantity":0},{"globaltix_cost":355,"has_availability":false,"globaltix_questions":[{"id":161384,"question":"Please state your date of visit.","type":"DATE"}],"display_price":1030,"price":820,"name":"Child","_id":"5a1e833db549a700121cb90c","globaltix_ticket_id":"12665","globaltix_redeem":{"end":"2018-10-31T23:59:00","start":"2017-11-16T00:00:00"},"quantity":0}]},{"tier":"Entrance Fee with Re-entry on All Rides and Buffet Lunch","sub_tiers":[{"globaltix_cost":355,"has_availability":false,"globaltix_questions":[{"id":161383,"question":"Please state your date of visit.","type":"DATE"}],"display_price":1050,"price":850,"name":"Adult","_id":"5a1e833db549a700121cb910","globaltix_ticket_id":"12662","globaltix_redeem":{"end":"2018-10-31T23:59:00","start":"2017-11-16T00:00:00"},"quantity":0},{"globaltix_cost":355,"has_availability":false,"globaltix_questions":[{"id":161383,"question":"Please state your date of visit.","type":"DATE"}],"display_price":1050,"price":850,"name":"Child","_id":"5a1e833db549a700121cb90f","globaltix_ticket_id":"12663","globaltix_redeem":{"end":"2018-10-31T23:59:00","start":"2017-11-16T00:00:00"},"quantity":0}]},{"tier":"Entrance Fee with Re-entry on All Rides and Buffet Lunch + Snow Town","sub_tiers":[{"globaltix_cost":425,"has_availability":false,"globaltix_questions":[{"id":161385,"question":"Please state your date of visit","type":"DATE"}],"display_price":1230,"price":940,"name":"Adult","_id":"5a1e833db549a700121cb90a","globaltix_ticket_id":"12666","globaltix_redeem":{"end":"2018-10-31T23:59:00","start":"2017-11-16T00:00:00"},"quantity":0},{"globaltix_cost":425,"has_availability":false,"globaltix_questions":[{"id":161385,"question":"Please state your date of visit","type":"DATE"}],"display_price":1130,"price":940,"name":"Child","_id":"5a1e833db549a700121cb909","globaltix_ticket_id":"12667","globaltix_redeem":{"end":"2018-10-31T23:59:00","start":"2017-11-16T00:00:00"},"quantity":0}]}]}'</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api.staging.takemetour.com/partner/price'</span><span class="p">,</span>
+-H <span class="s1">'x-access-token: 0TKOeCA5sLimUiGYcIdWOb9NoiYEgJJ3'</span> <span class="se">\</span>
+--data-binary <span class="s1">'{"trip_id":"5a3a0af6c0214700127dadf5","multi_tier_quantity":[{"tier":"Admission Fee - Aquarium Only","_id":"5a1e87a5b549a700121cb93d","sub_tiers":[{"display_price":990,"price":600,"name":"Adult","_id":"5a1e87a5b549a700121cb93f","globaltix_ticket_id":"4136","has_availability":true,"globaltix_questions":[{"type":"FREETEXT","question":"Customer name","id":11968}],"globaltix_redeem":{"end":"2018-12-31T23:59:00","start":"2018-01-10T00:00:00"},"globaltix_cost":1500,"quantity":3},{"display_price":790,"price":550,"name":"Child","_id":"5a1e87a5b549a700121cb93e","globaltix_ticket_id":"4136","has_availability":true,"globaltix_questions":[{"type":"FREETEXT","question":"Customer name","id":11968}],"globaltix_redeem":{"end":"2018-12-31T23:59:00","start":"2018-01-10T00:00:00"},"globaltix_cost":1500,"quantity":2}]},{"tier":"COMBO: Aquarium + 4D Movie","_id":"5a1e87a5b549a700121cb93a","sub_tiers":[{"display_price":1090,"price":700,"name":"Adult","_id":"5a1e87a5b549a700121cb93c","globaltix_ticket_id":"4138","has_availability":false,"globaltix_questions":[{"type":"DATE","question":"Service Date","id":11969},{"type":"FREETEXT","question":"Nationality","id":11970},{"options":["Afternoon","Morning"],"type":"OPTION","question":"Select Time","id":11971}],"globaltix_redeem":{"end":"2018-12-31T23:59:00","start":"2018-01-10T00:00:00"},"globaltix_cost":270,"quantity":0},{"display_price":890,"price":650,"name":"Child","_id":"5a1e87a5b549a700121cb93b","globaltix_ticket_id":"4139","has_availability":false,"globaltix_questions":[{"type":"DATE","question":"Service Date","id":11969},{"type":"FREETEXT","question":"Nationality","id":11970},{"options":["Afternoon","Morning"],"type":"OPTION","question":"Select Time","id":11971}],"globaltix_redeem":{"end":"2018-12-31T23:59:00","start":"2018-01-10T00:00:00"},"globaltix_cost":220,"quantity":0}]},{"tier":"Photo Pack : Aquarium + Photo (6\" x 9\")","_id":"5a1e87a5b549a700121cb937","sub_tiers":[{"display_price":1190,"price":800,"name":"Adult","_id":"5a1e87a5b549a700121cb939","quantity":0},{"display_price":990,"price":750,"name":"Child","_id":"5a1e87a5b549a700121cb938","quantity":0}]},{"tier":"Aquarium + Glass Bottom Boat (GBB)","_id":"5a1e87a5b549a700121cb934","sub_tiers":[{"display_price":1340,"price":700,"name":"Adult","_id":"5a1e87a5b549a700121cb936","quantity":0},{"display_price":1140,"price":650,"name":"Child","_id":"5a1e87a5b549a700121cb935","quantity":0}]},{"tier":"COMBI: SEA LIFE + MADAME TUSSAUDS TICKET","_id":"5a1e87a5b549a700121cb931","sub_tiers":[{"display_price":1980,"price":1000,"name":"Adult","_id":"5a1e87a5b549a700121cb933","quantity":0},{"display_price":1580,"price":850,"name":"Child","_id":"5a1e87a5b549a700121cb932","quantity":0}]}]}'</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api.staging.takemetour.com/partner/products/price'</span><span class="p">,</span>
 <span class="p">{</span>
   <span class="na">body</span><span class="p">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
-    <span class="s2">"trip_id"</span><span class="p">:</span> <span class="s2">"5a1e695f6ff7070010da638b"</span><span class="p">,</span>
+    <span class="s2">"trip_id"</span><span class="p">:</span> <span class="s2">"5a3a0af6c0214700127dadf5"</span><span class="p">,</span>
     <span class="s2">"multi_tier_quantity"</span><span class="p">:</span> <span class="p">[</span>
       <span class="p">{</span>
-        <span class="s2">"tier"</span><span class="p">:</span> <span class="s2">"Entrance Fee with Re-entry on All Rides"</span><span class="p">,</span>
+        <span class="s2">"tier"</span><span class="p">:</span> <span class="s2">"Admission Fee - Aquarium Only"</span><span class="p">,</span>
+        <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"5a1e87a5b549a700121cb93d"</span><span class="p">,</span>
         <span class="s2">"sub_tiers"</span><span class="p">:</span> <span class="p">[</span>
           <span class="p">{</span>
-            <span class="s2">"globaltix_cost"</span><span class="p">:</span> <span class="mi">285</span><span class="p">,</span>
-            <span class="s2">"has_availability"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="s2">"display_price"</span><span class="p">:</span> <span class="mi">990</span><span class="p">,</span>
+            <span class="s2">"price"</span><span class="p">:</span> <span class="mi">600</span><span class="p">,</span>
+            <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Adult"</span><span class="p">,</span>
+            <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"5a1e87a5b549a700121cb93f"</span><span class="p">,</span>
+            <span class="s2">"globaltix_ticket_id"</span><span class="p">:</span> <span class="s2">"4136"</span><span class="p">,</span>
+            <span class="s2">"has_availability"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
             <span class="s2">"globaltix_questions"</span><span class="p">:</span> <span class="p">[</span>
               <span class="p">{</span>
-                <span class="s2">"id"</span><span class="p">:</span> <span class="mi">127761</span><span class="p">,</span>
-                <span class="s2">"question"</span><span class="p">:</span> <span class="s2">"Please state your date of visit"</span><span class="p">,</span>
-                <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"DATE"</span>
+                <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"FREETEXT"</span><span class="p">,</span>
+                <span class="s2">"question"</span><span class="p">:</span> <span class="s2">"Customer name"</span><span class="p">,</span>
+                <span class="s2">"id"</span><span class="p">:</span> <span class="mi">11968</span>
               <span class="p">}</span>
             <span class="p">],</span>
-            <span class="s2">"display_price"</span><span class="p">:</span> <span class="mi">850</span><span class="p">,</span>
-            <span class="s2">"price"</span><span class="p">:</span> <span class="mi">700</span><span class="p">,</span>
-            <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Adult"</span><span class="p">,</span>
-            <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"5a1e833db549a700121cb913"</span><span class="p">,</span>
-            <span class="s2">"globaltix_ticket_id"</span><span class="p">:</span> <span class="s2">"12658"</span><span class="p">,</span>
             <span class="s2">"globaltix_redeem"</span><span class="p">:</span> <span class="p">{</span>
-              <span class="s2">"end"</span><span class="p">:</span> <span class="s2">"2018-10-31T23:59:00"</span><span class="p">,</span>
-              <span class="s2">"start"</span><span class="p">:</span> <span class="s2">"2017-11-16T00:00:00"</span>
+              <span class="s2">"end"</span><span class="p">:</span> <span class="s2">"2018-12-31T23:59:00"</span><span class="p">,</span>
+              <span class="s2">"start"</span><span class="p">:</span> <span class="s2">"2018-01-10T00:00:00"</span>
             <span class="p">},</span>
+            <span class="s2">"globaltix_cost"</span><span class="p">:</span> <span class="mi">1500</span><span class="p">,</span>
+            <span class="s2">"quantity"</span><span class="p">:</span> <span class="mi">3</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+            <span class="s2">"display_price"</span><span class="p">:</span> <span class="mi">790</span><span class="p">,</span>
+            <span class="s2">"price"</span><span class="p">:</span> <span class="mi">550</span><span class="p">,</span>
+            <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Child"</span><span class="p">,</span>
+            <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"5a1e87a5b549a700121cb93e"</span><span class="p">,</span>
+            <span class="s2">"globaltix_ticket_id"</span><span class="p">:</span> <span class="s2">"4136"</span><span class="p">,</span>
+            <span class="s2">"has_availability"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="s2">"globaltix_questions"</span><span class="p">:</span> <span class="p">[</span>
+              <span class="p">{</span>
+                <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"FREETEXT"</span><span class="p">,</span>
+                <span class="s2">"question"</span><span class="p">:</span> <span class="s2">"Customer name"</span><span class="p">,</span>
+                <span class="s2">"id"</span><span class="p">:</span> <span class="mi">11968</span>
+              <span class="p">}</span>
+            <span class="p">],</span>
+            <span class="s2">"globaltix_redeem"</span><span class="p">:</span> <span class="p">{</span>
+              <span class="s2">"end"</span><span class="p">:</span> <span class="s2">"2018-12-31T23:59:00"</span><span class="p">,</span>
+              <span class="s2">"start"</span><span class="p">:</span> <span class="s2">"2018-01-10T00:00:00"</span>
+            <span class="p">},</span>
+            <span class="s2">"globaltix_cost"</span><span class="p">:</span> <span class="mi">1500</span><span class="p">,</span>
             <span class="s2">"quantity"</span><span class="p">:</span> <span class="mi">2</span>
-          <span class="p">},</span>
+          <span class="p">}</span>
+        <span class="p">]</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="s2">"tier"</span><span class="p">:</span> <span class="s2">"COMBO: Aquarium + 4D Movie"</span><span class="p">,</span>
+        <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"5a1e87a5b549a700121cb93a"</span><span class="p">,</span>
+        <span class="s2">"sub_tiers"</span><span class="p">:</span> <span class="p">[</span>
           <span class="p">{</span>
-            <span class="s2">"globaltix_cost"</span><span class="p">:</span> <span class="mi">285</span><span class="p">,</span>
-            <span class="s2">"has_availability"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
-            <span class="s2">"globaltix_questions"</span><span class="p">:</span> <span class="p">[</span>
-              <span class="p">{</span>
-                <span class="s2">"id"</span><span class="p">:</span> <span class="mi">127761</span><span class="p">,</span>
-                <span class="s2">"question"</span><span class="p">:</span> <span class="s2">"Please state your date of visit"</span><span class="p">,</span>
-                <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"DATE"</span>
-              <span class="p">}</span>
-            <span class="p">],</span>
-            <span class="s2">"display_price"</span><span class="p">:</span> <span class="mi">850</span><span class="p">,</span>
+            <span class="s2">"display_price"</span><span class="p">:</span> <span class="mi">1090</span><span class="p">,</span>
             <span class="s2">"price"</span><span class="p">:</span> <span class="mi">700</span><span class="p">,</span>
-            <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Child"</span><span class="p">,</span>
-            <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"5a1e833db549a700121cb912"</span><span class="p">,</span>
-            <span class="s2">"globaltix_ticket_id"</span><span class="p">:</span> <span class="s2">"12659"</span><span class="p">,</span>
-            <span class="s2">"globaltix_redeem"</span><span class="p">:</span> <span class="p">{</span>
-              <span class="s2">"end"</span><span class="p">:</span> <span class="s2">"2018-10-31T23:59:00"</span><span class="p">,</span>
-              <span class="s2">"start"</span><span class="p">:</span> <span class="s2">"2017-11-16T00:00:00"</span>
-            <span class="p">},</span>
-            <span class="s2">"quantity"</span><span class="p">:</span> <span class="mi">1</span>
-          <span class="p">}</span>
-        <span class="p">]</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="s2">"tier"</span><span class="p">:</span> <span class="s2">"Entrance Fee with Re-entry on All Rides + Snow Town"</span><span class="p">,</span>
-        <span class="s2">"sub_tiers"</span><span class="p">:</span> <span class="p">[</span>
-          <span class="p">{</span>
-            <span class="s2">"globaltix_cost"</span><span class="p">:</span> <span class="mi">355</span><span class="p">,</span>
+            <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Adult"</span><span class="p">,</span>
+            <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"5a1e87a5b549a700121cb93c"</span><span class="p">,</span>
+            <span class="s2">"globaltix_ticket_id"</span><span class="p">:</span> <span class="s2">"4138"</span><span class="p">,</span>
             <span class="s2">"has_availability"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
             <span class="s2">"globaltix_questions"</span><span class="p">:</span> <span class="p">[</span>
               <span class="p">{</span>
-                <span class="s2">"id"</span><span class="p">:</span> <span class="mi">161384</span><span class="p">,</span>
-                <span class="s2">"question"</span><span class="p">:</span> <span class="s2">"Please state your date of visit."</span><span class="p">,</span>
-                <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"DATE"</span>
+                <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"DATE"</span><span class="p">,</span>
+                <span class="s2">"question"</span><span class="p">:</span> <span class="s2">"Service Date"</span><span class="p">,</span>
+                <span class="s2">"id"</span><span class="p">:</span> <span class="mi">11969</span>
+              <span class="p">},</span>
+              <span class="p">{</span>
+                <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"FREETEXT"</span><span class="p">,</span>
+                <span class="s2">"question"</span><span class="p">:</span> <span class="s2">"Nationality"</span><span class="p">,</span>
+                <span class="s2">"id"</span><span class="p">:</span> <span class="mi">11970</span>
+              <span class="p">},</span>
+              <span class="p">{</span>
+                <span class="s2">"options"</span><span class="p">:</span> <span class="p">[</span>
+                  <span class="s2">"Afternoon"</span><span class="p">,</span>
+                  <span class="s2">"Morning"</span>
+                <span class="p">],</span>
+                <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"OPTION"</span><span class="p">,</span>
+                <span class="s2">"question"</span><span class="p">:</span> <span class="s2">"Select Time"</span><span class="p">,</span>
+                <span class="s2">"id"</span><span class="p">:</span> <span class="mi">11971</span>
               <span class="p">}</span>
             <span class="p">],</span>
-            <span class="s2">"display_price"</span><span class="p">:</span> <span class="mi">1030</span><span class="p">,</span>
-            <span class="s2">"price"</span><span class="p">:</span> <span class="mi">820</span><span class="p">,</span>
-            <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Adult"</span><span class="p">,</span>
-            <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"5a1e833db549a700121cb90d"</span><span class="p">,</span>
-            <span class="s2">"globaltix_ticket_id"</span><span class="p">:</span> <span class="s2">"12664"</span><span class="p">,</span>
             <span class="s2">"globaltix_redeem"</span><span class="p">:</span> <span class="p">{</span>
-              <span class="s2">"end"</span><span class="p">:</span> <span class="s2">"2018-10-31T23:59:00"</span><span class="p">,</span>
-              <span class="s2">"start"</span><span class="p">:</span> <span class="s2">"2017-11-16T00:00:00"</span>
+              <span class="s2">"end"</span><span class="p">:</span> <span class="s2">"2018-12-31T23:59:00"</span><span class="p">,</span>
+              <span class="s2">"start"</span><span class="p">:</span> <span class="s2">"2018-01-10T00:00:00"</span>
             <span class="p">},</span>
+            <span class="s2">"globaltix_cost"</span><span class="p">:</span> <span class="mi">270</span><span class="p">,</span>
             <span class="s2">"quantity"</span><span class="p">:</span> <span class="mi">0</span>
           <span class="p">},</span>
           <span class="p">{</span>
-            <span class="s2">"globaltix_cost"</span><span class="p">:</span> <span class="mi">355</span><span class="p">,</span>
+            <span class="s2">"display_price"</span><span class="p">:</span> <span class="mi">890</span><span class="p">,</span>
+            <span class="s2">"price"</span><span class="p">:</span> <span class="mi">650</span><span class="p">,</span>
+            <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Child"</span><span class="p">,</span>
+            <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"5a1e87a5b549a700121cb93b"</span><span class="p">,</span>
+            <span class="s2">"globaltix_ticket_id"</span><span class="p">:</span> <span class="s2">"4139"</span><span class="p">,</span>
             <span class="s2">"has_availability"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
             <span class="s2">"globaltix_questions"</span><span class="p">:</span> <span class="p">[</span>
               <span class="p">{</span>
-                <span class="s2">"id"</span><span class="p">:</span> <span class="mi">161384</span><span class="p">,</span>
-                <span class="s2">"question"</span><span class="p">:</span> <span class="s2">"Please state your date of visit."</span><span class="p">,</span>
-                <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"DATE"</span>
+                <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"DATE"</span><span class="p">,</span>
+                <span class="s2">"question"</span><span class="p">:</span> <span class="s2">"Service Date"</span><span class="p">,</span>
+                <span class="s2">"id"</span><span class="p">:</span> <span class="mi">11969</span>
+              <span class="p">},</span>
+              <span class="p">{</span>
+                <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"FREETEXT"</span><span class="p">,</span>
+                <span class="s2">"question"</span><span class="p">:</span> <span class="s2">"Nationality"</span><span class="p">,</span>
+                <span class="s2">"id"</span><span class="p">:</span> <span class="mi">11970</span>
+              <span class="p">},</span>
+              <span class="p">{</span>
+                <span class="s2">"options"</span><span class="p">:</span> <span class="p">[</span>
+                  <span class="s2">"Afternoon"</span><span class="p">,</span>
+                  <span class="s2">"Morning"</span>
+                <span class="p">],</span>
+                <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"OPTION"</span><span class="p">,</span>
+                <span class="s2">"question"</span><span class="p">:</span> <span class="s2">"Select Time"</span><span class="p">,</span>
+                <span class="s2">"id"</span><span class="p">:</span> <span class="mi">11971</span>
               <span class="p">}</span>
             <span class="p">],</span>
-            <span class="s2">"display_price"</span><span class="p">:</span> <span class="mi">1030</span><span class="p">,</span>
-            <span class="s2">"price"</span><span class="p">:</span> <span class="mi">820</span><span class="p">,</span>
-            <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Child"</span><span class="p">,</span>
-            <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"5a1e833db549a700121cb90c"</span><span class="p">,</span>
-            <span class="s2">"globaltix_ticket_id"</span><span class="p">:</span> <span class="s2">"12665"</span><span class="p">,</span>
             <span class="s2">"globaltix_redeem"</span><span class="p">:</span> <span class="p">{</span>
-              <span class="s2">"end"</span><span class="p">:</span> <span class="s2">"2018-10-31T23:59:00"</span><span class="p">,</span>
-              <span class="s2">"start"</span><span class="p">:</span> <span class="s2">"2017-11-16T00:00:00"</span>
+              <span class="s2">"end"</span><span class="p">:</span> <span class="s2">"2018-12-31T23:59:00"</span><span class="p">,</span>
+              <span class="s2">"start"</span><span class="p">:</span> <span class="s2">"2018-01-10T00:00:00"</span>
             <span class="p">},</span>
+            <span class="s2">"globaltix_cost"</span><span class="p">:</span> <span class="mi">220</span><span class="p">,</span>
             <span class="s2">"quantity"</span><span class="p">:</span> <span class="mi">0</span>
           <span class="p">}</span>
         <span class="p">]</span>
       <span class="p">},</span>
       <span class="p">{</span>
-        <span class="s2">"tier"</span><span class="p">:</span> <span class="s2">"Entrance Fee with Re-entry on All Rides and Buffet Lunch"</span><span class="p">,</span>
+        <span class="s2">"tier"</span><span class="p">:</span> <span class="s2">"Photo Pack : Aquarium + Photo (6\" x 9\")"</span><span class="p">,</span>
+        <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"5a1e87a5b549a700121cb937"</span><span class="p">,</span>
         <span class="s2">"sub_tiers"</span><span class="p">:</span> <span class="p">[</span>
           <span class="p">{</span>
-            <span class="s2">"globaltix_cost"</span><span class="p">:</span> <span class="mi">355</span><span class="p">,</span>
-            <span class="s2">"has_availability"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
-            <span class="s2">"globaltix_questions"</span><span class="p">:</span> <span class="p">[</span>
-              <span class="p">{</span>
-                <span class="s2">"id"</span><span class="p">:</span> <span class="mi">161383</span><span class="p">,</span>
-                <span class="s2">"question"</span><span class="p">:</span> <span class="s2">"Please state your date of visit."</span><span class="p">,</span>
-                <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"DATE"</span>
-              <span class="p">}</span>
-            <span class="p">],</span>
-            <span class="s2">"display_price"</span><span class="p">:</span> <span class="mi">1050</span><span class="p">,</span>
+            <span class="s2">"display_price"</span><span class="p">:</span> <span class="mi">1190</span><span class="p">,</span>
+            <span class="s2">"price"</span><span class="p">:</span> <span class="mi">800</span><span class="p">,</span>
+            <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Adult"</span><span class="p">,</span>
+            <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"5a1e87a5b549a700121cb939"</span><span class="p">,</span>
+            <span class="s2">"quantity"</span><span class="p">:</span> <span class="mi">0</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+            <span class="s2">"display_price"</span><span class="p">:</span> <span class="mi">990</span><span class="p">,</span>
+            <span class="s2">"price"</span><span class="p">:</span> <span class="mi">750</span><span class="p">,</span>
+            <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Child"</span><span class="p">,</span>
+            <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"5a1e87a5b549a700121cb938"</span><span class="p">,</span>
+            <span class="s2">"quantity"</span><span class="p">:</span> <span class="mi">0</span>
+          <span class="p">}</span>
+        <span class="p">]</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="s2">"tier"</span><span class="p">:</span> <span class="s2">"Aquarium + Glass Bottom Boat (GBB)"</span><span class="p">,</span>
+        <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"5a1e87a5b549a700121cb934"</span><span class="p">,</span>
+        <span class="s2">"sub_tiers"</span><span class="p">:</span> <span class="p">[</span>
+          <span class="p">{</span>
+            <span class="s2">"display_price"</span><span class="p">:</span> <span class="mi">1340</span><span class="p">,</span>
+            <span class="s2">"price"</span><span class="p">:</span> <span class="mi">700</span><span class="p">,</span>
+            <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Adult"</span><span class="p">,</span>
+            <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"5a1e87a5b549a700121cb936"</span><span class="p">,</span>
+            <span class="s2">"quantity"</span><span class="p">:</span> <span class="mi">0</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+            <span class="s2">"display_price"</span><span class="p">:</span> <span class="mi">1140</span><span class="p">,</span>
+            <span class="s2">"price"</span><span class="p">:</span> <span class="mi">650</span><span class="p">,</span>
+            <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Child"</span><span class="p">,</span>
+            <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"5a1e87a5b549a700121cb935"</span><span class="p">,</span>
+            <span class="s2">"quantity"</span><span class="p">:</span> <span class="mi">0</span>
+          <span class="p">}</span>
+        <span class="p">]</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="s2">"tier"</span><span class="p">:</span> <span class="s2">"COMBI: SEA LIFE + MADAME TUSSAUDS TICKET"</span><span class="p">,</span>
+        <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"5a1e87a5b549a700121cb931"</span><span class="p">,</span>
+        <span class="s2">"sub_tiers"</span><span class="p">:</span> <span class="p">[</span>
+          <span class="p">{</span>
+            <span class="s2">"display_price"</span><span class="p">:</span> <span class="mi">1980</span><span class="p">,</span>
+            <span class="s2">"price"</span><span class="p">:</span> <span class="mi">1000</span><span class="p">,</span>
+            <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Adult"</span><span class="p">,</span>
+            <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"5a1e87a5b549a700121cb933"</span><span class="p">,</span>
+            <span class="s2">"quantity"</span><span class="p">:</span> <span class="mi">0</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+            <span class="s2">"display_price"</span><span class="p">:</span> <span class="mi">1580</span><span class="p">,</span>
             <span class="s2">"price"</span><span class="p">:</span> <span class="mi">850</span><span class="p">,</span>
-            <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Adult"</span><span class="p">,</span>
-            <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"5a1e833db549a700121cb910"</span><span class="p">,</span>
-            <span class="s2">"globaltix_ticket_id"</span><span class="p">:</span> <span class="s2">"12662"</span><span class="p">,</span>
-            <span class="s2">"globaltix_redeem"</span><span class="p">:</span> <span class="p">{</span>
-              <span class="s2">"end"</span><span class="p">:</span> <span class="s2">"2018-10-31T23:59:00"</span><span class="p">,</span>
-              <span class="s2">"start"</span><span class="p">:</span> <span class="s2">"2017-11-16T00:00:00"</span>
-            <span class="p">},</span>
-            <span class="s2">"quantity"</span><span class="p">:</span> <span class="mi">0</span>
-          <span class="p">},</span>
-          <span class="p">{</span>
-            <span class="s2">"globaltix_cost"</span><span class="p">:</span> <span class="mi">355</span><span class="p">,</span>
-            <span class="s2">"has_availability"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
-            <span class="s2">"globaltix_questions"</span><span class="p">:</span> <span class="p">[</span>
-              <span class="p">{</span>
-                <span class="s2">"id"</span><span class="p">:</span> <span class="mi">161383</span><span class="p">,</span>
-                <span class="s2">"question"</span><span class="p">:</span> <span class="s2">"Please state your date of visit."</span><span class="p">,</span>
-                <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"DATE"</span>
-              <span class="p">}</span>
-            <span class="p">],</span>
-            <span class="s2">"display_price"</span><span class="p">:</span> <span class="mi">1050</span><span class="p">,</span>
-            <span class="s2">"price"</span><span class="p">:</span> <span class="mi">850</span><span class="p">,</span>
             <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Child"</span><span class="p">,</span>
-            <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"5a1e833db549a700121cb90f"</span><span class="p">,</span>
-            <span class="s2">"globaltix_ticket_id"</span><span class="p">:</span> <span class="s2">"12663"</span><span class="p">,</span>
-            <span class="s2">"globaltix_redeem"</span><span class="p">:</span> <span class="p">{</span>
-              <span class="s2">"end"</span><span class="p">:</span> <span class="s2">"2018-10-31T23:59:00"</span><span class="p">,</span>
-              <span class="s2">"start"</span><span class="p">:</span> <span class="s2">"2017-11-16T00:00:00"</span>
-            <span class="p">},</span>
-            <span class="s2">"quantity"</span><span class="p">:</span> <span class="mi">0</span>
-          <span class="p">}</span>
-        <span class="p">]</span>
-      <span class="p">},</span>
-      <span class="p">{</span>
-        <span class="s2">"tier"</span><span class="p">:</span> <span class="s2">"Entrance Fee with Re-entry on All Rides and Buffet Lunch + Snow Town"</span><span class="p">,</span>
-        <span class="s2">"sub_tiers"</span><span class="p">:</span> <span class="p">[</span>
-          <span class="p">{</span>
-            <span class="s2">"globaltix_cost"</span><span class="p">:</span> <span class="mi">425</span><span class="p">,</span>
-            <span class="s2">"has_availability"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
-            <span class="s2">"globaltix_questions"</span><span class="p">:</span> <span class="p">[</span>
-              <span class="p">{</span>
-                <span class="s2">"id"</span><span class="p">:</span> <span class="mi">161385</span><span class="p">,</span>
-                <span class="s2">"question"</span><span class="p">:</span> <span class="s2">"Please state your date of visit"</span><span class="p">,</span>
-                <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"DATE"</span>
-              <span class="p">}</span>
-            <span class="p">],</span>
-            <span class="s2">"display_price"</span><span class="p">:</span> <span class="mi">1230</span><span class="p">,</span>
-            <span class="s2">"price"</span><span class="p">:</span> <span class="mi">940</span><span class="p">,</span>
-            <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Adult"</span><span class="p">,</span>
-            <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"5a1e833db549a700121cb90a"</span><span class="p">,</span>
-            <span class="s2">"globaltix_ticket_id"</span><span class="p">:</span> <span class="s2">"12666"</span><span class="p">,</span>
-            <span class="s2">"globaltix_redeem"</span><span class="p">:</span> <span class="p">{</span>
-              <span class="s2">"end"</span><span class="p">:</span> <span class="s2">"2018-10-31T23:59:00"</span><span class="p">,</span>
-              <span class="s2">"start"</span><span class="p">:</span> <span class="s2">"2017-11-16T00:00:00"</span>
-            <span class="p">},</span>
-            <span class="s2">"quantity"</span><span class="p">:</span> <span class="mi">0</span>
-          <span class="p">},</span>
-          <span class="p">{</span>
-            <span class="s2">"globaltix_cost"</span><span class="p">:</span> <span class="mi">425</span><span class="p">,</span>
-            <span class="s2">"has_availability"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
-            <span class="s2">"globaltix_questions"</span><span class="p">:</span> <span class="p">[</span>
-              <span class="p">{</span>
-                <span class="s2">"id"</span><span class="p">:</span> <span class="mi">161385</span><span class="p">,</span>
-                <span class="s2">"question"</span><span class="p">:</span> <span class="s2">"Please state your date of visit"</span><span class="p">,</span>
-                <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"DATE"</span>
-              <span class="p">}</span>
-            <span class="p">],</span>
-            <span class="s2">"display_price"</span><span class="p">:</span> <span class="mi">1130</span><span class="p">,</span>
-            <span class="s2">"price"</span><span class="p">:</span> <span class="mi">940</span><span class="p">,</span>
-            <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Child"</span><span class="p">,</span>
-            <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"5a1e833db549a700121cb909"</span><span class="p">,</span>
-            <span class="s2">"globaltix_ticket_id"</span><span class="p">:</span> <span class="s2">"12667"</span><span class="p">,</span>
-            <span class="s2">"globaltix_redeem"</span><span class="p">:</span> <span class="p">{</span>
-              <span class="s2">"end"</span><span class="p">:</span> <span class="s2">"2018-10-31T23:59:00"</span><span class="p">,</span>
-              <span class="s2">"start"</span><span class="p">:</span> <span class="s2">"2017-11-16T00:00:00"</span>
-            <span class="p">},</span>
+            <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"5a1e87a5b549a700121cb932"</span><span class="p">,</span>
             <span class="s2">"quantity"</span><span class="p">:</span> <span class="mi">0</span>
           <span class="p">}</span>
         <span class="p">]</span>
@@ -1556,7 +1570,8 @@
     <span class="p">]</span>
   <span class="p">}),</span>
   <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
-    <span class="s1">'content-type'</span><span class="p">:</span> <span class="s1">'application/json'</span>
+    <span class="s1">'content-type'</span><span class="p">:</span> <span class="s1">'application/json'</span><span class="p">,</span>
+    <span class="s1">'x-access-token'</span><span class="p">:</span> <span class="s1">'0TKOeCA5sLimUiGYcIdWOb9NoiYEgJJ3'</span>
   <span class="p">},</span>
   <span class="na">method</span><span class="p">:</span> <span class="s1">'POST'</span><span class="p">,</span>
 <span class="p">});</span>
@@ -1716,18 +1731,19 @@
 <blockquote>
 <p>Code</p>
 </blockquote>
-<pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.staging.takemetour.com/partner/price'</span> <span class="se">\</span>
+<pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.staging.takemetour.com/partner/products/price'</span> <span class="se">\</span>
 -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
--H <span class="s1">'x-access-token: 4obGgRjmzYOnZLOEFfFsEycy04w9y8XQ'</span> <span class="se">\</span>
+-H <span class="s1">'x-access-token: 0TKOeCA5sLimUiGYcIdWOb9NoiYEgJJ3'</span> <span class="se">\</span>
 --data-binary <span class="s1">'{"quantity":2,"trip_id":"5a3782ebbec78a00117fc04b"}'</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api.staging.takemetour.com/partner/price'</span><span class="p">,</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api.staging.takemetour.com/partner/products/price'</span><span class="p">,</span>
 <span class="p">{</span>
   <span class="na">body</span><span class="p">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
     <span class="s2">"quantity"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
     <span class="s2">"trip_id"</span><span class="p">:</span> <span class="s2">"5a3782ebbec78a00117fc04b"</span>
   <span class="p">}),</span>
   <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
-    <span class="s1">'content-type'</span><span class="p">:</span> <span class="s1">'application/json'</span>
+    <span class="s1">'content-type'</span><span class="p">:</span> <span class="s1">'application/json'</span><span class="p">,</span>
+    <span class="s1">'x-access-token'</span><span class="p">:</span> <span class="s1">'0TKOeCA5sLimUiGYcIdWOb9NoiYEgJJ3'</span>
   <span class="p">},</span>
   <span class="na">method</span><span class="p">:</span> <span class="s1">'POST'</span><span class="p">,</span>
 <span class="p">});</span>
@@ -1753,7 +1769,178 @@
 <td><code>_id</code> of product</td>
 </tr>
 </tbody></table>
-<h1 id='book'>Book</h1><h2 id='book-product'>Book Product</h2>
+<h1 id='availability'>Availability</h1><h3 id='request-is-pass'>Request is pass</h3><h2 id='local-experiences-trip-calendar'>Local Experiences Trip Calendar</h2>
+<blockquote>
+<p>Code</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.staging.takemetour.com/partner/calendar?trip_id=58ff211702b3ea0011efe846&amp;month=August%202018'</span> <span class="se">\</span>
+-H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+-H <span class="s1">'x-access-token: 0TKOeCA5sLimUiGYcIdWOb9NoiYEgJJ3'</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api.staging.takemetour.com/partner/calendar?trip_id=58ff211702b3ea0011efe846&amp;month=August%202018'</span><span class="p">,</span>
+<span class="p">{</span>
+  <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s1">'content-type'</span><span class="p">:</span> <span class="s1">'application/json'</span><span class="p">,</span>
+    <span class="s1">'x-access-token'</span><span class="p">:</span> <span class="s1">'0TKOeCA5sLimUiGYcIdWOb9NoiYEgJJ3'</span>
+  <span class="p">},</span>
+  <span class="na">method</span><span class="p">:</span> <span class="s1">'GET'</span><span class="p">,</span>
+<span class="p">});</span>
+<span class="kr">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
+</code></pre>
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[{</span><span class="w">
+  </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-01T17:00:00.000Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"n/a"</span><span class="w">
+</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-02T17:00:00.000Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"n/a"</span><span class="w">
+</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-06T17:00:00.000Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"available"</span><span class="w">
+</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-08T17:00:00.000Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"n/a"</span><span class="w">
+</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-09T17:00:00.000Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"n/a"</span><span class="w">
+</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-13T17:00:00.000Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"available"</span><span class="w">
+</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-15T17:00:00.000Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"n/a"</span><span class="w">
+</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-16T17:00:00.000Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"n/a"</span><span class="w">
+</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-17T17:00:00.000Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"n/a"</span><span class="w">
+</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-20T17:00:00.000Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"available"</span><span class="w">
+</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-22T17:00:00.000Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"n/a"</span><span class="w">
+</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-23T17:00:00.000Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"n/a"</span><span class="w">
+</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-25T17:00:00.000Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"n/a"</span><span class="w">
+</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-27T17:00:00.000Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"available"</span><span class="w">
+</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-29T17:00:00.000Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"n/a"</span><span class="w">
+</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-30T17:00:00.000Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"n/a"</span><span class="w">
+</span><span class="p">}]</span><span class="w">
+</span></code></pre>
+<p><strong>HTTP Request:</strong> <code>GET /calendar?trip_id=tripId&amp;month=monthYear</code></p>
+<h3 id='request-query-string'>Request Query String</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>trip_id</td>
+<td><strong>String</strong></td>
+<td>Product&#39;s database ID get from <a href="#get-product-detail">Get Product Detail</a></td>
+</tr>
+<tr>
+<td>month</td>
+<td><strong>String</strong></td>
+<td>Month and year you want to query the availability, format is full name month with a space then year in AD. <strong>eg.</strong> <code>August 2018</code></td>
+</tr>
+</tbody></table>
+<h3 id='response'>Response</h3>
+<p>The response will return an availability of days in that month in Array of Objects. Each object indicate availability status on that day.</p>
+
+<p><strong>Note 1:</strong> The nearest date that available to order / book is <strong>today</strong> in Thailand time (GMT+7). Some products need to be ordered / booked in advance, it may not available for <strong>today</strong> or <strong>tomorrow</strong>.</p>
+
+<p><strong>Note 2:</strong> For some date that doesn&#39;t an have object to indicate the availability status, it means that day has default availability which require a confirmation from Local Expert / Supplyer.</p>
+
+<p>For each object will have these parameters.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>date</td>
+<td><strong>String</strong></td>
+<td>Date in ISO string (at 00:00)</td>
+</tr>
+<tr>
+<td>status</td>
+<td><strong>String</strong></td>
+<td>Availability status on that day. <code>n/a</code> means not available to order / book. <code>available</code> means available to order / book with an instant confirmation.</td>
+</tr>
+</tbody></table>
+
+<p>This is an example of Date Picker that we use on our system.</p>
+
+<p><img src="https://raw.githubusercontent.com/takemetour/public-api/master/material/calendar.png" alt="Image of TakeMeTour Date Picker" /></p>
+<h2 id='attraction-tickets-calendar'>Attraction Tickets Calendar</h2>
+<blockquote>
+<p>Code</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.staging.takemetour.com/partner/calendar?trip_id=5a14fccc8d185a001220006d&amp;ticket_ids=4136,4137&amp;month=August%202018'</span> <span class="se">\</span>
+-H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+-H <span class="s1">'x-access-token: 0TKOeCA5sLimUiGYcIdWOb9NoiYEgJJ3'</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api.staging.takemetour.com/partner/calendar?trip_id=5a14fccc8d185a001220006d&amp;ticket_ids=4136,4137&amp;month=August%202018'</span><span class="p">,</span>
+<span class="p">{</span>
+  <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s1">'content-type'</span><span class="p">:</span> <span class="s1">'application/json'</span><span class="p">,</span>
+    <span class="s1">'x-access-token'</span><span class="p">:</span> <span class="s1">'0TKOeCA5sLimUiGYcIdWOb9NoiYEgJJ3'</span>
+  <span class="p">},</span>
+  <span class="na">method</span><span class="p">:</span> <span class="s1">'GET'</span><span class="p">,</span>
+<span class="p">});</span>
+<span class="kr">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
+</code></pre>
+<p><strong>HTTP Request:</strong> <code>GET /calendar?trip_id=tripId&amp;month=monthYear&amp;ticket_ids=ticketIds</code></p>
+
+<p>Some subtiers of ticket have different availability from product parent.(some required seat confirmation). If it has, you will see field <code>has_availability</code> in <code>multi_tier_prices[index].sub_tiers[index]</code> is <code>true</code>. You have to pass <code>globaltix_ticket_id</code> where you can find it in <code>multi_tier_prices[index].sub_tiers[index]</code> with the query string of the request.</p>
+
+<p>As you can book multiple subtier tickets in the same tier at once (<strong>eg.</strong> book 2 Show + Food Adult tickets + 1 Show + Food Child ticket). You can query availabilities by passing ticket ids separated by commas (<strong>eg.</strong> ticket_ids=4136,4137)</p>
+<h3 id='request-query-string-2'>Request Query String</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>trip_id</td>
+<td><strong>String</strong></td>
+<td>Product&#39;s database ID get from <a href="#get-product-detail">Get Product Detail</a></td>
+</tr>
+<tr>
+<td>ticket_ids</td>
+<td><strong>String</strong></td>
+<td><code>globaltix_ticket_id</code> in <code>multi_tier_prices[index].sub_tiers[index]</code></td>
+</tr>
+<tr>
+<td>month</td>
+<td><strong>String</strong></td>
+<td>Month and year you want to query the availability, format is full name month with a space then year in AD. <strong>eg.</strong> <code>August 2018</code></td>
+</tr>
+</tbody></table>
+<h3 id='response-2'>Response</h3>
+<p>The response is similar to the response of <a href="#local-experiences-trip-calendar">Local Experience Trips Availability</a></p>
+<h2 id='tangible-product-calendar'>Tangible Product Calendar</h2>
+<p>Same as <a href="local-experiences-trip-calendar">Local Experiences Trip Calendar</a></p>
+<h1 id='book'>Book</h1><h3 id='request-pass'>Request PASS</h3><h2 id='book-product'>Book Product</h2>
 <blockquote>
 <p>Required Request body for any product type</p>
 </blockquote>
@@ -1765,12 +1952,12 @@
   </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john+doe@takemetour.com"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+66856667571"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TH"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"trip_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"550ae951009be2a14b193348"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"trip_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-17T17:00:00.000Z"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"meeting_point"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTS Station - Ari"</span><span class="w">
+  </span><span class="s2">"trip_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"58ff211702b3ea0011efe846"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"trip_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-08T17:00:00.000Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"meeting_point"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTS Station - Asok"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p><strong>HTTP Request:</strong> <code>POST /book</code></p>
+<p><strong>HTTP Request:</strong> <code>POST /transactions/book</code></p>
 
 <p>To book our product (a.k.a. create transaction). <strong>There is required field for any product type</strong> as shown below.</p>
 
@@ -1836,9 +2023,9 @@
   </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john+doe@takemetour.com"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+66856667571"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TH"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"trip_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"550ae951009be2a14b193348"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"trip_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-17T17:00:00.000Z"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"meeting_point"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTS Station - Ari"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"trip_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"58ff211702b3ea0011efe846"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"trip_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-08T17:00:00.000Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"meeting_point"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTS Station - Asok"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
   </span><span class="s2">"selected_options"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
@@ -1854,7 +2041,7 @@
       </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
       </span><span class="s2">"is_included_for_booking_fee"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
     </span><span class="p">}</span><span class="w">
-  </span><span class="p">],</span><span class="w">
+  </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <blockquote>
@@ -1865,6 +2052,51 @@
   </span><span class="s2">"booking_id"</span><span class="p">:</span><span class="w"> </span><span class="err">TransactionId</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+<blockquote>
+<p>Code</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.staging.takemetour.com/partner/transactions/book'</span> <span class="se">\</span>
+-H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+-H <span class="s1">'x-access-token: 0TKOeCA5sLimUiGYcIdWOb9NoiYEgJJ3'</span> <span class="se">\</span>
+--data-binary <span class="s1">'{"name":{"first":"John","last":"Doe"},"email":"john+doe@takemetour.com","mobile":"+66856667571","country":"TH","trip_id":"58ff211702b3ea0011efe846","trip_date":"2018-04-08T17:00:00.000Z","meeting_point":"BTS Station - Asok","quantity":2,"selected_options":[{"key":"children","currency":"THB","quantity_type":"sum_max_travelers","price":290,"type":"child_price","title":"Child (Age 2-12)","_id":"599e66640ea28b0011b3f147","lx_price":290,"is_front":false,"quantity":0,"is_included_for_booking_fee":true}]}'</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api.staging.takemetour.com/partner/transactions/book'</span><span class="p">,</span>
+<span class="p">{</span>
+  <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s1">'content-type'</span><span class="p">:</span> <span class="s1">'application/json'</span><span class="p">,</span>
+    <span class="s1">'x-access-token'</span><span class="p">:</span> <span class="s1">'0TKOeCA5sLimUiGYcIdWOb9NoiYEgJJ3'</span>
+  <span class="p">},</span>
+  <span class="na">body</span><span class="p">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
+    <span class="s2">"name"</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">"first"</span><span class="p">:</span> <span class="s2">"John"</span><span class="p">,</span>
+      <span class="s2">"last"</span><span class="p">:</span> <span class="s2">"Doe"</span>
+    <span class="p">},</span>
+    <span class="s2">"email"</span><span class="p">:</span> <span class="s2">"john+doe@takemetour.com"</span><span class="p">,</span>
+    <span class="s2">"mobile"</span><span class="p">:</span> <span class="s2">"+66856667571"</span><span class="p">,</span>
+    <span class="s2">"country"</span><span class="p">:</span> <span class="s2">"TH"</span><span class="p">,</span>
+    <span class="s2">"trip_id"</span><span class="p">:</span> <span class="s2">"58ff211702b3ea0011efe846"</span><span class="p">,</span>
+    <span class="s2">"trip_date"</span><span class="p">:</span> <span class="s2">"2018-04-08T17:00:00.000Z"</span><span class="p">,</span>
+    <span class="s2">"meeting_point"</span><span class="p">:</span> <span class="s2">"BTS Station - Asok"</span><span class="p">,</span>
+    <span class="s2">"quantity"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s2">"selected_options"</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="s2">"key"</span><span class="p">:</span> <span class="s2">"children"</span><span class="p">,</span>
+        <span class="s2">"currency"</span><span class="p">:</span> <span class="s2">"THB"</span><span class="p">,</span>
+        <span class="s2">"quantity_type"</span><span class="p">:</span> <span class="s2">"sum_max_travelers"</span><span class="p">,</span>
+        <span class="s2">"price"</span><span class="p">:</span> <span class="mi">290</span><span class="p">,</span>
+        <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"child_price"</span><span class="p">,</span>
+        <span class="s2">"title"</span><span class="p">:</span> <span class="s2">"Child (Age 2-12)"</span><span class="p">,</span>
+        <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"599e66640ea28b0011b3f147"</span><span class="p">,</span>
+        <span class="s2">"lx_price"</span><span class="p">:</span> <span class="mi">290</span><span class="p">,</span>
+        <span class="s2">"is_front"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="s2">"quantity"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s2">"is_included_for_booking_fee"</span><span class="p">:</span> <span class="kc">true</span>
+      <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">}),</span>
+  <span class="na">method</span><span class="p">:</span> <span class="s1">'POST'</span>
+<span class="p">});</span>
+<span class="kr">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
+</code></pre>
 <p>For product type <code>trip</code> you must add <code>quantity</code> and also <code>selected_options</code> for the product that has <code>child</code> key in <code>additional_options</code> field of product.</p>
 <h3 id='request-body-add-from-book'>Request body (add from <a href="#book-product">book</a>)</h3>
 <table><thead>
@@ -1885,7 +2117,7 @@
 <td>See  <a href="#child-price">child price</a> for more detail</td>
 </tr>
 </tbody></table>
-<h3 id='response-7'>Response</h3>
+<h3 id='response'>Response</h3>
 <p>Response will return <code>success</code> to show that the booking process is success or not, and <code>transaction_id</code>.</p>
 
 <table><thead>
@@ -1918,7 +2150,15 @@
 <p>Request body to book product type <code>ticket</code></p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"first"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"last"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Doe"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john+doe@takemetour.com"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+66856667571"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TH"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"trip_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5a3a0af6c0214700127dadf5"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"trip_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-11T17:00:00.000Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"multi_tier_quantity"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="s2">"tier"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Admission Fee - Aquarium Only"</span><span class="p">,</span><span class="w">
@@ -1984,13 +2224,13 @@
               </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DATE"</span><span class="p">,</span><span class="w">
               </span><span class="s2">"question"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Service Date"</span><span class="p">,</span><span class="w">
               </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11969</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"answer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-30"</span><span class="w">
+              </span><span class="s2">"answer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-12"</span><span class="w">
             </span><span class="p">},</span><span class="w">
             </span><span class="p">{</span><span class="w">
               </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FREETEXT"</span><span class="p">,</span><span class="w">
               </span><span class="s2">"question"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nationality"</span><span class="p">,</span><span class="w">
               </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11970</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"answer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Thai"</span><span class="w">
+              </span><span class="s2">"answer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Thailand"</span><span class="w">
             </span><span class="p">},</span><span class="w">
             </span><span class="p">{</span><span class="w">
               </span><span class="s2">"options"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -2000,7 +2240,7 @@
               </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OPTION"</span><span class="p">,</span><span class="w">
               </span><span class="s2">"question"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Select Time"</span><span class="p">,</span><span class="w">
               </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11971</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"answer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Morning"</span><span class="w">
+              </span><span class="s2">"answer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Afternoon"</span><span class="w">
             </span><span class="p">}</span><span class="w">
           </span><span class="p">],</span><span class="w">
           </span><span class="s2">"globaltix_redeem"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -2022,13 +2262,13 @@
               </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"DATE"</span><span class="p">,</span><span class="w">
               </span><span class="s2">"question"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Service Date"</span><span class="p">,</span><span class="w">
               </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11969</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"answer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-30"</span><span class="w">
+              </span><span class="s2">"answer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-12"</span><span class="w">
             </span><span class="p">},</span><span class="w">
             </span><span class="p">{</span><span class="w">
               </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"FREETEXT"</span><span class="p">,</span><span class="w">
               </span><span class="s2">"question"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Nationality"</span><span class="p">,</span><span class="w">
               </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11970</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"answer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Thai"</span><span class="w">
+              </span><span class="s2">"answer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Thailand"</span><span class="w">
             </span><span class="p">},</span><span class="w">
             </span><span class="p">{</span><span class="w">
               </span><span class="s2">"options"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -2038,7 +2278,7 @@
               </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OPTION"</span><span class="p">,</span><span class="w">
               </span><span class="s2">"question"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Select Time"</span><span class="p">,</span><span class="w">
               </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11971</span><span class="p">,</span><span class="w">
-              </span><span class="s2">"answer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Morning"</span><span class="w">
+              </span><span class="s2">"answer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Afternoon"</span><span class="w">
             </span><span class="p">}</span><span class="w">
           </span><span class="p">],</span><span class="w">
           </span><span class="s2">"globaltix_redeem"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -2046,7 +2286,7 @@
             </span><span class="s2">"start"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-10T00:00:00"</span><span class="w">
           </span><span class="p">},</span><span class="w">
           </span><span class="s2">"globaltix_cost"</span><span class="p">:</span><span class="w"> </span><span class="mi">220</span><span class="p">,</span><span class="w">
-          </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="w">
+          </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
         </span><span class="p">}</span><span class="w">
       </span><span class="p">]</span><span class="w">
     </span><span class="p">},</span><span class="w">
@@ -2110,15 +2350,7 @@
         </span><span class="p">}</span><span class="w">
       </span><span class="p">]</span><span class="w">
     </span><span class="p">}</span><span class="w">
-  </span><span class="p">],</span><span class="w">
-  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"first"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"last"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Doe"</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john+doe@takemetour.com"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"trip_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-29T17:00:00.000Z"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+66856667571"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TH"</span><span class="w">
+  </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <blockquote>
@@ -2129,6 +2361,226 @@
   </span><span class="s2">"transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="err">TransactionId</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+<blockquote>
+<p>Code</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.staging.takemetour.com/partner/transactions/book'</span> <span class="se">\</span>
+-H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+-H <span class="s1">'x-access-token: 0TKOeCA5sLimUiGYcIdWOb9NoiYEgJJ3'</span> <span class="se">\</span>
+--data-binary <span class="s1">'{"name":{"first":"John","last":"Doe"},"email":"john+doe@takemetour.com","mobile":"+66856667571","country":"TH","trip_id":"5a3a0af6c0214700127dadf5","trip_date":"2018-04-11T17:00:00.000Z","multi_tier_quantity":[{"tier":"Admission Fee - Aquarium Only","_id":"5a1e87a5b549a700121cb93d","sub_tiers":[{"display_price":990,"price":600,"name":"Adult","_id":"5a1e87a5b549a700121cb93f","globaltix_ticket_id":"4136","has_availability":true,"globaltix_questions":[{"type":"FREETEXT","question":"Customer name","id":11968}],"globaltix_redeem":{"end":"2018-12-31T23:59:00","start":"2018-01-10T00:00:00"},"globaltix_cost":1500,"quantity":0},{"display_price":790,"price":550,"name":"Child","_id":"5a1e87a5b549a700121cb93e","globaltix_ticket_id":"4136","has_availability":true,"globaltix_questions":[{"type":"FREETEXT","question":"Customer name","id":11968}],"globaltix_redeem":{"end":"2018-12-31T23:59:00","start":"2018-01-10T00:00:00"},"globaltix_cost":1500,"quantity":0}]},{"tier":"COMBO: Aquarium + 4D Movie","_id":"5a1e87a5b549a700121cb93a","sub_tiers":[{"display_price":1090,"price":700,"name":"Adult","_id":"5a1e87a5b549a700121cb93c","globaltix_ticket_id":"4138","has_availability":false,"globaltix_questions":[{"type":"DATE","question":"Service Date","id":11969,"answer":"2018-04-12"},{"type":"FREETEXT","question":"Nationality","id":11970,"answer":"Thailand"},{"options":["Afternoon","Morning"],"type":"OPTION","question":"Select Time","id":11971,"answer":"Afternoon"}],"globaltix_redeem":{"end":"2018-12-31T23:59:00","start":"2018-01-10T00:00:00"},"globaltix_cost":270,"quantity":2},{"display_price":890,"price":650,"name":"Child","_id":"5a1e87a5b549a700121cb93b","globaltix_ticket_id":"4139","has_availability":false,"globaltix_questions":[{"type":"DATE","question":"Service Date","id":11969,"answer":"2018-04-12"},{"type":"FREETEXT","question":"Nationality","id":11970,"answer":"Thailand"},{"options":["Afternoon","Morning"],"type":"OPTION","question":"Select Time","id":11971,"answer":"Afternoon"}],"globaltix_redeem":{"end":"2018-12-31T23:59:00","start":"2018-01-10T00:00:00"},"globaltix_cost":220,"quantity":1}]},{"tier":"Photo Pack : Aquarium + Photo (6\" x 9\")","_id":"5a1e87a5b549a700121cb937","sub_tiers":[{"display_price":1190,"price":800,"name":"Adult","_id":"5a1e87a5b549a700121cb939","quantity":0},{"display_price":990,"price":750,"name":"Child","_id":"5a1e87a5b549a700121cb938","quantity":0}]},{"tier":"Aquarium + Glass Bottom Boat (GBB)","_id":"5a1e87a5b549a700121cb934","sub_tiers":[{"display_price":1340,"price":700,"name":"Adult","_id":"5a1e87a5b549a700121cb936","quantity":0},{"display_price":1140,"price":650,"name":"Child","_id":"5a1e87a5b549a700121cb935","quantity":0}]},{"tier":"COMBI: SEA LIFE + MADAME TUSSAUDS TICKET","_id":"5a1e87a5b549a700121cb931","sub_tiers":[{"display_price":1980,"price":1000,"name":"Adult","_id":"5a1e87a5b549a700121cb933","quantity":0},{"display_price":1580,"price":850,"name":"Child","_id":"5a1e87a5b549a700121cb932","quantity":0}]}]}'</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api.staging.takemetour.com/partner/transactions/book'</span><span class="p">,</span>
+<span class="p">{</span>
+  <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s1">'content-type'</span><span class="p">:</span> <span class="s1">'application/json'</span><span class="p">,</span>
+    <span class="s1">'x-access-token'</span><span class="p">:</span> <span class="s1">'0TKOeCA5sLimUiGYcIdWOb9NoiYEgJJ3'</span>
+  <span class="p">},</span>
+  <span class="na">body</span><span class="p">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
+    <span class="s2">"name"</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">"first"</span><span class="p">:</span> <span class="s2">"John"</span><span class="p">,</span>
+      <span class="s2">"last"</span><span class="p">:</span> <span class="s2">"Doe"</span>
+    <span class="p">},</span>
+    <span class="s2">"email"</span><span class="p">:</span> <span class="s2">"john+doe@takemetour.com"</span><span class="p">,</span>
+    <span class="s2">"mobile"</span><span class="p">:</span> <span class="s2">"+66856667571"</span><span class="p">,</span>
+    <span class="s2">"country"</span><span class="p">:</span> <span class="s2">"TH"</span><span class="p">,</span>
+    <span class="s2">"trip_id"</span><span class="p">:</span> <span class="s2">"5a3a0af6c0214700127dadf5"</span><span class="p">,</span>
+    <span class="s2">"trip_date"</span><span class="p">:</span> <span class="s2">"2018-04-11T17:00:00.000Z"</span><span class="p">,</span>
+    <span class="s2">"multi_tier_quantity"</span><span class="p">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="s2">"tier"</span><span class="p">:</span> <span class="s2">"Admission Fee - Aquarium Only"</span><span class="p">,</span>
+        <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"5a1e87a5b549a700121cb93d"</span><span class="p">,</span>
+        <span class="s2">"sub_tiers"</span><span class="p">:</span> <span class="p">[</span>
+          <span class="p">{</span>
+            <span class="s2">"display_price"</span><span class="p">:</span> <span class="mi">990</span><span class="p">,</span>
+            <span class="s2">"price"</span><span class="p">:</span> <span class="mi">600</span><span class="p">,</span>
+            <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Adult"</span><span class="p">,</span>
+            <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"5a1e87a5b549a700121cb93f"</span><span class="p">,</span>
+            <span class="s2">"globaltix_ticket_id"</span><span class="p">:</span> <span class="s2">"4136"</span><span class="p">,</span>
+            <span class="s2">"has_availability"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="s2">"globaltix_questions"</span><span class="p">:</span> <span class="p">[</span>
+              <span class="p">{</span>
+                <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"FREETEXT"</span><span class="p">,</span>
+                <span class="s2">"question"</span><span class="p">:</span> <span class="s2">"Customer name"</span><span class="p">,</span>
+                <span class="s2">"id"</span><span class="p">:</span> <span class="mi">11968</span>
+              <span class="p">}</span>
+            <span class="p">],</span>
+            <span class="s2">"globaltix_redeem"</span><span class="p">:</span> <span class="p">{</span>
+              <span class="s2">"end"</span><span class="p">:</span> <span class="s2">"2018-12-31T23:59:00"</span><span class="p">,</span>
+              <span class="s2">"start"</span><span class="p">:</span> <span class="s2">"2018-01-10T00:00:00"</span>
+            <span class="p">},</span>
+            <span class="s2">"globaltix_cost"</span><span class="p">:</span> <span class="mi">1500</span><span class="p">,</span>
+            <span class="s2">"quantity"</span><span class="p">:</span> <span class="mi">0</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+            <span class="s2">"display_price"</span><span class="p">:</span> <span class="mi">790</span><span class="p">,</span>
+            <span class="s2">"price"</span><span class="p">:</span> <span class="mi">550</span><span class="p">,</span>
+            <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Child"</span><span class="p">,</span>
+            <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"5a1e87a5b549a700121cb93e"</span><span class="p">,</span>
+            <span class="s2">"globaltix_ticket_id"</span><span class="p">:</span> <span class="s2">"4136"</span><span class="p">,</span>
+            <span class="s2">"has_availability"</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="s2">"globaltix_questions"</span><span class="p">:</span> <span class="p">[</span>
+              <span class="p">{</span>
+                <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"FREETEXT"</span><span class="p">,</span>
+                <span class="s2">"question"</span><span class="p">:</span> <span class="s2">"Customer name"</span><span class="p">,</span>
+                <span class="s2">"id"</span><span class="p">:</span> <span class="mi">11968</span>
+              <span class="p">}</span>
+            <span class="p">],</span>
+            <span class="s2">"globaltix_redeem"</span><span class="p">:</span> <span class="p">{</span>
+              <span class="s2">"end"</span><span class="p">:</span> <span class="s2">"2018-12-31T23:59:00"</span><span class="p">,</span>
+              <span class="s2">"start"</span><span class="p">:</span> <span class="s2">"2018-01-10T00:00:00"</span>
+            <span class="p">},</span>
+            <span class="s2">"globaltix_cost"</span><span class="p">:</span> <span class="mi">1500</span><span class="p">,</span>
+            <span class="s2">"quantity"</span><span class="p">:</span> <span class="mi">0</span>
+          <span class="p">}</span>
+        <span class="p">]</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="s2">"tier"</span><span class="p">:</span> <span class="s2">"COMBO: Aquarium + 4D Movie"</span><span class="p">,</span>
+        <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"5a1e87a5b549a700121cb93a"</span><span class="p">,</span>
+        <span class="s2">"sub_tiers"</span><span class="p">:</span> <span class="p">[</span>
+          <span class="p">{</span>
+            <span class="s2">"display_price"</span><span class="p">:</span> <span class="mi">1090</span><span class="p">,</span>
+            <span class="s2">"price"</span><span class="p">:</span> <span class="mi">700</span><span class="p">,</span>
+            <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Adult"</span><span class="p">,</span>
+            <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"5a1e87a5b549a700121cb93c"</span><span class="p">,</span>
+            <span class="s2">"globaltix_ticket_id"</span><span class="p">:</span> <span class="s2">"4138"</span><span class="p">,</span>
+            <span class="s2">"has_availability"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="s2">"globaltix_questions"</span><span class="p">:</span> <span class="p">[</span>
+              <span class="p">{</span>
+                <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"DATE"</span><span class="p">,</span>
+                <span class="s2">"question"</span><span class="p">:</span> <span class="s2">"Service Date"</span><span class="p">,</span>
+                <span class="s2">"id"</span><span class="p">:</span> <span class="mi">11969</span><span class="p">,</span>
+                <span class="s2">"answer"</span><span class="p">:</span> <span class="s2">"2018-04-12"</span>
+              <span class="p">},</span>
+              <span class="p">{</span>
+                <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"FREETEXT"</span><span class="p">,</span>
+                <span class="s2">"question"</span><span class="p">:</span> <span class="s2">"Nationality"</span><span class="p">,</span>
+                <span class="s2">"id"</span><span class="p">:</span> <span class="mi">11970</span><span class="p">,</span>
+                <span class="s2">"answer"</span><span class="p">:</span> <span class="s2">"Thailand"</span>
+              <span class="p">},</span>
+              <span class="p">{</span>
+                <span class="s2">"options"</span><span class="p">:</span> <span class="p">[</span>
+                  <span class="s2">"Afternoon"</span><span class="p">,</span>
+                  <span class="s2">"Morning"</span>
+                <span class="p">],</span>
+                <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"OPTION"</span><span class="p">,</span>
+                <span class="s2">"question"</span><span class="p">:</span> <span class="s2">"Select Time"</span><span class="p">,</span>
+                <span class="s2">"id"</span><span class="p">:</span> <span class="mi">11971</span><span class="p">,</span>
+                <span class="s2">"answer"</span><span class="p">:</span> <span class="s2">"Afternoon"</span>
+              <span class="p">}</span>
+            <span class="p">],</span>
+            <span class="s2">"globaltix_redeem"</span><span class="p">:</span> <span class="p">{</span>
+              <span class="s2">"end"</span><span class="p">:</span> <span class="s2">"2018-12-31T23:59:00"</span><span class="p">,</span>
+              <span class="s2">"start"</span><span class="p">:</span> <span class="s2">"2018-01-10T00:00:00"</span>
+            <span class="p">},</span>
+            <span class="s2">"globaltix_cost"</span><span class="p">:</span> <span class="mi">270</span><span class="p">,</span>
+            <span class="s2">"quantity"</span><span class="p">:</span> <span class="mi">2</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+            <span class="s2">"display_price"</span><span class="p">:</span> <span class="mi">890</span><span class="p">,</span>
+            <span class="s2">"price"</span><span class="p">:</span> <span class="mi">650</span><span class="p">,</span>
+            <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Child"</span><span class="p">,</span>
+            <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"5a1e87a5b549a700121cb93b"</span><span class="p">,</span>
+            <span class="s2">"globaltix_ticket_id"</span><span class="p">:</span> <span class="s2">"4139"</span><span class="p">,</span>
+            <span class="s2">"has_availability"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+            <span class="s2">"globaltix_questions"</span><span class="p">:</span> <span class="p">[</span>
+              <span class="p">{</span>
+                <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"DATE"</span><span class="p">,</span>
+                <span class="s2">"question"</span><span class="p">:</span> <span class="s2">"Service Date"</span><span class="p">,</span>
+                <span class="s2">"id"</span><span class="p">:</span> <span class="mi">11969</span><span class="p">,</span>
+                <span class="s2">"answer"</span><span class="p">:</span> <span class="s2">"2018-04-12"</span>
+              <span class="p">},</span>
+              <span class="p">{</span>
+                <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"FREETEXT"</span><span class="p">,</span>
+                <span class="s2">"question"</span><span class="p">:</span> <span class="s2">"Nationality"</span><span class="p">,</span>
+                <span class="s2">"id"</span><span class="p">:</span> <span class="mi">11970</span><span class="p">,</span>
+                <span class="s2">"answer"</span><span class="p">:</span> <span class="s2">"Thailand"</span>
+              <span class="p">},</span>
+              <span class="p">{</span>
+                <span class="s2">"options"</span><span class="p">:</span> <span class="p">[</span>
+                  <span class="s2">"Afternoon"</span><span class="p">,</span>
+                  <span class="s2">"Morning"</span>
+                <span class="p">],</span>
+                <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"OPTION"</span><span class="p">,</span>
+                <span class="s2">"question"</span><span class="p">:</span> <span class="s2">"Select Time"</span><span class="p">,</span>
+                <span class="s2">"id"</span><span class="p">:</span> <span class="mi">11971</span><span class="p">,</span>
+                <span class="s2">"answer"</span><span class="p">:</span> <span class="s2">"Afternoon"</span>
+              <span class="p">}</span>
+            <span class="p">],</span>
+            <span class="s2">"globaltix_redeem"</span><span class="p">:</span> <span class="p">{</span>
+              <span class="s2">"end"</span><span class="p">:</span> <span class="s2">"2018-12-31T23:59:00"</span><span class="p">,</span>
+              <span class="s2">"start"</span><span class="p">:</span> <span class="s2">"2018-01-10T00:00:00"</span>
+            <span class="p">},</span>
+            <span class="s2">"globaltix_cost"</span><span class="p">:</span> <span class="mi">220</span><span class="p">,</span>
+            <span class="s2">"quantity"</span><span class="p">:</span> <span class="mi">1</span>
+          <span class="p">}</span>
+        <span class="p">]</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="s2">"tier"</span><span class="p">:</span> <span class="s2">"Photo Pack : Aquarium + Photo (6\" x 9\")"</span><span class="p">,</span>
+        <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"5a1e87a5b549a700121cb937"</span><span class="p">,</span>
+        <span class="s2">"sub_tiers"</span><span class="p">:</span> <span class="p">[</span>
+          <span class="p">{</span>
+            <span class="s2">"display_price"</span><span class="p">:</span> <span class="mi">1190</span><span class="p">,</span>
+            <span class="s2">"price"</span><span class="p">:</span> <span class="mi">800</span><span class="p">,</span>
+            <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Adult"</span><span class="p">,</span>
+            <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"5a1e87a5b549a700121cb939"</span><span class="p">,</span>
+            <span class="s2">"quantity"</span><span class="p">:</span> <span class="mi">0</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+            <span class="s2">"display_price"</span><span class="p">:</span> <span class="mi">990</span><span class="p">,</span>
+            <span class="s2">"price"</span><span class="p">:</span> <span class="mi">750</span><span class="p">,</span>
+            <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Child"</span><span class="p">,</span>
+            <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"5a1e87a5b549a700121cb938"</span><span class="p">,</span>
+            <span class="s2">"quantity"</span><span class="p">:</span> <span class="mi">0</span>
+          <span class="p">}</span>
+        <span class="p">]</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="s2">"tier"</span><span class="p">:</span> <span class="s2">"Aquarium + Glass Bottom Boat (GBB)"</span><span class="p">,</span>
+        <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"5a1e87a5b549a700121cb934"</span><span class="p">,</span>
+        <span class="s2">"sub_tiers"</span><span class="p">:</span> <span class="p">[</span>
+          <span class="p">{</span>
+            <span class="s2">"display_price"</span><span class="p">:</span> <span class="mi">1340</span><span class="p">,</span>
+            <span class="s2">"price"</span><span class="p">:</span> <span class="mi">700</span><span class="p">,</span>
+            <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Adult"</span><span class="p">,</span>
+            <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"5a1e87a5b549a700121cb936"</span><span class="p">,</span>
+            <span class="s2">"quantity"</span><span class="p">:</span> <span class="mi">0</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+            <span class="s2">"display_price"</span><span class="p">:</span> <span class="mi">1140</span><span class="p">,</span>
+            <span class="s2">"price"</span><span class="p">:</span> <span class="mi">650</span><span class="p">,</span>
+            <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Child"</span><span class="p">,</span>
+            <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"5a1e87a5b549a700121cb935"</span><span class="p">,</span>
+            <span class="s2">"quantity"</span><span class="p">:</span> <span class="mi">0</span>
+          <span class="p">}</span>
+        <span class="p">]</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="s2">"tier"</span><span class="p">:</span> <span class="s2">"COMBI: SEA LIFE + MADAME TUSSAUDS TICKET"</span><span class="p">,</span>
+        <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"5a1e87a5b549a700121cb931"</span><span class="p">,</span>
+        <span class="s2">"sub_tiers"</span><span class="p">:</span> <span class="p">[</span>
+          <span class="p">{</span>
+            <span class="s2">"display_price"</span><span class="p">:</span> <span class="mi">1980</span><span class="p">,</span>
+            <span class="s2">"price"</span><span class="p">:</span> <span class="mi">1000</span><span class="p">,</span>
+            <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Adult"</span><span class="p">,</span>
+            <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"5a1e87a5b549a700121cb933"</span><span class="p">,</span>
+            <span class="s2">"quantity"</span><span class="p">:</span> <span class="mi">0</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+            <span class="s2">"display_price"</span><span class="p">:</span> <span class="mi">1580</span><span class="p">,</span>
+            <span class="s2">"price"</span><span class="p">:</span> <span class="mi">850</span><span class="p">,</span>
+            <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Child"</span><span class="p">,</span>
+            <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"5a1e87a5b549a700121cb932"</span><span class="p">,</span>
+            <span class="s2">"quantity"</span><span class="p">:</span> <span class="mi">0</span>
+          <span class="p">}</span>
+        <span class="p">]</span>
+      <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">}),</span>
+  <span class="na">method</span><span class="p">:</span> <span class="s1">'POST'</span>
+<span class="p">});</span>
+<span class="kr">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
+</code></pre>
 <p>For attraction tickets, specify <code>multi_tier_quantity</code> with the same structure as <a href="#attraction-tickets">get attraction tickets</a>.</p>
 
 <p>But more than that, attraction ticket also has <strong>questions</strong> that need to be answered. Questions can be found in <code>globaltix_questions</code> in the sub tier of tier which you want to booked. (You can get it from get product API)</p>
@@ -2490,7 +2942,9 @@
 <td>Quantity of ticket with the <code>answer</code> added to the sub tier that you chose.</td>
 </tr>
 </tbody></table>
-<h3 id='response-8'>Response</h3>
+
+<p><strong>Note:</strong> <code>meeting_point</code> field is not required for <code>ticket</code></p>
+<h3 id='response-2'>Response</h3>
 <p>Response will return <code>success</code> to show that the booking process is success or not, and <code>transaction_id</code>.</p>
 
 <table><thead>
@@ -2520,11 +2974,12 @@
 <p><strong>Remark:</strong> If <code>success</code> equal to <code>false</code> but still return <code>transaction_id</code> please contact us.</p>
 <h2 id='book-tangible-products'>Book Tangible Products</h2>
 <blockquote>
-<p>Request body to book product type <code>souvenir</code></p>
+<p>Request body to book product type <code>souvenir</code>, <code>meeting_point</code> is required by default with format <code>Hotel name: {hotelName}, room: {hotelRoom}</code>. (If product tags don&#39;t contain tag <code>not_require_pickup_location</code> then <code>meeting_point</code> field can be omit.)</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
   </span><span class="s2">"trip_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5a39ee73fdeeab0012005d50"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"meeting_point"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hotel name: Florida Hotel, room: 404"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"first"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"last"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Doe"</span><span class="w">
@@ -2535,6 +2990,84 @@
   </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TH"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
+<blockquote>
+<p>Code</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.staging.takemetour.com/partner/book'</span> <span class="se">\</span>
+-H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+-H <span class="s1">'x-access-token: 0TKOeCA5sLimUiGYcIdWOb9NoiYEgJJ3'</span> <span class="se">\</span>
+-X POST <span class="se">\</span>
+--data-binary <span class="s1">'{"quantity":1,"trip_id":"5a39ee73fdeeab0012005d50","meeting_point":"Hotel name: Florida Hotel, room: 404","name":{"first":"John","last":"Doe"},"email":"john+doe@takemetour.com","trip_date":"2018-03-30T17:00:00.000Z","mobile":"+66856667571","country":"TH"}'</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api.staging.takemetour.com/partner/book'</span><span class="p">,</span>
+<span class="p">{</span>
+  <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s1">'content-type'</span><span class="p">:</span> <span class="s1">'application/json'</span><span class="p">,</span>
+    <span class="s1">'x-access-token'</span><span class="p">:</span> <span class="s1">'0TKOeCA5sLimUiGYcIdWOb9NoiYEgJJ3'</span>
+  <span class="p">},</span>
+  <span class="na">body</span><span class="p">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
+    <span class="s2">"quantity"</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+    <span class="s2">"trip_id"</span><span class="p">:</span> <span class="s2">"5a3782ebbec78a00117fc04b"</span><span class="p">,</span>
+    <span class="s2">"meeting_point"</span><span class="p">:</span> <span class="s2">"Hotel name: Florida Hotel, room: 404"</span><span class="p">,</span>
+    <span class="s2">"name"</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">"first"</span><span class="p">:</span> <span class="s2">"John"</span><span class="p">,</span>
+      <span class="s2">"last"</span><span class="p">:</span> <span class="s2">"Doe"</span>
+    <span class="p">},</span>
+    <span class="s2">"email"</span><span class="p">:</span> <span class="s2">"john+doe@takemetour.com"</span><span class="p">,</span>
+    <span class="s2">"trip_date"</span><span class="p">:</span> <span class="s2">"2018-03-29T17:00:00.000Z"</span><span class="p">,</span>
+    <span class="s2">"mobile"</span><span class="p">:</span> <span class="s2">"+66856667571"</span><span class="p">,</span>
+    <span class="s2">"country"</span><span class="p">:</span> <span class="s2">"TH"</span>
+  <span class="p">}),</span>
+  <span class="na">method</span><span class="p">:</span> <span class="s1">'POST'</span><span class="p">,</span>
+<span class="p">});</span>
+<span class="kr">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
+</code></pre>
+<blockquote>
+<p>If product has tag <code>match_passport_name</code>, customer first name must have name title</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"trip_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5a3782ebbec78a00117fc04b"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"meeting_point"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hotel name: Florida Hotel, room: 404"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"first"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Mr.John"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"last"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Doe"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john+doe@takemetour.com"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"trip_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-03-29T17:00:00.000Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+66856667571"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TH"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Code</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.staging.takemetour.com/partner/book'</span> <span class="se">\</span>
+-H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+-H <span class="s1">'x-access-token: 0TKOeCA5sLimUiGYcIdWOb9NoiYEgJJ3'</span>
+--data-binary: <span class="s1">'{"quantity":5,"trip_id":"5a3782ebbec78a00117fc04b","meeting_point":"Hotel name: Florida Hotel, room: 404","name":{"first":"Mr.John","last":"Doe"},"email":"john+doe@takemetour.com","trip_date":"2018-03-29T17:00:00.000Z","mobile":"+66856667571","country":"TH"}'</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api.staging.takemetour.com/partner/book'</span><span class="p">,</span>
+<span class="p">{</span>
+  <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s1">'content-type'</span><span class="p">:</span> <span class="s1">'application/json'</span><span class="p">,</span>
+    <span class="s1">'x-access-token'</span><span class="p">:</span> <span class="s1">'0TKOeCA5sLimUiGYcIdWOb9NoiYEgJJ3'</span>
+  <span class="p">},</span>
+  <span class="na">body</span><span class="p">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
+    <span class="s2">"quantity"</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+    <span class="s2">"trip_id"</span><span class="p">:</span> <span class="s2">"5a3782ebbec78a00117fc04b"</span><span class="p">,</span>
+    <span class="s2">"meeting_point"</span><span class="p">:</span> <span class="s2">"Hotel name: Florida Hotel, room: 404"</span><span class="p">,</span>
+    <span class="s2">"name"</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">"first"</span><span class="p">:</span> <span class="s2">"Mr.John"</span><span class="p">,</span>
+      <span class="s2">"last"</span><span class="p">:</span> <span class="s2">"Doe"</span>
+    <span class="p">},</span>
+    <span class="s2">"email"</span><span class="p">:</span> <span class="s2">"john+doe@takemetour.com"</span><span class="p">,</span>
+    <span class="s2">"trip_date"</span><span class="p">:</span> <span class="s2">"2018-03-29T17:00:00.000Z"</span><span class="p">,</span>
+    <span class="s2">"mobile"</span><span class="p">:</span> <span class="s2">"+66856667571"</span><span class="p">,</span>
+    <span class="s2">"country"</span><span class="p">:</span> <span class="s2">"TH"</span>
+  <span class="p">}),</span>
+  <span class="na">method</span><span class="p">:</span> <span class="s1">'POST'</span><span class="p">,</span>
+<span class="p">});</span>
+<span class="kr">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
+</code></pre>
 <p>For tangible product, <code>quantity</code> must be provided. And it also has some condition which you need some field to add for.</p>
 
 <ul>
@@ -2596,7 +3129,7 @@
 <td>If product <code>tags</code> doesn&#39;t contains <code>not_require_pickup_location</code> meeting_point is delivery address (hotel only).</td>
 </tr>
 </tbody></table>
-<h3 id='response-9'>Response</h3>
+<h3 id='response-3'>Response</h3>
 <p>Response will return <code>success</code> to show that the booking process is success or not, and <code>transaction_id</code>.</p>
 
 <table><thead>
@@ -2630,12 +3163,12 @@
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.staging.takemetour.com/partner/transactions'</span> <span class="se">\</span>
 -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
--H <span class="s1">'x-access-token: 4obGgRjmzYOnZLOEFfFsEycy04w9y8XQ'</span>
+-H <span class="s1">'x-access-token: 0TKOeCA5sLimUiGYcIdWOb9NoiYEgJJ3'</span>
 </code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api.staging.takemetour.com/partner/transactions'</span><span class="p">,</span>
 <span class="p">{</span>
   <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
     <span class="s1">'content-type'</span><span class="p">:</span> <span class="s1">'application/json'</span><span class="p">,</span>
-    <span class="s1">'x-access-token'</span><span class="p">:</span> <span class="s1">'4obGgRjmzYOnZLOEFfFsEycy04w9y8XQ'</span>
+    <span class="s1">'x-access-token'</span><span class="p">:</span> <span class="s1">'0TKOeCA5sLimUiGYcIdWOb9NoiYEgJJ3'</span>
   <span class="p">},</span>
   <span class="na">method</span><span class="p">:</span> <span class="s1">'GET'</span><span class="p">,</span>
 <span class="p">});</span>
@@ -2710,7 +3243,7 @@
 </span><span class="p">}]</span><span class="w">
 </span></code></pre>
 <p><strong>HTTP Request:</strong> <code>GET /transactions</code></p>
-<h3 id='response-10'>Response</h3>
+<h3 id='response'>Response</h3>
 <p>The response will return an Array of Objects. For each object will have these parameters</p>
 
 <table><thead>
@@ -2792,12 +3325,12 @@
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.staging.takemetour.com/partner/transactions/5aaf7caa551d7a00116ea4fb'</span> <span class="se">\</span>
 -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
--H <span class="s1">'x-access-token: 4obGgRjmzYOnZLOEFfFsEycy04w9y8XQ'</span>
+-H <span class="s1">'x-access-token: 0TKOeCA5sLimUiGYcIdWOb9NoiYEgJJ3'</span>
 </code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api.staging.takemetour.com/partner/transactions/5aaf7caa551d7a00116ea4fb'</span><span class="p">,</span>
 <span class="p">{</span>
   <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
     <span class="s1">'content-type'</span><span class="p">:</span> <span class="s1">'application/json'</span><span class="p">,</span>
-    <span class="s1">'x-access-token'</span><span class="p">:</span> <span class="s1">'4obGgRjmzYOnZLOEFfFsEycy04w9y8XQ'</span>
+    <span class="s1">'x-access-token'</span><span class="p">:</span> <span class="s1">'0TKOeCA5sLimUiGYcIdWOb9NoiYEgJJ3'</span>
   <span class="p">},</span>
   <span class="na">method</span><span class="p">:</span> <span class="s1">'GET'</span><span class="p">,</span>
 <span class="p">});</span>
@@ -2945,7 +3478,7 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p><strong>HTTP Request:</strong> <code>GET /transactions/:id</code></p>
-<h3 id='response-11'>Response</h3>
+<h3 id='response-2'>Response</h3>
 <p>The response will return transaction object</p>
 
 <table><thead>
@@ -3057,14 +3590,14 @@
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl -o voucher.pdf <span class="se">\</span>
 <span class="s1">'https://api.staging.takemetour.com/partner/transactions/5aaf7caa551d7a00116ea4fb/voucher'</span> <span class="se">\</span>
--H <span class="s1">'x-access-token: 4obGgRjmzYOnZLOEFfFsEycy04w9y8XQ'</span>
+-H <span class="s1">'x-access-token: 0TKOeCA5sLimUiGYcIdWOb9NoiYEgJJ3'</span>
 </code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">import</span> <span class="p">{</span> <span class="nx">saveAs</span> <span class="p">}</span> <span class="nx">from</span> <span class="s1">'file-saver'</span>
 
 <span class="kr">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api.staging.takemetour.com/partner/transactions/5aaf7caa551d7a00116ea4fb/voucher'</span><span class="p">,</span>
 <span class="p">{</span>
   <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
     <span class="s1">'content-type'</span><span class="p">:</span> <span class="s1">'application/pdf'</span><span class="p">,</span>
-    <span class="s1">'x-access-token'</span><span class="p">:</span> <span class="s1">'4obGgRjmzYOnZLOEFfFsEycy04w9y8XQ'</span>
+    <span class="s1">'x-access-token'</span><span class="p">:</span> <span class="s1">'0TKOeCA5sLimUiGYcIdWOb9NoiYEgJJ3'</span>
   <span class="p">},</span>
   <span class="na">responseType</span><span class="p">:</span> <span class="s1">'blob'</span>
 <span class="p">});</span>
@@ -3073,7 +3606,7 @@
 <span class="nx">saveAs</span><span class="p">(</span><span class="nx">blob</span><span class="p">,</span> <span class="s1">'voucher.pdf'</span><span class="p">);</span>
 </code></pre>
 <p><strong>HTTP Request:</strong> <code>GET /transactions/:id/voucher</code></p>
-<h3 id='response-12'>Response</h3>
+<h3 id='response-3'>Response</h3>
 <p>The response will be PDF file <strong>(please make sure you pass access token in header or cookie)</strong></p>
 
 <p>Example of voucher <a href="https://github.com/takemetour/public-api/blob/master/material/booking-voucher.pdf">PDF Voucher</a>
@@ -3081,175 +3614,6 @@
 
 <p>Some Attraction Tickets voucher will look like this <a href="https://github.com/takemetour/public-api/blob/master/material/ticket-voucher.pdf">PDF Ticket Voucher</a>
 <img src="https://raw.githubusercontent.com/takemetour/public-api/master/material/ticket-voucher.png" alt="Image of Attraction Tickets voucher" /></p>
-<h1 id='availability'>Availability</h1><h2 id='local-experiences-trip-calendar'>Local Experiences Trip Calendar</h2>
-<blockquote>
-<p>Code</p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.staging.takemetour.com/partner/calendar?trip_id=58ff211702b3ea0011efe846&amp;month=August%202018'</span> <span class="se">\</span>
--H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
--H <span class="s1">'x-access-token: 4obGgRjmzYOnZLOEFfFsEycy04w9y8XQ'</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api.staging.takemetour.com/partner/calendar?trip_id=58ff211702b3ea0011efe846&amp;month=August%202018'</span><span class="p">,</span>
-<span class="p">{</span>
-  <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
-    <span class="s1">'content-type'</span><span class="p">:</span> <span class="s1">'application/json'</span><span class="p">,</span>
-    <span class="s1">'x-access-token'</span><span class="p">:</span> <span class="s1">'4obGgRjmzYOnZLOEFfFsEycy04w9y8XQ'</span>
-  <span class="p">},</span>
-  <span class="na">method</span><span class="p">:</span> <span class="s1">'GET'</span><span class="p">,</span>
-<span class="p">});</span>
-<span class="kr">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
-</code></pre>
-<blockquote>
-<p>Example Response</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">[{</span><span class="w">
-  </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-01T17:00:00.000Z"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"n/a"</span><span class="w">
-</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
-  </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-02T17:00:00.000Z"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"n/a"</span><span class="w">
-</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
-  </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-06T17:00:00.000Z"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"available"</span><span class="w">
-</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
-  </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-08T17:00:00.000Z"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"n/a"</span><span class="w">
-</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
-  </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-09T17:00:00.000Z"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"n/a"</span><span class="w">
-</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
-  </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-13T17:00:00.000Z"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"available"</span><span class="w">
-</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
-  </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-15T17:00:00.000Z"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"n/a"</span><span class="w">
-</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
-  </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-16T17:00:00.000Z"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"n/a"</span><span class="w">
-</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
-  </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-17T17:00:00.000Z"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"n/a"</span><span class="w">
-</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
-  </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-20T17:00:00.000Z"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"available"</span><span class="w">
-</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
-  </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-22T17:00:00.000Z"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"n/a"</span><span class="w">
-</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
-  </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-23T17:00:00.000Z"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"n/a"</span><span class="w">
-</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
-  </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-25T17:00:00.000Z"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"n/a"</span><span class="w">
-</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
-  </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-27T17:00:00.000Z"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"available"</span><span class="w">
-</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
-  </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-29T17:00:00.000Z"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"n/a"</span><span class="w">
-</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
-  </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-30T17:00:00.000Z"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"n/a"</span><span class="w">
-</span><span class="p">}]</span><span class="w">
-</span></code></pre>
-<p><strong>HTTP Request:</strong> <code>GET /calendar?trip_id=tripId&amp;month=monthYear</code></p>
-<h3 id='request-query-string'>Request Query String</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>trip_id</td>
-<td><strong>String</strong></td>
-<td>Product&#39;s database ID get from <a href="#get-product-detail">Get Product Detail</a></td>
-</tr>
-<tr>
-<td>month</td>
-<td><strong>String</strong></td>
-<td>Month and year you want to query the availability, format is full name month with a space then year in AD. <strong>eg.</strong> <code>August 2018</code></td>
-</tr>
-</tbody></table>
-<h3 id='response-13'>Response</h3>
-<p>The response will return an availability of days in that month in Array of Objects. Each object indicate availability status on that day.</p>
-
-<p><strong>Note 1:</strong> The nearest date that available to order / book is <strong>today</strong> in Thailand time (GMT+7). Some products need to be ordered / booked in advance, it may not available for <strong>today</strong> or <strong>tomorrow</strong>.</p>
-
-<p><strong>Note 2:</strong> For some date that doesn&#39;t an have object to indicate the availability status, it means that day has default availability which require a confirmation from Local Expert / Supplyer.</p>
-
-<p>For each object will have these parameters.</p>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>date</td>
-<td><strong>String</strong></td>
-<td>Date in ISO string (at 00:00)</td>
-</tr>
-<tr>
-<td>status</td>
-<td><strong>String</strong></td>
-<td>Availability status on that day. <code>n/a</code> means not available to order / book. <code>available</code> means available to order / book with an instant confirmation.</td>
-</tr>
-</tbody></table>
-
-<p>This is an example of Date Picker that we use on our system.</p>
-
-<p><img src="https://raw.githubusercontent.com/takemetour/public-api/master/material/calendar.png" alt="Image of TakeMeTour Date Picker" /></p>
-<h2 id='attraction-tickets-calendar'>Attraction Tickets Calendar</h2>
-<blockquote>
-<p>Code</p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.staging.takemetour.com/partner/calendar?trip_id=5a14fccc8d185a001220006d&amp;ticket_ids=4136,4137&amp;month=August%202018'</span> <span class="se">\</span>
--H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
--H <span class="s1">'x-access-token: 4obGgRjmzYOnZLOEFfFsEycy04w9y8XQ'</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api.staging.takemetour.com/partner/calendar?trip_id=5a14fccc8d185a001220006d&amp;ticket_ids=4136,4137&amp;month=August%202018'</span><span class="p">,</span>
-<span class="p">{</span>
-  <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
-    <span class="s1">'content-type'</span><span class="p">:</span> <span class="s1">'application/json'</span><span class="p">,</span>
-    <span class="s1">'x-access-token'</span><span class="p">:</span> <span class="s1">'4obGgRjmzYOnZLOEFfFsEycy04w9y8XQ'</span>
-  <span class="p">},</span>
-  <span class="na">method</span><span class="p">:</span> <span class="s1">'GET'</span><span class="p">,</span>
-<span class="p">});</span>
-<span class="kr">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
-</code></pre>
-<p><strong>HTTP Request:</strong> <code>GET /calendar?trip_id=tripId&amp;month=monthYear&amp;ticket_ids=ticketIds</code></p>
-
-<p>Some subtiers of ticket have different availability from product parent.(some required seat confirmation). If it has, you will see field <code>has_availability</code> in <code>multi_tier_prices[index].sub_tiers[index]</code> is <code>true</code>. You have to pass <code>globaltix_ticket_id</code> where you can find it in <code>multi_tier_prices[index].sub_tiers[index]</code> with the query string of the request.</p>
-
-<p>As you can book multiple subtier tickets in the same tier at once (<strong>eg.</strong> book 2 Show + Food Adult tickets + 1 Show + Food Child ticket). You can query availabilities by passing ticket ids separated by commas (<strong>eg.</strong> ticket_ids=4136,4137)</p>
-<h3 id='request-query-string-2'>Request Query String</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>trip_id</td>
-<td><strong>String</strong></td>
-<td>Product&#39;s database ID get from <a href="#get-product-detail">Get Product Detail</a></td>
-</tr>
-<tr>
-<td>ticket_ids</td>
-<td><strong>String</strong></td>
-<td><code>globaltix_ticket_id</code> in <code>multi_tier_prices[index].sub_tiers[index]</code></td>
-</tr>
-<tr>
-<td>month</td>
-<td><strong>String</strong></td>
-<td>Month and year you want to query the availability, format is full name month with a space then year in AD. <strong>eg.</strong> <code>August 2018</code></td>
-</tr>
-</tbody></table>
-<h3 id='response-14'>Response</h3>
-<p>The response is similar to the response of <a href="#local-experiences-trip-calendar">Local Experience Trips Availability</a></p>
 <h1 id='appendix'>Appendix</h1><h2 id='country-code'>Country Code</h2>
 <table><thead>
 <tr>
@@ -4238,7 +4602,7 @@
 <td>ZW</td>
 </tr>
 </tbody></table>
-<h2 id='product-tags'>Product tags</h2>
+<h2 id='product-tags'>Product Tags</h2>
 <p>Tags mostly use for <code>souvenir</code> product to identify some properties of the product. Some tags is use for display only but some has to do with <a href="#book">book product API</a>. And here it is the list of tag that you should be considered about.</p>
 
 <table><thead>
@@ -4259,74 +4623,26 @@
 <td>DTAC SIM can be pickup at the airport. So it doesn&#39;t required pickup (or delivery) location</td>
 </tr>
 </tbody></table>
-<h2 id='meeting-point'>Meeting point</h2>
-<table><thead>
-<tr>
-<th>Country</th>
-<th>Country Code</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>Thailand</td>
-<td><strong>TH</strong></td>
-</tr>
-</tbody></table>
-<h1 id='errors'>Errors</h1>
-<aside class="notice">
-This error section is stored in a separate file in <code>includes/_errors.md</code>. Slate allows you to optionally separate out your docs into many files...just save them to the <code>includes</code> folder and add them to the top of your <code>index.md</code>'s frontmatter. Files are included in the order listed.
-</aside>
-
-<p>The Kittn API uses the following error codes:</p>
+<h2 id='meeting-points'>Meeting Points</h2>
+<p>For meeting point with type <strong>Airport Rail Link Station, BTS Station and MRT Station</strong> can have meeting point name <strong>&quot;Any Station&quot;</strong>. And here is the list of every station.</p>
 
 <table><thead>
 <tr>
-<th>Error Code</th>
-<th>Meaning</th>
+<th>Type</th>
+<th>Stations</th>
 </tr>
 </thead><tbody>
 <tr>
-<td>400</td>
-<td>Bad Request -- Your request is invalid.</td>
+<td>Airport Rail Link Station</td>
+<td><ul><li>Ban Thap Chang Station</li><li>Hua Mak Station</li><li>Lat Krabang Station</li><li>Makkasan Station</li><li>Phaya Thai</li><li>Ramkhamhaeng Station</li><li>Ratchaprarop Station</li><li>Suvarnabhumi Station</li></ul></td>
 </tr>
 <tr>
-<td>401</td>
-<td>Unauthorized -- Your API key is wrong.</td>
+<td>BTS Station</td>
+<td><ul><li>Ari</li><li>Asok</li><li>Bang Chak</li><li>Bang Na</li><li>Bang Wa</li><li>Bearing</li><li>Chit Lom</li><li>Chong Nonsi</li><li>Ekkamai</li><li>Krung Thon Buri</li><li>Mo Chit</li><li>Nana</li><li>National Stadium</li><li>On Nut</li><li>Phaya Thai</li><li>Phloen Chit</li><li>Pho Nimit</li><li>Phra Khanong</li><li>Phrom Phong</li><li>Punnawithi</li><li>Ratchadamri</li><li>Ratchathewi</li><li>Sala Daeng</li><li>Sanam Pao</li><li>Saphan Khwai</li><li>Saphan Taksin</li><li>Siam</li><li>Surasak</li><li>Talat Phlu</li><li>Thong Lo</li><li>Udom Suk</li><li>Victory Monument</li><li>Wongwian Yai</li><li>Wutthakat</li><li>Samrong</li></ul></td>
 </tr>
 <tr>
-<td>403</td>
-<td>Forbidden -- The kitten requested is hidden for administrators only.</td>
-</tr>
-<tr>
-<td>404</td>
-<td>Not Found -- The specified kitten could not be found.</td>
-</tr>
-<tr>
-<td>405</td>
-<td>Method Not Allowed -- You tried to access a kitten with an invalid method.</td>
-</tr>
-<tr>
-<td>406</td>
-<td>Not Acceptable -- You requested a format that isn&#39;t json.</td>
-</tr>
-<tr>
-<td>410</td>
-<td>Gone -- The kitten requested has been removed from our servers.</td>
-</tr>
-<tr>
-<td>418</td>
-<td>I&#39;m a teapot.</td>
-</tr>
-<tr>
-<td>429</td>
-<td>Too Many Requests -- You&#39;re requesting too many kittens! Slow down!</td>
-</tr>
-<tr>
-<td>500</td>
-<td>Internal Server Error -- We had a problem with our server. Try again later.</td>
-</tr>
-<tr>
-<td>503</td>
-<td>Service Unavailable -- We&#39;re temporarily offline for maintenance. Please try again later.</td>
+<td>MRT Station</td>
+<td><ul><li>Bang Sue</li><li>Chatuchak Park</li><li>Hua Lamphong</li><li>Huai Khwang</li><li>Kamphaeng Phet</li><li>Khlong Toei</li><li>Lat Phrao</li><li>Lumphini</li><li>Phahon Yothin</li><li>Phetchaburi</li><li>Phra Ram 9</li><li>Queen Sirikit National Convention Centre</li><li>Ratchadaphisek</li><li>Sam Yan</li><li>Si Lom</li><li>Sukhumvit</li><li>Sutthisan</li><li>Thailand Cultural Centre</li><li>Yaek Tiwanon</li><li>Phra Nang Klao Bridge</li><li>Sam Yaek Bang Yai</li><li>Ministry of Public Health</li><li>Tao Poon</li><li>Sai Ma</li><li>Talad Bang Yai</li><li>Nonthaburi Civic Center</li><li>Bang Son</li><li>Wong Sawang</li><li>Bang Rak Noi Tha It</li><li>Khlong Bang Phai</li><li>Yaek Nonthaburi 1</li><li>Bang Krasor</li><li>Bang Phlu</li><li>Bang Rak Yai</li></ul></td>
 </tr>
 </tbody></table>
 

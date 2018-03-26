@@ -1,0 +1,84 @@
+<h1 id='api-endpoint'>API Endpoint</h1><h2 id='development-and-production-endpoint'>Development and Production Endpoint</h2>
+<p>We provide two API endpoints for using in seperate environment.</p>
+
+<p>If you are in development (or experimenting) using development endpoint.</p>
+
+<table><thead>
+<tr>
+<th>Environment</th>
+<th>Endpoint</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Development</td>
+<td><a href="https://api.staging.takemetour.com/partner">https://api.staging.takemetour.com/partner</a></td>
+</tr>
+<tr>
+<td>Production</td>
+<td><a href="https://api.takemetour.com/partner">https://api.takemetour.com/partner</a></td>
+</tr>
+</tbody></table>
+<h2 id='endpoint-list'>Endpoint list</h2>
+<table><thead>
+<tr>
+<th>Path</th>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>/auth/login</td>
+<td>POST</td>
+<td><a href="#login">Login partner account</a></td>
+</tr>
+<tr>
+<td>/auth/logout</td>
+<td>DELETE</td>
+<td><a href="#logout">Logout partner account</a></td>
+</tr>
+<tr>
+<td>/auth/me</td>
+<td>GET</td>
+<td><a href="#user-info">Get partner account info</a></td>
+</tr>
+<tr>
+<td>/products</td>
+<td>GET</td>
+<td><a href="#get-all-products">Get All Products</a></td>
+</tr>
+<tr>
+<td>/products/:slug</td>
+<td>GET</td>
+<td><a href="#get-product-detail">Get Product Detail</a></td>
+</tr>
+<tr>
+<td>/products/price</td>
+<td>POST</td>
+<td><a href="#get-product-price">Get Product Price</a></td>
+</tr>
+<tr>
+<td>/calendar</td>
+<td>GET</td>
+<td><a href="#availability">Get Product availability</a></td>
+</tr>
+<tr>
+<td>/book</td>
+<td>POST</td>
+<td><a href="#book-product">Book product (a.k.a. create transaction)</a></td>
+</tr>
+<tr>
+<td>/transactions</td>
+<td>GET</td>
+<td><a href="#get-all-transactions">Get All Transactions</a></td>
+</tr>
+<tr>
+<td>/transactions/:id</td>
+<td>GET</td>
+<td><a href="#transaction-detail">Get Transaction detail</a></td>
+</tr>
+<tr>
+<td>/transactions/:id/voucher</td>
+<td>GET</td>
+<td><a href="#voucher">Get Transaction voucher</a></td>
+</tr>
+</tbody></table>

@@ -1,0 +1,171 @@
+<h1 id='availability'>Availability</h1><h3 id='request-is-pass'>Request is pass</h3><h2 id='local-experiences-trip-calendar'>Local Experiences Trip Calendar</h2>
+<blockquote>
+<p>Code</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.staging.takemetour.com/partner/calendar?trip_id=58ff211702b3ea0011efe846&amp;month=August%202018'</span> <span class="se">\</span>
+-H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+-H <span class="s1">'x-access-token: 0TKOeCA5sLimUiGYcIdWOb9NoiYEgJJ3'</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api.staging.takemetour.com/partner/calendar?trip_id=58ff211702b3ea0011efe846&amp;month=August%202018'</span><span class="p">,</span>
+<span class="p">{</span>
+  <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s1">'content-type'</span><span class="p">:</span> <span class="s1">'application/json'</span><span class="p">,</span>
+    <span class="s1">'x-access-token'</span><span class="p">:</span> <span class="s1">'0TKOeCA5sLimUiGYcIdWOb9NoiYEgJJ3'</span>
+  <span class="p">},</span>
+  <span class="na">method</span><span class="p">:</span> <span class="s1">'GET'</span><span class="p">,</span>
+<span class="p">});</span>
+<span class="kr">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
+</code></pre>
+<blockquote>
+<p>Example Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[{</span><span class="w">
+  </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-01T17:00:00.000Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"n/a"</span><span class="w">
+</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-02T17:00:00.000Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"n/a"</span><span class="w">
+</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-06T17:00:00.000Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"available"</span><span class="w">
+</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-08T17:00:00.000Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"n/a"</span><span class="w">
+</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-09T17:00:00.000Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"n/a"</span><span class="w">
+</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-13T17:00:00.000Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"available"</span><span class="w">
+</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-15T17:00:00.000Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"n/a"</span><span class="w">
+</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-16T17:00:00.000Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"n/a"</span><span class="w">
+</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-17T17:00:00.000Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"n/a"</span><span class="w">
+</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-20T17:00:00.000Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"available"</span><span class="w">
+</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-22T17:00:00.000Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"n/a"</span><span class="w">
+</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-23T17:00:00.000Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"n/a"</span><span class="w">
+</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-25T17:00:00.000Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"n/a"</span><span class="w">
+</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-27T17:00:00.000Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"available"</span><span class="w">
+</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-29T17:00:00.000Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"n/a"</span><span class="w">
+</span><span class="p">},</span><span class="w"> </span><span class="p">{</span><span class="w">
+  </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-30T17:00:00.000Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"n/a"</span><span class="w">
+</span><span class="p">}]</span><span class="w">
+</span></code></pre>
+<p><strong>HTTP Request:</strong> <code>GET /calendar?trip_id=tripId&amp;month=monthYear</code></p>
+<h3 id='request-query-string'>Request Query String</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>trip_id</td>
+<td><strong>String</strong></td>
+<td>Product&#39;s database ID get from <a href="#get-product-detail">Get Product Detail</a></td>
+</tr>
+<tr>
+<td>month</td>
+<td><strong>String</strong></td>
+<td>Month and year you want to query the availability, format is full name month with a space then year in AD. <strong>eg.</strong> <code>August 2018</code></td>
+</tr>
+</tbody></table>
+<h3 id='response'>Response</h3>
+<p>The response will return an availability of days in that month in Array of Objects. Each object indicate availability status on that day.</p>
+
+<p><strong>Note 1:</strong> The nearest date that available to order / book is <strong>today</strong> in Thailand time (GMT+7). Some products need to be ordered / booked in advance, it may not available for <strong>today</strong> or <strong>tomorrow</strong>.</p>
+
+<p><strong>Note 2:</strong> For some date that doesn&#39;t an have object to indicate the availability status, it means that day has default availability which require a confirmation from Local Expert / Supplyer.</p>
+
+<p>For each object will have these parameters.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>date</td>
+<td><strong>String</strong></td>
+<td>Date in ISO string (at 00:00)</td>
+</tr>
+<tr>
+<td>status</td>
+<td><strong>String</strong></td>
+<td>Availability status on that day. <code>n/a</code> means not available to order / book. <code>available</code> means available to order / book with an instant confirmation.</td>
+</tr>
+</tbody></table>
+
+<p>This is an example of Date Picker that we use on our system.</p>
+
+<p><img src="https://raw.githubusercontent.com/takemetour/public-api/master/material/calendar.png" alt="Image of TakeMeTour Date Picker" /></p>
+<h2 id='attraction-tickets-calendar'>Attraction Tickets Calendar</h2>
+<blockquote>
+<p>Code</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.staging.takemetour.com/partner/calendar?trip_id=5a14fccc8d185a001220006d&amp;ticket_ids=4136,4137&amp;month=August%202018'</span> <span class="se">\</span>
+-H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+-H <span class="s1">'x-access-token: 0TKOeCA5sLimUiGYcIdWOb9NoiYEgJJ3'</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api.staging.takemetour.com/partner/calendar?trip_id=5a14fccc8d185a001220006d&amp;ticket_ids=4136,4137&amp;month=August%202018'</span><span class="p">,</span>
+<span class="p">{</span>
+  <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s1">'content-type'</span><span class="p">:</span> <span class="s1">'application/json'</span><span class="p">,</span>
+    <span class="s1">'x-access-token'</span><span class="p">:</span> <span class="s1">'0TKOeCA5sLimUiGYcIdWOb9NoiYEgJJ3'</span>
+  <span class="p">},</span>
+  <span class="na">method</span><span class="p">:</span> <span class="s1">'GET'</span><span class="p">,</span>
+<span class="p">});</span>
+<span class="kr">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
+</code></pre>
+<p><strong>HTTP Request:</strong> <code>GET /calendar?trip_id=tripId&amp;month=monthYear&amp;ticket_ids=ticketIds</code></p>
+
+<p>Some subtiers of ticket have different availability from product parent.(some required seat confirmation). If it has, you will see field <code>has_availability</code> in <code>multi_tier_prices[index].sub_tiers[index]</code> is <code>true</code>. You have to pass <code>globaltix_ticket_id</code> where you can find it in <code>multi_tier_prices[index].sub_tiers[index]</code> with the query string of the request.</p>
+
+<p>As you can book multiple subtier tickets in the same tier at once (<strong>eg.</strong> book 2 Show + Food Adult tickets + 1 Show + Food Child ticket). You can query availabilities by passing ticket ids separated by commas (<strong>eg.</strong> ticket_ids=4136,4137)</p>
+<h3 id='request-query-string-2'>Request Query String</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>trip_id</td>
+<td><strong>String</strong></td>
+<td>Product&#39;s database ID get from <a href="#get-product-detail">Get Product Detail</a></td>
+</tr>
+<tr>
+<td>ticket_ids</td>
+<td><strong>String</strong></td>
+<td><code>globaltix_ticket_id</code> in <code>multi_tier_prices[index].sub_tiers[index]</code></td>
+</tr>
+<tr>
+<td>month</td>
+<td><strong>String</strong></td>
+<td>Month and year you want to query the availability, format is full name month with a space then year in AD. <strong>eg.</strong> <code>August 2018</code></td>
+</tr>
+</tbody></table>
+<h3 id='response-2'>Response</h3>
+<p>The response is similar to the response of <a href="#local-experiences-trip-calendar">Local Experience Trips Availability</a></p>
+<h2 id='tangible-product-calendar'>Tangible Product Calendar</h2>
+<p>Same as <a href="local-experiences-trip-calendar">Local Experiences Trip Calendar</a></p>
