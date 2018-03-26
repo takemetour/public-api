@@ -1,4 +1,3 @@
-
 # Transactions
 
 ## Get All Transactions
@@ -8,14 +7,14 @@
 ```shell
 curl 'https://api.staging.takemetour.com/partner/transactions' \
 -H 'content-type: application/json' \
--H 'x-access-token: 4obGgRjmzYOnZLOEFfFsEycy04w9y8XQ'
+-H 'x-access-token: 0TKOeCA5sLimUiGYcIdWOb9NoiYEgJJ3'
 ```
 ```javascript
 const response = await fetch('https://api.staging.takemetour.com/partner/transactions',
 {
   headers: {
     'content-type': 'application/json',
-    'x-access-token': '4obGgRjmzYOnZLOEFfFsEycy04w9y8XQ'
+    'x-access-token': '0TKOeCA5sLimUiGYcIdWOb9NoiYEgJJ3'
   },
   method: 'GET',
 });
@@ -119,14 +118,14 @@ user_id | **Object** | Information of provider (Local Expert / Supplyer), which 
 ```shell
 curl 'https://api.staging.takemetour.com/partner/transactions/5aaf7caa551d7a00116ea4fb' \
 -H 'content-type: application/json' \
--H 'x-access-token: 4obGgRjmzYOnZLOEFfFsEycy04w9y8XQ'
+-H 'x-access-token: 0TKOeCA5sLimUiGYcIdWOb9NoiYEgJJ3'
 ```
 ```javascript
 const response = await fetch('https://api.staging.takemetour.com/partner/transactions/5aaf7caa551d7a00116ea4fb',
 {
   headers: {
     'content-type': 'application/json',
-    'x-access-token': '4obGgRjmzYOnZLOEFfFsEycy04w9y8XQ'
+    'x-access-token': '0TKOeCA5sLimUiGYcIdWOb9NoiYEgJJ3'
   },
   method: 'GET',
 });
@@ -309,7 +308,7 @@ charged_date | **String** | Transaction charge date and time
 ```shell
 curl -o voucher.pdf \
 'https://api.staging.takemetour.com/partner/transactions/5aaf7caa551d7a00116ea4fb/voucher' \
--H 'x-access-token: 4obGgRjmzYOnZLOEFfFsEycy04w9y8XQ'
+-H 'x-access-token: 0TKOeCA5sLimUiGYcIdWOb9NoiYEgJJ3'
 ```
 ```javascript
 import { saveAs } from 'file-saver'
@@ -318,7 +317,7 @@ const response = await fetch('https://api.staging.takemetour.com/partner/transac
 {
   headers: {
     'content-type': 'application/pdf',
-    'x-access-token': '4obGgRjmzYOnZLOEFfFsEycy04w9y8XQ'
+    'x-access-token': '0TKOeCA5sLimUiGYcIdWOb9NoiYEgJJ3'
   },
   responseType: 'blob'
 });

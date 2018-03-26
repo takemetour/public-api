@@ -1,5 +1,6 @@
 # Availability
 
+### Request is pass
 ## Local Experiences Trip Calendar
 
 > Code
@@ -7,14 +8,14 @@
 ```shell
 curl 'https://api.staging.takemetour.com/partner/calendar?trip_id=58ff211702b3ea0011efe846&month=August%202018' \
 -H 'content-type: application/json' \
--H 'x-access-token: 4obGgRjmzYOnZLOEFfFsEycy04w9y8XQ'
+-H 'x-access-token: 0TKOeCA5sLimUiGYcIdWOb9NoiYEgJJ3'
 ```
 ```javascript
 const response = await fetch('https://api.staging.takemetour.com/partner/calendar?trip_id=58ff211702b3ea0011efe846&month=August%202018',
 {
   headers: {
     'content-type': 'application/json',
-    'x-access-token': '4obGgRjmzYOnZLOEFfFsEycy04w9y8XQ'
+    'x-access-token': '0TKOeCA5sLimUiGYcIdWOb9NoiYEgJJ3'
   },
   method: 'GET',
 });
@@ -109,14 +110,14 @@ This is an example of Date Picker that we use on our system.
 ```shell
 curl 'https://api.staging.takemetour.com/partner/calendar?trip_id=5a14fccc8d185a001220006d&ticket_ids=4136,4137&month=August%202018' \
 -H 'content-type: application/json' \
--H 'x-access-token: 4obGgRjmzYOnZLOEFfFsEycy04w9y8XQ'
+-H 'x-access-token: 0TKOeCA5sLimUiGYcIdWOb9NoiYEgJJ3'
 ```
 ```javascript
 const response = await fetch('https://api.staging.takemetour.com/partner/calendar?trip_id=5a14fccc8d185a001220006d&ticket_ids=4136,4137&month=August%202018',
 {
   headers: {
     'content-type': 'application/json',
-    'x-access-token': '4obGgRjmzYOnZLOEFfFsEycy04w9y8XQ'
+    'x-access-token': '0TKOeCA5sLimUiGYcIdWOb9NoiYEgJJ3'
   },
   method: 'GET',
 });
@@ -138,3 +139,7 @@ month | **String** | Month and year you want to query the availability, format i
 
 ### Response
 The response is similar to the response of [Local Experience Trips Availability](#local-experiences-trip-calendar)
+
+## Tangible Product Calendar
+
+Same as [Local Experiences Trip Calendar](local-experiences-trip-calendar)

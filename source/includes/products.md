@@ -1,5 +1,6 @@
 # Products
 
+### ALL REQUEST PASS
 ## Get All Products
 
 > Example Response
@@ -15,14 +16,14 @@
 ```shell
 curl 'https://api.staging.takemetour.com/partner/products?city=Bangkok&skip=0&limit=10' \
 -H 'content-type: application/json' \
--H 'x-access-token: 4obGgRjmzYOnZLOEFfFsEycy04w9y8XQ'
+-H 'x-access-token: 0TKOeCA5sLimUiGYcIdWOb9NoiYEgJJ3'
 ```
 ```javascript
 const response = await fetch('https://api.staging.takemetour.com/partner/products?skip=0&limit=10',
 {
   headers: {
     'content-type': 'application/json',
-    'x-access-token': '4obGgRjmzYOnZLOEFfFsEycy04w9y8XQ'
+    'x-access-token': '0TKOeCA5sLimUiGYcIdWOb9NoiYEgJJ3'
   },
   method: 'GET',
 });
@@ -33,14 +34,14 @@ const data = await response.json();
 ```shell
 curl 'https://api.staging.takemetour.com/partner/products?city=Bangkok&product_type=trip' \
 -H 'content-type: application/json' \
--H 'x-access-token: 4obGgRjmzYOnZLOEFfFsEycy04w9y8XQ'
+-H 'x-access-token: 0TKOeCA5sLimUiGYcIdWOb9NoiYEgJJ3'
 ```
 ```javascript
 const response = await fetch('https://api.staging.takemetour.com/partner/products?product_type=trip',
 {
   headers: {
     'content-type': 'application/json',
-    'x-access-token': '4obGgRjmzYOnZLOEFfFsEycy04w9y8XQ'
+    'x-access-token': '0TKOeCA5sLimUiGYcIdWOb9NoiYEgJJ3'
   },
   method: 'GET',
 });
@@ -240,17 +241,16 @@ For detail on Product object. See Get Product detail API below.
 > Code
 
 ```shell
-curl 'https://api.staging.takemetour.com/partner/products/550ae951009be2a14b193348' \
+curl 'https://api.staging.takemetour.com/partner/products/explore-local-communities-of-baan-batr-baan-nang-lerng' \
 -H 'content-type: application/json' \
--H 'x-access-token: 4obGgRjmzYOnZLOEFfFsEycy04w9y8XQ'
--X GET
+-H 'x-access-token: 0TKOeCA5sLimUiGYcIdWOb9NoiYEgJJ3'
 ```
 ```javascript
-const response = await fetch('https://api.staging.takemetour.com/partner/products/550ae951009be2a14b193348',
+const response = await fetch('https://api.staging.takemetour.com/partner/products/explore-local-communities-of-baan-batr-baan-nang-lerng',
 {
   headers: {
     'content-type': 'application/json',
-    'x-access-token': '4obGgRjmzYOnZLOEFfFsEycy04w9y8XQ'
+    'x-access-token': '0TKOeCA5sLimUiGYcIdWOb9NoiYEgJJ3'
   },
   method: 'GET',
 });
