@@ -16,9 +16,13 @@ search: true
 
 # Introduction
 
-Welcome to the TakeMeTour Public API!
+Welcome to the TakeMeTour Public API documentation!
+
+This API documentation created by [Slate](https://github.com/lord/slate). If you have any question or issue. Just create issue at [GitHub](https://github.com/takemetour/public-api)
 
 # API Endpoint
+
+## Development and Production Endpoint
 
 We provide two API endpoints for using in seperate environment.
 
@@ -28,6 +32,22 @@ Environment | Endpoint
 ---------  | -----------
 Development | [https://api.staging.takemetour.com/partner](https://api.staging.takemetour.com/partner)
 Production | [https://api.takemetour.com/partner](https://api.takemetour.com/partner)
+
+## Endpoint list
+
+Path | Method | Description
+---------  | ----------- | ------------
+/auth/login | POST | [Login partner account](#login)
+/auth/logout | DELETE | [Logout partner account](#logout)
+/auth/me | GET | [Get partner account info](#user-info)
+/products | GET | [Get All Products](#get-all-products)
+/products/:slug | GET | [Get Product Detail](#get-product-detail)
+/products/price | POST | [Get Product Price](#get-product-price)
+/calendar | GET | [Get Product availability](#availability)
+/book | POST | [Book product (a.k.a. create transaction)](#book-product)
+/transactions | GET | [Get All Transactions](#get-all-transactions)
+/transactions/:id | GET | [Get Transaction detail](#transaction-detail)
+/transactions/:id/voucher | GET | [Get Transaction voucher](#voucher)
 
 # Authentication
 ## Login
@@ -398,7 +418,11 @@ For detail on Product object. See Get Product detail API below.
 			"is_included_for_booking_fee": false
 		}
 	],
-	"product_type": "trip"
+	"product_type": "trip",
+  "tags": [
+    "tour_lx",
+    "en_boating"
+  ]
 }
 ```
 
@@ -453,6 +477,7 @@ meeting_points | **Array of Object** | Meeting point that provide in product. In
 images | **Array of Object** | Images for this product with caption for each image
 cover_image | **String** | Image path that use as cover image (thumbnail) for this product.
 faqs | **Array of Object** | FAQs for products
+tags | **Array of String** | Tags of product. See [appendix](#tag) for more detail on which tag you need to consider.
 
 ## Get Product Price
 
@@ -480,7 +505,7 @@ grandTotal | **Number** | Final price to be charged to your partner account cred
 partnerPricing | **Object** | The object has two keys `retailPrice` (Original price of this product before discount) and `discount` (Discount pricing for partner)
 
 
-## Local Experience Trips Pricing
+## Local Experience Trips Pricing (`trip`)
 
 > Example body for product type `trip` without child price
 
@@ -600,30 +625,6 @@ Some of our trip also has **child price** which define in `additional_options` f
       "key": "children",
       "quantity": 0,
       "is_included_for_booking_fee": true
-    },
-    {
-      "lx_price": 0,
-      "key": "hotel",
-      "currency": "THB",
-      "quantity_type": "boolean",
-      "price": 500,
-      "type": "book.checkbox",
-      "title": "Hotel Pickup",
-      "_id": "59db3d06909883001003d38e",
-      "quantity": 0,
-      "is_included_for_booking_fee": true
-    },
-    {
-      "_id": "59ddc4538463e751d6455d7a",
-      "lx_price": 0,
-      "key": "dtac_sim",
-      "currency": "THB",
-      "quantity_type": "boolean",
-      "price": 199,
-      "type": "book.checkbox",
-      "title": "DTAC Tourist Sim",
-      "quantity": 0,
-      "is_included_for_booking_fee": false
     }
   ]
 }
@@ -643,7 +644,7 @@ quantity | **Number (Max as max_travelers)** | Quantity of traveler
 trip_id | **String** | `_id` of product
 selected_options | **Array of selected option** | Array of selected option which has `quantity` to specify quantity
 
-## Attraction Tickets
+## Attraction Tickets Pricing (`ticket`)
 
 > Example Body for product type `ticket`
 
@@ -1154,7 +1155,7 @@ quantity | **Number (Max to 12)** | Quantity for this sub tier
 - We support only choosing single tier. So the first tier that has sub tier quantity which is not equal to 0 is consider as selected tier.
 - `quantity` in sub tier is required for every tier.
 
-## Tangible Products
+## Tangible Products Pricing (`souvenir`)
 
 > Example body for product type `souvenir`
 
@@ -1197,11 +1198,28 @@ trip_id | **String** | `_id` of product
 
 # Book
 
-## Book product
+## Book Product
+
+> Required Request body for any product type
+
+```json
+{
+  "name": {
+    "first": "John",
+    "last": "Doe"
+  },
+  "email": "john+doe@takemetour.com",
+  "mobile": "+66856667571",
+  "country": "TH",
+  "trip_id": "550ae951009be2a14b193348",
+  "trip_date": "2018-04-17T17:00:00.000Z",
+  "meeting_point": "BTS Station - Ari"
+}
+```
 
 **HTTP Request:** `POST /book`
 
-To book our product (or in another term is create transaction). There is required field for **any product type** as shown below.
+To book our product (a.k.a. create transaction). **There is required field for any product type** as shown below.
 
 Parameter | Type | Description
 --------- | ---- | -----------
@@ -1210,21 +1228,31 @@ email | **String** | Customer email
 mobile | **String** | Customer mobile (with prefix country code)
 country | **String** | Country code (See [appendix](#country-code))
 trip_id | **ObjectId** | `_id` of product to be book
-trip_date | **Date String** | Date to book the product (in case of product type `souvenir` this field is use as "delivery date" if it is required date)
-meeting_point | **String** | Meeting point for customer (See [appendix](#meeting-point) / Required if `is_hide_meeting_point` is `false` for this product)
+trip_date | **ISODate string (GMT +07:00)** | Date to book the product (in case of product type `souvenir` this field is use as "delivery date" if the product is required date) in 
+meeting_point | **String** | Meeting point for customer (See [appendix](#meeting-point) / Required if product has `is_hide_meeting_point` value as `false`)
 
 **Note**
+
 - Our API now only support payment method by using partner credit to your account.
 - Make sure that your credit is sufficient for each transaction. (Checking `grandTotal` from [Get Product Price](#get-product-price) and your `partner_credit` from [User info](#user-info))
 
-## Book local experience trip
+## Book Local Experience Trips
 
 > Request body to book product type `trip`
 
 ```json
 {
-  "quantity": 1,
+  "name": {
+    "first": "John",
+    "last": "Doe"
+  },
+  "email": "john+doe@takemetour.com",
+  "mobile": "+66856667571",
+  "country": "TH",
   "trip_id": "550ae951009be2a14b193348",
+  "trip_date": "2018-04-17T17:00:00.000Z",
+  "meeting_point": "BTS Station - Ari",
+  "quantity": 2,
   "selected_options": [
     {
       "key": "children",
@@ -1240,15 +1268,6 @@ meeting_point | **String** | Meeting point for customer (See [appendix](#meeting
       "is_included_for_booking_fee": true
     }
   ],
-  "name": {
-    "first": "John",
-    "last": "Doe"
-  },
-  "email": "john+doe@takemetour.com",
-  "trip_date": "2018-04-17T17:00:00.000Z",
-  "mobile": "+66856667571",
-  "country": "TH",
-  "meeting_point": "BTS Station - Ari"
 }
 ```
 
@@ -1271,17 +1290,17 @@ quantity | **Number (limit to `max_travelers`)** | Quantity of customer
 selected_options | **Array of option** | See  [child price](#child-price) for more detail
 
 ### Response
-Response will return `success` to show that the booking process is success or not, and `booking_id` (a.k.a `transaction_id`).
-
+Response will return `success` to show that the booking process is success or not, and `transaction_id`.
 
 Parameter | Type | Description
 --------- | ---- | -----------
 success | **Boolean** | Transaction is success or not
-booking_id | **String** | Transaction unique id
+transaction_id | **String** | Transaction unique id
+message | **String** | If transaction is not success. Message will provide
 
-**Remark:** If `success` equal to `false` but still return `booking_id` please contact us.
+**Remark:** If `success` equal to `false` but still return `transaction_id` please contact us.
 
-## Book attraction tickets
+## Book Attraction Tickets
 
 > Request body to book product type `ticket`
 
@@ -1496,7 +1515,7 @@ booking_id | **String** | Transaction unique id
 ```json
 {
   "success": true,
-  "booking_id": TransactionId
+  "transaction_id": TransactionId
 }
 ```
 
@@ -1853,19 +1872,96 @@ Parameter | Type | Description
 multi_tier_quantity | **Array of multi tier quantity** | Quantity of ticket with the `answer` added to the sub tier that you chose.
 
 ### Response
-Response will return `success` to show that the booking process is success or not, and `booking_id` (a.k.a `transaction_id`).
+Response will return `success` to show that the booking process is success or not, and `transaction_id`.
 
 Parameter | Type | Description
 --------- | ---- | -----------
 success | **Boolean** | Transaction is success or not
-booking_id | **String** | Transaction unique id
+transaction_id | **String** | Transaction unique id
 message | **String** | If transaction is not success. Message will provide
 
-**Remark:** If `success` equal to `false` but still return `booking_id` please contact us.
+**Remark:** If `success` equal to `false` but still return `transaction_id` please contact us.
+
+## Book Tangible Products
+
+> Request body to book product type `souvenir`
+
+```json
+{
+  "quantity": 1,
+  "trip_id": "5a39ee73fdeeab0012005d50",
+  "name": {
+    "first": "John",
+    "last": "Doe"
+  },
+  "email": "john+doe@takemetour.com",
+  "trip_date": "2018-03-30T17:00:00.000Z",
+  "mobile": "+66856667571",
+  "country": "TH"
+}
+```
+
+For tangible product, `quantity` must be provided. And it also has some condition which you need some field to add for.
+
+- If product doesn't contain tag `not_require_pickup_location`. You must provide delivery location which is the customer's hotel (for now we will deliver the product to the customer's hotel) in the format **Hotel name: {hotelName}, room: {hotelRoom}** to the `meeting_point` field.
+
+<pre class="center-column">
+{
+  "quantity": 1,
+  "trip_id": "5a39ee73fdeeab0012005d50",
+  "name": {
+    "first": "John",
+    "last": "Doe"
+  },
+  "email": "john+doe@takemetour.com",
+  "trip_date": "2018-03-30T17:00:00.000Z",
+  "mobile": "+66856667571",
+  "country": "TH",
+  "meeting_point": "Hotel name: Dusti Thani, room: 404"
+}
+</pre>
+
+- If product contain tag `not_require_pickup_location`. Delivery location doesn't need. `meeting_point` field can be omit
+
+- If product contain tag `match_passport_name`. You must specific name title (Mr. / Mrs. / Miss) alongside with `name.first` in request body object.
+
+<pre class="center-column">
+{
+  "quantity": 1,
+  "trip_id": "5a39ee73fdeeab0012005d50",
+  "name": {
+    "first": "Mr.John",
+    "last": "Doe"
+  },
+  "email": "john+doe@takemetour.com",
+  "trip_date": "2018-03-30T17:00:00.000Z",
+  "mobile": "+66856667571",
+  "country": "TH",
+  "meeting_point": "Hotel name: Dusti Thani, room: 404"
+}
+</pre>
+
+### Request body (add from [book](#book-product))
+
+Parameter | Type | Description
+--------- | ---- | -----------
+quantity | **Number (max to 12)** | Quantity of product to be buy
+meeting_point | **String** | If product `tags` doesn't contains `not_require_pickup_location` meeting_point is delivery address (hotel only).
+
+### Response
+Response will return `success` to show that the booking process is success or not, and `transaction_id`.
+
+Parameter | Type | Description
+--------- | ---- | -----------
+success | **Boolean** | Transaction is success or not
+transaction_id | **String** | Transaction unique id
+message | **String** | If transaction is not success. Message will provide
+
+**Remark:** If `success` equal to `false` but still return `transaction_id` please contact us.
 
 # Transactions
 
-## Get All transactions
+## Get All Transactions
 
 > Code
 
@@ -2593,6 +2689,15 @@ Western Sahara | EH
 Yemen | YE
 Zambia | ZM
 Zimbabwe | ZW
+
+## Product tags
+
+Tags mostly use for `souvenir` product to identify some properties of the product. Some tags is use for display only but some has to do with [book product API](#book). And here it is the list of tag that you should be considered about.
+
+Tag | Meaning | Use case
+--- | ------- | ---
+match_passport_name | Customer information when booked must match with customer's passport detail. Also the name title for customer (which by default you don't need customer name title to book our product) | For DTAC SIM product (which is `souvenir` type). Customer detail must match to passport detail. And when to book the product, customer name title must be provide with the first name of the customer. (Ex. Mr.John)
+not_require_pickup_location | Product doesn't need pickup (or delivery) location. So the `meeting_point` field when [book souvenir product]() can be omit | DTAC SIM can be pickup at the airport. So it doesn't required pickup (or delivery) location
 
 ## Meeting point
 
