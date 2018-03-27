@@ -1,6 +1,5 @@
 # Book
 
-### Request PASS
 ## Book Product
 
 > Required Request body for any product type
@@ -32,7 +31,7 @@ mobile | **String** | Customer mobile (with prefix country code)
 country | **String** | Country code (See [appendix](#country-code))
 trip_id | **ObjectId** | `_id` of product to be book
 trip_date | **ISODate string (GMT +07:00)** | Date to book the product (in case of product type `souvenir` this field is use as "delivery date" if the product is required date) in 
-meeting_point | **String** | Meeting point for customer (See [appendix](#meeting-point) / Required if product has `is_hide_meeting_point` value as `false`)
+meeting_point | **String** | Meeting point for customer (See [appendix](#meeting-point) / if product has `is_hide_meeting_point` value as `true` this field can be omit)
 
 **Note**
 
@@ -71,15 +70,6 @@ meeting_point | **String** | Meeting point for customer (See [appendix](#meeting
       "is_included_for_booking_fee": true
     }
   ]
-}
-```
-
-> Response
-
-```json
-{
-  "success": true,
-  "booking_id": TransactionId
 }
 ```
 
@@ -132,9 +122,18 @@ const response = await fetch('https://api.staging.takemetour.com/partner/transac
 const data = await response.json();
 ```
 
+> Response
+
+```json
+{
+  "success": true,
+  "booking_id": TransactionId
+}
+```
+
 For product type `trip` you must add `quantity` and also `selected_options` for the product that has `child` key in `additional_options` field of product.
 
-### Request body (add from [book](#book-product))
+### Request body (add from [basic book parameters](#book-product))
 
 Parameter | Type | Description
 --------- | ---- | -----------
@@ -362,15 +361,6 @@ message | **String** | If transaction is not success. Message will provide
 }
 ```
 
-> Response
-
-```json
-{
-  "success": true,
-  "transaction_id": TransactionId
-}
-```
-
 > Code
 
 ```shell
@@ -595,7 +585,7 @@ const response = await fetch('https://api.staging.takemetour.com/partner/transac
 const data = await response.json();
 ```
 
-For attraction tickets, specify `multi_tier_quantity` with the same structure as [get attraction tickets](#attraction-tickets).
+For attraction tickets, specify `multi_tier_quantity` with the same structure as [get attraction tickets pricing](#attraction-tickets-pricing-ticket).
 
 But more than that, attraction ticket also has **questions** that need to be answered. Questions can be found in `globaltix_questions` in the sub tier of tier which you want to booked. (You can get it from get product API)
 
@@ -939,9 +929,9 @@ In an example case. We chose to book **COMBO: Aquarium + 4D Movie** tier so the 
 }
 </pre>
 
-And the above object is `multi_tier_quantity` that finally use to book.
+And the above object is `multi_tier_quantity` that can be used to book.
 
-### Request body (add from [book](#book-product))
+### Request body (add from [basic book parameters](#book-product))
 
 Parameter | Type | Description
 --------- | ---- | -----------
@@ -949,16 +939,9 @@ multi_tier_quantity | **Array of multi tier quantity** | Quantity of ticket with
 
 **Note:** `meeting_point` field is not required for `ticket`
 
+
 ### Response
-Response will return `success` to show that the booking process is success or not, and `transaction_id`.
-
-Parameter | Type | Description
---------- | ---- | -----------
-success | **Boolean** | Transaction is success or not
-transaction_id | **String** | Transaction unique id
-message | **String** | If transaction is not success. Message will provide
-
-**Remark:** If `success` equal to `false` but still return `transaction_id` please contact us.
+The response is similar to the response of [Book Local Experience Trips](#book-local-experience-trips)
 
 ## Book Tangible Products
 
@@ -1105,7 +1088,7 @@ For tangible product, `quantity` must be provided. And it also has some conditio
 }
 </pre>
 
-### Request body (add from [book](#book-product))
+### Request body (add from [basic book parameters](#book-product))
 
 Parameter | Type | Description
 --------- | ---- | -----------
@@ -1113,12 +1096,4 @@ quantity | **Number (max to 12)** | Quantity of product to be buy
 meeting_point | **String** | If product `tags` doesn't contains `not_require_pickup_location` meeting_point is delivery address (hotel only).
 
 ### Response
-Response will return `success` to show that the booking process is success or not, and `transaction_id`.
-
-Parameter | Type | Description
---------- | ---- | -----------
-success | **Boolean** | Transaction is success or not
-transaction_id | **String** | Transaction unique id
-message | **String** | If transaction is not success. Message will provide
-
-**Remark:** If `success` equal to `false` but still return `transaction_id` please contact us.
+The response is similar to the response of [Book Local Experience Trips](#book-local-experience-trips)

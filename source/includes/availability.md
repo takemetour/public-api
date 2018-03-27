@@ -1,6 +1,5 @@
 # Availability
 
-### Request is pass
 ## Local Experiences Trip Calendar
 
 > Code
@@ -22,7 +21,7 @@ const response = await fetch('https://api.staging.takemetour.com/partner/calenda
 const data = await response.json();
 ```
 
-> Example Response
+> Response
 
 ```json
 [{
@@ -88,9 +87,10 @@ month | **String** | Month and year you want to query the availability, format i
 ### Response
 The response will return an availability of days in that month in Array of Objects. Each object indicate availability status on that day.
 
-**Note 1:** The nearest date that available to order / book is **today** in Thailand time (GMT+7). Some products need to be ordered / booked in advance, it may not available for **today** or **tomorrow**.
+**Note** 
 
-**Note 2:** For some date that doesn't an have object to indicate the availability status, it means that day has default availability which require a confirmation from Local Expert / Supplyer.
+* The nearest date that available to order / book is **today** in Thailand time (GMT+7). Some products need to be ordered / booked in advance, it may not available for **today** or **tomorrow**.
+* For some date that doesn't an have object to indicate the availability status, it means that day has default availability which require a confirmation from Local Expert / Supplyer.
 
 For each object will have these parameters.
 

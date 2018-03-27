@@ -1,32 +1,16 @@
 # Price
 
-### REQUEST EXAMPLE PASS
-
 ## Get Product Price
-
-> Example Response
-
-```json
-{
-  "grandTotal": 1750.39,
-  "partnerPricing": {
-    "retailPrice": 1833.19,
-    "discount": 82.8
-  }
-}
-```
 
 **HTTP Request:** `POST /products/price`
 
-You can get a price of product by using this API. Each type of product has a diffrent request body due to different of pricing model. But has the same response body
+You can get a price of product by using this API. Each type of product has a diffrent request body
 
-### Response
+* [Local Experience Trips request body](#local-experience-trips-pricing-trip)
+* [Attraction Tickets request body](#attraction-tickets-pricing-ticket)
+* [Tangible Products request body](#tangible-products-pricing-souvenir)
 
-Parameter | Type | Description
---------- | ---- | -----------
-grandTotal | **Number** | Final price to be charged to your partner account credit.
-partnerPricing | **Object** | The object has two keys `retailPrice` (Original price of this product before discount) and `discount` (Discount pricing for partner)
-
+due to different of pricing model. But has the **same** response body
 
 ## Local Experience Trips Pricing (`trip`)
 
@@ -124,6 +108,27 @@ const response = await fetch('https://api.staging.takemetour.com/partner/product
 const data = await response.json();
 ```
 
+> Response
+
+```json
+{
+  "grandTotal": 1750.39,
+  "partnerPricing": {
+    "retailPrice": 1833.19,
+    "discount": 82.8
+  }
+}
+```
+
+### Request body
+
+Parameter | Type | Description
+--------- | ---- | -----------
+quantity | **Number (Max as max_travelers)** | Quantity of traveler
+trip_id | **String** | `_id` of product
+selected_options | **Array of selected option** | Array of selected option which has `quantity` to specify quantity
+
+
 Trip has a simplest pricing model. Price is calculated by using **quantity** and **trip_id** and API will do the rest about it.
 
 <pre class="center-column">
@@ -134,7 +139,7 @@ Trip has a simplest pricing model. Price is calculated by using **quantity** and
 </pre>
 ### Child Price
 
-Some of our trip also has **child price** which define in `additional_options` field of product.
+Some of our trip also has **child price** which defined in `additional_options` field of product.
 
 <pre class="center-column">
 {
@@ -159,15 +164,14 @@ Child price is defined in object which has key `children`. From the above exampl
 
 To get a price for a trip that has child price. You must attach `selected_options` alongside with other request body (See an example at the right panel)
 
-**Note:** Child quantity + Quantity must not exceed `max_travelers` (e.g. if trip has max_travelers = 5 and quantity is 3, child quantity can not exceed 2)
+**Note:** Child quantity + Quantity must **not** exceed `max_travelers` (e.g. if trip has max_travelers = 5 and quantity is 3, child quantity can **not** exceed 2)
 
-### Request body
+### Response
 
 Parameter | Type | Description
 --------- | ---- | -----------
-quantity | **Number (Max as max_travelers)** | Quantity of traveler
-trip_id | **String** | `_id` of product
-selected_options | **Array of selected option** | Array of selected option which has `quantity` to specify quantity
+grandTotal | **Number** | Final price to be charged to your partner account credit.
+partnerPricing | **Object** | The object has two keys `retailPrice` (Original price of this product before discount) and `discount` (Discount pricing for partner)
 
 ## Attraction Tickets Pricing (`ticket`)
 
@@ -601,7 +605,7 @@ In Thailand we have an amusement park called "Dream World" which sells the ticke
 
 We called each option as **tier** so for this product we have 4 tiers. And in each tier also has sub-options called **sub-tier**. So the price of the ticket will be shown in sub-tier.
 
-From the API that get the product details, you can get multi-tier pricing from field `multi_tier_prices` which has data structure like this
+From the API that [get the product details](#get-product-detail), you can get multi-tier pricing from field `multi_tier_prices` which has data structure like this
 
 <pre class="center-column">
 {
@@ -651,6 +655,7 @@ From the API that get the product details, you can get multi-tier pricing from f
         }
       ]
     }
+    ...
   ]
 }
 </pre>
@@ -676,6 +681,9 @@ quantity | **Number (Max to 12)** | Quantity for this sub tier
 
 - We support only choosing single tier. So the first tier that has sub tier quantity which is not equal to 0 is consider as selected tier.
 - `quantity` in sub tier is required for every tier.
+
+### Response
+The response is similar to the response of [Local Experience Trips Pricing](#local-experience-trips-pricing-trip)
 
 ## Tangible Products Pricing (`souvenir`)
 
@@ -718,3 +726,6 @@ Parameter | Type | Description
 --------- | ---- | -----------
 quantity | **Number (Max to 12)** | Quantity of tangible product to buy
 trip_id | **String** | `_id` of product
+
+### Response
+The response is similar to the response of [Local Experience Trips Pricing](#local-experience-trips-pricing-trip)

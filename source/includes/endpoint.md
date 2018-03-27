@@ -3,7 +3,7 @@
 
 ## Development and Production Endpoint
 
-We provide two API endpoints using in seperated environment.
+We provide 2 API endpoints using in seperated environment.
 
 If you are developing (or testing) please use development endpoint.
 

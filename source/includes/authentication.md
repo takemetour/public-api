@@ -1,6 +1,16 @@
 # Authentication
 
 ## Login
+
+> Example Request Body
+
+```json
+{
+  "email": "demo+partner@takemetour.com",
+  "password": "12345678"
+}
+```
+
 > Code
 
 ```shell
@@ -22,16 +32,8 @@ const response = await fetch('https://api.staging.takemetour.com/partner/auth/lo
 });
 const data = await response.json();
 ```
-> Example Request Body
 
-```json
-{
-  "email": "demo+partner@takemetour.com",
-  "password": "12345678"
-}
-```
-
-> Example Response
+> Response
 
 ```json
 {
@@ -79,7 +81,7 @@ const response = await fetch('https://api.staging.takemetour.com/partner/auth/lo
 });
 const data = await response.json();
 ```
-> Example Response
+> Response
 
 ```json
 {
@@ -112,7 +114,7 @@ const response = await fetch('https://api.staging.takemetour.com/partner/auth/me
 });
 const data = await response.json();
 ```
-> Example Response
+> Response
 
 ```json
 {
