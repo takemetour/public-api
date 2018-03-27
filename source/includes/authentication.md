@@ -1,6 +1,27 @@
 # Authentication
 
 ## Login
+> Code
+
+```shell
+curl 'https://api.staging.takemetour.com/partner/auth/login' \
+-H 'content-type: application/json' \
+--data-binary '{"email":"partner+demo@takemetour.com","password":"teamtakemetour"}'
+```
+```javascript
+const response = await fetch('https://api.staging.takemetour.com/partner/auth/login',
+{
+  body: JSON.stringify({
+    email: 'partner+demo@takemetour.com',
+    password: 'teamtakemetour'
+  }),
+  headers: {
+    'content-type': 'application/json'
+  },
+  method: 'POST',
+});
+const data = await response.json();
+```
 > Example Request Body
 
 ```json
@@ -25,27 +46,6 @@
   }
 }
 ```
-> Code
-
-```shell
-curl 'https://api.staging.takemetour.com/partner/auth/login' \
--H 'content-type: application/json' \
---data-binary '{"email":"partner+demo@takemetour.com","password":"teamtakemetour"}'
-```
-```javascript
-const response = await fetch('https://api.staging.takemetour.com/partner/auth/login',
-{
-  body: JSON.stringify({
-    email: 'partner+demo@takemetour.com',
-    password: 'teamtakemetour'
-  }),
-  headers: {
-    'content-type': 'application/json'
-  },
-  method: 'POST',
-});
-const data = await response.json();
-```
 **HTTP Request:** `POST /auth/login`
 ### Request Body
 
@@ -61,13 +61,6 @@ Parameter | Type | Description
 access_token | **String** | access token which identify user (must be added to **x-access-token** header on other request)   
 user | **Object** | object of user's info 
 ## Logout
-> Example Response
-
-```json
-{
-  "success": true
-}
-```
 > Code
 
 ```shell
@@ -86,6 +79,13 @@ const response = await fetch('https://api.staging.takemetour.com/partner/auth/lo
 });
 const data = await response.json();
 ```
+> Example Response
+
+```json
+{
+  "success": true
+}
+```
 **HTTP Request:** `DELETE /auth/logout`
 
 ### Response
@@ -95,21 +95,6 @@ Parameter | Type | Description
 success | **Boolean** | return true   
 user | **Object** | object of user's info 
 ## User info
-> Example Response
-
-```json
-{
-  "isLoggedIn": true,
-  "user": {
-    "name": {
-      "first": "Dang",
-      "last": "Nanglerng"
-    },
-    "avatar_image": "users/rtitM-14267784330583837.jpg",
-    "partner_credit": 50000
-  }
-}
-```
 > Code
 
 ```shell
@@ -127,6 +112,21 @@ const response = await fetch('https://api.staging.takemetour.com/partner/auth/me
   method: 'GET',
 });
 const data = await response.json();
+```
+> Example Response
+
+```json
+{
+  "isLoggedIn": true,
+  "user": {
+    "name": {
+      "first": "Dang",
+      "last": "Nanglerng"
+    },
+    "avatar_image": "users/rtitM-14267784330583837.jpg",
+    "partner_credit": 50000
+  }
+}
 ```
 **HTTP Request:** `GET /auth/me`
 

@@ -3,9 +3,9 @@
 
 ## Development and Production Endpoint
 
-We provide two API endpoints for using in seperate environment.
+We provide two API endpoints using in seperated environment.
 
-If you are in development (or experimenting) using development endpoint.
+If you are developing (or testing) please use development endpoint.
 
 Environment | Endpoint
 ---------  | -----------
