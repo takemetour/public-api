@@ -52,13 +52,13 @@ const data = await response.json();
 
 ### Query Parameters
 
-Parameter | Default | Description
---------- | ------- | -----------
-city | `none` | Filter by destination location city (Ex. `Bangkok` / `Chiang Mai`)
-name | `none` | Search by trip name
-product_type | all | Filter by product type that has 3 types allow: `trip` / `ticket` / `souvenir`
-skip | 0 | Skip response results (Use for pagination)
-limit | 10 | Limit response results
+Parameter | Type | Default | Description
+--------- | ---- | ------- | -----------
+city | **String** | `none` | Filter by destination location city (Ex. `Bangkok` / `Chiang Mai`)
+name | **String** | `none` | Search by trip name
+product_type | **String** | all | Filter by product type that has 3 types allow: `trip` / `ticket` / `souvenir`
+skip | **Integer** | 0 | Skip response results (Use for pagination)
+limit | **Integer** | 10 | Limit response results
 
 ### Response
 

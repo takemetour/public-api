@@ -51,15 +51,15 @@ const data = await response.json();
 
 Parameter | Type | Description
 --------- | ---- | -----------
-email | **String** | partner email which registered with TakeMeTour
-password | **String** | password (at least 8 characters)
+email | **String** | Partner's email which registered with TakeMeTour
+password | **String** | Password (at least 8 characters)
 
 ### Response
 
 Parameter | Type | Description
 --------- | ---- | -----------
-access_token | **String** | access token which identify user (must be added to **x-access-token** header on other request)   
-user | **Object** | object of user's info 
+access_token | **String** | Access token which identify user (must be added to **x-access-token** header on other request)   
+user | **Object** | Object of user's info 
 ## Logout
 > Code
 
@@ -92,8 +92,7 @@ const data = await response.json();
 
 Parameter | Type | Description
 --------- | ---- | -----------
-success | **Boolean** | return true   
-user | **Object** | object of user's info 
+success | **Boolean** | Return logut status, can be `true` or `false`
 ## User info
 > Code
 
@@ -134,5 +133,5 @@ const data = await response.json();
 
 Parameter | Type | Description
 --------- | ---- | -----------
-isLoggedIn | **Boolean** | login status   
-user | **Object** | object of user's info 
+isLoggedIn | **Boolean** | Login status   
+user | **Object** | Object of user's info 
