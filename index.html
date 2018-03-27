@@ -251,9 +251,6 @@
             <a href="#products" class="toc-h1 toc-link" data-title="products">Products</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#all-request-pass" class="toc-h2 toc-link" data-title="all-request-pass">ALL REQUEST PASS</a>
-                  </li>
-                  <li>
                     <a href="#get-all-products" class="toc-h2 toc-link" data-title="get-all-products">Get All Products</a>
                   </li>
                   <li>
@@ -264,9 +261,6 @@
           <li>
             <a href="#price" class="toc-h1 toc-link" data-title="price">Price</a>
               <ul class="toc-list-h2">
-                  <li>
-                    <a href="#request-example-pass" class="toc-h2 toc-link" data-title="request-example-pass">REQUEST EXAMPLE PASS</a>
-                  </li>
                   <li>
                     <a href="#get-product-price" class="toc-h2 toc-link" data-title="get-product-price">Get Product Price</a>
                   </li>
@@ -285,9 +279,6 @@
             <a href="#availability" class="toc-h1 toc-link" data-title="availability">Availability</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#request-is-pass" class="toc-h2 toc-link" data-title="request-is-pass">Request is pass</a>
-                  </li>
-                  <li>
                     <a href="#local-experiences-trip-calendar" class="toc-h2 toc-link" data-title="local-experiences-trip-calendar">Local Experiences Trip Calendar</a>
                   </li>
                   <li>
@@ -301,9 +292,6 @@
           <li>
             <a href="#book" class="toc-h1 toc-link" data-title="book">Book</a>
               <ul class="toc-list-h2">
-                  <li>
-                    <a href="#request-pass" class="toc-h2 toc-link" data-title="request-pass">Request PASS</a>
-                  </li>
                   <li>
                     <a href="#book-product" class="toc-h2 toc-link" data-title="book-product">Book Product</a>
                   </li>
@@ -359,7 +347,7 @@
 
 <p>This API documentation created by <a href="https://github.com/lord/slate">Slate</a>. If you have any question or issue. Just create issue at <a href="https://github.com/takemetour/public-api">GitHub</a></p>
 <h1 id='api-endpoint'>API Endpoint</h1><h2 id='development-and-production-endpoint'>Development and Production Endpoint</h2>
-<p>We provide two API endpoints using in seperated environment.</p>
+<p>We provide 2 API endpoints using in seperated environment.</p>
 
 <p>If you are developing (or testing) please use development endpoint.</p>
 
@@ -444,6 +432,14 @@
 </tbody></table>
 <h1 id='authentication'>Authentication</h1><h2 id='login'>Login</h2>
 <blockquote>
+<p>Example Request Body</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"demo+partner@takemetour.com"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345678"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
 <p>Code</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.staging.takemetour.com/partner/auth/login'</span> <span class="se">\</span>
@@ -463,15 +459,7 @@
 <span class="kr">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
 </code></pre>
 <blockquote>
-<p>Example Request Body</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"demo+partner@takemetour.com"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345678"</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<blockquote>
-<p>Example Response</p>
+<p>Response</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"access_token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1yOaq7O9Lcp5AKJkzMajBQ2H9gnRq2ex"</span><span class="p">,</span><span class="w">
@@ -542,7 +530,7 @@
 <span class="kr">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
 </code></pre>
 <blockquote>
-<p>Example Response</p>
+<p>Response</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
@@ -581,7 +569,7 @@
 <span class="kr">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
 </code></pre>
 <blockquote>
-<p>Example Response</p>
+<p>Response</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"isLoggedIn"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
@@ -615,15 +603,7 @@
 <td>Object of user&#39;s info</td>
 </tr>
 </tbody></table>
-<h1 id='products'>Products</h1><h3 id='all-request-pass'>ALL REQUEST PASS</h3><h2 id='get-all-products'>Get All Products</h2>
-<blockquote>
-<p>Example Response</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"products"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">Product</span><span class="p">],</span><span class="w">
-  </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
+<h1 id='products'>Products</h1><h2 id='get-all-products'>Get All Products</h2>
 <blockquote>
 <p>Get all products with pagination via <code>skip</code> and <code>limit</code> query string</p>
 </blockquote>
@@ -656,6 +636,14 @@
 <span class="p">});</span>
 <span class="kr">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
 </code></pre>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"products"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="err">Product</span><span class="p">],</span><span class="w">
+  </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">16</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 <p><strong>HTTP Request:</strong> <code>GET /products</code></p>
 <h3 id='query-parameters'>Query Parameters</h3>
 <table><thead>
@@ -708,7 +696,7 @@
 <tr>
 <td>products</td>
 <td><strong>Array of product</strong></td>
-<td>login status</td>
+<td>Products in array</td>
 </tr>
 <tr>
 <td>count</td>
@@ -720,7 +708,23 @@
 <p>For detail on Product object. See Get Product detail API below.</p>
 <h2 id='get-product-detail'>Get Product detail</h2>
 <blockquote>
-<p>Example Response</p>
+<p>Code</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.staging.takemetour.com/partner/products/explore-local-communities-of-baan-batr-baan-nang-lerng'</span> <span class="se">\</span>
+-H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+-H <span class="s1">'x-access-token: 0TKOeCA5sLimUiGYcIdWOb9NoiYEgJJ3'</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api.staging.takemetour.com/partner/products/explore-local-communities-of-baan-batr-baan-nang-lerng'</span><span class="p">,</span>
+<span class="p">{</span>
+  <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s1">'content-type'</span><span class="p">:</span> <span class="s1">'application/json'</span><span class="p">,</span>
+    <span class="s1">'x-access-token'</span><span class="p">:</span> <span class="s1">'0TKOeCA5sLimUiGYcIdWOb9NoiYEgJJ3'</span>
+  <span class="p">},</span>
+  <span class="na">method</span><span class="p">:</span> <span class="s1">'GET'</span><span class="p">,</span>
+<span class="p">});</span>
+<span class="kr">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
+</code></pre>
+<blockquote>
+<p>Response</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"550ae951009be2a14b193348"</span><span class="p">,</span><span class="w">
@@ -886,22 +890,6 @@
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<blockquote>
-<p>Code</p>
-</blockquote>
-<pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.staging.takemetour.com/partner/products/explore-local-communities-of-baan-batr-baan-nang-lerng'</span> <span class="se">\</span>
--H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
--H <span class="s1">'x-access-token: 0TKOeCA5sLimUiGYcIdWOb9NoiYEgJJ3'</span>
-</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api.staging.takemetour.com/partner/products/explore-local-communities-of-baan-batr-baan-nang-lerng'</span><span class="p">,</span>
-<span class="p">{</span>
-  <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
-    <span class="s1">'content-type'</span><span class="p">:</span> <span class="s1">'application/json'</span><span class="p">,</span>
-    <span class="s1">'x-access-token'</span><span class="p">:</span> <span class="s1">'0TKOeCA5sLimUiGYcIdWOb9NoiYEgJJ3'</span>
-  <span class="p">},</span>
-  <span class="na">method</span><span class="p">:</span> <span class="s1">'GET'</span><span class="p">,</span>
-<span class="p">});</span>
-<span class="kr">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
-</code></pre>
 <p><strong>HTTP Request:</strong> <code>GET /products/:slug</code></p>
 <h3 id='product-types'>Product types</h3>
 <p>In TakeMeTour. We have 3 types of product which are</p>
@@ -909,7 +897,7 @@
 <ul>
 <li><strong>Local Experience Trips (<code>trip</code>)</strong>: Our main product which is an one-day trip.</li>
 <li><strong>Attraction Tickets (<code>ticket</code>)</strong>: Ticket for attractions location (ex. SEA LIFE Ocean World)</li>
-<li><strong>Tangible Products (<code>souvenir</code>)</strong></li>
+<li><strong>Tangible Products (<code>souvenir</code>)</strong>: Souvenir or Sim card</li>
 </ul>
 
 <p>For this endpoint. You can identify product type via field <code>product_type</code> which can be <code>trip</code> / <code>ticket</code> / <code>souvenir</code>.</p>
@@ -940,8 +928,8 @@
 </tr>
 <tr>
 <td>max_travelers</td>
-<td><strong>Integer (Range 1-8 / Trip Only)</strong></td>
-<td>Maximun travelers that allow for this product</td>
+<td><strong>Integer (Range 1-8 n/a for Attraction Tickets)</strong></td>
+<td>Maximun travelers that allow for Local Experience Trips, and Maximum quantity that can purchase in 1 order for Tangible Products</td>
 </tr>
 <tr>
 <td>slug</td>
@@ -991,43 +979,21 @@
 <tr>
 <td>tags</td>
 <td><strong>Array of String</strong></td>
-<td>Tags of product. See <a href="#tag">appendix</a> for more detail on which tag you need to consider.</td>
+<td>Tags of product. See <a href="#product-tags">appendix</a> for more detail on which tag you need to consider.</td>
 </tr>
 </tbody></table>
-<h1 id='price'>Price</h1><h3 id='request-example-pass'>REQUEST EXAMPLE PASS</h3><h2 id='get-product-price'>Get Product Price</h2>
-<blockquote>
-<p>Example Response</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"grandTotal"</span><span class="p">:</span><span class="w"> </span><span class="mf">1750.39</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"partnerPricing"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"retailPrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">1833.19</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"discount"</span><span class="p">:</span><span class="w"> </span><span class="mf">82.8</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
+<h1 id='price'>Price</h1><h2 id='get-product-price'>Get Product Price</h2>
 <p><strong>HTTP Request:</strong> <code>POST /products/price</code></p>
 
-<p>You can get a price of product by using this API. Each type of product has a diffrent request body due to different of pricing model. But has the same response body</p>
-<h3 id='response'>Response</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>grandTotal</td>
-<td><strong>Number</strong></td>
-<td>Final price to be charged to your partner account credit.</td>
-</tr>
-<tr>
-<td>partnerPricing</td>
-<td><strong>Object</strong></td>
-<td>The object has two keys <code>retailPrice</code> (Original price of this product before discount) and <code>discount</code> (Discount pricing for partner)</td>
-</tr>
-</tbody></table>
+<p>You can get a price of product by using this API. Each type of product has a diffrent request body</p>
+
+<ul>
+<li><a href="#local-experience-trips-pricing-trip">Local Experience Trips request body</a></li>
+<li><a href="#attraction-tickets-pricing-ticket">Attraction Tickets request body</a></li>
+<li><a href="#tangible-products-pricing-souvenir">Tangible Products request body</a></li>
+</ul>
+
+<p>due to different of pricing model. But has the <strong>same</strong> response body</p>
 <h2 id='local-experience-trips-pricing-trip'>Local Experience Trips Pricing (<code>trip</code>)</h2>
 <blockquote>
 <p>Example request body for product type <code>trip</code> without child price</p>
@@ -1115,6 +1081,41 @@
 <span class="p">});</span>
 <span class="kr">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
 </code></pre>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"grandTotal"</span><span class="p">:</span><span class="w"> </span><span class="mf">1750.39</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"partnerPricing"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"retailPrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">1833.19</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"discount"</span><span class="p">:</span><span class="w"> </span><span class="mf">82.8</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='request-body'>Request body</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>quantity</td>
+<td><strong>Number (Max as max_travelers)</strong></td>
+<td>Quantity of traveler</td>
+</tr>
+<tr>
+<td>trip_id</td>
+<td><strong>String</strong></td>
+<td><code>_id</code> of product</td>
+</tr>
+<tr>
+<td>selected_options</td>
+<td><strong>Array of selected option</strong></td>
+<td>Array of selected option which has <code>quantity</code> to specify quantity</td>
+</tr>
+</tbody></table>
+
 <p>Trip has a simplest pricing model. Price is calculated by using <strong>quantity</strong> and <strong>trip_id</strong> and API will do the rest about it.</p>
 
 <pre class="center-column">
@@ -1124,7 +1125,7 @@
 }
 </pre>
 <h3 id='child-price'>Child Price</h3>
-<p>Some of our trip also has <strong>child price</strong> which define in <code>additional_options</code> field of product.</p>
+<p>Some of our trip also has <strong>child price</strong> which defined in <code>additional_options</code> field of product.</p>
 
 <pre class="center-column">
 {
@@ -1149,8 +1150,8 @@
 
 <p>To get a price for a trip that has child price. You must attach <code>selected_options</code> alongside with other request body (See an example at the right panel)</p>
 
-<p><strong>Note:</strong> Child quantity + Quantity must not exceed <code>max_travelers</code> (e.g. if trip has max_travelers = 5 and quantity is 3, child quantity can not exceed 2)</p>
-<h3 id='request-body'>Request body</h3>
+<p><strong>Note:</strong> Child quantity + Quantity must <strong>not</strong> exceed <code>max_travelers</code> (e.g. if trip has max_travelers = 5 and quantity is 3, child quantity can <strong>not</strong> exceed 2)</p>
+<h3 id='response'>Response</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1159,19 +1160,14 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>quantity</td>
-<td><strong>Number (Max as max_travelers)</strong></td>
-<td>Quantity of traveler</td>
+<td>grandTotal</td>
+<td><strong>Number</strong></td>
+<td>Final price to be charged to your partner account credit.</td>
 </tr>
 <tr>
-<td>trip_id</td>
-<td><strong>String</strong></td>
-<td><code>_id</code> of product</td>
-</tr>
-<tr>
-<td>selected_options</td>
-<td><strong>Array of selected option</strong></td>
-<td>Array of selected option which has <code>quantity</code> to specify quantity</td>
+<td>partnerPricing</td>
+<td><strong>Object</strong></td>
+<td>The object has two keys <code>retailPrice</code> (Original price of this product before discount) and <code>discount</code> (Discount pricing for partner)</td>
 </tr>
 </tbody></table>
 <h2 id='attraction-tickets-pricing-ticket'>Attraction Tickets Pricing (<code>ticket</code>)</h2>
@@ -1615,7 +1611,7 @@
 
 <p>We called each option as <strong>tier</strong> so for this product we have 4 tiers. And in each tier also has sub-options called <strong>sub-tier</strong>. So the price of the ticket will be shown in sub-tier.</p>
 
-<p>From the API that get the product details, you can get multi-tier pricing from field <code>multi_tier_prices</code> which has data structure like this</p>
+<p>From the API that <a href="#get-product-detail">get the product details</a>, you can get multi-tier pricing from field <code>multi_tier_prices</code> which has data structure like this</p>
 
 <pre class="center-column">
 {
@@ -1665,6 +1661,7 @@
         }
       ]
     }
+    ...
   ]
 }
 </pre>
@@ -1720,6 +1717,8 @@
 <li>We support only choosing single tier. So the first tier that has sub tier quantity which is not equal to 0 is consider as selected tier.</li>
 <li><code>quantity</code> in sub tier is required for every tier.</li>
 </ul>
+<h3 id='response-2'>Response</h3>
+<p>The response is similar to the response of <a href="#local-experience-trips-pricing-trip">Local Experience Trips Pricing</a></p>
 <h2 id='tangible-products-pricing-souvenir'>Tangible Products Pricing (<code>souvenir</code>)</h2>
 <blockquote>
 <p>Example body for product type <code>souvenir</code></p>
@@ -1770,7 +1769,9 @@
 <td><code>_id</code> of product</td>
 </tr>
 </tbody></table>
-<h1 id='availability'>Availability</h1><h3 id='request-is-pass'>Request is pass</h3><h2 id='local-experiences-trip-calendar'>Local Experiences Trip Calendar</h2>
+<h3 id='response-3'>Response</h3>
+<p>The response is similar to the response of <a href="#local-experience-trips-pricing-trip">Local Experience Trips Pricing</a></p>
+<h1 id='availability'>Availability</h1><h2 id='local-experiences-trip-calendar'>Local Experiences Trip Calendar</h2>
 <blockquote>
 <p>Code</p>
 </blockquote>
@@ -1788,7 +1789,7 @@
 <span class="kr">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
 </code></pre>
 <blockquote>
-<p>Example Response</p>
+<p>Response</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">[{</span><span class="w">
   </span><span class="s2">"date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-08-01T17:00:00.000Z"</span><span class="p">,</span><span class="w">
@@ -1863,9 +1864,12 @@
 <h3 id='response'>Response</h3>
 <p>The response will return an availability of days in that month in Array of Objects. Each object indicate availability status on that day.</p>
 
-<p><strong>Note 1:</strong> The nearest date that available to order / book is <strong>today</strong> in Thailand time (GMT+7). Some products need to be ordered / booked in advance, it may not available for <strong>today</strong> or <strong>tomorrow</strong>.</p>
+<p><strong>Note</strong> </p>
 
-<p><strong>Note 2:</strong> For some date that doesn&#39;t an have object to indicate the availability status, it means that day has default availability which require a confirmation from Local Expert / Supplyer.</p>
+<ul>
+<li>The nearest date that available to order / book is <strong>today</strong> in Thailand time (GMT+7). Some products need to be ordered / booked in advance, it may not available for <strong>today</strong> or <strong>tomorrow</strong>.</li>
+<li>For some date that doesn&#39;t an have object to indicate the availability status, it means that day has default availability which require a confirmation from Local Expert / Supplyer.</li>
+</ul>
 
 <p>For each object will have these parameters.</p>
 
@@ -1941,7 +1945,7 @@
 <p>The response is similar to the response of <a href="#local-experiences-trip-calendar">Local Experience Trips Availability</a></p>
 <h2 id='tangible-product-calendar'>Tangible Product Calendar</h2>
 <p>Same as <a href="local-experiences-trip-calendar">Local Experiences Trip Calendar</a></p>
-<h1 id='book'>Book</h1><h3 id='request-pass'>Request PASS</h3><h2 id='book-product'>Book Product</h2>
+<h1 id='book'>Book</h1><h2 id='book-product'>Book Product</h2>
 <blockquote>
 <p>Required Request body for any product type</p>
 </blockquote>
@@ -2002,7 +2006,7 @@
 <tr>
 <td>meeting_point</td>
 <td><strong>String</strong></td>
-<td>Meeting point for customer (See <a href="#meeting-point">appendix</a> / Required if product has <code>is_hide_meeting_point</code> value as <code>false</code>)</td>
+<td>Meeting point for customer (See <a href="#meeting-point">appendix</a> / if product has <code>is_hide_meeting_point</code> value as <code>true</code> this field can be omit)</td>
 </tr>
 </tbody></table>
 
@@ -2043,14 +2047,6 @@
       </span><span class="s2">"is_included_for_booking_fee"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<blockquote>
-<p>Response</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"booking_id"</span><span class="p">:</span><span class="w"> </span><span class="err">TransactionId</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <blockquote>
@@ -2098,8 +2094,16 @@
 <span class="p">});</span>
 <span class="kr">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
 </code></pre>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"booking_id"</span><span class="p">:</span><span class="w"> </span><span class="err">TransactionId</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 <p>For product type <code>trip</code> you must add <code>quantity</code> and also <code>selected_options</code> for the product that has <code>child</code> key in <code>additional_options</code> field of product.</p>
-<h3 id='request-body-add-from-book'>Request body (add from <a href="#book-product">book</a>)</h3>
+<h3 id='request-body-add-from-basic-book-parameters'>Request body (add from <a href="#book-product">basic book parameters</a>)</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -2355,14 +2359,6 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <blockquote>
-<p>Response</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="err">TransactionId</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<blockquote>
 <p>Code</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.staging.takemetour.com/partner/transactions/book'</span> <span class="se">\</span>
@@ -2582,7 +2578,7 @@
 <span class="p">});</span>
 <span class="kr">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
 </code></pre>
-<p>For attraction tickets, specify <code>multi_tier_quantity</code> with the same structure as <a href="#attraction-tickets">get attraction tickets</a>.</p>
+<p>For attraction tickets, specify <code>multi_tier_quantity</code> with the same structure as <a href="#attraction-tickets-pricing-ticket">get attraction tickets pricing</a>.</p>
 
 <p>But more than that, attraction ticket also has <strong>questions</strong> that need to be answered. Questions can be found in <code>globaltix_questions</code> in the sub tier of tier which you want to booked. (You can get it from get product API)</p>
 
@@ -2928,8 +2924,8 @@
 }
 </pre>
 
-<p>And the above object is <code>multi_tier_quantity</code> that finally use to book.</p>
-<h3 id='request-body-add-from-book-2'>Request body (add from <a href="#book-product">book</a>)</h3>
+<p>And the above object is <code>multi_tier_quantity</code> that can be used to book.</p>
+<h3 id='request-body-add-from-basic-book-parameters-2'>Request body (add from <a href="#book-product">basic book parameters</a>)</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -2946,33 +2942,7 @@
 
 <p><strong>Note:</strong> <code>meeting_point</code> field is not required for <code>ticket</code></p>
 <h3 id='response-2'>Response</h3>
-<p>Response will return <code>success</code> to show that the booking process is success or not, and <code>transaction_id</code>.</p>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>success</td>
-<td><strong>Boolean</strong></td>
-<td>Transaction is success or not</td>
-</tr>
-<tr>
-<td>transaction_id</td>
-<td><strong>String</strong></td>
-<td>Transaction unique id</td>
-</tr>
-<tr>
-<td>message</td>
-<td><strong>String</strong></td>
-<td>If transaction is not success. Message will provide</td>
-</tr>
-</tbody></table>
-
-<p><strong>Remark:</strong> If <code>success</code> equal to <code>false</code> but still return <code>transaction_id</code> please contact us.</p>
+<p>The response is similar to the response of <a href="#book-local-experience-trips">Book Local Experience Trips</a></p>
 <h2 id='book-tangible-products'>Book Tangible Products</h2>
 <blockquote>
 <p>Request body to book product type <code>souvenir</code>, <code>meeting_point</code> is required by default with format <code>Hotel name: {hotelName}, room: {hotelRoom}</code>. (If product tags don&#39;t contain tag <code>not_require_pickup_location</code> then <code>meeting_point</code> field can be omit.)</p>
@@ -3111,7 +3081,7 @@
   "meeting_point": "Hotel name: Dusti Thani, room: 404"
 }
 </pre>
-<h3 id='request-body-add-from-book-3'>Request body (add from <a href="#book-product">book</a>)</h3>
+<h3 id='request-body-add-from-basic-book-parameters-3'>Request body (add from <a href="#book-product">basic book parameters</a>)</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -3131,33 +3101,7 @@
 </tr>
 </tbody></table>
 <h3 id='response-3'>Response</h3>
-<p>Response will return <code>success</code> to show that the booking process is success or not, and <code>transaction_id</code>.</p>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>success</td>
-<td><strong>Boolean</strong></td>
-<td>Transaction is success or not</td>
-</tr>
-<tr>
-<td>transaction_id</td>
-<td><strong>String</strong></td>
-<td>Transaction unique id</td>
-</tr>
-<tr>
-<td>message</td>
-<td><strong>String</strong></td>
-<td>If transaction is not success. Message will provide</td>
-</tr>
-</tbody></table>
-
-<p><strong>Remark:</strong> If <code>success</code> equal to <code>false</code> but still return <code>transaction_id</code> please contact us.</p>
+<p>The response is similar to the response of <a href="#book-local-experience-trips">Book Local Experience Trips</a></p>
 <h1 id='transactions'>Transactions</h1><h2 id='get-all-transactions'>Get All Transactions</h2>
 <blockquote>
 <p>Code</p>
@@ -3176,7 +3120,7 @@
 <span class="kr">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
 </code></pre>
 <blockquote>
-<p>Example Response</p>
+<p>Response</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">[{</span><span class="w">
   </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5aa68d4dfb446d0013b8c6a0"</span><span class="p">,</span><span class="w">
@@ -3338,7 +3282,7 @@
 <span class="kr">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
 </code></pre>
 <blockquote>
-<p>Example Response</p>
+<p>Response</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"5aaf76d7551d7a00116ea36b"</span><span class="p">,</span><span class="w">

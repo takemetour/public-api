@@ -1,5 +1,5 @@
 <h1 id='api-endpoint'>API Endpoint</h1><h2 id='development-and-production-endpoint'>Development and Production Endpoint</h2>
-<p>We provide two API endpoints using in seperated environment.</p>
+<p>We provide 2 API endpoints using in seperated environment.</p>
 
 <p>If you are developing (or testing) please use development endpoint.</p>
 

@@ -1,37 +1,15 @@
-<h1 id='price'>Price</h1><h3 id='request-example-pass'>REQUEST EXAMPLE PASS</h3><h2 id='get-product-price'>Get Product Price</h2>
-<blockquote>
-<p>Example Response</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"grandTotal"</span><span class="p">:</span><span class="w"> </span><span class="mf">1750.39</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"partnerPricing"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"retailPrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">1833.19</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"discount"</span><span class="p">:</span><span class="w"> </span><span class="mf">82.8</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
+<h1 id='price'>Price</h1><h2 id='get-product-price'>Get Product Price</h2>
 <p><strong>HTTP Request:</strong> <code>POST /products/price</code></p>
 
-<p>You can get a price of product by using this API. Each type of product has a diffrent request body due to different of pricing model. But has the same response body</p>
-<h3 id='response'>Response</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>grandTotal</td>
-<td><strong>Number</strong></td>
-<td>Final price to be charged to your partner account credit.</td>
-</tr>
-<tr>
-<td>partnerPricing</td>
-<td><strong>Object</strong></td>
-<td>The object has two keys <code>retailPrice</code> (Original price of this product before discount) and <code>discount</code> (Discount pricing for partner)</td>
-</tr>
-</tbody></table>
+<p>You can get a price of product by using this API. Each type of product has a diffrent request body</p>
+
+<ul>
+<li><a href="#local-experience-trips-pricing-trip">Local Experience Trips request body</a></li>
+<li><a href="#attraction-tickets-pricing-ticket">Attraction Tickets request body</a></li>
+<li><a href="#tangible-products-pricing-souvenir">Tangible Products request body</a></li>
+</ul>
+
+<p>due to different of pricing model. But has the <strong>same</strong> response body</p>
 <h2 id='local-experience-trips-pricing-trip'>Local Experience Trips Pricing (<code>trip</code>)</h2>
 <blockquote>
 <p>Example request body for product type <code>trip</code> without child price</p>
@@ -119,6 +97,41 @@
 <span class="p">});</span>
 <span class="kr">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
 </code></pre>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"grandTotal"</span><span class="p">:</span><span class="w"> </span><span class="mf">1750.39</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"partnerPricing"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"retailPrice"</span><span class="p">:</span><span class="w"> </span><span class="mf">1833.19</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"discount"</span><span class="p">:</span><span class="w"> </span><span class="mf">82.8</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='request-body'>Request body</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>quantity</td>
+<td><strong>Number (Max as max_travelers)</strong></td>
+<td>Quantity of traveler</td>
+</tr>
+<tr>
+<td>trip_id</td>
+<td><strong>String</strong></td>
+<td><code>_id</code> of product</td>
+</tr>
+<tr>
+<td>selected_options</td>
+<td><strong>Array of selected option</strong></td>
+<td>Array of selected option which has <code>quantity</code> to specify quantity</td>
+</tr>
+</tbody></table>
+
 <p>Trip has a simplest pricing model. Price is calculated by using <strong>quantity</strong> and <strong>trip_id</strong> and API will do the rest about it.</p>
 
 <pre class="center-column">
@@ -128,7 +141,7 @@
 }
 </pre>
 <h3 id='child-price'>Child Price</h3>
-<p>Some of our trip also has <strong>child price</strong> which define in <code>additional_options</code> field of product.</p>
+<p>Some of our trip also has <strong>child price</strong> which defined in <code>additional_options</code> field of product.</p>
 
 <pre class="center-column">
 {
@@ -153,8 +166,8 @@
 
 <p>To get a price for a trip that has child price. You must attach <code>selected_options</code> alongside with other request body (See an example at the right panel)</p>
 
-<p><strong>Note:</strong> Child quantity + Quantity must not exceed <code>max_travelers</code> (e.g. if trip has max_travelers = 5 and quantity is 3, child quantity can not exceed 2)</p>
-<h3 id='request-body'>Request body</h3>
+<p><strong>Note:</strong> Child quantity + Quantity must <strong>not</strong> exceed <code>max_travelers</code> (e.g. if trip has max_travelers = 5 and quantity is 3, child quantity can <strong>not</strong> exceed 2)</p>
+<h3 id='response'>Response</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -163,19 +176,14 @@
 </tr>
 </thead><tbody>
 <tr>
-<td>quantity</td>
-<td><strong>Number (Max as max_travelers)</strong></td>
-<td>Quantity of traveler</td>
+<td>grandTotal</td>
+<td><strong>Number</strong></td>
+<td>Final price to be charged to your partner account credit.</td>
 </tr>
 <tr>
-<td>trip_id</td>
-<td><strong>String</strong></td>
-<td><code>_id</code> of product</td>
-</tr>
-<tr>
-<td>selected_options</td>
-<td><strong>Array of selected option</strong></td>
-<td>Array of selected option which has <code>quantity</code> to specify quantity</td>
+<td>partnerPricing</td>
+<td><strong>Object</strong></td>
+<td>The object has two keys <code>retailPrice</code> (Original price of this product before discount) and <code>discount</code> (Discount pricing for partner)</td>
 </tr>
 </tbody></table>
 <h2 id='attraction-tickets-pricing-ticket'>Attraction Tickets Pricing (<code>ticket</code>)</h2>
@@ -619,7 +627,7 @@
 
 <p>We called each option as <strong>tier</strong> so for this product we have 4 tiers. And in each tier also has sub-options called <strong>sub-tier</strong>. So the price of the ticket will be shown in sub-tier.</p>
 
-<p>From the API that get the product details, you can get multi-tier pricing from field <code>multi_tier_prices</code> which has data structure like this</p>
+<p>From the API that <a href="#get-product-detail">get the product details</a>, you can get multi-tier pricing from field <code>multi_tier_prices</code> which has data structure like this</p>
 
 <pre class="center-column">
 {
@@ -669,6 +677,7 @@
         }
       ]
     }
+    ...
   ]
 }
 </pre>
@@ -724,6 +733,8 @@
 <li>We support only choosing single tier. So the first tier that has sub tier quantity which is not equal to 0 is consider as selected tier.</li>
 <li><code>quantity</code> in sub tier is required for every tier.</li>
 </ul>
+<h3 id='response-2'>Response</h3>
+<p>The response is similar to the response of <a href="#local-experience-trips-pricing-trip">Local Experience Trips Pricing</a></p>
 <h2 id='tangible-products-pricing-souvenir'>Tangible Products Pricing (<code>souvenir</code>)</h2>
 <blockquote>
 <p>Example body for product type <code>souvenir</code></p>
@@ -774,3 +785,5 @@
 <td><code>_id</code> of product</td>
 </tr>
 </tbody></table>
+<h3 id='response-3'>Response</h3>
+<p>The response is similar to the response of <a href="#local-experience-trips-pricing-trip">Local Experience Trips Pricing</a></p>

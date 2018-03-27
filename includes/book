@@ -1,4 +1,4 @@
-<h1 id='book'>Book</h1><h3 id='request-pass'>Request PASS</h3><h2 id='book-product'>Book Product</h2>
+<h1 id='book'>Book</h1><h2 id='book-product'>Book Product</h2>
 <blockquote>
 <p>Required Request body for any product type</p>
 </blockquote>
@@ -59,7 +59,7 @@
 <tr>
 <td>meeting_point</td>
 <td><strong>String</strong></td>
-<td>Meeting point for customer (See <a href="#meeting-point">appendix</a> / Required if product has <code>is_hide_meeting_point</code> value as <code>false</code>)</td>
+<td>Meeting point for customer (See <a href="#meeting-point">appendix</a> / if product has <code>is_hide_meeting_point</code> value as <code>true</code> this field can be omit)</td>
 </tr>
 </tbody></table>
 
@@ -100,14 +100,6 @@
       </span><span class="s2">"is_included_for_booking_fee"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<blockquote>
-<p>Response</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"booking_id"</span><span class="p">:</span><span class="w"> </span><span class="err">TransactionId</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <blockquote>
@@ -155,8 +147,16 @@
 <span class="p">});</span>
 <span class="kr">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
 </code></pre>
+<blockquote>
+<p>Response</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"booking_id"</span><span class="p">:</span><span class="w"> </span><span class="err">TransactionId</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 <p>For product type <code>trip</code> you must add <code>quantity</code> and also <code>selected_options</code> for the product that has <code>child</code> key in <code>additional_options</code> field of product.</p>
-<h3 id='request-body-add-from-book'>Request body (add from <a href="#book-product">book</a>)</h3>
+<h3 id='request-body-add-from-basic-book-parameters'>Request body (add from <a href="#book-product">basic book parameters</a>)</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -412,14 +412,6 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <blockquote>
-<p>Response</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"success"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"transaction_id"</span><span class="p">:</span><span class="w"> </span><span class="err">TransactionId</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre>
-<blockquote>
 <p>Code</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.staging.takemetour.com/partner/transactions/book'</span> <span class="se">\</span>
@@ -639,7 +631,7 @@
 <span class="p">});</span>
 <span class="kr">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
 </code></pre>
-<p>For attraction tickets, specify <code>multi_tier_quantity</code> with the same structure as <a href="#attraction-tickets">get attraction tickets</a>.</p>
+<p>For attraction tickets, specify <code>multi_tier_quantity</code> with the same structure as <a href="#attraction-tickets-pricing-ticket">get attraction tickets pricing</a>.</p>
 
 <p>But more than that, attraction ticket also has <strong>questions</strong> that need to be answered. Questions can be found in <code>globaltix_questions</code> in the sub tier of tier which you want to booked. (You can get it from get product API)</p>
 
@@ -985,8 +977,8 @@
 }
 </pre>
 
-<p>And the above object is <code>multi_tier_quantity</code> that finally use to book.</p>
-<h3 id='request-body-add-from-book-2'>Request body (add from <a href="#book-product">book</a>)</h3>
+<p>And the above object is <code>multi_tier_quantity</code> that can be used to book.</p>
+<h3 id='request-body-add-from-basic-book-parameters-2'>Request body (add from <a href="#book-product">basic book parameters</a>)</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1003,33 +995,7 @@
 
 <p><strong>Note:</strong> <code>meeting_point</code> field is not required for <code>ticket</code></p>
 <h3 id='response-2'>Response</h3>
-<p>Response will return <code>success</code> to show that the booking process is success or not, and <code>transaction_id</code>.</p>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>success</td>
-<td><strong>Boolean</strong></td>
-<td>Transaction is success or not</td>
-</tr>
-<tr>
-<td>transaction_id</td>
-<td><strong>String</strong></td>
-<td>Transaction unique id</td>
-</tr>
-<tr>
-<td>message</td>
-<td><strong>String</strong></td>
-<td>If transaction is not success. Message will provide</td>
-</tr>
-</tbody></table>
-
-<p><strong>Remark:</strong> If <code>success</code> equal to <code>false</code> but still return <code>transaction_id</code> please contact us.</p>
+<p>The response is similar to the response of <a href="#book-local-experience-trips">Book Local Experience Trips</a></p>
 <h2 id='book-tangible-products'>Book Tangible Products</h2>
 <blockquote>
 <p>Request body to book product type <code>souvenir</code>, <code>meeting_point</code> is required by default with format <code>Hotel name: {hotelName}, room: {hotelRoom}</code>. (If product tags don&#39;t contain tag <code>not_require_pickup_location</code> then <code>meeting_point</code> field can be omit.)</p>
@@ -1168,7 +1134,7 @@
   "meeting_point": "Hotel name: Dusti Thani, room: 404"
 }
 </pre>
-<h3 id='request-body-add-from-book-3'>Request body (add from <a href="#book-product">book</a>)</h3>
+<h3 id='request-body-add-from-basic-book-parameters-3'>Request body (add from <a href="#book-product">basic book parameters</a>)</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1188,30 +1154,4 @@
 </tr>
 </tbody></table>
 <h3 id='response-3'>Response</h3>
-<p>Response will return <code>success</code> to show that the booking process is success or not, and <code>transaction_id</code>.</p>
-
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>success</td>
-<td><strong>Boolean</strong></td>
-<td>Transaction is success or not</td>
-</tr>
-<tr>
-<td>transaction_id</td>
-<td><strong>String</strong></td>
-<td>Transaction unique id</td>
-</tr>
-<tr>
-<td>message</td>
-<td><strong>String</strong></td>
-<td>If transaction is not success. Message will provide</td>
-</tr>
-</tbody></table>
-
-<p><strong>Remark:</strong> If <code>success</code> equal to <code>false</code> but still return <code>transaction_id</code> please contact us.</p>
+<p>The response is similar to the response of <a href="#book-local-experience-trips">Book Local Experience Trips</a></p>
