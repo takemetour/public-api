@@ -8,8 +8,6 @@
 <li><a href="#attraction-tickets-pricing-ticket">Attraction Tickets request body</a></li>
 <li><a href="#tangible-products-pricing-souvenir">Tangible Products request body</a></li>
 </ul>
-
-<p>due to different of pricing model. But has the <strong>same</strong> response body</p>
 <h2 id='local-experience-trips-pricing-trip'>Local Experience Trips Pricing (<code>trip</code>)</h2>
 <blockquote>
 <p>Example request body for product type <code>trip</code> without child price</p>

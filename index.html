@@ -234,6 +234,14 @@
               </ul>
           </li>
           <li>
+            <a href="#image-endpoint" class="toc-h1 toc-link" data-title="image-endpoint">Image Endpoint</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#development-and-production-image-endpoint" class="toc-h2 toc-link" data-title="development-and-production-image-endpoint">Development and Production Image Endpoint</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#authentication" class="toc-h1 toc-link" data-title="authentication">Authentication</a>
               <ul class="toc-list-h2">
                   <li>
@@ -430,6 +438,32 @@
 <td><a href="#voucher">Get Transaction voucher</a></td>
 </tr>
 </tbody></table>
+<h1 id='image-endpoint'>Image Endpoint</h1><h2 id='development-and-production-image-endpoint'>Development and Production Image Endpoint</h2>
+<p>We also provide 2 image endpoints using in seperated environment.</p>
+
+<p>If you are developing (or testing) please use development endpoint.</p>
+
+<table><thead>
+<tr>
+<th>Environment</th>
+<th>Endpoint</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Development</td>
+<td><a href="https://d17572qoeejomw.cloudfront.net/">https://d17572qoeejomw.cloudfront.net/</a></td>
+</tr>
+<tr>
+<td>Production</td>
+<td><a href="https://dglw4xbnd0ycq.cloudfront.net/">https://dglw4xbnd0ycq.cloudfront.net/</a></td>
+</tr>
+</tbody></table>
+
+<p>In several APIs, you&#39;ll see <code>avatar_image</code>, <code>images</code>, <code>cover_image</code> fields contain a string that looks like path
+eg. <code>/trips/1CTXi-1426778450712908.jpg</code>, <code>users/rtitM-14267784330583837.jpg</code> </p>
+
+<p>To access the image, just concat image endpoint with image path. For example, avatar_image is <code>users/rtitM-14267784330583837.jpg</code> and you&#39;re in development
+so completed path will be <a href="https://d17572qoeejomw.cloudfront.net/users/rtitM-14267784330583837.jpg">https://d17572qoeejomw.cloudfront.net/users/rtitM-14267784330583837.jpg</a></p>
 <h1 id='authentication'>Authentication</h1><h2 id='login'>Login</h2>
 <blockquote>
 <p>Example Request Body</p>
@@ -992,8 +1026,6 @@
 <li><a href="#attraction-tickets-pricing-ticket">Attraction Tickets request body</a></li>
 <li><a href="#tangible-products-pricing-souvenir">Tangible Products request body</a></li>
 </ul>
-
-<p>due to different of pricing model. But has the <strong>same</strong> response body</p>
 <h2 id='local-experience-trips-pricing-trip'>Local Experience Trips Pricing (<code>trip</code>)</h2>
 <blockquote>
 <p>Example request body for product type <code>trip</code> without child price</p>
