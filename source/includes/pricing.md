@@ -10,8 +10,6 @@ You can get a price of product by using this API. Each type of product has a dif
 * [Attraction Tickets request body](#attraction-tickets-pricing-ticket)
 * [Tangible Products request body](#tangible-products-pricing-souvenir)
 
-due to different of pricing model. But has the **same** response body
-
 ## Local Experience Trips Pricing (`trip`)
 
 > Example request body for product type `trip` without child price
