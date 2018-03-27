@@ -53,12 +53,12 @@
 <tr>
 <td>email</td>
 <td><strong>String</strong></td>
-<td>partner email which registered with TakeMeTour</td>
+<td>Partner&#39;s email which registered with TakeMeTour</td>
 </tr>
 <tr>
 <td>password</td>
 <td><strong>String</strong></td>
-<td>password (at least 8 characters)</td>
+<td>Password (at least 8 characters)</td>
 </tr>
 </tbody></table>
 <h3 id='response'>Response</h3>
@@ -72,12 +72,12 @@
 <tr>
 <td>access_token</td>
 <td><strong>String</strong></td>
-<td>access token which identify user (must be added to <strong>x-access-token</strong> header on other request)</td>
+<td>Access token which identify user (must be added to <strong>x-access-token</strong> header on other request)</td>
 </tr>
 <tr>
 <td>user</td>
 <td><strong>Object</strong></td>
-<td>object of user&#39;s info</td>
+<td>Object of user&#39;s info</td>
 </tr>
 </tbody></table>
 <h2 id='logout'>Logout</h2>
@@ -116,12 +116,7 @@
 <tr>
 <td>success</td>
 <td><strong>Boolean</strong></td>
-<td>return true</td>
-</tr>
-<tr>
-<td>user</td>
-<td><strong>Object</strong></td>
-<td>object of user&#39;s info</td>
+<td>Return logut status, can be <code>true</code> or <code>false</code></td>
 </tr>
 </tbody></table>
 <h2 id='user-info'>User info</h2>
@@ -168,11 +163,11 @@
 <tr>
 <td>isLoggedIn</td>
 <td><strong>Boolean</strong></td>
-<td>login status</td>
+<td>Login status</td>
 </tr>
 <tr>
 <td>user</td>
 <td><strong>Object</strong></td>
-<td>object of user&#39;s info</td>
+<td>Object of user&#39;s info</td>
 </tr>
 </tbody></table>

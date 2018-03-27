@@ -44,32 +44,38 @@
 <table><thead>
 <tr>
 <th>Parameter</th>
+<th>Type</th>
 <th>Default</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>city</td>
+<td><strong>String</strong></td>
 <td><code>none</code></td>
 <td>Filter by destination location city (Ex. <code>Bangkok</code> / <code>Chiang Mai</code>)</td>
 </tr>
 <tr>
 <td>name</td>
+<td><strong>String</strong></td>
 <td><code>none</code></td>
 <td>Search by trip name</td>
 </tr>
 <tr>
 <td>product_type</td>
+<td><strong>String</strong></td>
 <td>all</td>
 <td>Filter by product type that has 3 types allow: <code>trip</code> / <code>ticket</code> / <code>souvenir</code></td>
 </tr>
 <tr>
 <td>skip</td>
+<td><strong>Integer</strong></td>
 <td>0</td>
 <td>Skip response results (Use for pagination)</td>
 </tr>
 <tr>
 <td>limit</td>
+<td><strong>Integer</strong></td>
 <td>10</td>
 <td>Limit response results</td>
 </tr>

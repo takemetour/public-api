@@ -497,12 +497,12 @@
 <tr>
 <td>email</td>
 <td><strong>String</strong></td>
-<td>partner email which registered with TakeMeTour</td>
+<td>Partner&#39;s email which registered with TakeMeTour</td>
 </tr>
 <tr>
 <td>password</td>
 <td><strong>String</strong></td>
-<td>password (at least 8 characters)</td>
+<td>Password (at least 8 characters)</td>
 </tr>
 </tbody></table>
 <h3 id='response'>Response</h3>
@@ -516,12 +516,12 @@
 <tr>
 <td>access_token</td>
 <td><strong>String</strong></td>
-<td>access token which identify user (must be added to <strong>x-access-token</strong> header on other request)</td>
+<td>Access token which identify user (must be added to <strong>x-access-token</strong> header on other request)</td>
 </tr>
 <tr>
 <td>user</td>
 <td><strong>Object</strong></td>
-<td>object of user&#39;s info</td>
+<td>Object of user&#39;s info</td>
 </tr>
 </tbody></table>
 <h2 id='logout'>Logout</h2>
@@ -560,12 +560,7 @@
 <tr>
 <td>success</td>
 <td><strong>Boolean</strong></td>
-<td>return true</td>
-</tr>
-<tr>
-<td>user</td>
-<td><strong>Object</strong></td>
-<td>object of user&#39;s info</td>
+<td>Return logut status, can be <code>true</code> or <code>false</code></td>
 </tr>
 </tbody></table>
 <h2 id='user-info'>User info</h2>
@@ -612,12 +607,12 @@
 <tr>
 <td>isLoggedIn</td>
 <td><strong>Boolean</strong></td>
-<td>login status</td>
+<td>Login status</td>
 </tr>
 <tr>
 <td>user</td>
 <td><strong>Object</strong></td>
-<td>object of user&#39;s info</td>
+<td>Object of user&#39;s info</td>
 </tr>
 </tbody></table>
 <h1 id='products'>Products</h1><h3 id='all-request-pass'>ALL REQUEST PASS</h3><h2 id='get-all-products'>Get All Products</h2>
@@ -666,32 +661,38 @@
 <table><thead>
 <tr>
 <th>Parameter</th>
+<th>Type</th>
 <th>Default</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>city</td>
+<td><strong>String</strong></td>
 <td><code>none</code></td>
 <td>Filter by destination location city (Ex. <code>Bangkok</code> / <code>Chiang Mai</code>)</td>
 </tr>
 <tr>
 <td>name</td>
+<td><strong>String</strong></td>
 <td><code>none</code></td>
 <td>Search by trip name</td>
 </tr>
 <tr>
 <td>product_type</td>
+<td><strong>String</strong></td>
 <td>all</td>
 <td>Filter by product type that has 3 types allow: <code>trip</code> / <code>ticket</code> / <code>souvenir</code></td>
 </tr>
 <tr>
 <td>skip</td>
+<td><strong>Integer</strong></td>
 <td>0</td>
 <td>Skip response results (Use for pagination)</td>
 </tr>
 <tr>
 <td>limit</td>
+<td><strong>Integer</strong></td>
 <td>10</td>
 <td>Limit response results</td>
 </tr>
