@@ -12,7 +12,7 @@ You can get a price of product by using this API. Each type of product has a dif
 
 ## Local Experience Trips Pricing (`trip`)
 
-> Example request body for product type `trip` without child price
+> Example request body for product type `trip` without additional options
 
 ```json
 {
@@ -21,7 +21,7 @@ You can get a price of product by using this API. Each type of product has a dif
 }
 ```
 
-> Fetching price for trip without child price
+> Fetching price for trip without additional options
 
 ```shell
 curl 'https://api.staging.takemetour.com/partner/products/price' \
@@ -45,11 +45,11 @@ const response = await fetch('https://api.staging.takemetour.com/partner/product
 const data = await response.json();
 ```
 
-> Example request body for product type `trip` with child price
+> Example request body for product type `trip` with child price and additional hotel pickup
 
 ```json
 {
-  "quantity": 2,
+  "quantity": 3,
   "trip_id": "550ae954009be2a14b19339e",
   "selected_options": [
     {
@@ -61,14 +61,27 @@ const data = await response.json();
       "quantity_type": "sum_max_travelers",
       "currency": "THB",
       "key": "children",
-      "quantity": 1,
+      "quantity": 2,
       "is_included_for_booking_fee": true
+    },
+    {
+      "_id": "59db3d06909883001003d38e",
+      "title": "Hotel Pickup",
+      "type": "book.checkbox",
+      "price": 500,
+      "quantity_type": "boolean",
+      "currency": "THB",
+      "key": "hotel",
+      "lx_price": 0,
+      "is_front": false,
+      "quantity": 1,
+      "is_included_for_booking_fee": false
     }
   ]
 }
 ```
 
-> Fetching price for trip with child price
+> Fetching price for trip with child price and additional hotel pickup
 
 ```shell
 curl 'https://api.staging.takemetour.com/partner/products/price' \
@@ -80,7 +93,7 @@ curl 'https://api.staging.takemetour.com/partner/products/price' \
 const response = await fetch('https://api.staging.takemetour.com/partner/products/price',
 {
   body: JSON.stringify({
-    "quantity": 2,
+    "quantity": 3,
     "trip_id": "550ae954009be2a14b19339e",
     "selected_options": [
       {
@@ -92,8 +105,21 @@ const response = await fetch('https://api.staging.takemetour.com/partner/product
         "quantity_type": "sum_max_travelers",
         "currency": "THB",
         "key": "children",
-        "quantity": 1,
+        "quantity": 2,
         "is_included_for_booking_fee": true
+      },
+      {
+        "_id": "59db3d06909883001003d38e",
+        "title": "Hotel Pickup",
+        "type": "book.checkbox",
+        "price": 500,
+        "quantity_type": "boolean",
+        "currency": "THB",
+        "key": "hotel",
+        "lx_price": 0,
+        "is_front": false,
+        "quantity": 1,
+        "is_included_for_booking_fee": false
       }
     ]
   }),
@@ -135,6 +161,10 @@ Trip has a simplest pricing model. Price is calculated by using **quantity** and
   "trip_id": "550ae954009be2a14b19339e"
 }
 </pre>
+### Additional Options
+
+Some trips provide additional options as child price and additional hotel pickup, you can also add multiple options at same time.
+
 ### Child Price
 
 Some of our trip also has **child price** which defined in `additional_options` field of product.
@@ -160,9 +190,41 @@ Some of our trip also has **child price** which defined in `additional_options` 
 
 Child price is defined in object which has key `children`. From the above example, child price for this product is 290 THB (which is cheaper than original price)
 
-To get a price for a trip that has child price. You must attach `selected_options` alongside with other request body (See an example at the right panel)
+To get a price for a trip that has child price. You must attach child price object with quantity in `selected_options` alongside other request body (See an example at the right panel)
 
 **Note:** Child quantity + Quantity must **not** exceed `max_travelers` (e.g. if trip has max_travelers = 5 and quantity is 3, child quantity can **not** exceed 2)
+
+### Additional Hotel Pickup
+
+Some of our trips also has **additional hotel pickup** which defined in `additional_options` field of product.
+
+<pre class="center-column">
+{
+  "additional_options": [
+    {
+      "_id": "59db3d06909883001003d38e",
+      "title": "Hotel Pickup",
+      "type": "book.checkbox",
+      "price": 500,
+      "quantity_type": "boolean",
+      "currency": "THB",
+      "key": "hotel",
+      "lx_price": 0,
+      "is_front": false,
+      "quantity": 0,
+      "is_included_for_booking_fee": false
+    }
+  ]
+}
+</pre>
+
+Some trips in our system provide free hotel pickup. For trips that don't have free hotel pickup option, you can add **additional hotel pickup** as an additional option.
+
+To get a price for a trip that has additional hotel pickup. You must attach additional hotel pickup object with quantity = **1** in `selected_options` alongside other request body (See an example at the right panel)
+
+**Note:** Hotel that available for hotel pickup must be located in the same city as `destination_location` of [trip detail](#get-product-detail)
+
+**Note:** If additional hotel pickup option has been selected, you must pass the hotel name in `meeting_point` field while you're making a transaction. See [Book Product](#book-product).
 
 ### Response
 

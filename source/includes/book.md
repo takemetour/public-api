@@ -55,21 +55,7 @@ meeting_point | **String** | Meeting point for customer (See [appendix](#meeting
   "trip_date": "2018-04-08T17:00:00.000Z",
   "meeting_point": "BTS Station - Asok",
   "quantity": 2,
-  "selected_options": [
-    {
-      "key": "children",
-      "currency": "THB",
-      "quantity_type": "sum_max_travelers",
-      "price": 290,
-      "type": "child_price",
-      "title": "Child (Age 2-12)",
-      "_id": "599e66640ea28b0011b3f147",
-      "lx_price": 290,
-      "is_front": false,
-      "quantity": 0,
-      "is_included_for_booking_fee": true
-    }
-  ]
+  "selected_options": []
 }
 ```
 
@@ -79,7 +65,7 @@ meeting_point | **String** | Meeting point for customer (See [appendix](#meeting
 curl 'https://api.staging.takemetour.com/partner/transactions/book' \
 -H 'content-type: application/json' \
 -H 'x-access-token: 0TKOeCA5sLimUiGYcIdWOb9NoiYEgJJ3' \
---data-binary '{"name":{"first":"John","last":"Doe"},"email":"john+doe@takemetour.com","mobile":"+66856667571","country":"TH","trip_id":"58ff211702b3ea0011efe846","trip_date":"2018-04-08T17:00:00.000Z","meeting_point":"BTS Station - Asok","quantity":2,"selected_options":[{"key":"children","currency":"THB","quantity_type":"sum_max_travelers","price":290,"type":"child_price","title":"Child (Age 2-12)","_id":"599e66640ea28b0011b3f147","lx_price":290,"is_front":false,"quantity":0,"is_included_for_booking_fee":true}]}'
+--data-binary '{"name":{"first":"John","last":"Doe"},"email":"john+doe@takemetour.com","mobile":"+66856667571","country":"TH","trip_id":"58ff211702b3ea0011efe846","trip_date":"2018-04-08T17:00:00.000Z","meeting_point":"BTS Station - Asok","quantity":2,"selected_options":[]}'
 ```
 
 ```javascript
@@ -101,6 +87,86 @@ const response = await fetch('https://api.staging.takemetour.com/partner/transac
     "trip_date": "2018-04-08T17:00:00.000Z",
     "meeting_point": "BTS Station - Asok",
     "quantity": 2,
+    "selected_options": []
+  }),
+  method: 'POST'
+});
+const data = await response.json();
+```
+> Request body to book product type `trip` with additional options
+
+```json
+{
+  "name": {
+    "first": "John",
+    "last": "Doe"
+  },
+  "email": "john+doe@takemetour.com",
+  "mobile": "+66856667571",
+  "country": "TH",
+  "trip_id": "58ff211702b3ea0011efe846",
+  "trip_date": "2018-04-08T17:00:00.000Z",
+  "meeting_point": "Florida Hotel, Phayathai, Bangkok",
+  "quantity": 3,
+  "selected_options": [
+    {
+      "key": "children",
+      "currency": "THB",
+      "quantity_type": "sum_max_travelers",
+      "price": 290,
+      "type": "child_price",
+      "title": "Child (Age 2-12)",
+      "_id": "599e66640ea28b0011b3f147",
+      "lx_price": 290,
+      "is_front": false,
+      "quantity": 2,
+      "is_included_for_booking_fee": true
+    },
+    {
+      "_id": "59db3d06909883001003d38e",
+      "title": "Hotel Pickup",
+      "type": "book.checkbox",
+      "price": 500,
+      "quantity_type": "boolean",
+      "currency": "THB",
+      "key": "hotel",
+      "lx_price": 0,
+      "is_front": false,
+      "quantity": 1,
+      "is_included_for_booking_fee": false
+    }
+  ]
+}
+```
+
+>Code
+
+```shell
+curl 'https://api.staging.takemetour.com/partner/transactions/book' \
+-H 'content-type: application/json' \
+-H 'x-access-token: 0TKOeCA5sLimUiGYcIdWOb9NoiYEgJJ3' \
+--data-binary '{"name":{"first":"John","last":"Doe"},"email":"john+doe@takemetour.com","mobile":"+66856667571","country":"TH","trip_id":"58ff211702b3ea0011efe846","trip_date":"2018-04-08T17:00:00.000Z","meeting_point":"Florida Hotel, Phayathai, Bangkok","quantity":2,"selected_options":[{"key":"children","currency":"THB","quantity_type":"sum_max_travelers","price":290,"type":"child_price","title":"Child (Age 2-12)","_id":"599e66640ea28b0011b3f147","lx_price":290,"is_front":false,"quantity":0,"is_included_for_booking_fee":true},{"_id":"59db3d06909883001003d38e","title":"Hotel Pickup","type":"book.checkbox","price":500,"quantity_type":"boolean","currency":"THB","key":"hotel","lx_price":0,"is_front":false,"quantity":1,"is_included_for_booking_fee":false}]}'
+```
+
+```javascript
+const response = await fetch('https://api.staging.takemetour.com/partner/transactions/book',
+{
+  headers: {
+    'content-type': 'application/json',
+    'x-access-token': '0TKOeCA5sLimUiGYcIdWOb9NoiYEgJJ3'
+  },
+  body: JSON.stringify({
+    "name": {
+      "first": "John",
+      "last": "Doe"
+    },
+    "email": "john+doe@takemetour.com",
+    "mobile": "+66856667571",
+    "country": "TH",
+    "trip_id": "58ff211702b3ea0011efe846",
+    "trip_date": "2018-04-08T17:00:00.000Z",
+    "meeting_point": "Florida Hotel, Phayathai, Bangkok",
+    "quantity": 2,
     "selected_options": [
       {
         "key": "children",
@@ -114,6 +180,19 @@ const response = await fetch('https://api.staging.takemetour.com/partner/transac
         "is_front": false,
         "quantity": 0,
         "is_included_for_booking_fee": true
+      },
+      {
+        "_id": "59db3d06909883001003d38e",
+        "title": "Hotel Pickup",
+        "type": "book.checkbox",
+        "price": 500,
+        "quantity_type": "boolean",
+        "currency": "THB",
+        "key": "hotel",
+        "lx_price": 0,
+        "is_front": false,
+        "quantity": 1,
+        "is_included_for_booking_fee": false
       }
     ]
   }),
@@ -137,8 +216,8 @@ For product type `trip` you must add `quantity` and also `selected_options` for 
 
 Parameter | Type | Description
 --------- | ---- | -----------
-quantity | **Number (limit to `max_travelers`)** | Quantity of customer
-selected_options | **Array of option** | See  [child price](#child-price) for more detail
+quantity | **Number (quantity + child quantity must not exceed `max_travelers` from [product detail](#get-product-detail))** | Quantity of customer
+selected_options | **Array of option** | See  [additional options](#additional-options) for more detail
 
 ### Response
 Response will return `success` to show that the booking process is success or not, and `transaction_id`.
