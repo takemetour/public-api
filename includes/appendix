@@ -1008,6 +1008,24 @@
 </tr>
 </tbody></table>
 <h2 id='meeting-points'>Meeting Points</h2>
+<p>If the trip has free hotel pickup option (as you can see <code>Hotel Pickup</code> type in <code>meeting_points</code> field from <a href="#get-product-detail">trip detail</a>).
+You can choose hotel pickup as a meeting point by pass the hotel name in <code>meeting_point</code> field while you&#39;re making a transaction. See <a href="#book-product">Book Product</a>.
+<pre class="center-column">
+  &quot;meeting_points&quot;: [
+    {
+      &quot;_id&quot;: &quot;565808f321389c2c1baa5db5&quot;,
+      &quot;city&quot;: &quot;Bangkok&quot;,
+      &quot;name&quot;: &quot;Hotel Pickup in Bangkok Area&quot;,
+      &quot;type&quot;: &quot;Hotel Pickup&quot;,
+      &quot;icon_name&quot;: &quot;hotel&quot;,
+      &quot;location&quot;: {
+        &quot;lat&quot;: null,
+        &quot;lon&quot;: null
+      }
+    },
+  ],
+</pre></p>
+
 <p>For meeting point with type <strong>Airport Rail Link Station, BTS Station and MRT Station</strong> can have meeting point name <strong>&quot;Any Station&quot;</strong>. And here is the list of every station.</p>
 
 <table><thead>

@@ -1028,7 +1028,7 @@ so completed path will be <a href="https://d17572qoeejomw.cloudfront.net/users/r
 </ul>
 <h2 id='local-experience-trips-pricing-trip'>Local Experience Trips Pricing (<code>trip</code>)</h2>
 <blockquote>
-<p>Example request body for product type <code>trip</code> without child price</p>
+<p>Example request body for product type <code>trip</code> without additional options</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
@@ -1036,7 +1036,7 @@ so completed path will be <a href="https://d17572qoeejomw.cloudfront.net/users/r
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <blockquote>
-<p>Fetching price for trip without child price</p>
+<p>Fetching price for trip without additional options</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.staging.takemetour.com/partner/products/price'</span> <span class="se">\</span>
 -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
@@ -1057,10 +1057,10 @@ so completed path will be <a href="https://d17572qoeejomw.cloudfront.net/users/r
 <span class="kr">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
 </code></pre>
 <blockquote>
-<p>Example request body for product type <code>trip</code> with child price</p>
+<p>Example request body for product type <code>trip</code> with child price and additional hotel pickup</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
   </span><span class="s2">"trip_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"550ae954009be2a14b19339e"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"selected_options"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
     </span><span class="p">{</span><span class="w">
@@ -1072,14 +1072,27 @@ so completed path will be <a href="https://d17572qoeejomw.cloudfront.net/users/r
       </span><span class="s2">"quantity_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sum_max_travelers"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"THB"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"children"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
       </span><span class="s2">"is_included_for_booking_fee"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"59db3d06909883001003d38e"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hotel Pickup"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"book.checkbox"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"quantity_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"THB"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hotel"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"lx_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"is_front"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"is_included_for_booking_fee"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <blockquote>
-<p>Fetching price for trip with child price</p>
+<p>Fetching price for trip with child price and additional hotel pickup</p>
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.staging.takemetour.com/partner/products/price'</span> <span class="se">\</span>
 -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
@@ -1088,7 +1101,7 @@ so completed path will be <a href="https://d17572qoeejomw.cloudfront.net/users/r
 </code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api.staging.takemetour.com/partner/products/price'</span><span class="p">,</span>
 <span class="p">{</span>
   <span class="na">body</span><span class="p">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
-    <span class="s2">"quantity"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s2">"quantity"</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
     <span class="s2">"trip_id"</span><span class="p">:</span> <span class="s2">"550ae954009be2a14b19339e"</span><span class="p">,</span>
     <span class="s2">"selected_options"</span><span class="p">:</span> <span class="p">[</span>
       <span class="p">{</span>
@@ -1100,8 +1113,21 @@ so completed path will be <a href="https://d17572qoeejomw.cloudfront.net/users/r
         <span class="s2">"quantity_type"</span><span class="p">:</span> <span class="s2">"sum_max_travelers"</span><span class="p">,</span>
         <span class="s2">"currency"</span><span class="p">:</span> <span class="s2">"THB"</span><span class="p">,</span>
         <span class="s2">"key"</span><span class="p">:</span> <span class="s2">"children"</span><span class="p">,</span>
-        <span class="s2">"quantity"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s2">"quantity"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
         <span class="s2">"is_included_for_booking_fee"</span><span class="p">:</span> <span class="kc">true</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"59db3d06909883001003d38e"</span><span class="p">,</span>
+        <span class="s2">"title"</span><span class="p">:</span> <span class="s2">"Hotel Pickup"</span><span class="p">,</span>
+        <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"book.checkbox"</span><span class="p">,</span>
+        <span class="s2">"price"</span><span class="p">:</span> <span class="mi">500</span><span class="p">,</span>
+        <span class="s2">"quantity_type"</span><span class="p">:</span> <span class="s2">"boolean"</span><span class="p">,</span>
+        <span class="s2">"currency"</span><span class="p">:</span> <span class="s2">"THB"</span><span class="p">,</span>
+        <span class="s2">"key"</span><span class="p">:</span> <span class="s2">"hotel"</span><span class="p">,</span>
+        <span class="s2">"lx_price"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s2">"is_front"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="s2">"quantity"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s2">"is_included_for_booking_fee"</span><span class="p">:</span> <span class="kc">false</span>
       <span class="p">}</span>
     <span class="p">]</span>
   <span class="p">}),</span>
@@ -1156,6 +1182,8 @@ so completed path will be <a href="https://d17572qoeejomw.cloudfront.net/users/r
   "trip_id": "550ae954009be2a14b19339e"
 }
 </pre>
+<h3 id='additional-options'>Additional Options</h3>
+<p>Some trips provide additional options as child price and additional hotel pickup, you can also add multiple options at same time.</p>
 <h3 id='child-price'>Child Price</h3>
 <p>Some of our trip also has <strong>child price</strong> which defined in <code>additional_options</code> field of product.</p>
 
@@ -1180,9 +1208,39 @@ so completed path will be <a href="https://d17572qoeejomw.cloudfront.net/users/r
 
 <p>Child price is defined in object which has key <code>children</code>. From the above example, child price for this product is 290 THB (which is cheaper than original price)</p>
 
-<p>To get a price for a trip that has child price. You must attach <code>selected_options</code> alongside with other request body (See an example at the right panel)</p>
+<p>To get a price for a trip that has child price. You must attach child price object with quantity in <code>selected_options</code> alongside other request body (See an example at the right panel)</p>
 
 <p><strong>Note:</strong> Child quantity + Quantity must <strong>not</strong> exceed <code>max_travelers</code> (e.g. if trip has max_travelers = 5 and quantity is 3, child quantity can <strong>not</strong> exceed 2)</p>
+<h3 id='additional-hotel-pickup'>Additional Hotel Pickup</h3>
+<p>Some of our trips also has <strong>additional hotel pickup</strong> which defined in <code>additional_options</code> field of product.</p>
+
+<pre class="center-column">
+{
+  "additional_options": [
+    {
+      "_id": "59db3d06909883001003d38e",
+      "title": "Hotel Pickup",
+      "type": "book.checkbox",
+      "price": 500,
+      "quantity_type": "boolean",
+      "currency": "THB",
+      "key": "hotel",
+      "lx_price": 0,
+      "is_front": false,
+      "quantity": 0,
+      "is_included_for_booking_fee": false
+    }
+  ]
+}
+</pre>
+
+<p>Some trips in our system provide free hotel pickup. For trips that don&#39;t have free hotel pickup option, you can add <strong>additional hotel pickup</strong> as an additional option.</p>
+
+<p>To get a price for a trip that has additional hotel pickup. You must attach additional hotel pickup object with quantity = <strong>1</strong> in <code>selected_options</code> alongside other request body (See an example at the right panel)</p>
+
+<p><strong>Note:</strong> Hotel that available for hotel pickup must be located in the same city as <code>destination_location</code> of <a href="#get-product-detail">trip detail</a></p>
+
+<p><strong>Note:</strong> If additional hotel pickup option has been selected, you must pass the hotel name in <code>meeting_point</code> field while you&#39;re making a transaction. See <a href="#book-product">Book Product</a>.</p>
 <h3 id='response'>Response</h3>
 <table><thead>
 <tr>
@@ -2064,21 +2122,7 @@ so completed path will be <a href="https://d17572qoeejomw.cloudfront.net/users/r
   </span><span class="s2">"trip_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-08T17:00:00.000Z"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"meeting_point"</span><span class="p">:</span><span class="w"> </span><span class="s2">"BTS Station - Asok"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"selected_options"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"children"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"THB"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"quantity_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sum_max_travelers"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">290</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"child_price"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Child (Age 2-12)"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"599e66640ea28b0011b3f147"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"lx_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">290</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"is_front"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"is_included_for_booking_fee"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
+  </span><span class="s2">"selected_options"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <blockquote>
@@ -2087,7 +2131,7 @@ so completed path will be <a href="https://d17572qoeejomw.cloudfront.net/users/r
 <pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.staging.takemetour.com/partner/transactions/book'</span> <span class="se">\</span>
 -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
 -H <span class="s1">'x-access-token: 0TKOeCA5sLimUiGYcIdWOb9NoiYEgJJ3'</span> <span class="se">\</span>
---data-binary <span class="s1">'{"name":{"first":"John","last":"Doe"},"email":"john+doe@takemetour.com","mobile":"+66856667571","country":"TH","trip_id":"58ff211702b3ea0011efe846","trip_date":"2018-04-08T17:00:00.000Z","meeting_point":"BTS Station - Asok","quantity":2,"selected_options":[{"key":"children","currency":"THB","quantity_type":"sum_max_travelers","price":290,"type":"child_price","title":"Child (Age 2-12)","_id":"599e66640ea28b0011b3f147","lx_price":290,"is_front":false,"quantity":0,"is_included_for_booking_fee":true}]}'</span>
+--data-binary <span class="s1">'{"name":{"first":"John","last":"Doe"},"email":"john+doe@takemetour.com","mobile":"+66856667571","country":"TH","trip_id":"58ff211702b3ea0011efe846","trip_date":"2018-04-08T17:00:00.000Z","meeting_point":"BTS Station - Asok","quantity":2,"selected_options":[]}'</span>
 </code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api.staging.takemetour.com/partner/transactions/book'</span><span class="p">,</span>
 <span class="p">{</span>
   <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
@@ -2106,6 +2150,82 @@ so completed path will be <a href="https://d17572qoeejomw.cloudfront.net/users/r
     <span class="s2">"trip_date"</span><span class="p">:</span> <span class="s2">"2018-04-08T17:00:00.000Z"</span><span class="p">,</span>
     <span class="s2">"meeting_point"</span><span class="p">:</span> <span class="s2">"BTS Station - Asok"</span><span class="p">,</span>
     <span class="s2">"quantity"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s2">"selected_options"</span><span class="p">:</span> <span class="p">[]</span>
+  <span class="p">}),</span>
+  <span class="na">method</span><span class="p">:</span> <span class="s1">'POST'</span>
+<span class="p">});</span>
+<span class="kr">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
+</code></pre>
+<blockquote>
+<p>Request body to book product type <code>trip</code> with additional options</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"first"</span><span class="p">:</span><span class="w"> </span><span class="s2">"John"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"last"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Doe"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"john+doe@takemetour.com"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"mobile"</span><span class="p">:</span><span class="w"> </span><span class="s2">"+66856667571"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"country"</span><span class="p">:</span><span class="w"> </span><span class="s2">"TH"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"trip_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"58ff211702b3ea0011efe846"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"trip_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-04-08T17:00:00.000Z"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"meeting_point"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Florida Hotel, Phayathai, Bangkok"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"selected_options"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"children"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"THB"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"quantity_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sum_max_travelers"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">290</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"child_price"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Child (Age 2-12)"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"599e66640ea28b0011b3f147"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"lx_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">290</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"is_front"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"is_included_for_booking_fee"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"59db3d06909883001003d38e"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hotel Pickup"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"book.checkbox"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"price"</span><span class="p">:</span><span class="w"> </span><span class="mi">500</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"quantity_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"boolean"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"currency"</span><span class="p">:</span><span class="w"> </span><span class="s2">"THB"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"key"</span><span class="p">:</span><span class="w"> </span><span class="s2">"hotel"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"lx_price"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"is_front"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"quantity"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"is_included_for_booking_fee"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Code</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.staging.takemetour.com/partner/transactions/book'</span> <span class="se">\</span>
+-H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+-H <span class="s1">'x-access-token: 0TKOeCA5sLimUiGYcIdWOb9NoiYEgJJ3'</span> <span class="se">\</span>
+--data-binary <span class="s1">'{"name":{"first":"John","last":"Doe"},"email":"john+doe@takemetour.com","mobile":"+66856667571","country":"TH","trip_id":"58ff211702b3ea0011efe846","trip_date":"2018-04-08T17:00:00.000Z","meeting_point":"Florida Hotel, Phayathai, Bangkok","quantity":2,"selected_options":[{"key":"children","currency":"THB","quantity_type":"sum_max_travelers","price":290,"type":"child_price","title":"Child (Age 2-12)","_id":"599e66640ea28b0011b3f147","lx_price":290,"is_front":false,"quantity":0,"is_included_for_booking_fee":true},{"_id":"59db3d06909883001003d38e","title":"Hotel Pickup","type":"book.checkbox","price":500,"quantity_type":"boolean","currency":"THB","key":"hotel","lx_price":0,"is_front":false,"quantity":1,"is_included_for_booking_fee":false}]}'</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api.staging.takemetour.com/partner/transactions/book'</span><span class="p">,</span>
+<span class="p">{</span>
+  <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s1">'content-type'</span><span class="p">:</span> <span class="s1">'application/json'</span><span class="p">,</span>
+    <span class="s1">'x-access-token'</span><span class="p">:</span> <span class="s1">'0TKOeCA5sLimUiGYcIdWOb9NoiYEgJJ3'</span>
+  <span class="p">},</span>
+  <span class="na">body</span><span class="p">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
+    <span class="s2">"name"</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">"first"</span><span class="p">:</span> <span class="s2">"John"</span><span class="p">,</span>
+      <span class="s2">"last"</span><span class="p">:</span> <span class="s2">"Doe"</span>
+    <span class="p">},</span>
+    <span class="s2">"email"</span><span class="p">:</span> <span class="s2">"john+doe@takemetour.com"</span><span class="p">,</span>
+    <span class="s2">"mobile"</span><span class="p">:</span> <span class="s2">"+66856667571"</span><span class="p">,</span>
+    <span class="s2">"country"</span><span class="p">:</span> <span class="s2">"TH"</span><span class="p">,</span>
+    <span class="s2">"trip_id"</span><span class="p">:</span> <span class="s2">"58ff211702b3ea0011efe846"</span><span class="p">,</span>
+    <span class="s2">"trip_date"</span><span class="p">:</span> <span class="s2">"2018-04-08T17:00:00.000Z"</span><span class="p">,</span>
+    <span class="s2">"meeting_point"</span><span class="p">:</span> <span class="s2">"Florida Hotel, Phayathai, Bangkok"</span><span class="p">,</span>
+    <span class="s2">"quantity"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
     <span class="s2">"selected_options"</span><span class="p">:</span> <span class="p">[</span>
       <span class="p">{</span>
         <span class="s2">"key"</span><span class="p">:</span> <span class="s2">"children"</span><span class="p">,</span>
@@ -2119,6 +2239,19 @@ so completed path will be <a href="https://d17572qoeejomw.cloudfront.net/users/r
         <span class="s2">"is_front"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
         <span class="s2">"quantity"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
         <span class="s2">"is_included_for_booking_fee"</span><span class="p">:</span> <span class="kc">true</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="s2">"_id"</span><span class="p">:</span> <span class="s2">"59db3d06909883001003d38e"</span><span class="p">,</span>
+        <span class="s2">"title"</span><span class="p">:</span> <span class="s2">"Hotel Pickup"</span><span class="p">,</span>
+        <span class="s2">"type"</span><span class="p">:</span> <span class="s2">"book.checkbox"</span><span class="p">,</span>
+        <span class="s2">"price"</span><span class="p">:</span> <span class="mi">500</span><span class="p">,</span>
+        <span class="s2">"quantity_type"</span><span class="p">:</span> <span class="s2">"boolean"</span><span class="p">,</span>
+        <span class="s2">"currency"</span><span class="p">:</span> <span class="s2">"THB"</span><span class="p">,</span>
+        <span class="s2">"key"</span><span class="p">:</span> <span class="s2">"hotel"</span><span class="p">,</span>
+        <span class="s2">"lx_price"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s2">"is_front"</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="s2">"quantity"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="s2">"is_included_for_booking_fee"</span><span class="p">:</span> <span class="kc">false</span>
       <span class="p">}</span>
     <span class="p">]</span>
   <span class="p">}),</span>
@@ -2145,13 +2278,13 @@ so completed path will be <a href="https://d17572qoeejomw.cloudfront.net/users/r
 </thead><tbody>
 <tr>
 <td>quantity</td>
-<td><strong>Number (limit to <code>max_travelers</code>)</strong></td>
+<td><strong>Number (quantity + child quantity must not exceed <code>max_travelers</code> from <a href="#get-product-detail">product detail</a>)</strong></td>
 <td>Quantity of customer</td>
 </tr>
 <tr>
 <td>selected_options</td>
 <td><strong>Array of option</strong></td>
-<td>See  <a href="#child-price">child price</a> for more detail</td>
+<td>See  <a href="#additional-options">additional options</a> for more detail</td>
 </tr>
 </tbody></table>
 <h3 id='response'>Response</h3>
@@ -4601,6 +4734,24 @@ so completed path will be <a href="https://d17572qoeejomw.cloudfront.net/users/r
 </tr>
 </tbody></table>
 <h2 id='meeting-points'>Meeting Points</h2>
+<p>If the trip has free hotel pickup option (as you can see <code>Hotel Pickup</code> type in <code>meeting_points</code> field from <a href="#get-product-detail">trip detail</a>).
+You can choose hotel pickup as a meeting point by pass the hotel name in <code>meeting_point</code> field while you&#39;re making a transaction. See <a href="#book-product">Book Product</a>.
+<pre class="center-column">
+  &quot;meeting_points&quot;: [
+    {
+      &quot;_id&quot;: &quot;565808f321389c2c1baa5db5&quot;,
+      &quot;city&quot;: &quot;Bangkok&quot;,
+      &quot;name&quot;: &quot;Hotel Pickup in Bangkok Area&quot;,
+      &quot;type&quot;: &quot;Hotel Pickup&quot;,
+      &quot;icon_name&quot;: &quot;hotel&quot;,
+      &quot;location&quot;: {
+        &quot;lat&quot;: null,
+        &quot;lon&quot;: null
+      }
+    },
+  ],
+</pre></p>
+
 <p>For meeting point with type <strong>Airport Rail Link Station, BTS Station and MRT Station</strong> can have meeting point name <strong>&quot;Any Station&quot;</strong>. And here is the list of every station.</p>
 
 <table><thead>
