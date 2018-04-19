@@ -21,7 +21,7 @@ const response = await fetch('https://api.staging.takemetour.com/partner/transac
 const data = await response.json();
 ```
 
-> Example Response
+> Response
 
 ```json
 [{
@@ -132,7 +132,7 @@ const response = await fetch('https://api.staging.takemetour.com/partner/transac
 const data = await response.json();
 ```
 
-> Example Response
+> Response
 
 ```json
 {

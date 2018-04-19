@@ -1,6 +1,7 @@
 # Authentication
 
 ## Login
+
 > Example Request Body
 
 ```json
@@ -10,21 +11,6 @@
 }
 ```
 
-> Example Response
-
-```json
-{
-  "access_token": "1yOaq7O9Lcp5AKJkzMajBQ2H9gnRq2ex",
-  "user": {
-    "name": {
-      "first": "Dang",
-      "last": "Nanglerng"
-    },
-    "avatar_image": "users/rtitM-14267784330583837.jpg",
-    "partner_credit": 50000
-  }
-}
-```
 > Code
 
 ```shell
@@ -46,28 +32,37 @@ const response = await fetch('https://api.staging.takemetour.com/partner/auth/lo
 });
 const data = await response.json();
 ```
+
+> Response
+
+```json
+{
+  "access_token": "1yOaq7O9Lcp5AKJkzMajBQ2H9gnRq2ex",
+  "user": {
+    "name": {
+      "first": "Dang",
+      "last": "Nanglerng"
+    },
+    "avatar_image": "users/rtitM-14267784330583837.jpg",
+    "partner_credit": 50000
+  }
+}
+```
 **HTTP Request:** `POST /auth/login`
 ### Request Body
 
 Parameter | Type | Description
 --------- | ---- | -----------
-email | **String** | partner email which registered with TakeMeTour
-password | **String** | password (at least 8 characters)
+email | **String** | Partner's email which registered with TakeMeTour
+password | **String** | Password (at least 8 characters)
 
 ### Response
 
 Parameter | Type | Description
 --------- | ---- | -----------
-access_token | **String** | access token which identify user (must be added to **x-access-token** header on other request)   
-user | **Object** | object of user's info 
+access_token | **String** | Access token which identify user (must be added to **x-access-token** header on other request)   
+user | **Object** | Object of user's info 
 ## Logout
-> Example Response
-
-```json
-{
-  "success": true
-}
-```
 > Code
 
 ```shell
@@ -86,30 +81,21 @@ const response = await fetch('https://api.staging.takemetour.com/partner/auth/lo
 });
 const data = await response.json();
 ```
+> Response
+
+```json
+{
+  "success": true
+}
+```
 **HTTP Request:** `DELETE /auth/logout`
 
 ### Response
 
 Parameter | Type | Description
 --------- | ---- | -----------
-success | **Boolean** | return true   
-user | **Object** | object of user's info 
+success | **Boolean** | Return logut status, can be `true` or `false`
 ## User info
-> Example Response
-
-```json
-{
-  "isLoggedIn": true,
-  "user": {
-    "name": {
-      "first": "Dang",
-      "last": "Nanglerng"
-    },
-    "avatar_image": "users/rtitM-14267784330583837.jpg",
-    "partner_credit": 50000
-  }
-}
-```
 > Code
 
 ```shell
@@ -128,11 +114,26 @@ const response = await fetch('https://api.staging.takemetour.com/partner/auth/me
 });
 const data = await response.json();
 ```
+> Response
+
+```json
+{
+  "isLoggedIn": true,
+  "user": {
+    "name": {
+      "first": "Dang",
+      "last": "Nanglerng"
+    },
+    "avatar_image": "users/rtitM-14267784330583837.jpg",
+    "partner_credit": 50000
+  }
+}
+```
 **HTTP Request:** `GET /auth/me`
 
 ### Response
 
 Parameter | Type | Description
 --------- | ---- | -----------
-isLoggedIn | **Boolean** | login status   
-user | **Object** | object of user's info 
+isLoggedIn | **Boolean** | Login status   
+user | **Object** | Object of user's info 

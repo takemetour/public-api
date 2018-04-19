@@ -260,6 +260,23 @@ match_passport_name | Customer information when booked must match with customer'
 not_require_pickup_location | Product doesn't need pickup (or delivery) location. So the `meeting_point` field when [book souvenir product]() can be omit | DTAC SIM can be pickup at the airport. So it doesn't required pickup (or delivery) location
 
 ## Meeting Points
+If the trip has free hotel pickup option (as you can see `Hotel Pickup` type in `meeting_points` field from [trip detail](#get-product-detail)).
+You can choose hotel pickup as a meeting point by pass the hotel name in `meeting_point` field while you're making a transaction. See [Book Product](#book-product).
+<pre class="center-column">
+  "meeting_points": [
+    {
+      "_id": "565808f321389c2c1baa5db5",
+      "city": "Bangkok",
+      "name": "Hotel Pickup in Bangkok Area",
+      "type": "Hotel Pickup",
+      "icon_name": "hotel",
+      "location": {
+        "lat": null,
+        "lon": null
+      }
+    },
+  ],
+</pre>
 
 For meeting point with type **Airport Rail Link Station, BTS Station and MRT Station** can have meeting point name **"Any Station"**. And here is the list of every station.
 

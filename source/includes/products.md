@@ -1,16 +1,7 @@
 # Products
 
-### ALL REQUEST PASS
 ## Get All Products
 
-> Example Response
-
-```json
-{
-  "products": [Product],
-  "count": 16
-}
-```
 > Get all products with pagination via `skip` and `limit` query string
 
 ```shell
@@ -47,30 +38,57 @@ const response = await fetch('https://api.staging.takemetour.com/partner/product
 });
 const data = await response.json();
 ```
+> Response
+
+```json
+{
+  "products": [Product],
+  "count": 16
+}
+```
 
 **HTTP Request:** `GET /products`
 
 ### Query Parameters
 
-Parameter | Default | Description
---------- | ------- | -----------
-city | `none` | Filter by destination location city (Ex. `Bangkok` / `Chiang Mai`)
-name | `none` | Search by trip name
-product_type | all | Filter by product type that has 3 types allow: `trip` / `ticket` / `souvenir`
-skip | 0 | Skip response results (Use for pagination)
-limit | 10 | Limit response results
+Parameter | Type | Default | Description
+--------- | ---- | ------- | -----------
+city | **String** | `none` | Filter by destination location city (Ex. `Bangkok` / `Chiang Mai`)
+name | **String** | `none` | Search by trip name
+product_type | **String** | all | Filter by product type that has 3 types allow: `trip` / `ticket` / `souvenir`
+skip | **Integer** | 0 | Skip response results (Use for pagination)
+limit | **Integer** | 10 | Limit response results
 
 ### Response
 
 Parameter | Type | Description
 --------- | ---- | -----------
-products | **Array of product** | login status   
+products | **Array of product** | Products in array
 count | **Integer** | All results count (without limit)
 
 For detail on Product object. See Get Product detail API below.
 ## Get Product detail
 
-> Example Response
+> Code
+
+```shell
+curl 'https://api.staging.takemetour.com/partner/products/explore-local-communities-of-baan-batr-baan-nang-lerng' \
+-H 'content-type: application/json' \
+-H 'x-access-token: 0TKOeCA5sLimUiGYcIdWOb9NoiYEgJJ3'
+```
+```javascript
+const response = await fetch('https://api.staging.takemetour.com/partner/products/explore-local-communities-of-baan-batr-baan-nang-lerng',
+{
+  headers: {
+    'content-type': 'application/json',
+    'x-access-token': '0TKOeCA5sLimUiGYcIdWOb9NoiYEgJJ3'
+  },
+  method: 'GET',
+});
+const data = await response.json();
+```
+
+> Response
 
 ```json
 {
@@ -238,25 +256,6 @@ For detail on Product object. See Get Product detail API below.
 }
 ```
 
-> Code
-
-```shell
-curl 'https://api.staging.takemetour.com/partner/products/explore-local-communities-of-baan-batr-baan-nang-lerng' \
--H 'content-type: application/json' \
--H 'x-access-token: 0TKOeCA5sLimUiGYcIdWOb9NoiYEgJJ3'
-```
-```javascript
-const response = await fetch('https://api.staging.takemetour.com/partner/products/explore-local-communities-of-baan-batr-baan-nang-lerng',
-{
-  headers: {
-    'content-type': 'application/json',
-    'x-access-token': '0TKOeCA5sLimUiGYcIdWOb9NoiYEgJJ3'
-  },
-  method: 'GET',
-});
-const data = await response.json();
-```
-
 **HTTP Request:** `GET /products/:slug`
 
 ### Product types
@@ -265,7 +264,7 @@ In TakeMeTour. We have 3 types of product which are
 
 - **Local Experience Trips (`trip`)**: Our main product which is an one-day trip.
 - **Attraction Tickets (`ticket`)**: Ticket for attractions location (ex. SEA LIFE Ocean World)
-- **Tangible Products (`souvenir`)**
+- **Tangible Products (`souvenir`)**: Souvenir or Sim card
 
 For this endpoint. You can identify product type via field `product_type` which can be `trip` / `ticket` / `souvenir`.
 
@@ -278,7 +277,7 @@ Parameter | Type | Description
 _id | **ObjectId** | Unique ObjectId
 name | **String** | Product name
 introduction | **String** | Product introduction
-max_travelers | **Integer (Range 1-8 / Trip Only)** | Maximun travelers that allow for this product
+max_travelers | **Integer (Range 1-8 n/a for Attraction Tickets)** | Maximun travelers that allow for Local Experience Trips, and Maximum quantity that can purchase in 1 order for Tangible Products 
 slug | **String** | Product slug
 user_id | **User** | Owner of product
 destination_location | **String** | Destination location city for this product
@@ -288,4 +287,4 @@ meeting_points | **Array of Object** | Meeting point that provide in product. In
 images | **Array of Object** | Images for this product with caption for each image
 cover_image | **String** | Image path that use as cover image (thumbnail) for this product.
 faqs | **Array of Object** | FAQs for products
-tags | **Array of String** | Tags of product. See [appendix](#tag) for more detail on which tag you need to consider.
+tags | **Array of String** | Tags of product. See [appendix](#product-tags) for more detail on which tag you need to consider.

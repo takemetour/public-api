@@ -1,6 +1,5 @@
 # Book
 
-### Request PASS
 ## Book Product
 
 > Required Request body for any product type
@@ -32,7 +31,7 @@ mobile | **String** | Customer mobile (with prefix country code)
 country | **String** | Country code (See [appendix](#country-code))
 trip_id | **ObjectId** | `_id` of product to be book
 trip_date | **ISODate string (GMT +07:00)** | Date to book the product (in case of product type `souvenir` this field is use as "delivery date" if the product is required date) in 
-meeting_point | **String** | Meeting point for customer (See [appendix](#meeting-point) / Required if product has `is_hide_meeting_point` value as `false`)
+meeting_point | **String** | Meeting point for customer (See [appendix](#meeting-point) / if product has `is_hide_meeting_point` value as `true` this field can be omit)
 
 **Note**
 
@@ -56,30 +55,7 @@ meeting_point | **String** | Meeting point for customer (See [appendix](#meeting
   "trip_date": "2018-04-08T17:00:00.000Z",
   "meeting_point": "BTS Station - Asok",
   "quantity": 2,
-  "selected_options": [
-    {
-      "key": "children",
-      "currency": "THB",
-      "quantity_type": "sum_max_travelers",
-      "price": 290,
-      "type": "child_price",
-      "title": "Child (Age 2-12)",
-      "_id": "599e66640ea28b0011b3f147",
-      "lx_price": 290,
-      "is_front": false,
-      "quantity": 0,
-      "is_included_for_booking_fee": true
-    }
-  ]
-}
-```
-
-> Response
-
-```json
-{
-  "success": true,
-  "booking_id": TransactionId
+  "selected_options": []
 }
 ```
 
@@ -89,7 +65,7 @@ meeting_point | **String** | Meeting point for customer (See [appendix](#meeting
 curl 'https://api.staging.takemetour.com/partner/transactions/book' \
 -H 'content-type: application/json' \
 -H 'x-access-token: 0TKOeCA5sLimUiGYcIdWOb9NoiYEgJJ3' \
---data-binary '{"name":{"first":"John","last":"Doe"},"email":"john+doe@takemetour.com","mobile":"+66856667571","country":"TH","trip_id":"58ff211702b3ea0011efe846","trip_date":"2018-04-08T17:00:00.000Z","meeting_point":"BTS Station - Asok","quantity":2,"selected_options":[{"key":"children","currency":"THB","quantity_type":"sum_max_travelers","price":290,"type":"child_price","title":"Child (Age 2-12)","_id":"599e66640ea28b0011b3f147","lx_price":290,"is_front":false,"quantity":0,"is_included_for_booking_fee":true}]}'
+--data-binary '{"name":{"first":"John","last":"Doe"},"email":"john+doe@takemetour.com","mobile":"+66856667571","country":"TH","trip_id":"58ff211702b3ea0011efe846","trip_date":"2018-04-08T17:00:00.000Z","meeting_point":"BTS Station - Asok","quantity":2,"selected_options":[]}'
 ```
 
 ```javascript
@@ -111,6 +87,86 @@ const response = await fetch('https://api.staging.takemetour.com/partner/transac
     "trip_date": "2018-04-08T17:00:00.000Z",
     "meeting_point": "BTS Station - Asok",
     "quantity": 2,
+    "selected_options": []
+  }),
+  method: 'POST'
+});
+const data = await response.json();
+```
+> Request body to book product type `trip` with additional options
+
+```json
+{
+  "name": {
+    "first": "John",
+    "last": "Doe"
+  },
+  "email": "john+doe@takemetour.com",
+  "mobile": "+66856667571",
+  "country": "TH",
+  "trip_id": "58ff211702b3ea0011efe846",
+  "trip_date": "2018-04-08T17:00:00.000Z",
+  "meeting_point": "Florida Hotel, Phayathai, Bangkok",
+  "quantity": 3,
+  "selected_options": [
+    {
+      "key": "children",
+      "currency": "THB",
+      "quantity_type": "sum_max_travelers",
+      "price": 290,
+      "type": "child_price",
+      "title": "Child (Age 2-12)",
+      "_id": "599e66640ea28b0011b3f147",
+      "lx_price": 290,
+      "is_front": false,
+      "quantity": 2,
+      "is_included_for_booking_fee": true
+    },
+    {
+      "_id": "59db3d06909883001003d38e",
+      "title": "Hotel Pickup",
+      "type": "book.checkbox",
+      "price": 500,
+      "quantity_type": "boolean",
+      "currency": "THB",
+      "key": "hotel",
+      "lx_price": 0,
+      "is_front": false,
+      "quantity": 1,
+      "is_included_for_booking_fee": false
+    }
+  ]
+}
+```
+
+>Code
+
+```shell
+curl 'https://api.staging.takemetour.com/partner/transactions/book' \
+-H 'content-type: application/json' \
+-H 'x-access-token: 0TKOeCA5sLimUiGYcIdWOb9NoiYEgJJ3' \
+--data-binary '{"name":{"first":"John","last":"Doe"},"email":"john+doe@takemetour.com","mobile":"+66856667571","country":"TH","trip_id":"58ff211702b3ea0011efe846","trip_date":"2018-04-08T17:00:00.000Z","meeting_point":"Florida Hotel, Phayathai, Bangkok","quantity":2,"selected_options":[{"key":"children","currency":"THB","quantity_type":"sum_max_travelers","price":290,"type":"child_price","title":"Child (Age 2-12)","_id":"599e66640ea28b0011b3f147","lx_price":290,"is_front":false,"quantity":0,"is_included_for_booking_fee":true},{"_id":"59db3d06909883001003d38e","title":"Hotel Pickup","type":"book.checkbox","price":500,"quantity_type":"boolean","currency":"THB","key":"hotel","lx_price":0,"is_front":false,"quantity":1,"is_included_for_booking_fee":false}]}'
+```
+
+```javascript
+const response = await fetch('https://api.staging.takemetour.com/partner/transactions/book',
+{
+  headers: {
+    'content-type': 'application/json',
+    'x-access-token': '0TKOeCA5sLimUiGYcIdWOb9NoiYEgJJ3'
+  },
+  body: JSON.stringify({
+    "name": {
+      "first": "John",
+      "last": "Doe"
+    },
+    "email": "john+doe@takemetour.com",
+    "mobile": "+66856667571",
+    "country": "TH",
+    "trip_id": "58ff211702b3ea0011efe846",
+    "trip_date": "2018-04-08T17:00:00.000Z",
+    "meeting_point": "Florida Hotel, Phayathai, Bangkok",
+    "quantity": 2,
     "selected_options": [
       {
         "key": "children",
@@ -124,6 +180,19 @@ const response = await fetch('https://api.staging.takemetour.com/partner/transac
         "is_front": false,
         "quantity": 0,
         "is_included_for_booking_fee": true
+      },
+      {
+        "_id": "59db3d06909883001003d38e",
+        "title": "Hotel Pickup",
+        "type": "book.checkbox",
+        "price": 500,
+        "quantity_type": "boolean",
+        "currency": "THB",
+        "key": "hotel",
+        "lx_price": 0,
+        "is_front": false,
+        "quantity": 1,
+        "is_included_for_booking_fee": false
       }
     ]
   }),
@@ -132,14 +201,23 @@ const response = await fetch('https://api.staging.takemetour.com/partner/transac
 const data = await response.json();
 ```
 
+> Response
+
+```json
+{
+  "success": true,
+  "booking_id": TransactionId
+}
+```
+
 For product type `trip` you must add `quantity` and also `selected_options` for the product that has `child` key in `additional_options` field of product.
 
-### Request body (add from [book](#book-product))
+### Request body (add from [basic book parameters](#book-product))
 
 Parameter | Type | Description
 --------- | ---- | -----------
-quantity | **Number (limit to `max_travelers`)** | Quantity of customer
-selected_options | **Array of option** | See  [child price](#child-price) for more detail
+quantity | **Number (quantity + child quantity must not exceed `max_travelers` from [product detail](#get-product-detail))** | Quantity of customer
+selected_options | **Array of option** | See  [additional options](#additional-options) for more detail
 
 ### Response
 Response will return `success` to show that the booking process is success or not, and `transaction_id`.
@@ -359,15 +437,6 @@ message | **String** | If transaction is not success. Message will provide
       ]
     }
   ]
-}
-```
-
-> Response
-
-```json
-{
-  "success": true,
-  "transaction_id": TransactionId
 }
 ```
 
@@ -595,7 +664,7 @@ const response = await fetch('https://api.staging.takemetour.com/partner/transac
 const data = await response.json();
 ```
 
-For attraction tickets, specify `multi_tier_quantity` with the same structure as [get attraction tickets](#attraction-tickets).
+For attraction tickets, specify `multi_tier_quantity` with the same structure as [get attraction tickets pricing](#attraction-tickets-pricing-ticket).
 
 But more than that, attraction ticket also has **questions** that need to be answered. Questions can be found in `globaltix_questions` in the sub tier of tier which you want to booked. (You can get it from get product API)
 
@@ -939,9 +1008,9 @@ In an example case. We chose to book **COMBO: Aquarium + 4D Movie** tier so the 
 }
 </pre>
 
-And the above object is `multi_tier_quantity` that finally use to book.
+And the above object is `multi_tier_quantity` that can be used to book.
 
-### Request body (add from [book](#book-product))
+### Request body (add from [basic book parameters](#book-product))
 
 Parameter | Type | Description
 --------- | ---- | -----------
@@ -949,16 +1018,9 @@ multi_tier_quantity | **Array of multi tier quantity** | Quantity of ticket with
 
 **Note:** `meeting_point` field is not required for `ticket`
 
+
 ### Response
-Response will return `success` to show that the booking process is success or not, and `transaction_id`.
-
-Parameter | Type | Description
---------- | ---- | -----------
-success | **Boolean** | Transaction is success or not
-transaction_id | **String** | Transaction unique id
-message | **String** | If transaction is not success. Message will provide
-
-**Remark:** If `success` equal to `false` but still return `transaction_id` please contact us.
+The response is similar to the response of [Book Local Experience Trips](#book-local-experience-trips)
 
 ## Book Tangible Products
 
@@ -1105,7 +1167,7 @@ For tangible product, `quantity` must be provided. And it also has some conditio
 }
 </pre>
 
-### Request body (add from [book](#book-product))
+### Request body (add from [basic book parameters](#book-product))
 
 Parameter | Type | Description
 --------- | ---- | -----------
@@ -1113,12 +1175,4 @@ quantity | **Number (max to 12)** | Quantity of product to be buy
 meeting_point | **String** | If product `tags` doesn't contains `not_require_pickup_location` meeting_point is delivery address (hotel only).
 
 ### Response
-Response will return `success` to show that the booking process is success or not, and `transaction_id`.
-
-Parameter | Type | Description
---------- | ---- | -----------
-success | **Boolean** | Transaction is success or not
-transaction_id | **String** | Transaction unique id
-message | **String** | If transaction is not success. Message will provide
-
-**Remark:** If `success` equal to `false` but still return `transaction_id` please contact us.
+The response is similar to the response of [Book Local Experience Trips](#book-local-experience-trips)

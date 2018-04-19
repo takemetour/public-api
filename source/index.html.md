@@ -11,6 +11,7 @@ toc_footers:
 includes:
   - introduction
   - endpoint
+  - imageEndpoint
   - authentication
   - products
   - pricing
