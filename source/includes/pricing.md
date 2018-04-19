@@ -8,11 +8,7 @@
 
 ```json
 {
-  "grandTotal": 1750.39,
-  "partnerPricing": {
-    "retailPrice": 1833.19,
-    "discount": 82.8
-  }
+  "grandTotal": 1750.39
 }
 ```
 
@@ -25,7 +21,6 @@ You can get a price of product by using this API. Each type of product has a dif
 Parameter | Type | Description
 --------- | ---- | -----------
 grandTotal | **Number** | Final price to be charged to your partner account credit.
-partnerPricing | **Object** | The object has two keys `retailPrice` (Original price of this product before discount) and `discount` (Discount pricing for partner)
 
 
 ## Local Experience Trips Pricing (`trip`)
