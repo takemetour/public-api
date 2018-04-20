@@ -1,5 +1,23 @@
 # Appendix
 
+## Cities List
+
+City |
+---  |
+Pathum Thani |
+Phuket |
+Ayutthaya |
+Chiang Mai |
+Bangkok |
+Samut Sakhon |
+Samut Prakan |
+Phetchaburi |
+Kanchanaburi |
+Pattaya |
+Hua Hin |
+Samut Songkhram |
+Chonburi |
+
 ## Country Code
 
 Country | Country Code

@@ -53,7 +53,7 @@ const data = await response.json();
 
 Parameter | Type | Default | Description
 --------- | ---- | ------- | -----------
-city | **String** | `none` | Filter by destination location city (Ex. `Bangkok` / `Chiang Mai`)
+city | **String** | `none` | Filter by destination location city (Ex. `Bangkok` / `Chiang Mai`. See [appendix](#cities-list) section for possible value of city)
 name | **String** | `none` | Search by trip name
 product_type | **String** | all | Filter by product type that has 3 types allow: `trip` / `ticket` / `souvenir`
 skip | **Integer** | 0 | Skip response results (Use for pagination)

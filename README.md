@@ -4,8 +4,12 @@
 
 <p align="center">TakeMeTour Public API Documentation</p>
 
-Questions? Need Help? Found a bug?
---------------------
+## Development
+
+Running up development server
+```
+bundle exec middleman server
+```
 
 If you've got questions about anything, [feel free to open new issue!](https://github.com/takemetour/public-api/issues/new)
 
