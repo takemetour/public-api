@@ -1,4 +1,50 @@
-<h1 id='appendix'>Appendix</h1><h2 id='country-code'>Country Code</h2>
+<h1 id='appendix'>Appendix</h1><h2 id='cities-list'>Cities List</h2>
+<table><thead>
+<tr>
+<th>City</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Pathum Thani</td>
+</tr>
+<tr>
+<td>Phuket</td>
+</tr>
+<tr>
+<td>Ayutthaya</td>
+</tr>
+<tr>
+<td>Chiang Mai</td>
+</tr>
+<tr>
+<td>Bangkok</td>
+</tr>
+<tr>
+<td>Samut Sakhon</td>
+</tr>
+<tr>
+<td>Samut Prakan</td>
+</tr>
+<tr>
+<td>Phetchaburi</td>
+</tr>
+<tr>
+<td>Kanchanaburi</td>
+</tr>
+<tr>
+<td>Pattaya</td>
+</tr>
+<tr>
+<td>Hua Hin</td>
+</tr>
+<tr>
+<td>Samut Songkhram</td>
+</tr>
+<tr>
+<td>Chonburi</td>
+</tr>
+</tbody></table>
+<h2 id='country-code'>Country Code</h2>
 <table><thead>
 <tr>
 <th>Country</th>

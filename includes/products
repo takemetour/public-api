@@ -53,7 +53,7 @@
 <td>city</td>
 <td><strong>String</strong></td>
 <td><code>none</code></td>
-<td>Filter by destination location city (Ex. <code>Bangkok</code> / <code>Chiang Mai</code>)</td>
+<td>Filter by destination location city (Ex. <code>Bangkok</code> / <code>Chiang Mai</code>. See <a href="#cities-list">appendix</a> section for possible value of city)</td>
 </tr>
 <tr>
 <td>name</td>
