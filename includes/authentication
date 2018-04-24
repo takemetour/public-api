@@ -4,7 +4,7 @@
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
   </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"demo+partner@takemetour.com"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345678"</span><span class="w">
+  </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"teamtakemetour"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <blockquote>
@@ -12,11 +12,11 @@
 </blockquote>
 <pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.staging.takemetour.com/partner/auth/login'</span> <span class="se">\</span>
 -H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
---data-binary <span class="s1">'{"email":"partner+demo@takemetour.com","password":"teamtakemetour"}'</span>
+--data-binary <span class="s1">'{"email":"demo+partner@takemetour.com","password":"teamtakemetour"}'</span>
 </code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api.staging.takemetour.com/partner/auth/login'</span><span class="p">,</span>
 <span class="p">{</span>
   <span class="na">body</span><span class="p">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
-    <span class="na">email</span><span class="p">:</span> <span class="s1">'partner+demo@takemetour.com'</span><span class="p">,</span>
+    <span class="na">email</span><span class="p">:</span> <span class="s1">'demo+partner@takemetour.com'</span><span class="p">,</span>
     <span class="na">password</span><span class="p">:</span> <span class="s1">'teamtakemetour'</span>
   <span class="p">}),</span>
   <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
