@@ -7,7 +7,7 @@
 ```json
 {
   "email": "demo+partner@takemetour.com",
-  "password": "12345678"
+  "password": "teamtakemetour"
 }
 ```
 
@@ -16,13 +16,13 @@
 ```shell
 curl 'https://api.staging.takemetour.com/partner/auth/login' \
 -H 'content-type: application/json' \
---data-binary '{"email":"partner+demo@takemetour.com","password":"teamtakemetour"}'
+--data-binary '{"email":"demo+partner@takemetour.com","password":"teamtakemetour"}'
 ```
 ```javascript
 const response = await fetch('https://api.staging.takemetour.com/partner/auth/login',
 {
   body: JSON.stringify({
-    email: 'partner+demo@takemetour.com',
+    email: 'demo+partner@takemetour.com',
     password: 'teamtakemetour'
   }),
   headers: {
