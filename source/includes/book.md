@@ -1176,3 +1176,205 @@ meeting_point | **String** | If product `tags` doesn't contains `not_require_pic
 
 ### Response
 The response is similar to the response of [Book Local Experience Trips](#book-local-experience-trips)
+
+## Book Car Rental Product
+
+For car rental product, there is multiple type of this product which are
+
+- **Ferry Transfer:** Product will have `is_ferry_transfer` flag as `true` alongside with `ferry_options`
+- **Airport to Hotel Transfer:** Product will have `is_ferry_transfer` flag as `false` and `fixed_quantity` equal to `1`
+
+### Book Ferry Transfer
+
+> Code
+
+```shell
+curl 'https://api.staging.takemetour.com/partner/book' \
+-H 'content-type: application/json' \
+-H 'x-access-token: 0TKOeCA5sLimUiGYcIdWOb9NoiYEgJJ3'
+--data-binary: '{"quantity": 1,"trip_id": "5c9862237511dda74df329de","name": {"first": "John","last": "Doe"},"email": "john+doe@takemetour.com","trip_date": "2019-03-29T17:00:00.000Z","mobile": "+66856667571","country": "TH","meeting_point": "Hotel Pickup: 12:45 - 13:00 at Sample Hotel (Ferry Time: 13:00)"}'
+```
+```javascript
+const response = await fetch('https://api.staging.takemetour.com/partner/book',
+{
+  headers: {
+    'content-type': 'application/json',
+    'x-access-token': '0TKOeCA5sLimUiGYcIdWOb9NoiYEgJJ3'
+  },
+  body: JSON.stringify({
+    "quantity": 1,
+    "trip_id": "5c9862237511dda74df329de",
+    "name": {
+      "first": "John",
+      "last": "Doe"
+    },
+    "email": "john+doe@takemetour.com",
+    "trip_date": "2019-03-29T17:00:00.000Z",
+    "mobile": "+66856667571",
+    "country": "TH",
+    "meeting_point": "Hotel Pickup: 12:45 - 13:00 at Sample Hotel (Ferry Time: 13:00)"
+  }),
+  method: 'POST',
+});
+const data = await response.json();
+```
+
+Ferry Transfer has `ferry_options` with structure like these
+
+<pre class="center-column">
+"ferry_options": {
+  "options": [
+    {
+      "time": "8:30",
+      "_id": "5bb44d6e9c6632001410eb4e",
+      "sub_options": [
+        "07:00 - 07:15 Patong, Kata, Karon, Nai Harn, Rawai",
+        "08:00 - 08:15 Phuket Town"
+      ]
+    },
+    {
+      "time": "11:00",
+      "_id": "5bb44d6e9c6632001410eb4d",
+      "sub_options": [
+        "09:15 - 09:30 Patong, Kata, Karon",
+        "09:45 - 10:00 Phuket Town"
+      ]
+    },
+    {
+      "time": "13:00",
+      "_id": "5bb44d6e9c6632001410eb4c",
+      "sub_options": [
+        "12:00 - 12:15 Patong, Kata, Karon, Nai Harn, Rawai",
+        "12:45 - 13:00 Phuket Town"
+      ]
+    },
+    {
+      "time": "15:00",
+      "_id": "5bb44d6e9c6632001410eb4b",
+      "sub_options": [
+        "13:15 - 13:30 Patong, Kata, Karon",
+        "13:45 - 14:00 Phuket Town"
+      ]
+    }
+  ],
+  "label": "Ferry Time"
+}
+</pre>
+
+Inside `options` there is an array to describe a ferry schedule which can represent as table to make it easier to understand.
+
+Ferry Time | Pickup Time
+---------- | -----------
+8:30 | 07:00 - 07:15 Patong, Kata, Karon, Nai Harn, Rawai
+ | 08:00 - 08:15 Phuket Town
+11: 00 | 09:15 - 09:30 Patong, Kata, Karon
+ | 09:45 - 10:00 Phuket Town
+13:00 | 12:00 - 12:15 Patong, Kata, Karon, Nai Harn, Rawai
+ | 12:45 - 13:00 Phuket Town
+15:00 | 13:15 - 13:30 Patong, Kata, Karon
+ | 13:45 - 14:00 Phuket Town
+
+- `time` in the `options` represent ferry time. Ferry time is a time that ferry leave the pier.
+- `sub_options` for each option is the time that driver will pickup at hotel.
+- Example. If you choose 13:00 it's mean that you should to take ferry transfer at 13:00. And you need to choose which time to make hotel pickup to the ferry. In this case you have to choice "12:00 - 12:15 Patong, Kata, Karon, Nai Harn, Rawai" or "12:45 - 13:00 Phuket Town".
+- You must provide these option into string format **Hotel Pickup: {selected sub option} at {hotel name} ({ferry_options.label}: {selected time})** to the `meeting_point` field.
+- From above example. If you choose ferry time at 13:00 and pickup time 12:45 - 13:00 Phuket Town. Formatted string is **"Hotel Pickup: 12:45 - 13:00 at Sample Hotel (Ferry Time: 13:00)"**
+
+Below JSON is an example request to book ferry transfer.
+
+<pre class="center-column">
+{
+  "quantity": 1,
+  "trip_id": "5c9862237511dda74df329de",
+  "name": {
+    "first": "John",
+    "last": "Doe"
+  },
+  "email": "john+doe@takemetour.com",
+  "trip_date": "2019-03-29T17:00:00.000Z",
+  "mobile": "+66856667571",
+  "country": "TH",
+  "meeting_point": "Hotel Pickup: 12:45 - 13:00 at Sample Hotel (Ferry Time: 13:00)"
+}
+</pre>
+
+### Request body (add from [basic book parameters](#book-product))
+
+Parameter | Type | Description
+--------- | ---- | -----------
+meeting_point | **String** | String formatted in **Hotel Pickup: {selected sub option} at {hotel name} ({ferry_options.label}: {selected time})**
+
+### Response
+The response is similar to the response of [Book Local Experience Trips](#book-local-experience-trips)
+
+### Book Airport to Hotel Transfer
+
+> Code
+
+```shell
+curl 'https://api.staging.takemetour.com/partner/book' \
+-H 'content-type: application/json' \
+-H 'x-access-token: 0TKOeCA5sLimUiGYcIdWOb9NoiYEgJJ3'
+--data-binary: '{"quantity": 1,"trip_id": "59edbafc6892f400105fe9ae","name": {"first": "John","last": "Doe"},"email": "john+doe@takemetour.com","trip_date": "2019-03-29T17:00:00.000Z","mobile": "+66856667571","country": "TH","meeting_point": "Airport: DMK, Flight: TG154, Hotel name: Baan 2459, pickup time: 00:45"}'
+```
+```javascript
+const response = await fetch('https://api.staging.takemetour.com/partner/book',
+{
+  headers: {
+    'content-type': 'application/json',
+    'x-access-token': '0TKOeCA5sLimUiGYcIdWOb9NoiYEgJJ3'
+  },
+  body: JSON.stringify({
+    "quantity": 1,
+    "trip_id": "59edbafc6892f400105fe9ae",
+    "name": {
+      "first": "John",
+      "last": "Doe"
+    },
+    "email": "john+doe@takemetour.com",
+    "trip_date": "2019-03-29T17:00:00.000Z",
+    "mobile": "+66856667571",
+    "country": "TH",
+    "meeting_point": "Airport: DMK, Flight: TG154, Hotel name: Baan 2459, pickup time: 00:45"
+  }),
+  method: 'POST',
+});
+const data = await response.json();
+```
+
+This type is much more simple. Additional details you need are
+
+- Flight Number
+- Pickup Time (HH:mm 24-hour format)
+- Pickup Airport (Only DMK and BKK)
+- Drop off hotel
+
+You must provide these option into string format **Airport: {airport}, Flight: {flight nunber}, Hotel name: {hotel name}, pickup time: {pickup time}** to the `meeting_point` field.
+
+
+Below JSON is an example request to book airport transfer to hotel
+
+<pre class="center-column">
+{
+  "quantity": 1,
+  "trip_id": "59edbafc6892f400105fe9ae",
+  "name": {
+    "first": "John",
+    "last": "Doe"
+  },
+  "email": "john+doe@takemetour.com",
+  "trip_date": "2019-03-29T17:00:00.000Z",
+  "mobile": "+66856667571",
+  "country": "TH",
+  "meeting_point": "Airport: DMK, Flight: TG154, Hotel name: Baan 2459, pickup time: 00:45"
+}
+</pre>
+
+### Request body (add from [basic book parameters](#book-product))
+
+Parameter | Type | Description
+--------- | ---- | -----------
+meeting_point | **String** | String formatted in **Airport: {airport}, Flight: {flight nunber}, Hotel name: {hotel name}, pickup time: {pickup time}**
+
+### Response
+The response is similar to the response of [Book Local Experience Trips](#book-local-experience-trips)
