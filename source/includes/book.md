@@ -25,13 +25,13 @@ To book our product (a.k.a. create transaction). **There is required field for a
 
 Parameter | Type | Description
 --------- | ---- | -----------
-name | **Object** | Customer first name and last name. Specific in `first` and `last` key
-email | **String** | Customer email
-mobile | **String** | Customer mobile (with prefix country code)
+name | **Object** | Customer first name and last name. Specific in `first` and `last` key. Max length for first name and last name are 255 characters
+email | **String (Max Length: 255)** | Customer email
+mobile | **String (Max Length: 20)** | Customer mobile (with prefix country code)
 country | **String** | Country code (See [appendix](#country-code))
-trip_id | **ObjectId** | `_id` of product to be book
+trip_id | **String (Exact Length: 24)** | `_id` of product to be book
 trip_date | **ISODate string (GMT +07:00)** | Date to book the product (in case of product type `souvenir` this field is use as "delivery date" if the product is required date) in 
-meeting_point | **String** | Meeting point for customer (See [appendix](#meeting-point) / if product has `is_hide_meeting_point` value as `true` this field can be omit)
+meeting_point | **String (Max length: 255)** | Meeting point for customer (See [appendix](#meeting-point) / if product has `is_hide_meeting_point` value as `true` this field can be omit)
 
 **Note**
 
@@ -225,7 +225,7 @@ Response will return `success` to show that the booking process is success or no
 Parameter | Type | Description
 --------- | ---- | -----------
 success | **Boolean** | Transaction is success or not
-transaction_id | **String** | Transaction unique id
+transaction_id | **String (Exact Length: 24)** | Transaction unique id
 message | **String** | If transaction is not success. Message will provide
 
 **Remark:** If `success` equal to `false` but still return `transaction_id` please contact us.
@@ -1172,7 +1172,7 @@ For tangible product, `quantity` must be provided. And it also has some conditio
 Parameter | Type | Description
 --------- | ---- | -----------
 quantity | **Number (max to 12)** | Quantity of product to be buy
-meeting_point | **String** | If product `tags` doesn't contains `not_require_pickup_location` meeting_point is delivery address (hotel only).
+meeting_point | **String (Max length: 255)** | If product `tags` doesn't contains `not_require_pickup_location` meeting_point is delivery address (hotel only).
 
 ### Response
 The response is similar to the response of [Book Local Experience Trips](#book-local-experience-trips)
@@ -1302,7 +1302,7 @@ Below JSON is an example request to book ferry transfer.
 
 Parameter | Type | Description
 --------- | ---- | -----------
-meeting_point | **String** | String formatted in **Hotel Pickup: {selected sub option} at {hotel name} ({ferry_options.label}: {selected time})**
+meeting_point | **String (Max length: 255)** | String formatted in **Hotel Pickup: {selected sub option} at {hotel name} ({ferry_options.label}: {selected time})**
 
 ### Response
 The response is similar to the response of [Book Local Experience Trips](#book-local-experience-trips)
@@ -1374,7 +1374,7 @@ Below JSON is an example request to book airport transfer to hotel
 
 Parameter | Type | Description
 --------- | ---- | -----------
-meeting_point | **String** | String formatted in **Airport: {airport}, Flight: {flight nunber}, Hotel name: {hotel name}, pickup time: {pickup time}**
+meeting_point | **String (Max length: 255)** | String formatted in **Airport: {airport}, Flight: {flight nunber}, Hotel name: {hotel name}, pickup time: {pickup time}**
 
 ### Response
 The response is similar to the response of [Book Local Experience Trips](#book-local-experience-trips)

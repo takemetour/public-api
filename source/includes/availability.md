@@ -81,7 +81,7 @@ const data = await response.json();
 
 Parameter | Type | Description
 --------- | ---- | -----------
-trip_id | **String** | Product's database ID get from [Get Product Detail](#get-product-detail)
+trip_id | **String (Exact length: 24)** | Product's database ID get from [Get Product Detail](#get-product-detail)
 month | **String** | Month and year you want to query the availability, format is full name month with a space then year in AD. **eg.** `August 2018`
 
 ### Response
@@ -133,7 +133,7 @@ As you can book multiple subtier tickets in the same tier at once (**eg.** book 
 
 Parameter | Type | Description
 --------- | ---- | -----------
-trip_id | **String** | Product's database ID get from [Get Product Detail](#get-product-detail)
+trip_id | **String (Exact length: 24)** | Product's database ID get from [Get Product Detail](#get-product-detail)
 ticket_ids | **String** | `globaltix_ticket_id` in `multi_tier_prices[index].sub_tiers[index]`
 month | **String** | Month and year you want to query the availability, format is full name month with a space then year in AD. **eg.** `August 2018`
 

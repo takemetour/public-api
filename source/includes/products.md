@@ -56,8 +56,8 @@ Parameter | Type | Default | Description
 city | **String** | `none` | Filter by destination location city (Ex. `Bangkok` / `Chiang Mai`. See [appendix](#cities-list) section for possible value of city)
 name | **String** | `none` | Search by trip name
 product_type | **String** | all | Filter by product type that has 3 types allow: `trip` / `ticket` / `souvenir`
-skip | **Integer** | 0 | Skip response results (Use for pagination)
-limit | **Integer** | 10 | Limit response results
+skip | **Integer (Min: 0)** | 0 | Skip response results (Use for pagination)
+limit | **Integer (Range: 1 - 99)** | 10 | Limit response results
 
 ### Response
 
@@ -274,12 +274,12 @@ Response will be `Product` object.
 
 Parameter | Type | Description
 --------- | ---- | -----------
-_id | **ObjectId** | Unique ObjectId
+_id | **String (Exact length: 24)** | Unique ObjectId
 name | **String** | Product name
 introduction | **String** | Product introduction
 max_travelers | **Integer (Range 1-8 n/a for Attraction Tickets)** | Maximun travelers that allow for Local Experience Trips, and Maximum quantity that can purchase in 1 order for Tangible Products 
 slug | **String** | Product slug
-user_id | **User** | Owner of product
+user_id | **User (Exact length: 24)** | Owner of product
 destination_location | **String** | Destination location city for this product
 transportation | **String** | Transportation that support for this product
 itinerary | **Array of Object** | Product itinerary, ordered by time.

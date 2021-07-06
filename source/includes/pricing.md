@@ -145,7 +145,7 @@ const data = await response.json();
 Parameter | Type | Description
 --------- | ---- | -----------
 quantity | **Number (Max as max_travelers)** | Quantity of traveler
-trip_id | **String** | `_id` of product
+trip_id | **String (Exact Length: 24)** | `_id` of product
 selected_options | **Array of selected option** | Array of selected option which has `quantity` to specify quantity
 
 
@@ -780,7 +780,7 @@ For tangible product (like data sim). The request body is the same as `trip`.
 Parameter | Type | Description
 --------- | ---- | -----------
 quantity | **Number (Max to 12)** | Quantity of tangible product to buy
-trip_id | **String** | `_id` of product
+trip_id | **String (Exact Length: 24)** | `_id` of product
 
 ### Response
 The response is similar to the response of [Local Experience Trips Pricing](#local-experience-trips-pricing-trip)
