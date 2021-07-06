@@ -142,7 +142,7 @@
 </tr>
 <tr>
 <td>trip_id</td>
-<td><strong>String</strong></td>
+<td><strong>String (Exact Length: 24)</strong></td>
 <td><code>_id</code> of product</td>
 </tr>
 <tr>
@@ -828,7 +828,7 @@
 </tr>
 <tr>
 <td>trip_id</td>
-<td><strong>String</strong></td>
+<td><strong>String (Exact Length: 24)</strong></td>
 <td><code>_id</code> of product</td>
 </tr>
 </tbody></table>

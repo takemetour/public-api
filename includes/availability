@@ -79,7 +79,7 @@
 </thead><tbody>
 <tr>
 <td>trip_id</td>
-<td><strong>String</strong></td>
+<td><strong>String (Exact length: 24)</strong></td>
 <td>Product&#39;s database ID get from <a href="#get-product-detail">Get Product Detail</a></td>
 </tr>
 <tr>
@@ -154,7 +154,7 @@
 </thead><tbody>
 <tr>
 <td>trip_id</td>
-<td><strong>String</strong></td>
+<td><strong>String (Exact length: 24)</strong></td>
 <td>Product&#39;s database ID get from <a href="#get-product-detail">Get Product Detail</a></td>
 </tr>
 <tr>

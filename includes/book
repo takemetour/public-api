@@ -29,16 +29,16 @@
 <tr>
 <td>name</td>
 <td><strong>Object</strong></td>
-<td>Customer first name and last name. Specific in <code>first</code> and <code>last</code> key</td>
+<td>Customer first name and last name. Specific in <code>first</code> and <code>last</code> key. Max length for first name and last name are 255 characters</td>
 </tr>
 <tr>
 <td>email</td>
-<td><strong>String</strong></td>
+<td><strong>String (Max Length: 255)</strong></td>
 <td>Customer email</td>
 </tr>
 <tr>
 <td>mobile</td>
-<td><strong>String</strong></td>
+<td><strong>String (Max Length: 20)</strong></td>
 <td>Customer mobile (with prefix country code)</td>
 </tr>
 <tr>
@@ -48,7 +48,7 @@
 </tr>
 <tr>
 <td>trip_id</td>
-<td><strong>ObjectId</strong></td>
+<td><strong>String (Exact Length: 24)</strong></td>
 <td><code>_id</code> of product to be book</td>
 </tr>
 <tr>
@@ -58,7 +58,7 @@
 </tr>
 <tr>
 <td>meeting_point</td>
-<td><strong>String</strong></td>
+<td><strong>String (Max length: 255)</strong></td>
 <td>Meeting point for customer (See <a href="#meeting-point">appendix</a> / if product has <code>is_hide_meeting_point</code> value as <code>true</code> this field can be omit)</td>
 </tr>
 </tbody></table>
@@ -267,7 +267,7 @@
 </tr>
 <tr>
 <td>transaction_id</td>
-<td><strong>String</strong></td>
+<td><strong>String (Exact Length: 24)</strong></td>
 <td>Transaction unique id</td>
 </tr>
 <tr>
@@ -1224,9 +1224,247 @@
 </tr>
 <tr>
 <td>meeting_point</td>
-<td><strong>String</strong></td>
+<td><strong>String (Max length: 255)</strong></td>
 <td>If product <code>tags</code> doesn&#39;t contains <code>not_require_pickup_location</code> meeting_point is delivery address (hotel only).</td>
 </tr>
 </tbody></table>
 <h3 id='response-3'>Response</h3>
+<p>The response is similar to the response of <a href="#book-local-experience-trips">Book Local Experience Trips</a></p>
+<h2 id='book-car-rental-product'>Book Car Rental Product</h2>
+<p>For car rental product, there is multiple type of this product which are</p>
+
+<ul>
+<li><strong>Ferry Transfer:</strong> Product will have <code>is_ferry_transfer</code> flag as <code>true</code> alongside with <code>ferry_options</code></li>
+<li><strong>Airport to Hotel Transfer:</strong> Product will have <code>is_ferry_transfer</code> flag as <code>false</code> and <code>fixed_quantity</code> equal to <code>1</code></li>
+</ul>
+<h3 id='book-ferry-transfer'>Book Ferry Transfer</h3>
+<blockquote>
+<p>Code</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.staging.takemetour.com/partner/book'</span> <span class="se">\</span>
+-H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+-H <span class="s1">'x-access-token: 0TKOeCA5sLimUiGYcIdWOb9NoiYEgJJ3'</span>
+--data-binary: <span class="s1">'{"quantity": 1,"trip_id": "5c9862237511dda74df329de","name": {"first": "John","last": "Doe"},"email": "john+doe@takemetour.com","trip_date": "2019-03-29T17:00:00.000Z","mobile": "+66856667571","country": "TH","meeting_point": "Hotel Pickup: 12:45 - 13:00 at Sample Hotel (Ferry Time: 13:00)"}'</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api.staging.takemetour.com/partner/book'</span><span class="p">,</span>
+<span class="p">{</span>
+  <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s1">'content-type'</span><span class="p">:</span> <span class="s1">'application/json'</span><span class="p">,</span>
+    <span class="s1">'x-access-token'</span><span class="p">:</span> <span class="s1">'0TKOeCA5sLimUiGYcIdWOb9NoiYEgJJ3'</span>
+  <span class="p">},</span>
+  <span class="na">body</span><span class="p">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
+    <span class="s2">"quantity"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">"trip_id"</span><span class="p">:</span> <span class="s2">"5c9862237511dda74df329de"</span><span class="p">,</span>
+    <span class="s2">"name"</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">"first"</span><span class="p">:</span> <span class="s2">"John"</span><span class="p">,</span>
+      <span class="s2">"last"</span><span class="p">:</span> <span class="s2">"Doe"</span>
+    <span class="p">},</span>
+    <span class="s2">"email"</span><span class="p">:</span> <span class="s2">"john+doe@takemetour.com"</span><span class="p">,</span>
+    <span class="s2">"trip_date"</span><span class="p">:</span> <span class="s2">"2019-03-29T17:00:00.000Z"</span><span class="p">,</span>
+    <span class="s2">"mobile"</span><span class="p">:</span> <span class="s2">"+66856667571"</span><span class="p">,</span>
+    <span class="s2">"country"</span><span class="p">:</span> <span class="s2">"TH"</span><span class="p">,</span>
+    <span class="s2">"meeting_point"</span><span class="p">:</span> <span class="s2">"Hotel Pickup: 12:45 - 13:00 at Sample Hotel (Ferry Time: 13:00)"</span>
+  <span class="p">}),</span>
+  <span class="na">method</span><span class="p">:</span> <span class="s1">'POST'</span><span class="p">,</span>
+<span class="p">});</span>
+<span class="kr">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
+</code></pre>
+<p>Ferry Transfer has <code>ferry_options</code> with structure like these</p>
+
+<pre class="center-column">
+"ferry_options": {
+  "options": [
+    {
+      "time": "8:30",
+      "_id": "5bb44d6e9c6632001410eb4e",
+      "sub_options": [
+        "07:00 - 07:15 Patong, Kata, Karon, Nai Harn, Rawai",
+        "08:00 - 08:15 Phuket Town"
+      ]
+    },
+    {
+      "time": "11:00",
+      "_id": "5bb44d6e9c6632001410eb4d",
+      "sub_options": [
+        "09:15 - 09:30 Patong, Kata, Karon",
+        "09:45 - 10:00 Phuket Town"
+      ]
+    },
+    {
+      "time": "13:00",
+      "_id": "5bb44d6e9c6632001410eb4c",
+      "sub_options": [
+        "12:00 - 12:15 Patong, Kata, Karon, Nai Harn, Rawai",
+        "12:45 - 13:00 Phuket Town"
+      ]
+    },
+    {
+      "time": "15:00",
+      "_id": "5bb44d6e9c6632001410eb4b",
+      "sub_options": [
+        "13:15 - 13:30 Patong, Kata, Karon",
+        "13:45 - 14:00 Phuket Town"
+      ]
+    }
+  ],
+  "label": "Ferry Time"
+}
+</pre>
+
+<p>Inside <code>options</code> there is an array to describe a ferry schedule which can represent as table to make it easier to understand.</p>
+
+<table><thead>
+<tr>
+<th>Ferry Time</th>
+<th>Pickup Time</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>8:30</td>
+<td>07:00 - 07:15 Patong, Kata, Karon, Nai Harn, Rawai</td>
+</tr>
+<tr>
+<td></td>
+<td>08:00 - 08:15 Phuket Town</td>
+</tr>
+<tr>
+<td>11: 00</td>
+<td>09:15 - 09:30 Patong, Kata, Karon</td>
+</tr>
+<tr>
+<td></td>
+<td>09:45 - 10:00 Phuket Town</td>
+</tr>
+<tr>
+<td>13:00</td>
+<td>12:00 - 12:15 Patong, Kata, Karon, Nai Harn, Rawai</td>
+</tr>
+<tr>
+<td></td>
+<td>12:45 - 13:00 Phuket Town</td>
+</tr>
+<tr>
+<td>15:00</td>
+<td>13:15 - 13:30 Patong, Kata, Karon</td>
+</tr>
+<tr>
+<td></td>
+<td>13:45 - 14:00 Phuket Town</td>
+</tr>
+</tbody></table>
+
+<ul>
+<li><code>time</code> in the <code>options</code> represent ferry time. Ferry time is a time that ferry leave the pier.</li>
+<li><code>sub_options</code> for each option is the time that driver will pickup at hotel.</li>
+<li>Example. If you choose 13:00 it&#39;s mean that you should to take ferry transfer at 13:00. And you need to choose which time to make hotel pickup to the ferry. In this case you have to choice &quot;12:00 - 12:15 Patong, Kata, Karon, Nai Harn, Rawai&quot; or &quot;12:45 - 13:00 Phuket Town&quot;.</li>
+<li>You must provide these option into string format <strong>Hotel Pickup: {selected sub option} at {hotel name} ({ferry_options.label}: {selected time})</strong> to the <code>meeting_point</code> field.</li>
+<li>From above example. If you choose ferry time at 13:00 and pickup time 12:45 - 13:00 Phuket Town. Formatted string is <strong>&quot;Hotel Pickup: 12:45 - 13:00 at Sample Hotel (Ferry Time: 13:00)&quot;</strong></li>
+</ul>
+
+<p>Below JSON is an example request to book ferry transfer.</p>
+
+<pre class="center-column">
+{
+  "quantity": 1,
+  "trip_id": "5c9862237511dda74df329de",
+  "name": {
+    "first": "John",
+    "last": "Doe"
+  },
+  "email": "john+doe@takemetour.com",
+  "trip_date": "2019-03-29T17:00:00.000Z",
+  "mobile": "+66856667571",
+  "country": "TH",
+  "meeting_point": "Hotel Pickup: 12:45 - 13:00 at Sample Hotel (Ferry Time: 13:00)"
+}
+</pre>
+<h3 id='request-body-add-from-basic-book-parameters-4'>Request body (add from <a href="#book-product">basic book parameters</a>)</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>meeting_point</td>
+<td><strong>String (Max length: 255)</strong></td>
+<td>String formatted in <strong>Hotel Pickup: {selected sub option} at {hotel name} ({ferry_options.label}: {selected time})</strong></td>
+</tr>
+</tbody></table>
+<h3 id='response-4'>Response</h3>
+<p>The response is similar to the response of <a href="#book-local-experience-trips">Book Local Experience Trips</a></p>
+<h3 id='book-airport-to-hotel-transfer'>Book Airport to Hotel Transfer</h3>
+<blockquote>
+<p>Code</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl <span class="s1">'https://api.staging.takemetour.com/partner/book'</span> <span class="se">\</span>
+-H <span class="s1">'content-type: application/json'</span> <span class="se">\</span>
+-H <span class="s1">'x-access-token: 0TKOeCA5sLimUiGYcIdWOb9NoiYEgJJ3'</span>
+--data-binary: <span class="s1">'{"quantity": 1,"trip_id": "59edbafc6892f400105fe9ae","name": {"first": "John","last": "Doe"},"email": "john+doe@takemetour.com","trip_date": "2019-03-29T17:00:00.000Z","mobile": "+66856667571","country": "TH","meeting_point": "Airport: DMK, Flight: TG154, Hotel name: Baan 2459, pickup time: 00:45"}'</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">response</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">fetch</span><span class="p">(</span><span class="s1">'https://api.staging.takemetour.com/partner/book'</span><span class="p">,</span>
+<span class="p">{</span>
+  <span class="na">headers</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s1">'content-type'</span><span class="p">:</span> <span class="s1">'application/json'</span><span class="p">,</span>
+    <span class="s1">'x-access-token'</span><span class="p">:</span> <span class="s1">'0TKOeCA5sLimUiGYcIdWOb9NoiYEgJJ3'</span>
+  <span class="p">},</span>
+  <span class="na">body</span><span class="p">:</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
+    <span class="s2">"quantity"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">"trip_id"</span><span class="p">:</span> <span class="s2">"59edbafc6892f400105fe9ae"</span><span class="p">,</span>
+    <span class="s2">"name"</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">"first"</span><span class="p">:</span> <span class="s2">"John"</span><span class="p">,</span>
+      <span class="s2">"last"</span><span class="p">:</span> <span class="s2">"Doe"</span>
+    <span class="p">},</span>
+    <span class="s2">"email"</span><span class="p">:</span> <span class="s2">"john+doe@takemetour.com"</span><span class="p">,</span>
+    <span class="s2">"trip_date"</span><span class="p">:</span> <span class="s2">"2019-03-29T17:00:00.000Z"</span><span class="p">,</span>
+    <span class="s2">"mobile"</span><span class="p">:</span> <span class="s2">"+66856667571"</span><span class="p">,</span>
+    <span class="s2">"country"</span><span class="p">:</span> <span class="s2">"TH"</span><span class="p">,</span>
+    <span class="s2">"meeting_point"</span><span class="p">:</span> <span class="s2">"Airport: DMK, Flight: TG154, Hotel name: Baan 2459, pickup time: 00:45"</span>
+  <span class="p">}),</span>
+  <span class="na">method</span><span class="p">:</span> <span class="s1">'POST'</span><span class="p">,</span>
+<span class="p">});</span>
+<span class="kr">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="nx">await</span> <span class="nx">response</span><span class="p">.</span><span class="nx">json</span><span class="p">();</span>
+</code></pre>
+<p>This type is much more simple. Additional details you need are</p>
+
+<ul>
+<li>Flight Number</li>
+<li>Pickup Time (HH:mm 24-hour format)</li>
+<li>Pickup Airport (Only DMK and BKK)</li>
+<li>Drop off hotel</li>
+</ul>
+
+<p>You must provide these option into string format <strong>Airport: {airport}, Flight: {flight nunber}, Hotel name: {hotel name}, pickup time: {pickup time}</strong> to the <code>meeting_point</code> field.</p>
+
+<p>Below JSON is an example request to book airport transfer to hotel</p>
+
+<pre class="center-column">
+{
+  "quantity": 1,
+  "trip_id": "59edbafc6892f400105fe9ae",
+  "name": {
+    "first": "John",
+    "last": "Doe"
+  },
+  "email": "john+doe@takemetour.com",
+  "trip_date": "2019-03-29T17:00:00.000Z",
+  "mobile": "+66856667571",
+  "country": "TH",
+  "meeting_point": "Airport: DMK, Flight: TG154, Hotel name: Baan 2459, pickup time: 00:45"
+}
+</pre>
+<h3 id='request-body-add-from-basic-book-parameters-5'>Request body (add from <a href="#book-product">basic book parameters</a>)</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>meeting_point</td>
+<td><strong>String (Max length: 255)</strong></td>
+<td>String formatted in <strong>Airport: {airport}, Flight: {flight nunber}, Hotel name: {hotel name}, pickup time: {pickup time}</strong></td>
+</tr>
+</tbody></table>
+<h3 id='response-5'>Response</h3>
 <p>The response is similar to the response of <a href="#book-local-experience-trips">Book Local Experience Trips</a></p>

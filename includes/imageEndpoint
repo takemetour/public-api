@@ -11,7 +11,7 @@
 </thead><tbody>
 <tr>
 <td>Development</td>
-<td><a href="https://d17572qoeejomw.cloudfront.net/">https://d17572qoeejomw.cloudfront.net/</a></td>
+<td><a href="https://dja3e86j343dh.cloudfront.net/">https://dja3e86j343dh.cloudfront.net/</a></td>
 </tr>
 <tr>
 <td>Production</td>
@@ -23,4 +23,4 @@
 eg. <code>/trips/1CTXi-1426778450712908.jpg</code>, <code>users/rtitM-14267784330583837.jpg</code> </p>
 
 <p>To access the image, just concat image endpoint with image path. For example, avatar_image is <code>users/rtitM-14267784330583837.jpg</code> and you&#39;re in development
-so completed path will be <a href="https://d17572qoeejomw.cloudfront.net/users/rtitM-14267784330583837.jpg">https://d17572qoeejomw.cloudfront.net/users/rtitM-14267784330583837.jpg</a></p>
+so completed path will be <a href="https://dja3e86j343dh.cloudfront.net/users/rtitM-14267784330583837.jpg">https://dja3e86j343dh.cloudfront.net/users/rtitM-14267784330583837.jpg</a></p>

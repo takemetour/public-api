@@ -69,13 +69,13 @@
 </tr>
 <tr>
 <td>skip</td>
-<td><strong>Integer</strong></td>
+<td><strong>Integer (Min: 0)</strong></td>
 <td>0</td>
 <td>Skip response results (Use for pagination)</td>
 </tr>
 <tr>
 <td>limit</td>
-<td><strong>Integer</strong></td>
+<td><strong>Integer (Range: 1 - 99)</strong></td>
 <td>10</td>
 <td>Limit response results</td>
 </tr>
@@ -308,7 +308,7 @@
 </thead><tbody>
 <tr>
 <td>_id</td>
-<td><strong>ObjectId</strong></td>
+<td><strong>String (Exact length: 24)</strong></td>
 <td>Unique ObjectId</td>
 </tr>
 <tr>
@@ -333,7 +333,7 @@
 </tr>
 <tr>
 <td>user_id</td>
-<td><strong>User</strong></td>
+<td><strong>User (Exact length: 24)</strong></td>
 <td>Owner of product</td>
 </tr>
 <tr>
